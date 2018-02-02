@@ -3,7 +3,7 @@ layout: default
 modal-id: 1
 date: 2017-11-18
 img: cabin.png
-title: Blood donation Website template
+title: Blood Donation Website
 alt: image-alt
 project-date: October 2017
 client: None
