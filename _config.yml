@@ -8,7 +8,7 @@ skills: "Web Developer"
 meta_author: Aveek Saha
 
 # Google webmaster tools
-google_verify:
+google_verify: googlec062211d23b61296.html
 
 # https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
 bing_verify:
@@ -46,7 +46,6 @@ social:
 
 # Postal address (add as many lines as necessary)
 address:
-  - line: B-214 Euphoria , Inside Suncity
   - line: Bangalore , Karnataka 560102
 
 # Build settings
