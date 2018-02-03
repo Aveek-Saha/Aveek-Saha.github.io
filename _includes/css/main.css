@@ -212,6 +212,7 @@ section.success {
     position: absolute;
     width: 100%;
     height: 100%;
+    text-align: center;
     opacity: 0;
     background: rgba({{ site.color.primary-rgb }},.9);
     -webkit-transition: all ease .5s;
@@ -236,6 +237,7 @@ section.success {
 
 #portfolio .portfolio-item .portfolio-link .caption .caption-content i {
     margin-top: -12px;
+    text-align: center;
 }
 
 #portfolio .portfolio-item .portfolio-link .caption .caption-content h3,
