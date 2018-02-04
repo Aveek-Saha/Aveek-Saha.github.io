@@ -1,7 +1,7 @@
 # Site settings
 title: Aveek Saha
 email: aveek.s98@gmail.com
-url: https://example.github.io
+url: https://aveek-saha.github.io
 description: "Hi I'm Aveek Saha and this is my profile."
 keywords: "aveek, saha, aveek saha"
 skills: "Web Developer"
@@ -43,6 +43,8 @@ social:
     url: https://www.facebook.com/profile.php?id=100001098414449
   - title: github
     url: https://github.com/Aveek-Saha
+  - title: linkedin
+    url: https://www.linkedin.com/in/aveek-saha-1668ab143
 
 # Postal address (add as many lines as necessary)
 address:
