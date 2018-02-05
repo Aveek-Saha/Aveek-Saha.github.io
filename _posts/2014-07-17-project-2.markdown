@@ -4,6 +4,7 @@ modal-id: 2
 date: 2014-07-17
 img: cake.png
 alt: image-alt
+title: Word Suggestion & spellcheck application
 project-date: November 2017
 category: Web Development
 description: This is an application to check words that you may not know the spelling of. You can even start typing in words that you partially know and it will suggest words. <br> Check it out here <a href="https://api.copy44.hasura-app.io/">Spell check app!</a>
