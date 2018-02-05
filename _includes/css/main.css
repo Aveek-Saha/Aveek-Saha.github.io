@@ -390,6 +390,8 @@ footer .footer-below {
 }
 
 .portfolio-modal .modal-content {
+    margin: 1px;
+    background-color: #FAFAFA;
     padding: 1px 0;
     min-height: 100%;
     border: 0;
