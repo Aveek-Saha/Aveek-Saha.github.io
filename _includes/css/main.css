@@ -391,7 +391,8 @@ footer .footer-below {
 
 .portfolio-modal .modal-content {
     background-color: #FAFAFA;
-    padding: 1px 0;
+    padding: 0px 0;
+    min-height: 100%;
     border: 0;
     border-radius: 0;
     text-align: center;
@@ -406,11 +407,11 @@ footer .footer-below {
 }
 
 .portfolio-modal .modal-content img {
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 .portfolio-modal .modal-content .item-details {
-    margin: 25px 0;
+    margin: 20px 0;
 }
 
 .portfolio-modal .close-modal {
