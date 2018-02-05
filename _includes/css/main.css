@@ -416,8 +416,8 @@ footer .footer-below {
 
 .portfolio-modal .close-modal {
     position: absolute;
-    top: 25px;
-    right: 25px;
+    top: 15px;
+    right: 15px;
     width: 75px;
     height: 75px;
     background-color: transparent;
