@@ -253,6 +253,15 @@ section.success {
     #portfolio .portfolio-item {
         margin: 0 0 30px;
     }
+    .portfolio-modal .close-modal {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        width: 50px;
+        height: 50px;
+        background-color: transparent;
+        cursor: pointer;
+    }
 }
 
 .btn-outline {
