@@ -7,6 +7,6 @@ title: Blood Donation Website
 alt: image-alt
 project-date: October 2017
 category: Web Development
-description: This is a template for a Blood Donation website, where the goal is establishing a link between donors and hospitals.<br> Check it out here <a href="https://api.clout62.hasura-app.io/">Blood donation website!</a>. 
+description: This is a template for a Blood Donation website, where the goal is establishing a link between donors and hospitals.<br> Check it out here <a href="https://donate-org.herokuapp.com/">Blood donation website!</a>. 
 
 ---
