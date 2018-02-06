@@ -424,6 +424,7 @@ footer .footer-below {
 }
 
 .portfolio-modal .close-modal {
+    z-index: 1060;
     position: absolute;
     top: 15px;
     right: 15px;
