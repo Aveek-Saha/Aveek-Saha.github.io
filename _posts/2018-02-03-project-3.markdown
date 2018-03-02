@@ -1,0 +1,12 @@
+---
+layout: default
+modal-id: 1
+date: 2018-02-03
+img: circus.png
+title: E-commerce Website
+alt: image-alt
+project-date: January 2018
+category: Web Development
+description: A simple webpage template for a e-commerce website using HTML, Bootstrap and javascript for front end, PHP and mySQL for backend.<br> Check it out here <a href="http://eshop.byethost22.com/"> E-commerce Website!</a>. 
+
+---
