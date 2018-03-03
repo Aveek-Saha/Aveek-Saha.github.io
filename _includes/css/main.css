@@ -150,6 +150,7 @@ header .intro-text .skills {
 }
 
 .navbar {
+    text-align: center;
     text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 700;
