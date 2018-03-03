@@ -173,10 +173,10 @@ header .intro-text .skills {
 }
 
 .logo{
-    letter-spacing: 0.1px;
+    letter-spacing: 0px;
     font-family: Megrim, cursive;
+    font-size: 40px;
     font-weight: 700;
-    
 }
 
 section {
