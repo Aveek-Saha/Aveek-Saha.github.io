@@ -161,7 +161,7 @@ header .intro-text .skills {
 
 .navbar .navbar-nav {
     letter-spacing: 1px;
-    font-size: 1.5em;
+    font-size: 1em;
 }
 
 .navbar .navbar-nav li a:focus {
@@ -173,8 +173,18 @@ header .intro-text .skills {
     border: 0;
 }
 
+.navbar-header {
+    float: left;
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+}
+.navbar-brand {
+    float:none;
+}
+
 .logo{
-    letter-spacing: -5px;
+    letter-spacing: -7.5px;
     font-family: Megrim, cursive;
     font-size: 40px;
     font-weight: 700;
