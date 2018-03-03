@@ -127,7 +127,7 @@ header .intro-text .skills {
 
 @media(min-width:768px) {
     .navbar-fixed-top {
-        padding: 10px 0;
+        padding: 20px 0;
         -webkit-transition: padding .3s;
         -moz-transition: padding .3s;
         transition: padding .3s;
@@ -181,10 +181,10 @@ header .intro-text .skills {
     font-weight: 700;
     margin-left: 25%
 }
-name{
+.name{
     letter-spacing: 2x;
     font-family: Josefin Sans, cursive;
-    font-size: 40px;
+    font-size: 30px;
     font-weight: 400;
 }
 
