@@ -181,6 +181,12 @@ header .intro-text .skills {
     font-weight: 700;
     margin-left: 25%
 }
+name{
+    letter-spacing: 2x;
+    font-family: Josefin Sans, cursive;
+    font-size: 40px;
+    font-weight: 400;
+}
 
 section {
     padding: 100px 0;
