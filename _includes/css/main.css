@@ -148,6 +148,7 @@ header .intro-text .skills {
     }
     
     .me{
+        visibility: hidden;
         letter-spacing: 2px;
         font-family: Josefin Sans, cursive;
         font-size: 3em;
@@ -186,6 +187,10 @@ header .intro-text .skills {
     font-family: Megrim, cursive;
     font-size: 3em;
     font-weight: 700;
+}
+
+.me{
+        visibility: visible;
 }
 
 section {
