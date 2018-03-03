@@ -188,9 +188,10 @@ header .intro-text .skills {
     font-size: 3em;
     font-weight: 700;
 }
-
-.me{
-        visibility: visible;
+@media(max-width:768px) {
+    .me{
+            visibility: visible;
+    }
 }
 
 section {
