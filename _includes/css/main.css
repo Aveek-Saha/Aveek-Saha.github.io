@@ -127,7 +127,7 @@ header .intro-text .skills {
 
 @media(min-width:768px) {
     .navbar-fixed-top {
-        padding: 20px 0;
+        padding: 12px 0;
         -webkit-transition: padding .3s;
         -moz-transition: padding .3s;
         transition: padding .3s;
@@ -178,7 +178,6 @@ header .intro-text .skills {
     font-family: Megrim, cursive;
     font-size: 4em;
     font-weight: 700;
-    margin-left: 25%
 }
 
 .me{
@@ -186,6 +185,7 @@ header .intro-text .skills {
     font-family: Josefin Sans, cursive;
     font-size: 3em;
     font-weight: 400;
+    margin-top: 1.5%;
 }
 
 section {
