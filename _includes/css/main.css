@@ -173,16 +173,12 @@ header .intro-text .skills {
     border: 0;
 }
 
-.navbar-brand {
-    float:none;
-    margin: auto;
-}
-
 .logo{
     letter-spacing: -7.5px;
     font-family: Megrim, cursive;
     font-size: 40px;
     font-weight: 700;
+    margin-left: 25%
 }
 
 section {
