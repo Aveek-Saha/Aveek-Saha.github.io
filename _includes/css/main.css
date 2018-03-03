@@ -173,11 +173,9 @@ header .intro-text .skills {
     border: 0;
 }
 
-.navbar-header {
-    text-align: center;
-}
 .navbar-brand {
     float:none;
+    margin: auto;
 }
 
 .logo{
