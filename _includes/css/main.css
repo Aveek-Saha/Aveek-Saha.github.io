@@ -172,6 +172,12 @@ header .intro-text .skills {
     border: 0;
 }
 
+.logo{
+    letter-spacing: 0.5px;
+    font-family: 'Megrim', cursive;
+    
+}
+
 section {
     padding: 100px 0;
 }
