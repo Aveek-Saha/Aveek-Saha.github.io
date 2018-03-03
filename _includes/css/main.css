@@ -191,9 +191,12 @@ header .intro-text .skills {
 @media(max-width:769px) {
     .me{
         letter-spacing: 0px;
+        visibility: hidden;
+        font-family: Josefin Sans, cursive;
+        font-size: 3em;
+        font-weight: 400;
     }
     .logo{
-        visibility: hidden;
         letter-spacing: -7.5px;
         font-family: Megrim, cursive;
         font-size: 3em;
