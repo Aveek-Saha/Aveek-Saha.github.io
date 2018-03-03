@@ -181,7 +181,7 @@ header .intro-text .skills {
 }
 .navbar-brand {
     float:none;
-    display: inline-block;
+}
 
 .logo{
     letter-spacing: -7.5px;
