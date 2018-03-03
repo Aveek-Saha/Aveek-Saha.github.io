@@ -146,6 +146,14 @@ header .intro-text .skills {
     .navbar-fixed-top.navbar-shrink .navbar-brand {
         font-size: 1.5em;
     }
+    
+    .me{
+        letter-spacing: 2px;
+        font-family: Josefin Sans, cursive;
+        font-size: 3em;
+        font-weight: 400;
+        margin-top: 1.5%;
+    }
 }
 
 .navbar {
@@ -178,14 +186,6 @@ header .intro-text .skills {
     font-family: Megrim, cursive;
     font-size: 3em;
     font-weight: 700;
-}
-
-.me{
-    letter-spacing: 2px;
-    font-family: Josefin Sans, cursive;
-    font-size: 3em;
-    font-weight: 400;
-    margin-top: 1.5%;
 }
 
 section {
