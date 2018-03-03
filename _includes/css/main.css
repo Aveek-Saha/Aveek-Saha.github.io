@@ -148,12 +148,18 @@ header .intro-text .skills {
     }
     
     .me{
-        visibility: visible;
         letter-spacing: 2px;
         font-family: Josefin Sans, cursive;
         font-size: 3em;
         font-weight: 400;
         margin-top: 1.5%;
+    }
+    .logo{
+        visibility: visible;
+        letter-spacing: -7.5px;
+        font-family: Megrim, cursive;
+        font-size: 3em;
+        font-weight: 700;
     }
 }
 
@@ -182,15 +188,16 @@ header .intro-text .skills {
     border: 0;
 }
 
-.logo{
-    letter-spacing: -7.5px;
-    font-family: Megrim, cursive;
-    font-size: 3em;
-    font-weight: 700;
-}
 @media(max-width:769px) {
     .me{
-            visibility: hidden;
+        letter-spacing: 0px;
+    }
+    .logo{
+        visibility: hidden;
+        letter-spacing: -7.5px;
+        font-family: Megrim, cursive;
+        font-size: 3em;
+        font-weight: 700;
     }
 }
 
