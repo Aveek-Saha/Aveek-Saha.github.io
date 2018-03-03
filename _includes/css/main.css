@@ -134,7 +134,7 @@ header .intro-text .skills {
     }
 
     .navbar-fixed-top .navbar-brand {
-        font-size: 2.5em;
+        font-size: 3.5em;
         -webkit-transition: all .3s;
         -moz-transition: all .3s;
         transition: all .3s;
@@ -183,9 +183,9 @@ header .intro-text .skills {
 }
 
 .name{
-    letter-spacing: 2x;
+    letter-spacing: 2px;
     font-family: Josefin Sans, cursive;
-    font-size: 30px;
+    font-size: 3em;
     font-weight: 400;
 }
 
