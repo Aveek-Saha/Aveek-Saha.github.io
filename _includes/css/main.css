@@ -203,7 +203,7 @@ section {
     padding: 100px 0;
 }
 
-section h1 h2 {
+section h2 {
     margin: 0;
     font-size: 3em;
 }
@@ -437,7 +437,7 @@ footer .footer-below {
     box-shadow: none;
 }
 
-.portfolio-modal .modal-content h2 h1 {
+.portfolio-modal .modal-content h2 {
     margin: 0;
     font-size: 3em;
 }
