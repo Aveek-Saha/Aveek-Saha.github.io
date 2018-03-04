@@ -39,12 +39,16 @@ footer:
 
 # Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
 social:
-  - title: facebook
-    url: https://www.facebook.com/profile.php?id=100001098414449
   - title: github
     url: https://github.com/Aveek-Saha
   - title: linkedin
     url: https://www.linkedin.com/in/aveek-saha-1668ab143
+  - title: wordpress
+    url: https://aveeks.wordpress.com/
+  - title: facebook
+    url: https://www.facebook.com/profile.php?id=100001098414449
+  - title: instagram
+    url: https://www.instagram.com/aveek68/
 
 # Postal address (add as many lines as necessary)
 address:
