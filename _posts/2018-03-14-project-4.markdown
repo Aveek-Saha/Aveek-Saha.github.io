@@ -1,0 +1,12 @@
+---
+layout: default
+modal-id: 4
+date: 2018-03-14
+img: game.png
+title: Todo App
+alt: image-alt
+project-date: March 2018
+category: Web Development
+description: A checklist style todo app made using the MEAN stack (MongoDb Express AngularJs Node). The tasks sync seamlessly across multiple instances of the application<br> Check it out here <a href="https://todo0.herokuapp.com/"> Todo App!</a>. 
+
+---
