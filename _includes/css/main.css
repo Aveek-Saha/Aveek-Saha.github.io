@@ -498,6 +498,7 @@ footer .footer-below {
 }
 
 body{ margin:0;}
+canvas{ display: block; vertical-align: bottom; }
  /* ---- particles.js container ---- */ 
 #particles-js{ 
     position:absolute; 
