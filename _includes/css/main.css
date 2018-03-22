@@ -498,11 +498,7 @@ footer .footer-below {
 }
 
 body{ margin:0;}
-canvas{
-    display: block;
-    position: fixed;
-    z-index: -1;
-}
+canvas{ display: block;}
  /* ---- particles.js container ---- */ 
 #particles-js{ 
     position:absolute; 
