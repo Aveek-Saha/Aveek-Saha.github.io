@@ -503,7 +503,7 @@ canvas{ display: block;}
  /* ---- particles.js container ---- */ 
 #particles-js{ 
     position:absolute; 
-    width: 100%; height: 100%; 
+    width: 100%; height: 80%; 
     background-color: #201e1f; 
     background-image: url(""); 
     background-repeat: no-repeat; 
