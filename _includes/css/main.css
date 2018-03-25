@@ -197,6 +197,9 @@ header .intro-text .skills {
     .logo{
         visibility: hidden;
     }
+    #particles-js{ 
+    width: 100%; height: 71%; 
+}
 }
 
 section {
