@@ -208,6 +208,7 @@ canvas{
 }
 
 @media(max-width:1030px) {
+    #particles-js{ 
     width: 100%; height: 60%; 
     }
 }
