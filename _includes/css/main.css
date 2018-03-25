@@ -207,10 +207,10 @@ canvas{
     background-position: 50% 50%; 
 }
 
-/* @media(max-width:769px) {
+@media(max-width:1030px) {
     width: 100%; height: 60%; 
     }
-} */
+}
 
 @media(max-width:769px) {
     .me{
