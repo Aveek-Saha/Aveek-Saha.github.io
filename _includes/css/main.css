@@ -155,7 +155,7 @@ header .intro-text .skills {
         margin-top: 1.5%;
     }
     #particles-js{ 
-    width: 100%; height: 70%; 
+    width: 100%; height: 62%; 
     }
 }
 
@@ -216,6 +216,9 @@ canvas{
     }
     .logo{
         visibility: hidden;
+    }
+    #particles-js{ 
+    width: 100%; height: 62%; 
     }
 }
 
