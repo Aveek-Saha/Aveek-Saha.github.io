@@ -1,0 +1,12 @@
+---
+layout: default
+modal-id: 5
+date: 2018-03-10
+img: submarine.png
+title: BTC Price Tracker
+alt: image-alt
+project-date: March 2018
+category: Desktop Application
+description: A simple desktop application for Linux, that notifies you when the Bitcoin price exceeds a limit set by you<br> Check it out here <a href="https://github.com/Aveek-Saha/Bitcoin-price-tracker/releases"> BTC Price Tracker!</a> 
+
+---
