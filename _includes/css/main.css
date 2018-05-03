@@ -165,7 +165,7 @@ canvas{
     
     .me{
         letter-spacing: 2px;
-        font-family: Josefin Sans, cursive;
+        font-family: Josefin Sans, sans-serif;
         font-size: 3em;
         font-weight: 400;
         margin-top: 1.5%;
@@ -202,7 +202,7 @@ canvas{
 
 .logo{
     letter-spacing: -7.5px;
-    font-family: Megrim, cursive;
+    font-family: Megrim, sans-serif;
     font-size: 3em;
     font-weight: 700;
 }
@@ -216,7 +216,7 @@ canvas{
 @media(max-width:769px) {
     .me{
         letter-spacing: 1px;
-        font-family: Josefin Sans, cursive;
+        font-family: Josefin Sans, sans-serif;
         font-size: 2em;
         font-weight: 400;
     }
