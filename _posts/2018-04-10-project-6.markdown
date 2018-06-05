@@ -7,6 +7,6 @@ title: Music Player
 alt: image-alt
 project-date: April 2018
 category: Desktop Application
-description: A music player for your Windows or Linux desktop. It supports a variety of formats like mp3, opus, ogg, wav, aac, m4a, webm. With the ability to read ID3 tags<br> Check it out here <a href="https://github.com/Aveek-Saha/MusicPlayer/releases"> Music Player!</a> 
+description: A music player for your Windows or Linux desktop. It supports a variety of formats like mp3, opus, ogg, wav, aac, m4a, webm. With the ability to read ID3 tags<br> Check it out here <a href="https://electronjs.org/apps/music-player"> Music Player!</a> Or on GitHub<a href="https://github.com/Aveek-Saha/MusicPlayer/releases"> Music Player Releases!</a> <br>You can read the full <a href="http://www.softpedia.com/get/Multimedia/Audio/Audio-Players/Aveek-Saha-Music-Player.shtml">Review on Softpedia</a>  
 
 ---
