@@ -529,4 +529,5 @@ footer .footer-below {
 
 [class*=" devicon-"], [class^=devicon-] {
     font-size: 6em;
+    padding: 10%;
 }
