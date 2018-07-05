@@ -2,7 +2,7 @@
 layout: default
 modal-id: 5
 date: 2018-03-14
-img: game.png
+img: to-do.png
 title: Todo App
 alt: image-alt
 project-date: March 2018
