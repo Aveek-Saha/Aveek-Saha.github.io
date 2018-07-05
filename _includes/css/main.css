@@ -532,3 +532,26 @@ footer .footer-below {
     padding: 1.5%;
     line-height: 1.2;
 }
+
+#particles-js {
+  background: #1a222c;
+  display: flex;
+  vertical-align: bottom;
+  width: 100%;
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+#particles-js .particles-js-canvas-el {
+  width: 100% !important;
+  height: 100vh !important;
+}
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%) 
+}
