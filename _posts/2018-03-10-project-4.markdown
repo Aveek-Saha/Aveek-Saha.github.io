@@ -7,6 +7,6 @@ title: BTC Price Tracker
 alt: image-alt
 project-date: March 2018
 category: Desktop Application
-description: A simple desktop application for Linux, that notifies you when the Bitcoin price exceeds a limit set by you<br> Check it out here <a href="https://github.com/Aveek-Saha/Bitcoin-price-tracker/releases"> BTC Price Tracker!</a> <br> This was made by following the tutorial by <a href="https://coursetro.com/courses/22/Creating-Desktop-Apps-with-Electron-Tutorial">Gary Simon</a>. Its a great tutorial, check it out!
+description: A simple desktop application for Linux, that notifies you when the Bitcoin price exceeds a limit set by you<br> Check it out here <a href="https://github.com/Aveek-Saha/Bitcoin-price-tracker/releases"> BTC Price Tracker!</a> <br> This was made by following the tutorial by <a href="https://coursetro.com/courses/22/Creating-Desktop-Apps-with-Electron-Tutorial">Gary Simon</a>. Its a great tutorial, check it out!<br> <div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
 
 ---
