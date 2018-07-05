@@ -3,10 +3,10 @@ layout: default
 modal-id: 7
 date: 2018-07-6
 img: movie.png
-title: Dash Flix
+title: DashFlix
 alt: image-alt
 project-date: April 2018
 category: Android Application
-description: A fast clutter free way to check popular, new, now playing movies. Simply go through the list and select a movie to read more about it<br> Check it out here <a href="https://github.com/Aveek-Saha/DashFlix"> DashFlix!</a> Or on GitHub<a href="https://github.com/Aveek-Saha/MusicPlayer/releases"> Music Player Releases!</a> <br>You can read the full <a href="http://www.softpedia.com/get/Multimedia/Audio/Audio-Players/Aveek-Saha-Music-Player.shtml">Review on Softpedia</a>  <br><div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+description: A fast clutter free way to check popular, new, now playing movies. Simply go through the list and select a movie to read more about it<br> Check it out here <a href="https://github.com/Aveek-Saha/DashFlix"> DashFlix!</a> <br><div>Icons made by <a href="https://www.flaticon.com/authors/itim2101" title="itim2101">itim2101</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
 
 ---
