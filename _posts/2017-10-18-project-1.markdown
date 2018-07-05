@@ -2,7 +2,7 @@
 layout: default
 modal-id: 1
 date: 2017-10-18
-img: cabin.png
+img: blood.png
 title: Blood Donation Website
 alt: image-alt
 project-date: October 2017
