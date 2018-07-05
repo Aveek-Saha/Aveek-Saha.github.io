@@ -548,7 +548,7 @@ footer .footer-below {
   width: 100% !important;
   height: 100vh !important;
 }
-.container {
+.topPart {
     position: absolute;
     top: 50%;
     left: 50%;
