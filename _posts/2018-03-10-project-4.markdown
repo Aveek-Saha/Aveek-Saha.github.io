@@ -2,7 +2,7 @@
 layout: default
 modal-id: 4
 date: 2018-03-10
-img: submarine.png
+img: bitcoin.png
 title: BTC Price Tracker
 alt: image-alt
 project-date: March 2018
