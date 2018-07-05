@@ -7,6 +7,6 @@ alt: image-alt
 title: Word Suggestion & spellcheck app
 project-date: November 2017
 category: Web Development
-description: This is an application to check words that you may not know the spelling of. You can even start typing in words that you partially know and it will suggest words. <br> Check it out here <a href="https://autocorrect-and-spellcheck.herokuapp.com/"> Spell check app!</a>
+description: This is an application to check words that you may not know the spelling of. You can even start typing in words that you partially know and it will suggest words. <br> Check it out here <a href="https://autocorrect-and-spellcheck.herokuapp.com/"> Spell check app!</a><br> <div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
 
 ---
