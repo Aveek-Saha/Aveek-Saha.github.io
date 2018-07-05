@@ -534,7 +534,7 @@ footer .footer-below {
 }
 
 #particles-js {
-  background: #1a222c;
+  background: #{{ site.color.primary }};
   display: flex;
   vertical-align: bottom;
   width: 100%;
