@@ -555,3 +555,32 @@ footer .footer-below {
     margin-right: -50%;
     transform: translate(-50%, -50%) 
 }
+
+.flex-row {
+	display: flex;
+	flex-wrap: wrap;
+}
+.flex-row > [class*='col-'] {
+	display: flex;
+	flex-direction: column;
+}
+
+.flex-row .thumbnail,
+.flex-row .caption {
+	flex-direction: column;
+	display: flex;
+	flex: 1 0 auto;
+	height: auto;
+	position: relative;
+}
+.flex-text {
+	flex-grow: 1;
+}
+.flex-row img {
+	min-width: 0;
+	width: 100%;
+}
+.flex-row  {
+    padding-left: 15px;
+    padding-right: 15px;
+}
