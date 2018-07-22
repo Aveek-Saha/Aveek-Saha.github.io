@@ -1,0 +1,12 @@
+---
+layout: default
+modal-id: 8
+date: 2018-07-22
+img: hero.png
+title: Hasty Heroes
+alt: image-alt
+project-date: July 2018
+category: Windows Application
+description: An endless 2D jumping game, select a avatar, choose a environment and start playing. Don't fall off the platforms and dont hit the spike balls! <br> Check it out here <a href="https://github.com/Aveek-Saha/HastyHeroes"> Hasty Heroes!</a> Or<a href="https://github.com/Aveek-Saha/HastyHeroes/releases"> Download here! </a> <br><div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+
+---
