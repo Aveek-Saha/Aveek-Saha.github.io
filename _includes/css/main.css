@@ -561,3 +561,7 @@ footer .footer-below {
 	height: 4em;
 	width: 4em;
 }
+
+.white{
+	filter: invert(1);
+}
