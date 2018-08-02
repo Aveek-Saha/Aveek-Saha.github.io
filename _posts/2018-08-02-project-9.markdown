@@ -7,6 +7,6 @@ title: Taskify
 alt: image-alt
 project-date: August 2018
 category: Web Application
-description: A personalised, collaborative, To-Do List application. Just enter a users email to create a Task List just for the two of you. This makes keeping track of group goals and progress a breeze. <br> Check it out here <a href="https://taskifyyy.firebaseapp.com/"> Taskify!</a>.<br><div>Icons made by <a href="https://www.flaticon.com/authors/those-icons" title="Those Icons">Those Icons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+description: A personalised, collaborative, To-Do List application. Just enter a users email to create a Task List just for the two of you. This makes keeping track of group goals and progress a breeze. <br> Check it out here <a href="https://taskifyyy.firebaseapp.com/"> Taskify!</a> Or have a look at the<a href="https://github.com/Aveek-Saha/Taskify/"> Repository! </a> <br><div>Icons made by <a href="https://www.flaticon.com/authors/those-icons" title="Those Icons">Those Icons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
 
 ---
