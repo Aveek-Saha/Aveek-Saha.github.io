@@ -1,6 +1,6 @@
 ---
-layout: none
-modal-id: 1
+layout: default
+modal-id: none
 date: 2017-10-18
 img: blood.png
 title: Blood Donation Website
