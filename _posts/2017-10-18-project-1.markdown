@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: none
 modal-id: 1
 date: 2017-10-18
 img: blood.png
