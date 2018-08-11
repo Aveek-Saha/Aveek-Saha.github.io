@@ -54,7 +54,7 @@ social:
 
 # Postal address (add as many lines as necessary)
 address:
-  - line: Bangalore , Karnataka 560102
+  - line: Bangalore , Karnataka , India
 
 # Build settings
 markdown: kramdown
