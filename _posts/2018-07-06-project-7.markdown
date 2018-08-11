@@ -5,7 +5,7 @@ date: 2018-07-6
 img: movie.png
 title: DashFlix
 alt: image-alt
-project-date: April 2018
+project-date: June 2018
 category: Android Application
 description: A fast clutter free way to check popular, new and now playing movies. Simply go through the list and select a movie to read more about it<br> Check it out here <a href="https://github.com/Aveek-Saha/DashFlix"> DashFlix!</a> Or<a href="https://github.com/Aveek-Saha/DashFlix/releases"> Download here! </a> <br><div>Icons made by <a href="https://www.flaticon.com/authors/itim2101" title="itim2101">itim2101</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
 
