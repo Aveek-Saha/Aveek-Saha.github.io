@@ -199,6 +199,7 @@ canvas{
 .navbar-default,
 .navbar-inverse {
     border: 0;
+    background-color: transparent;
 }
 
 .logo{
