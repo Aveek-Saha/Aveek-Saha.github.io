@@ -143,24 +143,24 @@ canvas{
 }
 
 @media(min-width:768px) {
-    .navbar-fixed-top {
+    .navbar-default {
         padding: 12px 0;
         -webkit-transition: padding .3s;
         -moz-transition: padding .3s;
         transition: padding .3s;
     }
 
-    .navbar-fixed-top .navbar-brand {
+    .navbar-default .navbar-brand {
         -webkit-transition: all .3s;
         -moz-transition: all .3s;
         transition: all .3s;
     }
 
-    .navbar-fixed-top.navbar-shrink {
+    .navbar-default.navbar-shrink {
         padding: 10px 0;
     }
 
-    .navbar-fixed-top.navbar-shrink .navbar-brand {
+    .navbar-default.navbar-shrink .navbar-brand {
         font-size: 1.5em;
     }
     
