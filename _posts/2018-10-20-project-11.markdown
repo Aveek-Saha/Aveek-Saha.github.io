@@ -7,6 +7,6 @@ title: Online Chess Website
 alt: image-alt
 project-date: October 2018
 category: Website
-description: This is a chess website where people can play against each other online in real time. Just enter a room number and call a friend to join the same room. Once both of you are connected, you're ready to play<br> Check it out here <a href="https://aveeksaha.gitlab.io/runny/"> Runny!</a>   Or learn how to make it from the<a href="https://aveeksaha.gitlab.io/post/chrome-dinosaur-game-tutorial-with-phaser/"> Blog Post! </a> <div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+description: This is a chess website where people can play against each other online in real time. Just enter a room number and call a friend to join the same room. Once both of you are connected, you're ready to play. <br> Check it out here <a href="https://chess0.herokuapp.com/"> Online chess!</a>   Or learn how to make it from the<a href="https://aveeksaha.gitlab.io/post/making-an-online-chess-website-with-socketio/"> Tutorial on my Blog </a> <div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
 
 ---
