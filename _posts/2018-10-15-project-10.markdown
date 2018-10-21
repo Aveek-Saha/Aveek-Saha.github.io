@@ -1,7 +1,7 @@
 ---
 layout: default
 modal-id: 10
-date: 2018-q0-15
+date: 2018-10-15
 img: dino.png
 title: Chrome T-rex Game
 alt: image-alt
