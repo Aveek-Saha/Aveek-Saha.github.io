@@ -1,0 +1,12 @@
+---
+layout: default
+modal-id: 10
+date: 2018-q0-15
+img: dino.png
+title: Chrome T-rex Game
+alt: image-alt
+project-date: October 2018
+category: Game
+description: A modified clone of the fun chrome browser game that shows up when you're offline. Made using Phaser<br> Check it out here <a href="https://aveeksaha.gitlab.io/runny/"> Runny!</a>   Or learn how to make it from the<a href="https://aveeksaha.gitlab.io/post/chrome-dinosaur-game-tutorial-with-phaser/"> Blog Post! </a> <div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+
+---
