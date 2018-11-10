@@ -3,7 +3,7 @@ layout: default
 modal-id: 12
 date: 2018-11-10
 img: stats.png
-title: GitHub Downloads Stats
+title: GitHub Download Stats
 alt: image-alt
 project-date: November 2018
 category: Website
