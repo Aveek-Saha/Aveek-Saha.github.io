@@ -2,11 +2,11 @@
 layout: default
 modal-id: 6
 date: 2018-04-10
-img: safe.png
-title: Music Player
+img: headphones.png
+title: Dusk Player
 alt: image-alt
 project-date: April 2018
 category: Desktop Application
-description: A music player for your Windows or Linux desktop. It supports a variety of formats like mp3, opus, ogg, wav, aac, m4a, webm. With the ability to read ID3 tags<br> Check it out here <a href="https://electronjs.org/apps/music-player"> Music Player!</a> Or on GitHub<a href="https://github.com/Aveek-Saha/MusicPlayer/releases"> Music Player Releases!</a> <br>You can read the full <a href="http://www.softpedia.com/get/Multimedia/Audio/Audio-Players/Aveek-Saha-Music-Player.shtml">Review on Softpedia</a>  <br><div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+description: A minimalistic music player for your Windows or Linux desktop. It supports a variety of formats like mp3, opus, ogg, wav, aac, m4a, webm. With the ability to read ID3 tags<br> Check it out here <a href="https://electronjs.org/apps/dusk-player"> Dusk Player!</a> Or on GitHub<a href="https://github.com/Aveek-Saha/MusicPlayer/releases"> Dusk Player Releases!</a> <br> <div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
 
 ---
