@@ -1,0 +1,12 @@
+---
+layout: default
+modal-id: 13
+date: 2018-11-23
+img: hard-disk.png
+title: FUSE Filesystem
+alt: image-alt
+project-date: November 2018
+category: Unix programing
+description: A basic file system in user space written in C using FUSE. Supports operations like create, open, read and write files. Creating, Renaming and Deleting folders is also supported.  <br> Check it out at <a href="https://github.com/Aveek-Saha/FUSE-Filesystem"> Fuse Filesystem</a> <div>Icons made by <a href="https://www.flaticon.com/authors/payungkead" title="Payungkead">Payungkead</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+
+---
