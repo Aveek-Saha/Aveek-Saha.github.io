@@ -11,7 +11,6 @@
             <div class="row">
                 {% for post in site.posts %}
                     {% if post.modal-id > 4 %}
-                    {% if post.modal-id != 7 %}
                         <div class="col-sm-2 col-md-3 col-lg-3 portfolio-item">
                             <a href="#portfolioModal-{{ post.modal-id }}" class="portfolio-link" data-toggle="modal">
                                 <div class="caption">
@@ -24,7 +23,6 @@
                                      style="display:block; margin:auto; width: 70%; height: 70%;">
                             </a>
                         </div>
-                    {% endif %}
                     {% endif %}
                 {% endfor %}
             </div>
