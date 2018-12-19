@@ -2,4 +2,4 @@
 
 My personal website, made using github pages and jeykll.
 
-Link to the website: https://aveek-saha.github.io/
+Link to the website: https://aveek-saha.github.io/ or https://home.aveek.io
