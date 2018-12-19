@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Javascript on Aveek Saha</title>
+    <link>https://home.aveek.io/blog/tags/javascript/</link>
+    <description>Recent content in Javascript on Aveek Saha</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>aveek.s98@gmail.com (Aveek Saha)</managingEditor>
+    <webMaster>aveek.s98@gmail.com (Aveek Saha)</webMaster>
+    <lastBuildDate>Wed, 19 Dec 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://home.aveek.io/blog/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>YTDX</title>
+      <link>https://home.aveek.io/blog/post/ytdx/</link>
+      <pubDate>Wed, 19 Dec 2018 00:00:00 +0000</pubDate>
+      <author>aveek.s98@gmail.com (Aveek Saha)</author>
+      <guid>https://home.aveek.io/blog/post/ytdx/</guid>
+      <description>&lt;p&gt;If you want the code for this project, fork this GitHub repo - &lt;a href=&#34;https://github.com/Aveek-Saha/ytdx&#34;&gt;&lt;code&gt;YTDX&lt;/code&gt;&lt;/a&gt; &lt;br&gt;
+If you want to see a live demo, Download it here - &lt;a href=&#34;https://github.com/Aveek-Saha/ytdx/releases&#34;&gt;&lt;code&gt;Downloads&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Making an online chess website with Socket.io</title>
+      <link>https://home.aveek.io/blog/post/making-an-online-chess-website-with-socketio/</link>
+      <pubDate>Sat, 20 Oct 2018 00:00:00 +0000</pubDate>
+      <author>aveek.s98@gmail.com (Aveek Saha)</author>
+      <guid>https://home.aveek.io/blog/post/making-an-online-chess-website-with-socketio/</guid>
+      <description>&lt;p&gt;If you want the code for this project, fork this GitHub repo - &lt;a href=&#34;https://github.com/Aveek-Saha/Online-Chess&#34;&gt;&lt;code&gt;Online chess&lt;/code&gt;&lt;/a&gt; &lt;br&gt;
+Check out the code in action here, play it yourself - &lt;a href=&#34;https://chess0.herokuapp.com&#34;&gt;&lt;code&gt;Live demo&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Making the Chrome dinosaur game with Phaser</title>
+      <link>https://home.aveek.io/blog/post/chrome-dinosaur-game-tutorial-with-phaser/</link>
+      <pubDate>Thu, 11 Oct 2018 00:00:00 +0000</pubDate>
+      <author>aveek.s98@gmail.com (Aveek Saha)</author>
+      <guid>https://home.aveek.io/blog/post/chrome-dinosaur-game-tutorial-with-phaser/</guid>
+      <description>&lt;p&gt;If you want the code for this project, fork this GitHub repo - &lt;a href=&#34;https://github.com/Aveek-Saha/Chrome-dinosaur-game-clone&#34;&gt;&lt;code&gt;Dinosaur game code&lt;/code&gt;&lt;/a&gt; &lt;br&gt;
+Check out the code in action here, play it yourself - &lt;a href=&#34;https://aveeksaha.gitlab.io/runny/&#34;&gt;&lt;code&gt;Live demo&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Dusk Player</title>
+      <link>https://home.aveek.io/blog/post/music-player/</link>
+      <pubDate>Tue, 28 Aug 2018 00:00:00 +0000</pubDate>
+      <author>aveek.s98@gmail.com (Aveek Saha)</author>
+      <guid>https://home.aveek.io/blog/post/music-player/</guid>
+      <description>&lt;p&gt;If you want the code for this project, fork this GitHub repo - &lt;a href=&#34;https://github.com/Aveek-Saha/MusicPlayer&#34;&gt;&lt;code&gt;Music Player&lt;/code&gt;&lt;/a&gt; &lt;br&gt;
+If you want to see a live demo, Download it here - &lt;a href=&#34;https://github.com/Aveek-Saha/MusicPlayer/releases&#34;&gt;&lt;code&gt;Downloads&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>MEAN Todo app</title>
+      <link>https://home.aveek.io/blog/post/mean-todo-app/</link>
+      <pubDate>Thu, 09 Aug 2018 00:00:00 +0000</pubDate>
+      <author>aveek.s98@gmail.com (Aveek Saha)</author>
+      <guid>https://home.aveek.io/blog/post/mean-todo-app/</guid>
+      <description>&lt;p&gt;If you want the code for this project, fork this GitHub repo - &lt;a href=&#34;https://github.com/Aveek-Saha/MEAN-todo-app&#34;&gt;&lt;code&gt;MEAN Todo app&lt;/code&gt;&lt;/a&gt; &lt;br&gt;
+If you want to see a live demoCheck it out here - &lt;a href=&#34;https://todo0.herokuapp.com/&#34;&gt;&lt;code&gt;Live demo&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>E-commerce Website Template</title>
+      <link>https://home.aveek.io/blog/post/ecommerce-website-template/</link>
+      <pubDate>Sun, 22 Jul 2018 00:00:00 +0000</pubDate>
+      <author>aveek.s98@gmail.com (Aveek Saha)</author>
+      <guid>https://home.aveek.io/blog/post/ecommerce-website-template/</guid>
+      <description>&lt;p&gt;If you want the code for this project, fork this GitHub repo - &lt;a href=&#34;https://github.com/Aveek-Saha/ecommerce-website-template&#34;&gt;&lt;code&gt;E-commerce template&lt;/code&gt;&lt;/a&gt; &lt;br&gt;
+If you want to see a live demo, check this out - &lt;a href=&#34;http://eshop.byethost22.com/&#34;&gt;&lt;code&gt;Demo&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Word Suggestion App</title>
+      <link>https://home.aveek.io/blog/post/word-suggestion-app/</link>
+      <pubDate>Sun, 04 Mar 2018 00:00:00 +0000</pubDate>
+      <author>aveek.s98@gmail.com (Aveek Saha)</author>
+      <guid>https://home.aveek.io/blog/post/word-suggestion-app/</guid>
+      <description>&lt;p&gt;We often find ourselves grasping at a word that’s on the tip of our tongue but we just can’t pin it down, or wanting to check the spelling of a word that we’re not sure of.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

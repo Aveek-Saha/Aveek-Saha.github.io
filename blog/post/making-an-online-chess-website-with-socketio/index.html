@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Making an online chess website with Socket.io</title>
+  <meta property="og:title" content="Making an online chess website with Socket.io" />
+  <meta name="twitter:title" content="Making an online chess website with Socket.io" />
+  <meta name="description" content="A tutorial on client server communication using Sockets">
+  <meta property="og:description" content="A tutorial on client server communication using Sockets">
+  <meta name="twitter:description" content="A tutorial on client server communication using Sockets">
+  <meta name="author" content="Aveek Saha"/>
+  <link href='https://home.aveek.io/blog/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta property="og:image" content="https://home.aveek.io/blog/img/avatar-icon.png" />
+  <meta name="twitter:image" content="https://home.aveek.io/blog/img/avatar-icon.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://home.aveek.io/post/making-an-online-chess-website-with-socketio/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Aveek Saha" />
+
+  <meta name="generator" content="Hugo 0.40.1" />
+  <link rel="canonical" href="https://home.aveek.io/post/making-an-online-chess-website-with-socketio/" />
+  <link rel="alternate" href="https://home.aveek.io/blog/index.xml" type="application/rss+xml" title="Aveek Saha">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://home.aveek.io/blog/css/main.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://home.aveek.io/blog/css/pygment_highlights.css" />
+  <link rel="stylesheet" href="https://home.aveek.io/blog/css/highlight.min.css" />
+  
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-9236237212396372",
+              enable_page_level_ads: true
+         });
+    </script>
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-120301630-5', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar navbar-custom navbar-dark bg-dark">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://home.aveek.io/blog/">Aveek Saha</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="https://home.aveek.io/blog/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Portfolio" href="https://aveek-saha.github.io/">Portfolio</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="https://home.aveek.io/blog/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="https://home.aveek.io/blog/tags">Tags</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+    <div id="header-big-imgs" data-num-img=1 data-img-src-1="https://home.aveek.io/img/chess-cover.jpg" ></div>
+  
+
+  <header class="header-section has-img">
+    
+      <div class="intro-header big-img">
+        
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+              <div class="post-heading">
+                <h1>Making an online chess website with Socket.io</h1>
+                  
+                    
+                      <h2 class="post-subheading">A tutorial on client server communication using Sockets</h2>
+                    
+                  
+                  
+                    <span class="post-meta">
+  Posted on October 20, 2018
+  
+</span>
+
+
+                  
+              </div>
+            </div>
+          </div>
+        </div>
+        <span class="img-desc" style="display: inline;"></span>
+      </div>
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              <h1>Making an online chess website with Socket.io</h1>
+                
+                  
+                    <h2 class="post-subheading">A tutorial on client server communication using Sockets</h2>
+                  
+                
+                
+                  <span class="post-meta">
+  Posted on October 20, 2018
+  
+</span>
+
+
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>If you want the code for this project, fork this GitHub repo - <a href="https://github.com/Aveek-Saha/Online-Chess"><code>Online chess</code></a> <br>
+Check out the code in action here, play it yourself - <a href="https://chess0.herokuapp.com"><code>Live demo</code></a></p>
+
+<p></p>
+
+<h1 id="introduction">Introduction</h1>
+
+<p>In this tutorial you&rsquo;ll learn how to build a basic online Chess platform with multiple rooms, where people can play against each other. We will be using Sockets to communicate between the client and the server.</p>
+
+<h1 id="socket-io">Socket.io</h1>
+
+<p>From the socket.io documentation -</p>
+
+<blockquote>
+<p>Socket.IO is a library that enables real-time, bidirectional and event-based communication between the browser and the server.</p>
+</blockquote>
+
+<p>Two important methods that you need know are-</p>
+
+<p>The <code>emit</code> method emits an event and you can send data along with this event as long as its JSON encodable or binary data.</p>
+
+<pre><code>socket.emit('test', msg); 
+</code></pre>
+
+<p>The <code>on</code> method listens for an event and it can receive data that has been emitted.</p>
+
+<pre><code>socket.on('test', (msg) =&gt; {
+ console.log(msg);
+});
+</code></pre>
+
+<p><br></p>
+
+<h1 id="file-structure">File Structure</h1>
+
+<p><div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">chess</span>
+   <span class="o">|----</span><span class="nx">chessboard</span> <span class="c1">// A folder for the chessboard.js library
+</span><span class="c1"></span>   <span class="o">|</span>
+   <span class="o">|----</span><span class="nx">img</span> <span class="c1">// Images for the chess pieces
+</span><span class="c1"></span>   <span class="o">|</span>
+   <span class="o">|--</span><span class="nx">game</span><span class="p">.</span><span class="nx">js</span> <span class="c1">// The actual game
+</span><span class="c1"></span>   <span class="o">|--</span><span class="nx">index</span><span class="p">.</span><span class="nx">js</span> <span class="c1">// The node server
+</span><span class="c1"></span>   <span class="o">|</span>
+   <span class="o">|--</span><span class="nx">full</span><span class="p">.</span><span class="nx">html</span>
+   <span class="o">|--</span><span class="nx">index</span><span class="p">.</span><span class="nx">html</span>
+   <span class="o">|</span>
+   <span class="o">|--</span><span class="kr">package</span><span class="p">.</span><span class="nx">json</span>
+</code></pre></div>
+<br></p>
+
+<h1 id="setup">Setup</h1>
+
+<p>Create a new project folder, cd to that directory and then run</p>
+
+<pre><code>npm init
+</code></pre>
+
+<p>After that go to <a href="http://chessboardjs.com/"><code>Chessboard.js</code></a> and download the latest version. Extract the contents to the <code>chessboard</code> folder. Copy the <code>img</code> folder from <code>chessboard</code> to the root directory . We&rsquo;re going to use this library to display and interact with the chessboard and the pieces.</p>
+
+<p>Now we&rsquo;ll create the <code>index.html</code> and <code>game.js</code> files. Go to this <a href="http://chessboardjs.com/examples#5003"><code>Highlight Legal Moves</code></a> example on the <a href="http://chessboardjs.com/"><code>Chessboard.js</code></a> website.</p>
+
+<p>For checking valid moves, piece placement and check/checkmate detection we&rsquo;ll be using another library called <a href="https://github.com/jhlywa/chess.js"><code>Chess.js</code></a>. We&rsquo;re going to include this via CDN in <code>index.html</code></p>
+
+<p>Copy the JavaScript section of the code into <code>game.js</code>. Your File should look like this.</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">board</span><span class="p">,</span>
+ <span class="nx">game</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Chess</span><span class="p">();</span>
+
+<span class="kd">var</span> <span class="nx">removeGreySquares</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+ <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#board .square-55d63&#39;</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s1">&#39;background&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">greySquare</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">square</span><span class="p">)</span> <span class="p">{</span>
+ <span class="kd">var</span> <span class="nx">squareEl</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#board .square-&#39;</span> <span class="o">+</span> <span class="nx">square</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="nx">background</span> <span class="o">=</span> <span class="s1">&#39;#a9a9a9&#39;</span><span class="p">;</span>
+ <span class="k">if</span> <span class="p">(</span><span class="nx">squareEl</span><span class="p">.</span><span class="nx">hasClass</span><span class="p">(</span><span class="s1">&#39;black-3c85d&#39;</span><span class="p">)</span> <span class="o">===</span> <span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+   <span class="nx">background</span> <span class="o">=</span> <span class="s1">&#39;#696969&#39;</span><span class="p">;</span>
+ <span class="p">}</span>
+
+ <span class="nx">squareEl</span><span class="p">.</span><span class="nx">css</span><span class="p">(</span><span class="s1">&#39;background&#39;</span><span class="p">,</span> <span class="nx">background</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">onDragStart</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">source</span><span class="p">,</span> <span class="nx">piece</span><span class="p">)</span> <span class="p">{</span>
+ <span class="c1">// do not pick up pieces if the game is over
+</span><span class="c1"></span> <span class="c1">// or if it&#39;s not that side&#39;s turn
+</span><span class="c1"></span> <span class="k">if</span> <span class="p">(</span><span class="nx">game</span><span class="p">.</span><span class="nx">game_over</span><span class="p">()</span> <span class="o">===</span> <span class="kc">true</span> <span class="o">||</span>
+     <span class="p">(</span><span class="nx">game</span><span class="p">.</span><span class="nx">turn</span><span class="p">()</span> <span class="o">===</span> <span class="s1">&#39;w&#39;</span> <span class="o">&amp;&amp;</span> <span class="nx">piece</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="sr">/^b/</span><span class="p">)</span> <span class="o">!==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">||</span>
+     <span class="p">(</span><span class="nx">game</span><span class="p">.</span><span class="nx">turn</span><span class="p">()</span> <span class="o">===</span> <span class="s1">&#39;b&#39;</span> <span class="o">&amp;&amp;</span> <span class="nx">piece</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="sr">/^w/</span><span class="p">)</span> <span class="o">!==</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span> <span class="p">{</span>
+   <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+ <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">onDrop</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">source</span><span class="p">,</span> <span class="nx">target</span><span class="p">)</span> <span class="p">{</span>
+ <span class="nx">removeGreySquares</span><span class="p">();</span>
+
+ <span class="c1">// see if the move is legal
+</span><span class="c1"></span> <span class="kd">var</span> <span class="nx">move</span> <span class="o">=</span> <span class="nx">game</span><span class="p">.</span><span class="nx">move</span><span class="p">({</span>
+   <span class="nx">from</span><span class="o">:</span> <span class="nx">source</span><span class="p">,</span>
+   <span class="nx">to</span><span class="o">:</span> <span class="nx">target</span><span class="p">,</span>
+   <span class="nx">promotion</span><span class="o">:</span> <span class="s1">&#39;q&#39;</span>
+   <span class="c1">// NOTE: always promote to a queen for example simplicity
+</span><span class="c1"></span> <span class="p">});</span>
+
+ <span class="c1">// illegal move
+</span><span class="c1"></span> <span class="k">if</span> <span class="p">(</span><span class="nx">move</span> <span class="o">===</span> <span class="kc">null</span><span class="p">)</span> <span class="k">return</span> <span class="s1">&#39;snapback&#39;</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">onMouseoverSquare</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">square</span><span class="p">,</span> <span class="nx">piece</span><span class="p">)</span> <span class="p">{</span>
+ <span class="c1">// get list of possible moves for this square
+</span><span class="c1"></span> <span class="kd">var</span> <span class="nx">moves</span> <span class="o">=</span> <span class="nx">game</span><span class="p">.</span><span class="nx">moves</span><span class="p">({</span>
+   <span class="nx">square</span><span class="o">:</span> <span class="nx">square</span><span class="p">,</span>
+   <span class="nx">verbose</span><span class="o">:</span> <span class="kc">true</span>
+ <span class="p">});</span>
+
+ <span class="c1">// exit if there are no moves available for this square
+</span><span class="c1"></span> <span class="k">if</span> <span class="p">(</span><span class="nx">moves</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+
+ <span class="c1">// highlight the square they moused over
+</span><span class="c1"></span> <span class="nx">greySquare</span><span class="p">(</span><span class="nx">square</span><span class="p">);</span>
+
+ <span class="c1">// highlight the possible squares for this piece
+</span><span class="c1"></span> <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">moves</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+   <span class="nx">greySquare</span><span class="p">(</span><span class="nx">moves</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">to</span><span class="p">);</span>
+ <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">onMouseoutSquare</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">square</span><span class="p">,</span> <span class="nx">piece</span><span class="p">)</span> <span class="p">{</span>
+ <span class="nx">removeGreySquares</span><span class="p">();</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">onSnapEnd</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+ <span class="nx">board</span><span class="p">.</span><span class="nx">position</span><span class="p">(</span><span class="nx">game</span><span class="p">.</span><span class="nx">fen</span><span class="p">());</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">cfg</span> <span class="o">=</span> <span class="p">{</span>
+ <span class="nx">draggable</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+ <span class="nx">position</span><span class="o">:</span> <span class="s1">&#39;start&#39;</span><span class="p">,</span>
+ <span class="nx">onDragStart</span><span class="o">:</span> <span class="nx">onDragStart</span><span class="p">,</span>
+ <span class="nx">onDrop</span><span class="o">:</span> <span class="nx">onDrop</span><span class="p">,</span>
+ <span class="nx">onMouseoutSquare</span><span class="o">:</span> <span class="nx">onMouseoutSquare</span><span class="p">,</span>
+ <span class="nx">onMouseoverSquare</span><span class="o">:</span> <span class="nx">onMouseoverSquare</span><span class="p">,</span>
+ <span class="nx">onSnapEnd</span><span class="o">:</span> <span class="nx">onSnapEnd</span>
+<span class="p">};</span>
+<span class="nx">board</span> <span class="o">=</span> <span class="nx">ChessBoard</span><span class="p">(</span><span class="s1">&#39;board&#39;</span><span class="p">,</span> <span class="nx">cfg</span><span class="p">);</span>
+</code></pre></div>
+
+<p>Next up is <code>index.js</code>.</p>
+
+<p><div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="cp">&lt;!doctype html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&#34;en&#34;</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+ <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&#34;UTF-8&#34;</span> <span class="p">/&gt;</span>
+ <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Chess 0<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  
+ <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.2/chess.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+ <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;./chessboard/js/chessboard-0.3.0.min.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+ <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;./chessboard/css/chessboard-0.3.0.min.css&#34;</span><span class="p">&gt;</span>
+ <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+   <span class="nt">body</span><span class="p">{</span>
+     <span class="k">margin</span><span class="p">:</span> <span class="mi">4</span><span class="kt">%</span>
+   <span class="p">}</span>
+ <span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+
+ <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+ <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;container&#34;</span><span class="p">&gt;</span>
+       <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;board&#34;</span> <span class="na">style</span><span class="o">=</span><span class="s">&#34;width: 500px; margin: auto&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  
+ <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+ <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;./game.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span></code></pre></div></p>
+
+<p>If you just double click on the <code>index.html</code> file you should be able to see a simple chessboard and the pieces. You can move the pieces around, and hovering on a piece will show you the possible moves you can make. This is because of the integration with <code>Chess.js</code> that does the move generation and valid move checking for us.</p>
+
+<p>In case a user tries to join a game that already has 2 players in it, we&rsquo;ll redirect him to <code>full.html</code>, which is just a basic html page that says the game is full.</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="cp">&lt;!doctype html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&#34;en&#34;</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&#34;UTF-8&#34;</span> <span class="p">/&gt;</span>
+   <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Room Full<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css&#34;</span> <span class="na">integrity</span><span class="o">=</span><span class="s">&#34;sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO&#34;</span>
+       <span class="na">crossorigin</span><span class="o">=</span><span class="s">&#34;anonymous&#34;</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js&#34;</span> <span class="na">integrity</span><span class="o">=</span><span class="s">&#34;sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy&#34;</span>
+       <span class="na">crossorigin</span><span class="o">=</span><span class="s">&#34;anonymous&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">body</span> <span class="na">style</span><span class="o">=</span><span class="s">&#34;margin: 4%&#34;</span><span class="p">&gt;</span>
+
+   <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;player&#34;</span> <span class="na">style</span><span class="o">=</span><span class="s">&#34;margin: auto&#34;</span><span class="p">&gt;</span>This room is full Full<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+
+
+
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span></code></pre></div>
+
+<h1 id="packages">Packages</h1>
+
+<p>For this project we will be using only <code>Express</code> and <code>Socket.io</code>. To install them, run</p>
+
+<pre><code>npm install --save express
+
+npm install --save socket.io
+</code></pre>
+
+<h1 id="the-server">The Server</h1>
+
+<p>Create <code>index.js</code> and require the following modules.
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="k">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;express&#39;</span><span class="p">);</span>
+<span class="k">const</span> <span class="nx">http</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;http&#39;</span><span class="p">);</span>
+<span class="k">const</span> <span class="nx">socket</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;socket.io&#39;</span><span class="p">);</span>
+</code></pre></div></p>
+
+<p>Then we&rsquo;re going to declare a few variables
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// use 8080 as the default port number, process.env.PORT is
+</span><span class="c1">//useful if you deploy to Heroku
+</span><span class="c1"></span><span class="k">const</span> <span class="nx">port</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PORT</span> <span class="o">||</span> <span class="mi">8080</span>
+
+<span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span>
+
+<span class="c1">// start the server
+</span><span class="c1"></span><span class="k">const</span> <span class="nx">server</span> <span class="o">=</span> <span class="nx">http</span><span class="p">.</span><span class="nx">createServer</span><span class="p">(</span><span class="nx">app</span><span class="p">)</span>
+
+<span class="c1">// initialize a new instance of socket.io by passing the HTTP server object
+</span><span class="c1"></span><span class="k">const</span> <span class="nx">io</span> <span class="o">=</span> <span class="nx">socket</span><span class="p">(</span><span class="nx">server</span><span class="p">)</span>
+
+<span class="c1">// keep track of how many players in a game (0, 1, 2)
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">players</span><span class="p">;</span>
+
+<span class="c1">// create an array of 100 games and initialize them
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">games</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+   <span class="nx">games</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="nx">players</span><span class="o">:</span> <span class="mi">0</span> <span class="p">,</span> <span class="nx">pid</span><span class="o">:</span> <span class="p">[</span><span class="mi">0</span> <span class="p">,</span> <span class="mi">0</span><span class="p">]};</span>
+<span class="p">}</span>
+</code></pre></div></p>
+
+<p>Our routing is simple, we only need to show <code>index.html</code> when &ldquo;/&rdquo; is accessed
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+   <span class="nx">res</span><span class="p">.</span><span class="nx">sendFile</span><span class="p">(</span><span class="nx">__dirname</span> <span class="o">+</span> <span class="s1">&#39;/index.html&#39;</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></p>
+
+<p>Now its time to listen for the <code>connection</code> event on the server</p>
+
+<p><div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">io</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;connection&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">socket</span><span class="p">)</span> <span class="p">{</span>
+
+ <span class="c1">// just assign a random number to every player that has connected
+</span><span class="c1"></span> <span class="c1">// the numbers have no significance so it
+</span><span class="c1"></span> <span class="c1">// doesn&#39;t matter if 2 people get the same number
+</span><span class="c1"></span> <span class="kd">var</span> <span class="nx">playerId</span> <span class="o">=</span>  <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">((</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+ <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">playerId</span> <span class="o">+</span> <span class="s1">&#39; connected&#39;</span><span class="p">);</span>
+
+ <span class="c1">// if a user disconnects just print their playerID
+</span><span class="c1"></span> <span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;disconnect&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">playerId</span> <span class="o">+</span> <span class="s1">&#39; disconnected&#39;</span><span class="p">);</span>
+ <span class="p">});</span>
+<span class="p">});</span>
+</code></pre></div>
+<br></p>
+
+<h1 id="the-client">The Client</h1>
+
+<p>Let&rsquo;s turn our attention back to the client, <code>index.html</code>. We&rsquo;re going to add an input box where the player enters the room number he wants to join and once he hits a button, if the room is not full, he&rsquo;ll join the room.</p>
+
+<p>After adding that and a few divs to display some information, we add bootstrap and the final <code>index.html</code> looks like this:</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="cp">&lt;!doctype html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&#34;en&#34;</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+ <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&#34;UTF-8&#34;</span> <span class="p">/&gt;</span>
+ <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Chess 0<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+ <span class="c">&lt;!--  Adding bootstrap--&gt;</span>
+ <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span>
+ <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css&#34;</span>
+ <span class="na">integrity</span><span class="o">=</span><span class="s">&#34;sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO&#34;</span>
+   <span class="na">crossorigin</span><span class="o">=</span><span class="s">&#34;anonymous&#34;</span><span class="p">&gt;</span>
+ <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js&#34;</span>
+ <span class="na">integrity</span><span class="o">=</span><span class="s">&#34;sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy&#34;</span>
+   <span class="na">crossorigin</span><span class="o">=</span><span class="s">&#34;anonymous&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+  
+ <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.2/chess.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+ <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;./chessboard/js/chessboard-0.3.0.min.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+ <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;./chessboard/css/chessboard-0.3.0.min.css&#34;</span><span class="p">&gt;</span>
+
+ <span class="c">&lt;!-- Adding some style --&gt;</span>
+ <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+   <span class="p">.</span><span class="nc">number</span><span class="p">::</span><span class="nd">-webkit-inner-spin-button</span><span class="o">,</span>
+   <span class="p">.</span><span class="nc">number</span><span class="p">::</span><span class="nd">-webkit-outer-spin-button</span> <span class="p">{</span>
+   <span class="kp">-webkit-</span><span class="k">appearance</span><span class="p">:</span> <span class="kc">none</span><span class="p">;</span>
+   <span class="k">margin</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+   <span class="p">}</span>
+   <span class="p">#</span><span class="nn">roomNumbers</span><span class="p">{</span>
+     <span class="k">margin</span><span class="p">:</span> <span class="mi">7</span><span class="kt">px</span><span class="p">;</span>
+   <span class="p">}</span>
+   <span class="nt">body</span><span class="p">{</span>
+     <span class="k">margin</span><span class="p">:</span> <span class="mi">4</span><span class="kt">%</span>
+   <span class="p">}</span>
+ <span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+
+ <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+ <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;container&#34;</span><span class="p">&gt;</span>
+ <span class="c">&lt;!-- The chess board --&gt;</span>
+       <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;board&#34;</span> <span class="na">style</span><span class="o">=</span><span class="s">&#34;width: 500px; margin: auto&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    
+     <span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&#34;margin: auto&#34;</span><span class="err">&#34;</span><span class="p">&gt;</span>
+     <span class="c">&lt;!-- Shows the player number and color --&gt;</span>
+       <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;player&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+       <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;roomNumbers&#34;</span><span class="p">&gt;</span>Enter a room number between 0 and 99<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+       <span class="p">&lt;</span><span class="nt">form</span><span class="p">&gt;</span>
+         <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;row&#34;</span><span class="p">&gt;</span>
+           <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;col&#34;</span><span class="p">&gt;</span>
+             <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;number&#34;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;room&#34;</span> <span class="na">min</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">max</span><span class="o">=</span><span class="s">&#34;99&#34;</span>
+             <span class="na">class</span><span class="o">=</span><span class="s">&#34;form-control form-control-md number&#34;</span><span class="p">&gt;</span>
+           <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+           <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;col&#34;</span><span class="p">&gt;</span>
+
+           <span class="c">&lt;!-- A button that connects the user to the given valid room number --&gt;</span>
+             <span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;button&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;btn btn-success&#34;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&#34;connect()&#34;</span><span class="p">&gt;</span>Connect<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+           <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+         <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+       <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+    
+     <span class="c">&lt;!-- Displays weather the game is in progress, or over --&gt;</span>
+       <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;state&#34;</span><span class="p">&gt;</span>Join Game<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  
+ <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+ <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;./game.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span></code></pre></div>
+
+<p>Now we have to modify <code>game.js</code> so that it communicates with the server. After initializing the socket we can communicate the via two methods mentioned earlier.</p>
+
+<p>We&rsquo;ll start off modifying <code>game.js</code> by adding a few variables.
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// creates a new chess game using the chess.js library
+</span><span class="c1"></span><span class="nx">game</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Chess</span><span class="p">();</span>
+<span class="c1">//initialize the socket
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">socket</span> <span class="o">=</span> <span class="nx">io</span><span class="p">();</span>
+<span class="c1">// piece color
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">color</span> <span class="o">=</span> <span class="s2">&#34;white&#34;</span><span class="p">;</span>
+<span class="c1">// number of players in the current room
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">players</span><span class="p">;</span>
+<span class="c1">// the room number between 0 and 99
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">roomId</span><span class="p">;</span>
+<span class="c1">// if the both players have joined then it will be false
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">play</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+
+<span class="c1">// For some DOM manipulation later
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">room</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;room&#34;</span><span class="p">)</span>
+<span class="kd">var</span> <span class="nx">roomNumber</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;roomNumbers&#34;</span><span class="p">)</span>
+<span class="kd">var</span> <span class="nx">button</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;button&#34;</span><span class="p">)</span>
+<span class="kd">var</span> <span class="nx">state</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;state&#39;</span><span class="p">)</span>
+</code></pre></div>
+<br></p>
+
+<h1 id="more-server-stuff">More Server Stuff</h1>
+
+<p>We set up the client side socket, and we will be able to communicate between the client and server. But before that we have a few more things to set up here, inside</p>
+
+<pre><code>io.on('connection', function (socket) {})
+</code></pre>
+
+<p>We&rsquo;ll be emitting and receiving some events from the client here and after this, we&rsquo;ll set up the emitters and receivers on the client side too.</p>
+
+<p>What we&rsquo;ll using the for server here is basically passing on the message from one client to the other. So in most of the <code>socket.on()</code> function callbacks, you&rsquo;ll see a <code>socket.emit</code> function, so that the server can pass on the event to the rest of the clients. since the server will emit events to all clients. The clients will know if the event was meant for them because we pass the <code>roomId</code> in the message. The <code>roomId</code> is checked on the client side. This method isn&rsquo;t secure, but it&rsquo;s fine for our small application.</p>
+
+<p><div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">color</span><span class="p">;</span> <span class="c1">// black or white
+</span><span class="c1"></span>
+<span class="c1">// &#39;joined&#39; is emitted when the player enters a room number and clicks
+</span><span class="c1">// the connect button the room ID that the player entered gets passed as a message
+</span><span class="c1"></span>
+<span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;joined&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">roomId</span><span class="p">)</span> <span class="p">{</span>
+ <span class="c1">// if the room is not full then add the player to that room
+</span><span class="c1"></span> <span class="k">if</span> <span class="p">(</span><span class="nx">games</span><span class="p">[</span><span class="nx">roomId</span><span class="p">].</span><span class="nx">players</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+     <span class="nx">games</span><span class="p">[</span><span class="nx">roomId</span><span class="p">].</span><span class="nx">players</span><span class="o">++</span><span class="p">;</span>
+     <span class="nx">games</span><span class="p">[</span><span class="nx">roomId</span><span class="p">].</span><span class="nx">pid</span><span class="p">[</span><span class="nx">games</span><span class="p">[</span><span class="nx">roomId</span><span class="p">].</span><span class="nx">players</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nx">playerId</span><span class="p">;</span>
+ <span class="p">}</span> <span class="c1">// else emit the full event
+</span><span class="c1"></span> <span class="k">else</span><span class="p">{</span>
+     <span class="nx">socket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;full&#39;</span><span class="p">,</span> <span class="nx">roomId</span><span class="p">)</span>
+     <span class="k">return</span><span class="p">;</span>
+ <span class="p">}</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">games</span><span class="p">[</span><span class="nx">roomId</span><span class="p">]);</span>
+ <span class="nx">players</span> <span class="o">=</span> <span class="nx">games</span><span class="p">[</span><span class="nx">roomId</span><span class="p">].</span><span class="nx">players</span>
+  <span class="c1">// the first player to join the room gets white
+</span><span class="c1"></span> <span class="k">if</span> <span class="p">(</span><span class="nx">players</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="nx">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">;</span>
+ <span class="k">else</span> <span class="nx">color</span> <span class="o">=</span> <span class="s1">&#39;white&#39;</span><span class="p">;</span>
+
+ <span class="c1">// this is an important event because, once this is emitted the game
+</span><span class="c1"></span> <span class="c1">// will be set up in the client side, and it&#39;ll display the chess board
+</span><span class="c1"></span> <span class="nx">socket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;player&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">playerId</span><span class="p">,</span> <span class="nx">players</span><span class="p">,</span> <span class="nx">color</span><span class="p">,</span> <span class="nx">roomId</span> <span class="p">})</span>
+
+<span class="p">});</span>
+
+<span class="c1">// The client side emits a &#39;move&#39; event when a valid move has been made.
+</span><span class="c1"></span><span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;move&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">msg</span><span class="p">)</span> <span class="p">{</span>
+ <span class="c1">// pass on the move event to the other clients
+</span><span class="c1"></span> <span class="nx">socket</span><span class="p">.</span><span class="nx">broadcast</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;move&#39;</span><span class="p">,</span> <span class="nx">msg</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="c1">// &#39;play&#39; is emitted when both players have joined and the game can start
+</span><span class="c1"></span><span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;play&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">msg</span><span class="p">)</span> <span class="p">{</span>
+ <span class="nx">socket</span><span class="p">.</span><span class="nx">broadcast</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;play&#39;</span><span class="p">,</span> <span class="nx">msg</span><span class="p">);</span>
+ <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;ready &#34;</span> <span class="o">+</span> <span class="nx">msg</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="c1">// when the user disconnects from the server, remove him from the game room
+</span><span class="c1"></span><span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;disconnect&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+ <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+     <span class="k">if</span> <span class="p">(</span><span class="nx">games</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">pid</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="nx">playerId</span> <span class="o">||</span> <span class="nx">games</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">pid</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="nx">playerId</span><span class="p">)</span>
+         <span class="nx">games</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">players</span><span class="o">--</span><span class="p">;</span>
+ <span class="p">}</span>
+ <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">playerId</span> <span class="o">+</span> <span class="s1">&#39; disconnected&#39;</span><span class="p">);</span>
+
+<span class="p">});</span>
+</code></pre></div>
+<br></p>
+
+<h1 id="back-to-the-client">Back to the Client</h1>
+
+<p>After setting up our server to relay messages back and forth from clients we set up the client to respond to the server emitted events. So let&rsquo;s get back to <code>game.js</code>.</p>
+
+<p>First thing we&rsquo;ll do is set up a listener for the &lsquo;player&rsquo; event, which means that a player has joined the event and the board will be set up, along with the players color. The code we wrote to create the board in the first step also goes in this.</p>
+
+<p>Put this at the bottom of <code>game.js</code>.</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;player&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">msg</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+
+ <span class="kd">var</span> <span class="nx">plno</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;player&#39;</span><span class="p">)</span>
+
+ <span class="c1">// we&#39;re passing an object -
+</span><span class="c1"></span> <span class="c1">// { playerId, players, color, roomId } as msg
+</span><span class="c1"></span> <span class="nx">color</span> <span class="o">=</span> <span class="nx">msg</span><span class="p">.</span><span class="nx">color</span><span class="p">;</span>
+
+ <span class="c1">// show the players number and color in the player div
+</span><span class="c1"></span> <span class="nx">players</span> <span class="o">=</span> <span class="nx">msg</span><span class="p">.</span><span class="nx">players</span><span class="p">;</span>
+ <span class="nx">plno</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s1">&#39;Player &#39;</span> <span class="o">+</span> <span class="nx">players</span> <span class="o">+</span> <span class="s2">&#34; : &#34;</span> <span class="o">+</span> <span class="nx">color</span><span class="p">;</span>
+
+ <span class="c1">// emit the play event when 2 players have joined
+</span><span class="c1"></span> <span class="k">if</span><span class="p">(</span><span class="nx">players</span> <span class="o">==</span> <span class="mi">2</span><span class="p">){</span>
+   <span class="nx">play</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+   <span class="c1">// relay it to the other player that is in the room
+</span><span class="c1"></span>   <span class="nx">socket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;play&#39;</span><span class="p">,</span> <span class="nx">msg</span><span class="p">.</span><span class="nx">roomId</span><span class="p">);</span>
+   <span class="c1">// change the state from &#39;join room&#39; to -
+</span><span class="c1"></span>   <span class="nx">state</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">&#34;Game in Progress&#34;</span>
+ <span class="p">}</span>
+ <span class="c1">// if only one person is in the room
+</span><span class="c1"></span> <span class="k">else</span>
+   <span class="nx">state</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">&#34;Waiting for Second player&#34;</span><span class="p">;</span>
+
+
+ <span class="kd">var</span> <span class="nx">cfg</span> <span class="o">=</span> <span class="p">{</span>
+   <span class="nx">orientation</span><span class="o">:</span> <span class="nx">color</span><span class="p">,</span>
+   <span class="nx">draggable</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+   <span class="nx">position</span><span class="o">:</span> <span class="s1">&#39;start&#39;</span><span class="p">,</span>
+   <span class="nx">onDragStart</span><span class="o">:</span> <span class="nx">onDragStart</span><span class="p">,</span>
+   <span class="nx">onDrop</span><span class="o">:</span> <span class="nx">onDrop</span><span class="p">,</span>
+   <span class="nx">onMouseoutSquare</span><span class="o">:</span> <span class="nx">onMouseoutSquare</span><span class="p">,</span>
+   <span class="nx">onMouseoverSquare</span><span class="o">:</span> <span class="nx">onMouseoverSquare</span><span class="p">,</span>
+   <span class="nx">onSnapEnd</span><span class="o">:</span> <span class="nx">onSnapEnd</span>
+ <span class="p">};</span>
+ <span class="nx">board</span> <span class="o">=</span> <span class="nx">ChessBoard</span><span class="p">(</span><span class="s1">&#39;board&#39;</span><span class="p">,</span> <span class="nx">cfg</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="kd">var</span> <span class="nx">board</span><span class="p">;</span>
+</code></pre></div>
+
+<p>Now we need to modify some of the functions that we copied from the example at <a href="http://chessboardjs.com/examples#5003"><code>chessboardjs</code></a>.</p>
+
+<p>For <code>onDragStart</code> we add a few more conditions to check if the move is valid or not. The conditions we added are -</p>
+
+<pre><code>play || // check if both players have joined
+
+// if the player is white, he cannot move black pieces and vice versa
+(game.turn() === 'w' &amp;&amp; color === 'black') ||
+(game.turn() === 'b' &amp;&amp; color === 'white')
+</code></pre>
+
+<p><br>
+Add these extra checks to the function.
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">onDragStart</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">source</span><span class="p">,</span> <span class="nx">piece</span><span class="p">)</span> <span class="p">{</span>
+
+ <span class="c1">// A few more rules have been added
+</span><span class="c1"></span> <span class="k">if</span> <span class="p">(</span><span class="nx">game</span><span class="p">.</span><span class="nx">game_over</span><span class="p">()</span> <span class="o">===</span> <span class="kc">true</span> <span class="o">||</span> <span class="nx">play</span> <span class="o">||</span>
+     <span class="p">(</span><span class="nx">game</span><span class="p">.</span><span class="nx">turn</span><span class="p">()</span> <span class="o">===</span> <span class="s1">&#39;w&#39;</span> <span class="o">&amp;&amp;</span> <span class="nx">piece</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="sr">/^b/</span><span class="p">)</span> <span class="o">!==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">||</span>
+     <span class="p">(</span><span class="nx">game</span><span class="p">.</span><span class="nx">turn</span><span class="p">()</span> <span class="o">===</span> <span class="s1">&#39;b&#39;</span> <span class="o">&amp;&amp;</span> <span class="nx">piece</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="sr">/^w/</span><span class="p">)</span> <span class="o">!==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">||</span>
+     <span class="p">(</span><span class="nx">game</span><span class="p">.</span><span class="nx">turn</span><span class="p">()</span> <span class="o">===</span> <span class="s1">&#39;w&#39;</span> <span class="o">&amp;&amp;</span> <span class="nx">color</span> <span class="o">===</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span> <span class="o">||</span>
+     <span class="p">(</span><span class="nx">game</span><span class="p">.</span><span class="nx">turn</span><span class="p">()</span> <span class="o">===</span> <span class="s1">&#39;b&#39;</span> <span class="o">&amp;&amp;</span> <span class="nx">color</span> <span class="o">===</span> <span class="s1">&#39;white&#39;</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+         <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+ <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></p>
+
+<p>The function <code>onDrop</code>, is when the pieces are actually moved. So when the player makes a move and drops a move, the &lsquo;move&rsquo; event is emitted.</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">onDrop</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">source</span><span class="p">,</span> <span class="nx">target</span><span class="p">)</span> <span class="p">{</span>
+ <span class="nx">removeGreySquares</span><span class="p">();</span>
+
+ <span class="c1">// see if the move is legal
+</span><span class="c1"></span> <span class="kd">var</span> <span class="nx">move</span> <span class="o">=</span> <span class="nx">game</span><span class="p">.</span><span class="nx">move</span><span class="p">({</span>
+     <span class="nx">from</span><span class="o">:</span> <span class="nx">source</span><span class="p">,</span>
+     <span class="nx">to</span><span class="o">:</span> <span class="nx">target</span><span class="p">,</span>
+     <span class="nx">promotion</span><span class="o">:</span> <span class="s1">&#39;q&#39;</span>
+ <span class="p">});</span>
+ <span class="k">if</span> <span class="p">(</span><span class="nx">game</span><span class="p">.</span><span class="nx">game_over</span><span class="p">())</span> <span class="p">{</span>
+     <span class="nx">state</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s1">&#39;GAME OVER&#39;</span><span class="p">;</span>
+     <span class="nx">socket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;gameOver&#39;</span><span class="p">,</span> <span class="nx">roomId</span><span class="p">)</span>
+ <span class="p">}</span>
+
+ <span class="c1">// illegal move
+</span><span class="c1"></span> <span class="k">if</span> <span class="p">(</span><span class="nx">move</span> <span class="o">===</span> <span class="kc">null</span><span class="p">)</span> <span class="k">return</span> <span class="s1">&#39;snapback&#39;</span><span class="p">;</span>
+
+ <span class="c1">// if the move is allowed, emit the move event.
+</span><span class="c1"></span> <span class="k">else</span>
+     <span class="nx">socket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;move&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">move</span><span class="o">:</span> <span class="nx">move</span><span class="p">,</span> <span class="nx">board</span><span class="o">:</span> <span class="nx">game</span><span class="p">.</span><span class="nx">fen</span><span class="p">(),</span> <span class="nx">room</span><span class="o">:</span> <span class="nx">roomId</span> <span class="p">});</span>
+
+<span class="p">};</span>
+</code></pre></div>
+
+<p>Now we need to add some listeners, so that changes that are sent via events are reflected in the client.</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// if the room is full (players &gt; 2), redirect the user
+</span><span class="c1">// to the full.html page we made earlier
+</span><span class="c1"></span><span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;full&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">msg</span><span class="p">)</span> <span class="p">{</span>
+ <span class="k">if</span><span class="p">(</span><span class="nx">roomId</span> <span class="o">==</span> <span class="nx">msg</span><span class="p">)</span>
+   <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">assign</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="o">+</span> <span class="s1">&#39;full.html&#39;</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="c1">// change play to false when both players have
+</span><span class="c1">// joined the room, so that they can start playing
+</span><span class="c1">// (when play is false the players can play)
+</span><span class="c1"></span><span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;play&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">msg</span><span class="p">)</span> <span class="p">{</span>
+ <span class="k">if</span> <span class="p">(</span><span class="nx">msg</span> <span class="o">==</span> <span class="nx">roomId</span><span class="p">)</span> <span class="p">{</span>
+     <span class="nx">play</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+     <span class="nx">state</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">&#34;Game in progress&#34;</span>
+ <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="c1">// when a move happens, check if it was meant for the clients room
+</span><span class="c1">// if yes, then make the move on the clients board
+</span><span class="c1"></span><span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;move&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">msg</span><span class="p">)</span> <span class="p">{</span>
+ <span class="k">if</span> <span class="p">(</span><span class="nx">msg</span><span class="p">.</span><span class="nx">room</span> <span class="o">==</span> <span class="nx">roomId</span><span class="p">)</span> <span class="p">{</span>
+     <span class="nx">game</span><span class="p">.</span><span class="nx">move</span><span class="p">(</span><span class="nx">msg</span><span class="p">.</span><span class="nx">move</span><span class="p">);</span>
+     <span class="nx">board</span><span class="p">.</span><span class="nx">position</span><span class="p">(</span><span class="nx">game</span><span class="p">.</span><span class="nx">fen</span><span class="p">());</span>
+     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;moved&#34;</span><span class="p">)</span>
+ <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div>
+
+<p>One last method requires implementation, the <code>connect</code> function. When we click the connect button it needs to emit an event with the room id that the player has entered.</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">connect</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+
+ <span class="c1">// extract the value of the input field
+</span><span class="c1"></span> <span class="nx">roomId</span> <span class="o">=</span> <span class="nx">room</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+ <span class="c1">// if the room number is valid
+</span><span class="c1"></span> <span class="k">if</span> <span class="p">(</span><span class="nx">roomId</span> <span class="o">!==</span> <span class="s2">&#34;&#34;</span> <span class="o">&amp;&amp;</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">roomId</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">)</span> <span class="p">{</span>
+   <span class="nx">room</span><span class="p">.</span><span class="nx">remove</span><span class="p">();</span>
+   <span class="nx">roomNumber</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">&#34;Room Number &#34;</span> <span class="o">+</span> <span class="nx">roomId</span><span class="p">;</span>
+   <span class="nx">button</span><span class="p">.</span><span class="nx">remove</span><span class="p">();</span>
+
+   <span class="c1">// emit the &#39;joined&#39; event which we have set up a listener for on the server
+</span><span class="c1"></span>   <span class="nx">socket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;joined&#39;</span><span class="p">,</span> <span class="nx">roomId</span><span class="p">);</span>
+ <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h1 id="checking-if-it-works">Checking if it works</h1>
+
+<p>For the complete code, check the repo, <a href="https://github.com/Aveek-Saha/Online-Chess"><code>Online chess</code></a>.</p>
+
+<p>cd to the project directory, and then run</p>
+
+<pre><code>node index.js
+</code></pre>
+
+<p>If you&rsquo;ve done everything correctly you&rsquo;ll see something like this <a href="https://chess0.herokuapp.com"><code>Live demo</code></a> here. You can open up as many instances as you want and try playing with your friends.</p>
+
+<p><br>
+<!-- <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript">
+</code></pre></div> --></p>
+      </article>
+
+      <ul class="pager blog-pager">
+        
+          <li class="previous">
+            <a href="https://home.aveek.io/blog/post/chrome-dinosaur-game-tutorial-with-phaser/" data-toggle="tooltip" data-placement="top" title="Making the Chrome dinosaur game with Phaser">&larr; Previous Post</a>
+          </li>
+        
+        
+          <li class="next">
+            <a href="https://home.aveek.io/blog/post/getting-started-with-vuejs-and-the-github-api/" data-toggle="tooltip" data-placement="top" title="Getting started with Vuejs and the GitHub API">Next Post &rarr;</a>
+          </li>
+        
+      </ul>
+
+      
+        
+          <div class="disqus-comments">
+            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "aveekblog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          </div>
+        
+      
+
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:aveek.s98@gmail.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/profile.php?id=100001098414449" title="Facebook">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://gitlab.com/AveekSaha" title="GitLab">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-gitlab fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/Aveek-saha" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/aveek-saha" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/aveek68" title="Instagram">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://itch.io/profile/aveek-saha" title="Itch.io">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-gamepad fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="https://home.aveek.io/blog/index.xml" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          Aveek Saha
+          &nbsp;&bull;&nbsp;
+          2018
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://home.aveek.io/blog/">Aveek Saha</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.40.1</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://home.aveek.io/blog/js/main.js"></script>
+<script src="https://home.aveek.io/blog/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+  </body>
+</html>
+
