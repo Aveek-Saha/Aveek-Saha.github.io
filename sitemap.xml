@@ -8,8 +8,59 @@
 
 
 <url>
-  <loc>https://aveek-saha.github.io/</loc>
-  <lastmod>2018-03-04T05:37:54+00:00</lastmod>
+  <loc>https://home.aveek.io/</loc>
+  <lastmod>2018-12-20T03:44:34+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://home.aveek.io/blog/</loc>
+  <lastmod>2018-12-20T03:44:24+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://home.aveek.io/blog/page/about/</loc>
+  <lastmod>2018-12-20T03:44:24+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://home.aveek.io/blog/post/ytdx/</loc>
+  <lastmod>2018-12-20T03:44:24+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://home.aveek.io/blog/post/getting-started-with-vuejs-and-the-github-api/</loc>
+  <lastmod>2018-12-20T03:44:24+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://home.aveek.io/blog/post/making-an-online-chess-website-with-socketio/</loc>
+  <lastmod>2018-12-20T03:44:24+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://home.aveek.io/blog/post/chrome-dinosaur-game-tutorial-with-phaser/</loc>
+  <lastmod>2018-12-20T03:44:24+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://home.aveek.io/blog/post/music-player/</loc>
+  <lastmod>2018-12-20T03:44:24+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://home.aveek.io/blog/post/mean-todo-app/</loc>
+  <lastmod>2018-12-20T03:44:24+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://home.aveek.io/blog/post/ecommerce-website-template/</loc>
+  <lastmod>2018-12-20T03:44:24+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://home.aveek.io/blog/post/word-suggestion-app/</loc>
+  <lastmod>2018-12-20T03:44:24+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 
 
