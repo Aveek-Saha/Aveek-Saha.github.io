@@ -1,0 +1,12 @@
+---
+layout: default
+modal-id: 14
+date: 2018-12-07
+img: javascript.png
+title: JS Data Structs
+alt: image-alt
+project-date: December 2018
+category: JavaScript Library
+description: JS Data Structs is a small library for data structures like trees, heaps, graphs and many more. You can include it in your project either via <a href="https://www.npmjs.com/package/js-data-structs"> npm</a> or a <a href="https://www.jsdelivr.com/package/npm/js-data-structs"> script tag </a> <br> Read the <a href="https://data-structs.netlify.com/"> Documentation</a> Or fork it on GitHub<a href="https://github.com/Aveek-Saha/js-data-structs"> js-data-structs</a> <br><div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+
+---
