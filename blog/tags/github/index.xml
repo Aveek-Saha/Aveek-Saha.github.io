@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Github on Aveek Saha</title>
-    <link>https://aveeksaha.gitlab.io/tags/github/</link>
+    <link>https://home.aveek.io/blog/tags/github/</link>
     <description>Recent content in Github on Aveek Saha</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>aveek.s98@gmail.com (Aveek Saha)</managingEditor>
     <webMaster>aveek.s98@gmail.com (Aveek Saha)</webMaster>
     <lastBuildDate>Sat, 10 Nov 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://aveeksaha.gitlab.io/tags/github/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://home.aveek.io/blog/tags/github/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Getting started with Vuejs and the GitHub API</title>
-      <link>https://aveeksaha.gitlab.io/post/getting-started-with-vuejs-and-the-github-api/</link>
+      <link>https://home.aveek.io/blog/post/getting-started-with-vuejs-and-the-github-api/</link>
       <pubDate>Sat, 10 Nov 2018 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://aveeksaha.gitlab.io/post/getting-started-with-vuejs-and-the-github-api/</guid>
+      <guid>https://home.aveek.io/blog/post/getting-started-with-vuejs-and-the-github-api/</guid>
       <description>&lt;p&gt;If you want the code for this project, fork this GitHub repo - &lt;a href=&#34;https://github.com/Aveek-Saha/GithubStats&#34;&gt;&lt;code&gt;GitHub Stats&lt;/code&gt;&lt;/a&gt; &lt;br&gt;
 If you want to see a live demo, try it out here - &lt;a href=&#34;https://githubstats0.firebaseapp.com/&#34;&gt;&lt;code&gt;Live Demo&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
 

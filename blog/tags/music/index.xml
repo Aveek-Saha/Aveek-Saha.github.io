@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Music on Aveek Saha</title>
-    <link>https://aveeksaha.gitlab.io/tags/music/</link>
+    <link>https://home.aveek.io/blog/tags/music/</link>
     <description>Recent content in Music on Aveek Saha</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>aveek.s98@gmail.com (Aveek Saha)</managingEditor>
     <webMaster>aveek.s98@gmail.com (Aveek Saha)</webMaster>
     <lastBuildDate>Wed, 19 Dec 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://aveeksaha.gitlab.io/tags/music/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://home.aveek.io/blog/tags/music/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>YTDX</title>
-      <link>https://aveeksaha.gitlab.io/post/ytdx/</link>
+      <link>https://home.aveek.io/blog/post/ytdx/</link>
       <pubDate>Wed, 19 Dec 2018 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://aveeksaha.gitlab.io/post/ytdx/</guid>
+      <guid>https://home.aveek.io/blog/post/ytdx/</guid>
       <description>&lt;p&gt;If you want the code for this project, fork this GitHub repo - &lt;a href=&#34;https://github.com/Aveek-Saha/ytdx&#34;&gt;&lt;code&gt;YTDX&lt;/code&gt;&lt;/a&gt; &lt;br&gt;
 If you want to see a live demo, Download it here - &lt;a href=&#34;https://github.com/Aveek-Saha/ytdx/releases&#34;&gt;&lt;code&gt;Downloads&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
 
@@ -26,10 +26,10 @@ If you want to see a live demo, Download it here - &lt;a href=&#34;https://githu
     
     <item>
       <title>Dusk Player</title>
-      <link>https://aveeksaha.gitlab.io/post/music-player/</link>
+      <link>https://home.aveek.io/blog/post/music-player/</link>
       <pubDate>Tue, 28 Aug 2018 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://aveeksaha.gitlab.io/post/music-player/</guid>
+      <guid>https://home.aveek.io/blog/post/music-player/</guid>
       <description>&lt;p&gt;If you want the code for this project, fork this GitHub repo - &lt;a href=&#34;https://github.com/Aveek-Saha/MusicPlayer&#34;&gt;&lt;code&gt;Music Player&lt;/code&gt;&lt;/a&gt; &lt;br&gt;
 If you want to see a live demo, Download it here - &lt;a href=&#34;https://github.com/Aveek-Saha/MusicPlayer/releases&#34;&gt;&lt;code&gt;Downloads&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
 
