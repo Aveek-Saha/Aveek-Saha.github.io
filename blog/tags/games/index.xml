@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Games on Aveek Saha</title>
-    <link>https://home.aveek.io/blog/tags/games/</link>
+    <link>https://aveeksaha.gitlab.io/tags/games/</link>
     <description>Recent content in Games on Aveek Saha</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>aveek.s98@gmail.com (Aveek Saha)</managingEditor>
     <webMaster>aveek.s98@gmail.com (Aveek Saha)</webMaster>
     <lastBuildDate>Sat, 20 Oct 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://home.aveek.io/blog/tags/games/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://aveeksaha.gitlab.io/tags/games/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Making an online chess website with Socket.io</title>
-      <link>https://home.aveek.io/blog/post/making-an-online-chess-website-with-socketio/</link>
+      <link>https://aveeksaha.gitlab.io/post/making-an-online-chess-website-with-socketio/</link>
       <pubDate>Sat, 20 Oct 2018 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/post/making-an-online-chess-website-with-socketio/</guid>
+      <guid>https://aveeksaha.gitlab.io/post/making-an-online-chess-website-with-socketio/</guid>
       <description>&lt;p&gt;If you want the code for this project, fork this GitHub repo - &lt;a href=&#34;https://github.com/Aveek-Saha/Online-Chess&#34;&gt;&lt;code&gt;Online chess&lt;/code&gt;&lt;/a&gt; &lt;br&gt;
 Check out the code in action here, play it yourself - &lt;a href=&#34;https://chess0.herokuapp.com&#34;&gt;&lt;code&gt;Live demo&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
 
@@ -26,10 +26,10 @@ Check out the code in action here, play it yourself - &lt;a href=&#34;https://ch
     
     <item>
       <title>Making the Chrome dinosaur game with Phaser</title>
-      <link>https://home.aveek.io/blog/post/chrome-dinosaur-game-tutorial-with-phaser/</link>
+      <link>https://aveeksaha.gitlab.io/post/chrome-dinosaur-game-tutorial-with-phaser/</link>
       <pubDate>Thu, 11 Oct 2018 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/post/chrome-dinosaur-game-tutorial-with-phaser/</guid>
+      <guid>https://aveeksaha.gitlab.io/post/chrome-dinosaur-game-tutorial-with-phaser/</guid>
       <description>&lt;p&gt;If you want the code for this project, fork this GitHub repo - &lt;a href=&#34;https://github.com/Aveek-Saha/Chrome-dinosaur-game-clone&#34;&gt;&lt;code&gt;Dinosaur game code&lt;/code&gt;&lt;/a&gt; &lt;br&gt;
 Check out the code in action here, play it yourself - &lt;a href=&#34;https://aveeksaha.gitlab.io/runny/&#34;&gt;&lt;code&gt;Live demo&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
 

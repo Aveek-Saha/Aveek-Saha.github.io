@@ -2,22 +2,36 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Website on Aveek Saha</title>
-    <link>https://home.aveek.io/blog/tags/website/</link>
+    <link>https://aveeksaha.gitlab.io/tags/website/</link>
     <description>Recent content in Website on Aveek Saha</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>aveek.s98@gmail.com (Aveek Saha)</managingEditor>
     <webMaster>aveek.s98@gmail.com (Aveek Saha)</webMaster>
-    <lastBuildDate>Sat, 10 Nov 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 24 Dec 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://home.aveek.io/blog/tags/website/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://aveeksaha.gitlab.io/tags/website/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Build a documentation website with VuePress</title>
+      <link>https://aveeksaha.gitlab.io/post/build-a-documentation-site-with-vuepress/</link>
+      <pubDate>Mon, 24 Dec 2018 00:00:00 +0000</pubDate>
+      <author>aveek.s98@gmail.com (Aveek Saha)</author>
+      <guid>https://aveeksaha.gitlab.io/post/build-a-documentation-site-with-vuepress/</guid>
+      <description>&lt;p&gt;Live example - &lt;a href=&#34;https://vuepress-tut.netlify.com/&#34;&gt;&lt;code&gt;Demo&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Code for this project - &lt;a href=&#34;https://gitlab.com/aveeksaha/vuepress-tut&#34;&gt;&lt;code&gt;Code&lt;/code&gt;&lt;/a&gt;
+&lt;br&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Getting started with Vuejs and the GitHub API</title>
-      <link>https://home.aveek.io/blog/post/getting-started-with-vuejs-and-the-github-api/</link>
+      <link>https://aveeksaha.gitlab.io/post/getting-started-with-vuejs-and-the-github-api/</link>
       <pubDate>Sat, 10 Nov 2018 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/post/getting-started-with-vuejs-and-the-github-api/</guid>
+      <guid>https://aveeksaha.gitlab.io/post/getting-started-with-vuejs-and-the-github-api/</guid>
       <description>&lt;p&gt;If you want the code for this project, fork this GitHub repo - &lt;a href=&#34;https://github.com/Aveek-Saha/GithubStats&#34;&gt;&lt;code&gt;GitHub Stats&lt;/code&gt;&lt;/a&gt; &lt;br&gt;
 If you want to see a live demo, try it out here - &lt;a href=&#34;https://githubstats0.firebaseapp.com/&#34;&gt;&lt;code&gt;Live Demo&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
 
@@ -26,10 +40,10 @@ If you want to see a live demo, try it out here - &lt;a href=&#34;https://github
     
     <item>
       <title>MEAN Todo app</title>
-      <link>https://home.aveek.io/blog/post/mean-todo-app/</link>
+      <link>https://aveeksaha.gitlab.io/post/mean-todo-app/</link>
       <pubDate>Thu, 09 Aug 2018 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/post/mean-todo-app/</guid>
+      <guid>https://aveeksaha.gitlab.io/post/mean-todo-app/</guid>
       <description>&lt;p&gt;If you want the code for this project, fork this GitHub repo - &lt;a href=&#34;https://github.com/Aveek-Saha/MEAN-todo-app&#34;&gt;&lt;code&gt;MEAN Todo app&lt;/code&gt;&lt;/a&gt; &lt;br&gt;
 If you want to see a live demoCheck it out here - &lt;a href=&#34;https://todo0.herokuapp.com/&#34;&gt;&lt;code&gt;Live demo&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
 
@@ -38,10 +52,10 @@ If you want to see a live demoCheck it out here - &lt;a href=&#34;https://todo0.
     
     <item>
       <title>E-commerce Website Template</title>
-      <link>https://home.aveek.io/blog/post/ecommerce-website-template/</link>
+      <link>https://aveeksaha.gitlab.io/post/ecommerce-website-template/</link>
       <pubDate>Sun, 22 Jul 2018 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/post/ecommerce-website-template/</guid>
+      <guid>https://aveeksaha.gitlab.io/post/ecommerce-website-template/</guid>
       <description>&lt;p&gt;If you want the code for this project, fork this GitHub repo - &lt;a href=&#34;https://github.com/Aveek-Saha/ecommerce-website-template&#34;&gt;&lt;code&gt;E-commerce template&lt;/code&gt;&lt;/a&gt; &lt;br&gt;
 If you want to see a live demo, check this out - &lt;a href=&#34;http://eshop.byethost22.com/&#34;&gt;&lt;code&gt;Demo&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
 

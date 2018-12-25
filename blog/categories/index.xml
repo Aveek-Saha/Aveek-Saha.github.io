@@ -2,13 +2,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Aveek Saha</title>
-    <link>https://home.aveek.io/blog/categories/</link>
+    <link>https://aveeksaha.gitlab.io/categories/</link>
     <description>Recent content in Categories on Aveek Saha</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>aveek.s98@gmail.com (Aveek Saha)</managingEditor>
     <webMaster>aveek.s98@gmail.com (Aveek Saha)</webMaster>
     
-	<atom:link href="https://home.aveek.io/blog/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://aveeksaha.gitlab.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>
