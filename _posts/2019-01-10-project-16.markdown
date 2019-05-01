@@ -1,0 +1,12 @@
+---
+layout: default
+modal-id: 16
+date: 2019-01-10
+img: cricket.png
+title: Cricket Score Predictor
+alt: image-alt
+project-date: January 2019
+category: Big Data
+description: A Big data application to predict the outcome of a T20 cricket match. Uses Apache Spark to predict the outcome of an IPL(Indian Premier League) Match ball by ball. <br> Check it out on GitHub<a href="https://github.com/Aveek-Saha/Cricket-score-predictor"> Cricket Score Predictor!</a> <br><div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/"title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+
+---
