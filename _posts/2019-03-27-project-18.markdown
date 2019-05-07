@@ -3,7 +3,7 @@ layout: default
 modal-id: 18
 date: 2019-03-27
 img: stock.png
-title: Sentiment based stock price forecasting
+title: Stock price forecasting
 alt: image-alt
 project-date: March 2019
 category: Natural Language Processing
