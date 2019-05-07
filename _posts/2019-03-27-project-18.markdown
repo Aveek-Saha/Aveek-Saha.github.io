@@ -1,0 +1,12 @@
+---
+layout: default
+modal-id: 18
+date: 2019-03-27
+img: stock.png
+title: Sentiment based stock price forecasting
+alt: image-alt
+project-date: March 2019
+category: Natural Language Processing
+description: Collected news articles and Tweets along with Apple stock prices, trained various models to classify tweets and news articles as positive or negative. Each day in the Stock prices dataset was given a sentiment score based on the overall sentiment of the articles or tweets written on that day. <br> Using this stock price + sentiment score data a LSTM neural network was trained and it was observed that the stock prices with sentiment was better at predicting future stock prices than just the historical stock price data. <br> Check it out on GitHub<a href="https://github.com/Aveek-Saha/Sentiment-based-stock-price-forecasting"> Stock price forecasting!</a> <br><div>Icons made by <a href="https://www.flaticon.com/authors/flat-icons" title="Flat Icons">Flat Icons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+
+---
