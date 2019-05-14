@@ -31,6 +31,15 @@
     </item>
     
     <item>
+      <title>Beautifulsoup</title>
+      <link>https://home.aveek.io/blog/tags/beautifulsoup/</link>
+      <pubDate>Mon, 13 May 2019 00:00:00 +0000</pubDate>
+      <author>aveek.s98@gmail.com (Aveek Saha)</author>
+      <guid>https://home.aveek.io/blog/tags/beautifulsoup/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>C Programing</title>
       <link>https://home.aveek.io/blog/tags/c-programing/</link>
       <pubDate>Sun, 04 Mar 2018 00:00:00 +0000</pubDate>
@@ -45,6 +54,15 @@
       <pubDate>Sat, 20 Oct 2018 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
       <guid>https://home.aveek.io/blog/tags/chess/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Data Science</title>
+      <link>https://home.aveek.io/blog/tags/data-science/</link>
+      <pubDate>Mon, 13 May 2019 00:00:00 +0000</pubDate>
+      <author>aveek.s98@gmail.com (Aveek Saha)</author>
+      <guid>https://home.aveek.io/blog/tags/data-science/</guid>
       <description></description>
     </item>
     
@@ -211,6 +229,15 @@
     </item>
     
     <item>
+      <title>Python</title>
+      <link>https://home.aveek.io/blog/tags/python/</link>
+      <pubDate>Mon, 13 May 2019 00:00:00 +0000</pubDate>
+      <author>aveek.s98@gmail.com (Aveek Saha)</author>
+      <guid>https://home.aveek.io/blog/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Socket</title>
       <link>https://home.aveek.io/blog/tags/socket/</link>
       <pubDate>Sat, 20 Oct 2018 00:00:00 +0000</pubDate>
@@ -234,6 +261,15 @@
       <pubDate>Sat, 10 Nov 2018 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
       <guid>https://home.aveek.io/blog/tags/tutorial/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Urllib</title>
+      <link>https://home.aveek.io/blog/tags/urllib/</link>
+      <pubDate>Mon, 13 May 2019 00:00:00 +0000</pubDate>
+      <author>aveek.s98@gmail.com (Aveek Saha)</author>
+      <guid>https://home.aveek.io/blog/tags/urllib/</guid>
       <description></description>
     </item>
     
@@ -270,6 +306,15 @@
       <pubDate>Mon, 24 Dec 2018 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
       <guid>https://home.aveek.io/blog/tags/web-development/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Web Scraping</title>
+      <link>https://home.aveek.io/blog/tags/web-scraping/</link>
+      <pubDate>Mon, 13 May 2019 00:00:00 +0000</pubDate>
+      <author>aveek.s98@gmail.com (Aveek Saha)</author>
+      <guid>https://home.aveek.io/blog/tags/web-scraping/</guid>
       <description></description>
     </item>
     

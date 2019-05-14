@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Web Scraping with Python</title>
+  <meta property="og:title" content="Web Scraping with Python" />
+  <meta name="twitter:title" content="Web Scraping with Python" />
+  <meta name="description" content="A guide on how to scrape a webpage using Urllib and BeautifulSoup">
+  <meta property="og:description" content="A guide on how to scrape a webpage using Urllib and BeautifulSoup">
+  <meta name="twitter:description" content="A guide on how to scrape a webpage using Urllib and BeautifulSoup">
+  <meta name="author" content="Aveek Saha"/>
+  <link href='https://home.aveek.io/blog/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta property="og:image" content="https://home.aveek.io/blog/img/avatar-icon.png" />
+  <meta name="twitter:image" content="https://home.aveek.io/blog/img/avatar-icon.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://home.aveek.io/post/web-scraping-with-python/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Aveek Saha" />
+
+  <meta name="generator" content="Hugo 0.52" />
+  <link rel="canonical" href="https://home.aveek.io/post/web-scraping-with-python/" />
+  <link rel="alternate" href="https://home.aveek.io/blog/index.xml" type="application/rss+xml" title="Aveek Saha">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://home.aveek.io/blog/css/main.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://home.aveek.io/blog/css/pygment_highlights.css" />
+  <link rel="stylesheet" href="https://home.aveek.io/blog/css/highlight.min.css" />
+  
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-9236237212396372",
+              enable_page_level_ads: true
+         });
+    </script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-120301630-5', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar navbar-custom navbar-dark bg-dark">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://home.aveek.io/blog/">Aveek Saha</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="https://home.aveek.io/blog/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Portfolio" href="https://aveek-saha.github.io/">Portfolio</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="https://home.aveek.io/blog/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="https://home.aveek.io/blog/tags">Tags</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              <h1>Web Scraping with Python</h1>
+                
+                  
+                    <h2 class="post-subheading">A guide on how to scrape a webpage using Urllib and BeautifulSoup</h2>
+                  
+                
+                
+                  <span class="post-meta">
+  Posted on May 13, 2019
+  
+</span>
+
+
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>Code for this tutorial can be found on <a href="https://gist.github.com/Aveek-Saha/860464a7b52c5bab781f870dcb73ed57"><code>Github</code></a></p>
+
+<h1 id="introduction">Introduction</h1>
+
+<p>Web scraping is a useful tool for extracting data from websites, especially those that don&rsquo;t provide an API. In this post, I&rsquo;ll show you how you can use web scraping to generate a dataset from a webpage.</p>
+
+<p>For this example we will be using a website called <a href="https://trendogate.com/place/23424977">trendogate</a> which is a website that displays trending twitter hashtags on a given day based on region. Our goal will be to retrieve hashtags that are currently trending in the US.</p>
+
+<p>To do this we will primarily be using two libraries:</p>
+
+<h2 id="1-urllib">1. Urllib</h2>
+
+<blockquote>
+<p>Urllib is a Python module that can be used for opening URLs. It defines functions and classes to help in URL actions. With Python you can also access and retrieve data from the internet like XML, HTML, JSON, etc.</p>
+</blockquote>
+
+<p>Urllib is going to help us retrieve the web page we want to scrape.</p>
+
+<p>To install Urllib-</p>
+
+<pre><code class="language-bash">pip install urllib
+</code></pre>
+
+<h2 id="2-beautiful-soup">2. Beautiful Soup</h2>
+
+<blockquote>
+<p>Beautiful Soup is a Python package for parsing HTML and XML documents. It creates a parse tree for parsed pages that can be used to extract data from HTML, which is useful for web scraping</p>
+</blockquote>
+
+<p>Once we have the page we need from Urllib, we&rsquo;re going to use Beautiful Soup to create a parse tree and extract the information we need from the page.</p>
+
+<p>To install Beautiful Soup</p>
+
+<pre><code class="language-bash">pip install BeautifulSoup4
+</code></pre>
+
+<p><br></p>
+
+<h1 id="analysing-the-web-page">Analysing the web page</h1>
+
+<p>To scrape a webpage you need to be familiar with the structure of the HTML tags in that page. So right click on the page you want to scrape and select Inspect.</p>
+
+<p>The <a href="https://trendogate.com/place/23424977">trendogate</a> webpage looks like this:</p>
+
+<p><img src="https://home.aveek.io/blog/scraping/scraping_site.png" alt="Trendogate" /></p>
+
+<p>We are interested in the trending today section. If we inspect it we can see the HTML structure.</p>
+
+<p><img src="https://home.aveek.io/blog/scraping/scrape_html_tag.png" alt="HTML tags" /></p>
+
+<p>Today&rsquo;s trending hashtags are in an unordered list of class <code>list-group</code> that looks something like this:
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;list-group&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;list-group-item&#34;</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;/trend/79334795&#34;</span><span class="p">&gt;</span> #TriviaTuesday<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;list-group-item&#34;</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;/trend/79334794&#34;</span><span class="p">&gt;</span> #IA02<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;list-group-item&#34;</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;/trend/79334793&#34;</span><span class="p">&gt;</span> #livelocaldigital<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;list-group-item&#34;</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;/trend/79334792&#34;</span><span class="p">&gt;</span> #MLW19<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;list-group-item&#34;</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;/trend/79334791&#34;</span><span class="p">&gt;</span> #TuesdayTip<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;list-group-item&#34;</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;/trend/79334790&#34;</span><span class="p">&gt;</span> #VoteCox<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;list-group-item&#34;</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;/trend/79334789&#34;</span><span class="p">&gt;</span> #OnePlus7Series<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;list-group-item&#34;</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;/trend/79334788&#34;</span><span class="p">&gt;</span> #CelebrateWomen<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;list-group-item&#34;</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;/trend/79334787&#34;</span><span class="p">&gt;</span> #FelizMartes<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;list-group-item&#34;</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;/trend/79334786&#34;</span><span class="p">&gt;</span> #PESummit<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span></code></pre></div></p>
+
+<p><br></p>
+
+<h1 id="scraping">Scraping</h1>
+
+<p>First we import the libraries we&rsquo;ll need</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">import</span> <span class="nn">urllib</span></code></pre></div>
+
+<p>Then we&rsquo;ll use <code>urllib</code> to get the webpage. Read more about <a href="https://docs.python.org/3/library/urllib.html">urllib</a></p>
+
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">URL</span> <span class="o">=</span> <span class="s2">&#34;https://trendogate.com/place/23424977&#34;</span>
+<span class="c1"># Open the URL</span>
+<span class="n">page</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">URL</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">page</span><span class="p">)</span>
+<span class="c1"># Store the HTML page in a variable</span>
+<span class="n">resulttext</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">read</span><span class="p">()</span></code></pre></div>
+
+<p>Now we&rsquo;ll create a <code>BeautifulSoup</code> object from the HTML page we just retrieved. Read more about <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/">BeautifulSoup</a></p>
+
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Creates a nested data structure</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">resulttext</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+
+<span class="c1"># Since we are interested only in an element with class &#34;list-group&#34;</span>
+<span class="c1"># We will search for all elements with that class in the soup</span>
+
+<span class="n">soup</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="n">class_</span><span class="o">=</span> <span class="s2">&#34;list-group&#34;</span><span class="p">)</span>
+
+<span class="c1"># Soup now contains an array of all elements with the class &#34;list-group&#34;</span>
+<span class="c1"># Since the Trending today list is the first on the page, it&#39;s index is 0</span>
+
+<span class="n">trending_list</span> <span class="o">=</span> <span class="n">soup</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="c1"># Now we will iterate through the elements of the &lt;ul&gt; </span>
+<span class="c1"># &lt;ul&gt; has &lt;li&gt; tags nested inside</span>
+
+<span class="n">trending_tags</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">li</span> <span class="ow">in</span> <span class="n">trending_list</span><span class="o">.</span><span class="n">contents</span><span class="p">:</span>
+    <span class="c1"># There is an &lt;a&gt; tag nested in each &lt;li&gt;</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">li</span><span class="o">.</span><span class="n">contents</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="c1"># The contents of &#39;a&#39; is just the text inside the tag</span>
+    <span class="n">tag</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">contents</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="n">trending_tags</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tag</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">trending_tags</span><span class="p">)</span></code></pre></div>
+
+<p>Now we have scraped all of today&rsquo;s trending hashtags from the website</p>
+
+<!-- <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"></code></pre></div> -->
+
+<p><br></p>
+      </article>
+
+      <ul class="pager blog-pager">
+        
+          <li class="previous">
+            <a href="https://home.aveek.io/blog/post/build-a-documentation-site-with-vuepress/" data-toggle="tooltip" data-placement="top" title="Build a documentation website with VuePress">&larr; Previous Post</a>
+          </li>
+        
+        
+      </ul>
+
+      
+        
+          <div class="disqus-comments">
+            <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "aveekblog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          </div>
+        
+      
+
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:aveek.s98@gmail.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/profile.php?id=100001098414449" title="Facebook">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://gitlab.com/AveekSaha" title="GitLab">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-gitlab fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/Aveek-saha" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/aveek-saha" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/aveek68" title="Instagram">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://itch.io/profile/aveek-saha" title="Itch.io">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-gamepad fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="https://home.aveek.io/blog/index.xml" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          Aveek Saha
+          &nbsp;&bull;&nbsp;
+          2019
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://home.aveek.io/blog/">Aveek Saha</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.52</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://home.aveek.io/blog/js/main.js"></script>
+<script src="https://home.aveek.io/blog/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+  </body>
+</html>
+

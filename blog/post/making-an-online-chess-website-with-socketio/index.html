@@ -20,7 +20,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Aveek Saha" />
 
-  <meta name="generator" content="Hugo 0.40.1" />
+  <meta name="generator" content="Hugo 0.52" />
   <link rel="canonical" href="https://home.aveek.io/post/making-an-online-chess-website-with-socketio/" />
   <link rel="alternate" href="https://home.aveek.io/blog/index.xml" type="application/rss+xml" title="Aveek Saha">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
@@ -40,12 +40,16 @@
          });
     </script>
 
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-120301630-1', 'auto');
-ga('send', 'pageview');
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-120301630-5', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 </head>
 
@@ -180,8 +184,6 @@ ga('send', 'pageview');
       <article role="main" class="blog-post">
         <p>If you want the code for this project, fork this GitHub repo - <a href="https://github.com/Aveek-Saha/Online-Chess"><code>Online chess</code></a> <br>
 Check out the code in action here, play it yourself - <a href="https://chess0.herokuapp.com"><code>Live demo</code></a></p>
-
-<p></p>
 
 <h1 id="introduction">Introduction</h1>
 
@@ -326,7 +328,7 @@ Check out the code in action here, play it yourself - <a href="https://chess0.he
 
 <p>Next up is <code>index.js</code>.</p>
 
-<p><div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="cp">&lt;!doctype html&gt;</span>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="cp">&lt;!doctype html&gt;</span>
 <span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&#34;en&#34;</span><span class="p">&gt;</span>
 
 <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
@@ -358,7 +360,7 @@ Check out the code in action here, play it yourself - <a href="https://chess0.he
 
 <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
 
-<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span></code></pre></div></p>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span></code></pre></div>
 
 <p>If you just double click on the <code>index.html</code> file you should be able to see a simple chessboard and the pieces. You can move the pieces around, and hovering on a piece will show you the possible moves you can make. This is because of the integration with <code>Chess.js</code> that does the move generation and valid move checking for us.</p>
 
@@ -797,7 +799,7 @@ Add these extra checks to the function.
         
           <div class="disqus-comments">
             <div id="disqus_thread"></div>
-<script>
+<script type="application/javascript">
     var disqus_config = function () {
     
     
@@ -900,7 +902,7 @@ Add these extra checks to the function.
         <p class="credits copyright text-muted">
           Aveek Saha
           &nbsp;&bull;&nbsp;
-          2018
+          2019
 
           
             &nbsp;&bull;&nbsp;
@@ -909,7 +911,7 @@ Add these extra checks to the function.
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="http://gohugo.io">Hugo v0.40.1</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          <a href="http://gohugo.io">Hugo v0.52</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
           
         </p>
       </div>
