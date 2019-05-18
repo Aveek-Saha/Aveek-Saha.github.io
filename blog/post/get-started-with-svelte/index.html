@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Get started with Svelte</title>
+  <meta property="og:title" content="Get started with Svelte" />
+  <meta name="twitter:title" content="Get started with Svelte" />
+  <meta name="description" content="A beginner&#39;s tutorial on building and deploying a Svelte application">
+  <meta property="og:description" content="A beginner&#39;s tutorial on building and deploying a Svelte application">
+  <meta name="twitter:description" content="A beginner&#39;s tutorial on building and deploying a Svelte application">
+  <meta name="author" content="Aveek Saha"/>
+  <link href='https://aveeksaha.gitlab.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta property="og:image" content="https://aveeksaha.gitlab.io/img/avatar-icon.png" />
+  <meta name="twitter:image" content="https://aveeksaha.gitlab.io/img/avatar-icon.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://aveeksaha.gitlab.io/post/get-started-with-svelte/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Aveek Saha" />
+
+  <meta name="generator" content="Hugo 0.52" />
+  <link rel="canonical" href="https://aveeksaha.gitlab.io/post/get-started-with-svelte/" />
+  <link rel="alternate" href="https://aveeksaha.gitlab.io/index.xml" type="application/rss+xml" title="Aveek Saha">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://aveeksaha.gitlab.io/css/main.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://aveeksaha.gitlab.io/css/pygment_highlights.css" />
+  <link rel="stylesheet" href="https://aveeksaha.gitlab.io/css/highlight.min.css" />
+  
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-9236237212396372",
+              enable_page_level_ads: true
+         });
+    </script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-120301630-5', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar navbar-custom navbar-dark bg-dark">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://aveeksaha.gitlab.io/">Aveek Saha</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="https://aveeksaha.gitlab.io/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Portfolio" href="https://aveek-saha.github.io/">Portfolio</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="https://aveeksaha.gitlab.io/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="https://aveeksaha.gitlab.io/tags">Tags</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              <h1>Get started with Svelte</h1>
+                
+                  
+                    <h2 class="post-subheading">A beginner&#39;s tutorial on building and deploying a Svelte application</h2>
+                  
+                
+                
+                  <span class="post-meta">
+  Posted on May 17, 2019
+  
+</span>
+
+
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>Live demo - <a href="https://svelte-tut.netlify.com/"><code>Demo</code></a></p>
+
+<p>Code for this tutorial can be found on <a href="https://gitlab.com/aveeksaha/svelte-tut"><code>Gitlab</code></a></p>
+
+<h1 id="what-is-svelte">What is Svelte?</h1>
+
+<blockquote>
+<p>Svelte is a new way to build web applications. It&rsquo;s a compiler that takes your declarative components and converts them into efficient JavaScript that surgically updates the DOM.</p>
+</blockquote>
+
+<p>Svelte is different from traditional component frameworks like Vue or React because it is essentially a compiler that converts your code into vanilla JavaScript at build time. This allows you to create reactive components without the performance overhead of the Virtual DOM.</p>
+
+<p>You can read more about them on their website <a href="https://svelte.dev/"><code>Svelte</code></a></p>
+
+<h1 id="setup">Setup</h1>
+
+<p>Like all great tutorials, today I&rsquo;ll be showing you how to make a ToDo application using Svelte.</p>
+
+<p>For this tutorial we&rsquo;ll be building on the Svelte boilerplate and we&rsquo;ll need <code>degit</code> for that so start by installing <code>degit</code> using</p>
+
+<pre><code class="language-bash">npm install -g degit
+</code></pre>
+
+<p>Then we install the boilerplate and install all the dependencies.</p>
+
+<pre><code class="language-bash">npx degit sveltejs/template svelte_tut
+cd svelte_tut
+npm install
+</code></pre>
+
+<p>To run the dev server run</p>
+
+<pre><code class="language-bash">npm run dev
+</code></pre>
+
+<p>Then open <a href="http://localhost:5000">http://localhost:5000</a>, you should see something like this</p>
+
+<p><img src="https://aveeksaha.gitlab.io/svelte/svelte_1.png" alt="Screenshot1" /></p>
+
+<h1 id="making-the-app">Making the app</h1>
+
+<p>Open <code>src/App.svelte</code> and replace the code that was there with</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+   <span class="c1">// Variable to store user input
+</span><span class="c1"></span>   <span class="kd">let</span> <span class="nx">task</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span><span class="p">;</span>
+   <span class="c1">// Array to store tasks
+</span><span class="c1"></span>    <span class="kd">let</span> <span class="nx">todos</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;eat&#34;</span><span class="p">,</span> <span class="s2">&#34;sleep&#34;</span><span class="p">,</span> <span class="s2">&#34;code&#34;</span><span class="p">]</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span></code></pre></div>
+
+<p>We can use Svelte to bind the variable <code>task</code> to an input element, and add a function to push a new element into the array whenever we press a button.</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+   <span class="c1">// Variable to store user input
+</span><span class="c1"></span>   <span class="kd">let</span> <span class="nx">task</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span><span class="p">;</span>
+   <span class="c1">// Array to store tasks
+</span><span class="c1"></span>   <span class="kd">let</span> <span class="nx">todos</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;eat&#34;</span><span class="p">,</span> <span class="s2">&#34;sleep&#34;</span><span class="p">,</span> <span class="s2">&#34;code&#34;</span><span class="p">]</span>
+  
+   <span class="kd">function</span> <span class="nx">addTask</span><span class="p">()</span> <span class="p">{</span>
+       <span class="c1">// Dont add something if the input value is empty
+</span><span class="c1"></span>        <span class="k">if</span><span class="p">(</span><span class="nx">task</span><span class="o">!=</span><span class="s2">&#34;&#34;</span><span class="p">){</span>
+           <span class="c1">// Push a new task to the array
+</span><span class="c1"></span>           <span class="nx">todos</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">task</span><span class="p">)</span>
+            <span class="nx">task</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+
+<span class="c">&lt;!-- The value of task will now change when you type in the input
+</span><span class="c">because the task variable is now bound to the input value --&gt;</span>
+<span class="p">&lt;</span><span class="nt">input</span> <span class="na">bind:value</span><span class="o">=</span><span class="s">{task}</span><span class="p">&gt;</span>
+
+<span class="c">&lt;!-- when the onclick event is triggered it calls addTask --&gt;</span>
+<span class="p">&lt;</span><span class="nt">button</span> <span class="na">on:click</span><span class="o">=</span><span class="s">{addTask}</span><span class="p">&gt;</span>Add Task<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span></code></pre></div>
+
+<p>Now using a loop, we&rsquo;ll display all the elements in <code>tasks</code> array as a list and we&rsquo;ll add a method to remove elements from the array by selecting the checkbox next to it.</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+   <span class="kd">let</span> <span class="nx">task</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span><span class="p">;</span>
+   <span class="kd">let</span> <span class="nx">todos</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;eat&#34;</span><span class="p">,</span> <span class="s2">&#34;sleep&#34;</span><span class="p">,</span> <span class="s2">&#34;code&#34;</span><span class="p">]</span>
+  
+   <span class="kd">function</span> <span class="nx">addTask</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">task</span><span class="o">!=</span><span class="s2">&#34;&#34;</span><span class="p">){</span>
+           <span class="nx">todos</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">task</span><span class="p">)</span>
+           <span class="c1">// The DOM is only updated when an assignment is made so this
+</span><span class="c1"></span>           <span class="c1">// code below is needed even though it may seem redundant
+</span><span class="c1"></span>           <span class="c1">// Otherwise the list of todos won&#39;t update when we add a task
+</span><span class="c1"></span>            <span class="nx">todos</span> <span class="o">=</span> <span class="nx">todos</span><span class="p">;</span>
+            <span class="nx">task</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span>
+        <span class="p">}</span>
+   <span class="p">}</span>
+  
+   <span class="kd">function</span> <span class="nx">removeTask</span><span class="p">(</span><span class="nx">index</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">todos</span> <span class="o">=</span> <span class="nx">todos</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">index</span><span class="p">).</span><span class="nx">concat</span><span class="p">(</span><span class="nx">todos</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="nx">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">));</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">index</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+   <span class="c">/* remove bullets from list */</span>
+   <span class="nt">ul</span> <span class="p">{</span>
+       <span class="k">list-style</span><span class="p">:</span> <span class="kc">none</span><span class="p">;</span>
+   <span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">input</span> <span class="na">bind:value</span><span class="o">=</span><span class="s">{task}</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">button</span> <span class="na">on:click</span><span class="o">=</span><span class="s">{addTask}</span><span class="p">&gt;</span>Add Task<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+<span class="c">&lt;!-- For each element in the array, create a new list element --&gt;</span>
+    {#each todos as todo, index (todo)}
+        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>
+       <span class="c">&lt;!-- When the checkbox is ticked the item is removed from the todos array --&gt;</span>
+            <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">checkbox</span> <span class="na">on:click</span><span class="o">=</span><span class="s">{()</span> <span class="err">=</span><span class="p">&gt;</span> removeTask(index)}&gt;
+            {todo}
+        <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+    {/each}
+<span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span></code></pre></div>
+
+<p>Now our todo list is nearly done, we can add some global CSS to the <code>public/global.css</code> file.</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="nt">html</span><span class="o">,</span> <span class="nt">body</span> <span class="p">{</span>
+    <span class="k">padding</span><span class="p">:</span> <span class="mi">5</span><span class="kt">%</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">html</span> <span class="p">{</span>
+   <span class="k">display</span><span class="p">:</span> <span class="kc">table</span><span class="p">;</span>
+   <span class="k">margin</span><span class="p">:</span> <span class="kc">auto</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">body</span> <span class="p">{</span>
+   <span class="k">display</span><span class="p">:</span> <span class="kc">table</span><span class="o">-</span><span class="kc">cell</span><span class="p">;</span>
+   <span class="k">vertical-align</span><span class="p">:</span> <span class="kc">middle</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div>
+
+<p>And your final result should look something like this
+<img src="https://aveeksaha.gitlab.io/svelte/svelte_2.png" alt="Screenshot1" /></p>
+
+<p>To compile the application we just need to run</p>
+
+<pre><code class="language-bash">npm run build
+</code></pre>
+
+<h1 id="deploying-to-netlify">Deploying to Netlify</h1>
+
+<p>First we&rsquo;re going to add a <code>.gitignore</code> with a single line-</p>
+
+<pre><code>node_modules
+</code></pre>
+
+<p>Create a new project on GitHub or GitLab (Bitbucket is also available) then <code>cd</code> to your project folder and run the following</p>
+
+<pre><code class="language-bash">$ git init
+$ git remote add origin &lt;git URL of your project&gt;
+$ git add .
+$ git commit -m &quot;Initial commit&quot;
+$ git push origin master
+</code></pre>
+
+<p>Open <a href="https://www.netlify.com/">Netlify</a> in your browser and sign up for an account if you don&rsquo;t already have one. Go to your <a href="https://app.netlify.com/account/sites">sites</a> and click <code>New site from Git</code> then follow the steps-</p>
+
+<ol>
+<li>select your git provider.</li>
+<li>Choose the repository that you just created and committed to.</li>
+
+<li><p>Under build options go to basic build settings and fill in the following 2 fields:</p>
+
+<ul>
+<li><p>Build command</p>
+
+<pre><code>npm run build
+</code></pre></li>
+
+<li><p>Publish directory</p>
+
+<pre><code>public/
+</code></pre></li>
+</ul></li>
+</ol>
+
+<p>Then click deploy. When the deploy is finished visit the site url given in the overview, it should look something like this <a href="https://svelte-tut.netlify.com/">Demo</a></p>
+
+<!-- <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript">
+</code></pre></div> -->
+
+<p><br></p>
+      </article>
+
+      <ul class="pager blog-pager">
+        
+          <li class="previous">
+            <a href="https://aveeksaha.gitlab.io/post/web-scraping-with-python/" data-toggle="tooltip" data-placement="top" title="Web Scraping with Python">&larr; Previous Post</a>
+          </li>
+        
+        
+      </ul>
+
+      
+        
+          <div class="disqus-comments">
+            <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "aveekblog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          </div>
+        
+      
+
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:aveek.s98@gmail.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/profile.php?id=100001098414449" title="Facebook">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://gitlab.com/AveekSaha" title="GitLab">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-gitlab fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/Aveek-saha" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/aveek-saha" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/aveek68" title="Instagram">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://itch.io/profile/aveek-saha" title="Itch.io">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-gamepad fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="https://aveeksaha.gitlab.io/index.xml" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          Aveek Saha
+          &nbsp;&bull;&nbsp;
+          2019
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://aveeksaha.gitlab.io/">Aveek Saha</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.52</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://aveeksaha.gitlab.io/js/main.js"></script>
+<script src="https://aveeksaha.gitlab.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+  </body>
+</html>
+
