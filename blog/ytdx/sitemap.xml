@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://aveeksaha.gitlab.io/</loc>
+  <lastmod>2018-11-11T06:05:29+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://aveeksaha.gitlab.io/page/about/</loc>
+  <lastmod>2018-11-11T06:05:29+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://aveeksaha.gitlab.io/post/getting-started-with-vuejs-and-the-github-api/</loc>
+  <lastmod>2018-11-11T06:05:29+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://aveeksaha.gitlab.io/post/making-an-online-chess-website-with-socketio/</loc>
+  <lastmod>2018-11-11T06:05:29+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://aveeksaha.gitlab.io/post/chrome-dinosaur-game-tutorial-with-phaser/</loc>
+  <lastmod>2018-11-11T06:05:29+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://aveeksaha.gitlab.io/runny/</loc>
+  <lastmod>2018-11-11T06:05:25+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://aveeksaha.gitlab.io/post/music-player/</loc>
+  <lastmod>2018-11-11T06:05:29+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://aveeksaha.gitlab.io/post/mean-todo-app/</loc>
+  <lastmod>2018-11-11T06:05:29+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://aveeksaha.gitlab.io/post/bitcoin-price-tracker/</loc>
+  <lastmod>2018-11-11T06:05:29+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://aveeksaha.gitlab.io/post/ecommerce-website-template/</loc>
+  <lastmod>2018-11-11T06:05:29+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://aveeksaha.gitlab.io/post/word-suggestion-app/</loc>
+  <lastmod>2018-11-11T06:05:29+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+
+
+</urlset>

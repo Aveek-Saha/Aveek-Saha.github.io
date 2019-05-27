@@ -304,6 +304,53 @@ npm install
 <pre><code class="language-bash">npm run build
 </code></pre>
 
+<h1 id="persistent-storage">Persistent storage</h1>
+
+<p>If you want the data to be saved when we refresh the page we can use <code>IndexedDB</code> to store the list of tasks. The IndexedDB API is not that intuitive, so we&rsquo;ll use a wrapper called <code>idb-keyval</code>.</p>
+
+<p>Install it with</p>
+
+<pre><code class="language-bash">npm install idb-keyval
+</code></pre>
+
+<p>Import it in <code>App.svelte</code>, remove the default values in the todo array and then load the array if it is already stored.
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// import idb-keyval
+</span><span class="c1"></span><span class="k">import</span> <span class="p">{</span> <span class="nx">get</span><span class="p">,</span> <span class="nx">set</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;idb-keyval&#39;</span><span class="p">;</span>
+
+<span class="kd">let</span> <span class="nx">task</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span><span class="p">;</span>
+<span class="c1">// Empty the default values in the array
+</span><span class="c1"></span><span class="kd">let</span> <span class="nx">todos</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="nx">get</span><span class="p">(</span><span class="s1">&#39;todos&#39;</span><span class="p">)</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">arr</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// If the array is stored from a previous session, assign it to todos
+</span><span class="c1"></span>    <span class="k">if</span><span class="p">(</span><span class="nx">arr</span> <span class="o">!==</span> <span class="kc">undefined</span><span class="p">)</span>
+        <span class="nx">todos</span> <span class="o">=</span> <span class="nx">arr</span>
+<span class="p">})</span>
+</code></pre></div></p>
+
+<p>Then we need to store the todos array everytime we add or delete tasks from it</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">addTask</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">task</span><span class="o">!=</span><span class="s2">&#34;&#34;</span><span class="p">){</span>
+        <span class="nx">todos</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">task</span><span class="p">)</span>
+        <span class="nx">todos</span> <span class="o">=</span> <span class="nx">todos</span><span class="p">;</span>
+        <span class="c1">// Store the array
+</span><span class="c1"></span>        <span class="nx">set</span><span class="p">(</span><span class="s1">&#39;todos&#39;</span><span class="p">,</span> <span class="nx">todos</span><span class="p">)</span>
+        <span class="nx">task</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">removeTask</span><span class="p">(</span><span class="nx">index</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">todos</span> <span class="o">=</span> <span class="nx">todos</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">index</span><span class="p">).</span><span class="nx">concat</span><span class="p">(</span><span class="nx">todos</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="nx">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">));</span>
+    <span class="c1">// Store the array
+</span><span class="c1"></span>    <span class="nx">set</span><span class="p">(</span><span class="s1">&#39;todos&#39;</span><span class="p">,</span> <span class="nx">todos</span><span class="p">)</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">index</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Now the list wont get reset everytime you refresh the page.</p>
+
 <h1 id="deploying-to-netlify">Deploying to Netlify</h1>
 
 <p>First we&rsquo;re going to add a <code>.gitignore</code> with a single line-</p>
