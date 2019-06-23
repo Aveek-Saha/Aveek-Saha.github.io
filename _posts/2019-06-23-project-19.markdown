@@ -1,0 +1,12 @@
+---
+layout: default
+modal-id: 19
+date: 2019-06-23
+img: weather.png
+title: Pixel Weather
+alt: image-alt
+project-date: June 2019
+category: Desktop Application
+description: Pixel weather is a small, transparent and compact 8 bit style weather widget designed for your Linux desktop. <br> Check it out here <a href="https://electronjs.org/apps/pixel-weather"> Pixel Weather!</a> Or on GitHub<a href="https://github.com/Aveek-Saha/pixel-weather/releases"> Pixel Weather</a> <br><div>Icons made by <a href="https://www.flaticon.com/authors/nikita-golubev" title="Nikita Golubev">Nikita Golubev</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+
+---
