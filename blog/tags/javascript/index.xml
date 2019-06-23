@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>aveek.s98@gmail.com (Aveek Saha)</managingEditor>
     <webMaster>aveek.s98@gmail.com (Aveek Saha)</webMaster>
-    <lastBuildDate>Wed, 19 Dec 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 23 Jun 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://aveeksaha.gitlab.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Pixel Weather</title>
+      <link>https://aveeksaha.gitlab.io/post/pixel-weather/</link>
+      <pubDate>Sun, 23 Jun 2019 00:00:00 +0000</pubDate>
+      <author>aveek.s98@gmail.com (Aveek Saha)</author>
+      <guid>https://aveeksaha.gitlab.io/post/pixel-weather/</guid>
+      <description>&lt;p&gt;Get the code here - &lt;a href=&#34;https://github.com/Aveek-Saha/pixel-weather&#34;&gt;&lt;code&gt;Pixel Weather&lt;/code&gt;&lt;/a&gt; &lt;br&gt;
+To try it out, download it here - &lt;a href=&#34;https://github.com/Aveek-Saha/pixel-weather/releases&#34;&gt;&lt;code&gt;Downloads&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>YTDX</title>

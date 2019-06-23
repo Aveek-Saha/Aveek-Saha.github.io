@@ -51,7 +51,7 @@
     <item>
       <title>Desktop</title>
       <link>https://aveeksaha.gitlab.io/tags/desktop/</link>
-      <pubDate>Wed, 19 Dec 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 23 Jun 2019 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
       <guid>https://aveeksaha.gitlab.io/tags/desktop/</guid>
       <description></description>
@@ -78,7 +78,7 @@
     <item>
       <title>Electron</title>
       <link>https://aveeksaha.gitlab.io/tags/electron/</link>
-      <pubDate>Tue, 28 Aug 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 23 Jun 2019 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
       <guid>https://aveeksaha.gitlab.io/tags/electron/</guid>
       <description></description>
@@ -132,7 +132,7 @@
     <item>
       <title>Javascript</title>
       <link>https://aveeksaha.gitlab.io/tags/javascript/</link>
-      <pubDate>Wed, 19 Dec 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 23 Jun 2019 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
       <guid>https://aveeksaha.gitlab.io/tags/javascript/</guid>
       <description></description>
@@ -288,6 +288,15 @@
       <pubDate>Sat, 20 Oct 2018 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
       <guid>https://aveeksaha.gitlab.io/tags/websockets/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Widget</title>
+      <link>https://aveeksaha.gitlab.io/tags/widget/</link>
+      <pubDate>Sun, 23 Jun 2019 00:00:00 +0000</pubDate>
+      <author>aveek.s98@gmail.com (Aveek Saha)</author>
+      <guid>https://aveeksaha.gitlab.io/tags/widget/</guid>
       <description></description>
     </item>
     

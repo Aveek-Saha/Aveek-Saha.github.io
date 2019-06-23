@@ -3,6 +3,13 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://aveeksaha.gitlab.io/post/pixel-weather/</loc>
+    <lastmod>2019-06-23T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
     <loc>https://aveeksaha.gitlab.io/post/get-started-with-svelte/</loc>
     <lastmod>2019-05-17T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -81,7 +88,7 @@
   
   <url>
     <loc>https://aveeksaha.gitlab.io/</loc>
-    <lastmod>2019-05-17T00:00:00+00:00</lastmod>
+    <lastmod>2019-06-23T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -128,7 +135,7 @@
   
   <url>
     <loc>https://aveeksaha.gitlab.io/tags/desktop/</loc>
-    <lastmod>2018-12-19T00:00:00+00:00</lastmod>
+    <lastmod>2019-06-23T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0</priority>
   </url>
@@ -149,7 +156,7 @@
   
   <url>
     <loc>https://aveeksaha.gitlab.io/tags/electron/</loc>
-    <lastmod>2018-08-28T00:00:00+00:00</lastmod>
+    <lastmod>2019-06-23T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0</priority>
   </url>
@@ -191,7 +198,7 @@
   
   <url>
     <loc>https://aveeksaha.gitlab.io/tags/javascript/</loc>
-    <lastmod>2018-12-19T00:00:00+00:00</lastmod>
+    <lastmod>2019-06-23T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0</priority>
   </url>
@@ -246,7 +253,7 @@
   
   <url>
     <loc>https://aveeksaha.gitlab.io/post/</loc>
-    <lastmod>2019-05-17T00:00:00+00:00</lastmod>
+    <lastmod>2019-06-23T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0</priority>
   </url>
@@ -331,6 +338,13 @@
   <url>
     <loc>https://aveeksaha.gitlab.io/tags/websockets/</loc>
     <lastmod>2018-10-20T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://aveeksaha.gitlab.io/tags/widget/</loc>
+    <lastmod>2019-06-23T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0</priority>
   </url>
