@@ -40,11 +40,29 @@
     </item>
     
     <item>
+      <title>Colab</title>
+      <link>https://home.aveek.io/blog/tags/colab/</link>
+      <pubDate>Mon, 24 Jun 2019 00:00:00 +0000</pubDate>
+      <author>aveek.s98@gmail.com (Aveek Saha)</author>
+      <guid>https://home.aveek.io/blog/tags/colab/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Data Science</title>
       <link>https://home.aveek.io/blog/tags/data-science/</link>
       <pubDate>Mon, 13 May 2019 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
       <guid>https://home.aveek.io/blog/tags/data-science/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Deep Learning</title>
+      <link>https://home.aveek.io/blog/tags/deep-learning/</link>
+      <pubDate>Mon, 24 Jun 2019 00:00:00 +0000</pubDate>
+      <author>aveek.s98@gmail.com (Aveek Saha)</author>
+      <guid>https://home.aveek.io/blog/tags/deep-learning/</guid>
       <description></description>
     </item>
     
@@ -139,6 +157,15 @@
     </item>
     
     <item>
+      <title>Keras</title>
+      <link>https://home.aveek.io/blog/tags/keras/</link>
+      <pubDate>Mon, 24 Jun 2019 00:00:00 +0000</pubDate>
+      <author>aveek.s98@gmail.com (Aveek Saha)</author>
+      <guid>https://home.aveek.io/blog/tags/keras/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Mongodb</title>
       <link>https://home.aveek.io/blog/tags/mongodb/</link>
       <pubDate>Thu, 09 Aug 2018 00:00:00 +0000</pubDate>
@@ -162,6 +189,15 @@
       <pubDate>Sun, 22 Jul 2018 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
       <guid>https://home.aveek.io/blog/tags/mysql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Neural Network</title>
+      <link>https://home.aveek.io/blog/tags/neural-network/</link>
+      <pubDate>Mon, 24 Jun 2019 00:00:00 +0000</pubDate>
+      <author>aveek.s98@gmail.com (Aveek Saha)</author>
+      <guid>https://home.aveek.io/blog/tags/neural-network/</guid>
       <description></description>
     </item>
     
@@ -195,7 +231,7 @@
     <item>
       <title>Python</title>
       <link>https://home.aveek.io/blog/tags/python/</link>
-      <pubDate>Mon, 13 May 2019 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 24 Jun 2019 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
       <guid>https://home.aveek.io/blog/tags/python/</guid>
       <description></description>

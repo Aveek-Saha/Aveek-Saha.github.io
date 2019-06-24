@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Python on Aveek Saha</title>
-    <link>https://home.aveek.io/blog/tags/python/</link>
-    <description>Recent content in Python on Aveek Saha</description>
+    <title>Deep Learning on Aveek Saha</title>
+    <link>https://home.aveek.io/blog/tags/deep-learning/</link>
+    <description>Recent content in Deep Learning on Aveek Saha</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>aveek.s98@gmail.com (Aveek Saha)</managingEditor>
     <webMaster>aveek.s98@gmail.com (Aveek Saha)</webMaster>
     <lastBuildDate>Mon, 24 Jun 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://home.aveek.io/blog/tags/python/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://home.aveek.io/blog/tags/deep-learning/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -19,15 +19,6 @@
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
       <guid>https://home.aveek.io/blog/post/checkpointing-keras-model/</guid>
       <description>&lt;p&gt;Learn how to save Keras models to persistent storage or your Google drive and resume training it from where you left off.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Web Scraping with Python</title>
-      <link>https://home.aveek.io/blog/post/web-scraping-with-python/</link>
-      <pubDate>Mon, 13 May 2019 00:00:00 +0000</pubDate>
-      <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/post/web-scraping-with-python/</guid>
-      <description>&lt;p&gt;Code for this tutorial can be found on &lt;a href=&#34;https://gist.github.com/Aveek-Saha/860464a7b52c5bab781f870dcb73ed57&#34;&gt;&lt;code&gt;Github&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>
