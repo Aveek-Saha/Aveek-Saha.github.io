@@ -12,25 +12,25 @@
   <meta property="og:description" content="A tutorial on how to checkpoint a keras model">
   <meta name="twitter:description" content="A tutorial on how to checkpoint a keras model">
   <meta name="author" content="Aveek Saha"/>
-  <link href='https://home.aveek.io/blog/img/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta property="og:image" content="https://home.aveek.io/blog/img/avatar-icon.png" />
-  <meta name="twitter:image" content="https://home.aveek.io/blog/img/avatar-icon.png" />
+  <link href='https://aveeksaha.gitlab.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta property="og:image" content="https://aveeksaha.gitlab.io/img/avatar-icon.png" />
+  <meta name="twitter:image" content="https://aveeksaha.gitlab.io/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary" />
-  <meta property="og:url" content="https://home.aveek.io/post/checkpointing-keras-model/" />
+  <meta property="og:url" content="https://aveeksaha.gitlab.io/post/checkpointing-keras-model/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Aveek Saha" />
 
   <meta name="generator" content="Hugo 0.52" />
-  <link rel="canonical" href="https://home.aveek.io/post/checkpointing-keras-model/" />
-  <link rel="alternate" href="https://home.aveek.io/blog/index.xml" type="application/rss+xml" title="Aveek Saha">
+  <link rel="canonical" href="https://aveeksaha.gitlab.io/post/checkpointing-keras-model/" />
+  <link rel="alternate" href="https://aveeksaha.gitlab.io/index.xml" type="application/rss+xml" title="Aveek Saha">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://home.aveek.io/blog/css/main.css" />
+  <link rel="stylesheet" href="https://aveeksaha.gitlab.io/css/main.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
-  <link rel="stylesheet" href="https://home.aveek.io/blog/css/pygment_highlights.css" />
-  <link rel="stylesheet" href="https://home.aveek.io/blog/css/highlight.min.css" />
+  <link rel="stylesheet" href="https://aveeksaha.gitlab.io/css/pygment_highlights.css" />
+  <link rel="stylesheet" href="https://aveeksaha.gitlab.io/css/highlight.min.css" />
   
   <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <script>
@@ -44,7 +44,7 @@
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-120301630-1', 'auto');
+	ga('create', 'UA-120301630-5', 'auto');
 	
 	ga('send', 'pageview');
 }
@@ -63,7 +63,7 @@ if (!doNotTrack) {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="https://home.aveek.io/blog/">Aveek Saha</a>
+      <a class="navbar-brand" href="https://aveeksaha.gitlab.io/">Aveek Saha</a>
     </div>
 
     <div class="collapse navbar-collapse" id="main-navbar">
@@ -71,7 +71,7 @@ if (!doNotTrack) {
         
           
             <li>
-              <a title="Blog" href="https://home.aveek.io/blog/">Blog</a>
+              <a title="Blog" href="https://aveeksaha.gitlab.io/">Blog</a>
             </li>
           
         
@@ -83,13 +83,13 @@ if (!doNotTrack) {
         
           
             <li>
-              <a title="About" href="https://home.aveek.io/blog/page/about/">About</a>
+              <a title="About" href="https://aveeksaha.gitlab.io/page/about/">About</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="https://home.aveek.io/blog/tags">Tags</a>
+              <a title="Tags" href="https://aveeksaha.gitlab.io/tags">Tags</a>
             </li>
           
         
@@ -258,12 +258,12 @@ if (!doNotTrack) {
       <ul class="pager blog-pager">
         
           <li class="previous">
-            <a href="https://home.aveek.io/blog/post/pixel-weather/" data-toggle="tooltip" data-placement="top" title="Pixel Weather">&larr; Previous Post</a>
+            <a href="https://aveeksaha.gitlab.io/post/pixel-weather/" data-toggle="tooltip" data-placement="top" title="Pixel Weather">&larr; Previous Post</a>
           </li>
         
         
           <li class="next">
-            <a href="https://home.aveek.io/blog/post/bitcoin-price-tracker/" data-toggle="tooltip" data-placement="top" title="Bitcoin Price Tracker">Next Post &rarr;</a>
+            <a href="https://aveeksaha.gitlab.io/post/gre-study-guide/" data-toggle="tooltip" data-placement="top" title="A study guide for the GRE">Next Post &rarr;</a>
           </li>
         
       </ul>
@@ -363,7 +363,7 @@ if (!doNotTrack) {
               </li>
           
           <li>
-            <a href="https://home.aveek.io/blog/index.xml" title="RSS">
+            <a href="https://aveeksaha.gitlab.io/index.xml" title="RSS">
               <span class="fa-stack fa-lg">
                 <i class="fa fa-circle fa-stack-2x"></i>
                 <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
@@ -379,7 +379,7 @@ if (!doNotTrack) {
 
           
             &nbsp;&bull;&nbsp;
-            <a href="https://home.aveek.io/blog/">Aveek Saha</a>
+            <a href="https://aveeksaha.gitlab.io/">Aveek Saha</a>
           
         </p>
         
@@ -396,8 +396,8 @@ if (!doNotTrack) {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<script src="https://home.aveek.io/blog/js/main.js"></script>
-<script src="https://home.aveek.io/blog/js/highlight.min.js"></script>
+<script src="https://aveeksaha.gitlab.io/js/main.js"></script>
+<script src="https://aveeksaha.gitlab.io/js/highlight.min.js"></script>
 <script> hljs.initHighlightingOnLoad(); </script>
 <script> renderMathInElement(document.body); </script>
 

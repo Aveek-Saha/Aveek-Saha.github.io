@@ -2,373 +2,373 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Aveek Saha</title>
-    <link>https://home.aveek.io/blog/tags/</link>
+    <link>https://aveeksaha.gitlab.io/tags/</link>
     <description>Recent content in Tags on Aveek Saha</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>aveek.s98@gmail.com (Aveek Saha)</managingEditor>
     <webMaster>aveek.s98@gmail.com (Aveek Saha)</webMaster>
     <lastBuildDate>Thu, 09 Aug 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://home.aveek.io/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://aveeksaha.gitlab.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Angularjs</title>
-      <link>https://home.aveek.io/blog/tags/angularjs/</link>
+      <link>https://aveeksaha.gitlab.io/tags/angularjs/</link>
       <pubDate>Thu, 09 Aug 2018 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/angularjs/</guid>
+      <guid>https://aveeksaha.gitlab.io/tags/angularjs/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Axios</title>
-      <link>https://home.aveek.io/blog/tags/axios/</link>
-      <pubDate>Mon, 05 Aug 2019 00:00:00 +0000</pubDate>
+      <link>https://aveeksaha.gitlab.io/tags/axios/</link>
+      <pubDate>Sun, 05 Aug 2018 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/axios/</guid>
+      <guid>https://aveeksaha.gitlab.io/tags/axios/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Beautifulsoup</title>
-      <link>https://home.aveek.io/blog/tags/beautifulsoup/</link>
+      <link>https://aveeksaha.gitlab.io/tags/beautifulsoup/</link>
       <pubDate>Mon, 13 May 2019 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/beautifulsoup/</guid>
+      <guid>https://aveeksaha.gitlab.io/tags/beautifulsoup/</guid>
       <description></description>
     </item>
     
     <item>
       <title>C Programing</title>
-      <link>https://home.aveek.io/blog/tags/c-programing/</link>
+      <link>https://aveeksaha.gitlab.io/tags/c-programing/</link>
       <pubDate>Sun, 04 Mar 2018 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/c-programing/</guid>
+      <guid>https://aveeksaha.gitlab.io/tags/c-programing/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Colab</title>
-      <link>https://home.aveek.io/blog/tags/colab/</link>
+      <link>https://aveeksaha.gitlab.io/tags/colab/</link>
       <pubDate>Mon, 24 Jun 2019 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/colab/</guid>
+      <guid>https://aveeksaha.gitlab.io/tags/colab/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Data Science</title>
-      <link>https://home.aveek.io/blog/tags/data-science/</link>
+      <link>https://aveeksaha.gitlab.io/tags/data-science/</link>
       <pubDate>Mon, 13 May 2019 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/data-science/</guid>
+      <guid>https://aveeksaha.gitlab.io/tags/data-science/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Deep Learning</title>
-      <link>https://home.aveek.io/blog/tags/deep-learning/</link>
+      <link>https://aveeksaha.gitlab.io/tags/deep-learning/</link>
       <pubDate>Mon, 24 Jun 2019 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/deep-learning/</guid>
+      <guid>https://aveeksaha.gitlab.io/tags/deep-learning/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Desktop</title>
-      <link>https://home.aveek.io/blog/tags/desktop/</link>
-      <pubDate>Mon, 05 Aug 2019 00:00:00 +0000</pubDate>
+      <link>https://aveeksaha.gitlab.io/tags/desktop/</link>
+      <pubDate>Sun, 23 Jun 2019 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/desktop/</guid>
+      <guid>https://aveeksaha.gitlab.io/tags/desktop/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Documentation</title>
-      <link>https://home.aveek.io/blog/tags/documentation/</link>
+      <link>https://aveeksaha.gitlab.io/tags/documentation/</link>
       <pubDate>Mon, 24 Dec 2018 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/documentation/</guid>
+      <guid>https://aveeksaha.gitlab.io/tags/documentation/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Download</title>
-      <link>https://home.aveek.io/blog/tags/download/</link>
+      <link>https://aveeksaha.gitlab.io/tags/download/</link>
       <pubDate>Wed, 19 Dec 2018 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/download/</guid>
+      <guid>https://aveeksaha.gitlab.io/tags/download/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Electron</title>
-      <link>https://home.aveek.io/blog/tags/electron/</link>
-      <pubDate>Mon, 05 Aug 2019 00:00:00 +0000</pubDate>
+      <link>https://aveeksaha.gitlab.io/tags/electron/</link>
+      <pubDate>Sun, 23 Jun 2019 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/electron/</guid>
+      <guid>https://aveeksaha.gitlab.io/tags/electron/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Express</title>
-      <link>https://home.aveek.io/blog/tags/express/</link>
+      <link>https://aveeksaha.gitlab.io/tags/express/</link>
       <pubDate>Thu, 09 Aug 2018 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/express/</guid>
+      <guid>https://aveeksaha.gitlab.io/tags/express/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Games</title>
-      <link>https://home.aveek.io/blog/tags/games/</link>
+      <link>https://aveeksaha.gitlab.io/tags/games/</link>
       <pubDate>Thu, 11 Oct 2018 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/games/</guid>
+      <guid>https://aveeksaha.gitlab.io/tags/games/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Github</title>
-      <link>https://home.aveek.io/blog/tags/github/</link>
+      <link>https://aveeksaha.gitlab.io/tags/github/</link>
       <pubDate>Sat, 10 Nov 2018 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/github/</guid>
+      <guid>https://aveeksaha.gitlab.io/tags/github/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Gre</title>
-      <link>https://home.aveek.io/blog/tags/gre/</link>
+      <link>https://aveeksaha.gitlab.io/tags/gre/</link>
       <pubDate>Sun, 15 Sep 2019 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/gre/</guid>
+      <guid>https://aveeksaha.gitlab.io/tags/gre/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Howler</title>
-      <link>https://home.aveek.io/blog/tags/howler/</link>
+      <link>https://aveeksaha.gitlab.io/tags/howler/</link>
       <pubDate>Tue, 28 Aug 2018 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/howler/</guid>
+      <guid>https://aveeksaha.gitlab.io/tags/howler/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Indexeddb</title>
-      <link>https://home.aveek.io/blog/tags/indexeddb/</link>
+      <link>https://aveeksaha.gitlab.io/tags/indexeddb/</link>
       <pubDate>Fri, 17 May 2019 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/indexeddb/</guid>
+      <guid>https://aveeksaha.gitlab.io/tags/indexeddb/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Javascript</title>
-      <link>https://home.aveek.io/blog/tags/javascript/</link>
-      <pubDate>Mon, 05 Aug 2019 00:00:00 +0000</pubDate>
+      <link>https://aveeksaha.gitlab.io/tags/javascript/</link>
+      <pubDate>Sun, 23 Jun 2019 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/javascript/</guid>
+      <guid>https://aveeksaha.gitlab.io/tags/javascript/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Keras</title>
-      <link>https://home.aveek.io/blog/tags/keras/</link>
+      <link>https://aveeksaha.gitlab.io/tags/keras/</link>
       <pubDate>Mon, 24 Jun 2019 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/keras/</guid>
+      <guid>https://aveeksaha.gitlab.io/tags/keras/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Mongodb</title>
-      <link>https://home.aveek.io/blog/tags/mongodb/</link>
+      <link>https://aveeksaha.gitlab.io/tags/mongodb/</link>
       <pubDate>Thu, 09 Aug 2018 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/mongodb/</guid>
+      <guid>https://aveeksaha.gitlab.io/tags/mongodb/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Mp3</title>
-      <link>https://home.aveek.io/blog/tags/mp3/</link>
+      <link>https://aveeksaha.gitlab.io/tags/mp3/</link>
       <pubDate>Wed, 19 Dec 2018 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/mp3/</guid>
+      <guid>https://aveeksaha.gitlab.io/tags/mp3/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Mysql</title>
-      <link>https://home.aveek.io/blog/tags/mysql/</link>
+      <link>https://aveeksaha.gitlab.io/tags/mysql/</link>
       <pubDate>Sun, 22 Jul 2018 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/mysql/</guid>
+      <guid>https://aveeksaha.gitlab.io/tags/mysql/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Neural Network</title>
-      <link>https://home.aveek.io/blog/tags/neural-network/</link>
+      <link>https://aveeksaha.gitlab.io/tags/neural-network/</link>
       <pubDate>Mon, 24 Jun 2019 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/neural-network/</guid>
+      <guid>https://aveeksaha.gitlab.io/tags/neural-network/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Nodejs</title>
-      <link>https://home.aveek.io/blog/tags/nodejs/</link>
+      <link>https://aveeksaha.gitlab.io/tags/nodejs/</link>
       <pubDate>Sat, 20 Oct 2018 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/nodejs/</guid>
+      <guid>https://aveeksaha.gitlab.io/tags/nodejs/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Phaser</title>
-      <link>https://home.aveek.io/blog/tags/phaser/</link>
+      <link>https://aveeksaha.gitlab.io/tags/phaser/</link>
       <pubDate>Thu, 11 Oct 2018 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/phaser/</guid>
+      <guid>https://aveeksaha.gitlab.io/tags/phaser/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Php</title>
-      <link>https://home.aveek.io/blog/tags/php/</link>
+      <link>https://aveeksaha.gitlab.io/tags/php/</link>
       <pubDate>Sun, 22 Jul 2018 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/php/</guid>
+      <guid>https://aveeksaha.gitlab.io/tags/php/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Python</title>
-      <link>https://home.aveek.io/blog/tags/python/</link>
+      <link>https://aveeksaha.gitlab.io/tags/python/</link>
       <pubDate>Mon, 24 Jun 2019 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/python/</guid>
+      <guid>https://aveeksaha.gitlab.io/tags/python/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Study Guide</title>
-      <link>https://home.aveek.io/blog/tags/study-guide/</link>
+      <link>https://aveeksaha.gitlab.io/tags/study-guide/</link>
       <pubDate>Sun, 15 Sep 2019 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/study-guide/</guid>
+      <guid>https://aveeksaha.gitlab.io/tags/study-guide/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Svelte</title>
-      <link>https://home.aveek.io/blog/tags/svelte/</link>
+      <link>https://aveeksaha.gitlab.io/tags/svelte/</link>
       <pubDate>Fri, 17 May 2019 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/svelte/</guid>
+      <guid>https://aveeksaha.gitlab.io/tags/svelte/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Todo</title>
-      <link>https://home.aveek.io/blog/tags/todo/</link>
+      <link>https://aveeksaha.gitlab.io/tags/todo/</link>
       <pubDate>Fri, 17 May 2019 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/todo/</guid>
+      <guid>https://aveeksaha.gitlab.io/tags/todo/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Urllib</title>
-      <link>https://home.aveek.io/blog/tags/urllib/</link>
+      <link>https://aveeksaha.gitlab.io/tags/urllib/</link>
       <pubDate>Mon, 13 May 2019 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/urllib/</guid>
+      <guid>https://aveeksaha.gitlab.io/tags/urllib/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Vue</title>
-      <link>https://home.aveek.io/blog/tags/vue/</link>
+      <link>https://aveeksaha.gitlab.io/tags/vue/</link>
       <pubDate>Mon, 24 Dec 2018 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/vue/</guid>
+      <guid>https://aveeksaha.gitlab.io/tags/vue/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Vuejs</title>
-      <link>https://home.aveek.io/blog/tags/vuejs/</link>
+      <link>https://aveeksaha.gitlab.io/tags/vuejs/</link>
       <pubDate>Sat, 10 Nov 2018 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/vuejs/</guid>
+      <guid>https://aveeksaha.gitlab.io/tags/vuejs/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Vuepress</title>
-      <link>https://home.aveek.io/blog/tags/vuepress/</link>
+      <link>https://aveeksaha.gitlab.io/tags/vuepress/</link>
       <pubDate>Mon, 24 Dec 2018 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/vuepress/</guid>
+      <guid>https://aveeksaha.gitlab.io/tags/vuepress/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Web Development</title>
-      <link>https://home.aveek.io/blog/tags/web-development/</link>
+      <link>https://aveeksaha.gitlab.io/tags/web-development/</link>
       <pubDate>Sun, 04 Mar 2018 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/web-development/</guid>
+      <guid>https://aveeksaha.gitlab.io/tags/web-development/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Web Scraping</title>
-      <link>https://home.aveek.io/blog/tags/web-scraping/</link>
+      <link>https://aveeksaha.gitlab.io/tags/web-scraping/</link>
       <pubDate>Mon, 13 May 2019 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/web-scraping/</guid>
+      <guid>https://aveeksaha.gitlab.io/tags/web-scraping/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Website</title>
-      <link>https://home.aveek.io/blog/tags/website/</link>
+      <link>https://aveeksaha.gitlab.io/tags/website/</link>
       <pubDate>Fri, 17 May 2019 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/website/</guid>
+      <guid>https://aveeksaha.gitlab.io/tags/website/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Websockets</title>
-      <link>https://home.aveek.io/blog/tags/websockets/</link>
+      <link>https://aveeksaha.gitlab.io/tags/websockets/</link>
       <pubDate>Sat, 20 Oct 2018 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/websockets/</guid>
+      <guid>https://aveeksaha.gitlab.io/tags/websockets/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Widget</title>
-      <link>https://home.aveek.io/blog/tags/widget/</link>
+      <link>https://aveeksaha.gitlab.io/tags/widget/</link>
       <pubDate>Sun, 23 Jun 2019 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/widget/</guid>
+      <guid>https://aveeksaha.gitlab.io/tags/widget/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Youtube</title>
-      <link>https://home.aveek.io/blog/tags/youtube/</link>
+      <link>https://aveeksaha.gitlab.io/tags/youtube/</link>
       <pubDate>Wed, 19 Dec 2018 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/youtube/</guid>
+      <guid>https://aveeksaha.gitlab.io/tags/youtube/</guid>
       <description></description>
     </item>
     

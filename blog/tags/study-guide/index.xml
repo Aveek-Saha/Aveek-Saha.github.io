@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Study Guide on Aveek Saha</title>
-    <link>https://home.aveek.io/blog/tags/study-guide/</link>
+    <link>https://aveeksaha.gitlab.io/tags/study-guide/</link>
     <description>Recent content in Study Guide on Aveek Saha</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>aveek.s98@gmail.com (Aveek Saha)</managingEditor>
     <webMaster>aveek.s98@gmail.com (Aveek Saha)</webMaster>
     <lastBuildDate>Sun, 15 Sep 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://home.aveek.io/blog/tags/study-guide/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://aveeksaha.gitlab.io/tags/study-guide/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>A guide to prepare for the GRE</title>
-      <link>https://home.aveek.io/blog/post/gre-study-guide/</link>
+      <title>A study guide for the GRE</title>
+      <link>https://aveeksaha.gitlab.io/post/gre-study-guide/</link>
       <pubDate>Sun, 15 Sep 2019 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/post/gre-study-guide/</guid>
+      <guid>https://aveeksaha.gitlab.io/post/gre-study-guide/</guid>
       <description>&lt;p&gt;A brief summary of what materials to study from and a list of free practice tests to prepare for the GRE.&lt;/p&gt;</description>
     </item>
     
