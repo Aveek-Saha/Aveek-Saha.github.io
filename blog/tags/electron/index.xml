@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>aveek.s98@gmail.com (Aveek Saha)</managingEditor>
     <webMaster>aveek.s98@gmail.com (Aveek Saha)</webMaster>
-    <lastBuildDate>Sun, 23 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 05 Aug 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://home.aveek.io/blog/tags/electron/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Bitcoin Price Tracker</title>
+      <link>https://home.aveek.io/blog/post/bitcoin-price-tracker/</link>
+      <pubDate>Mon, 05 Aug 2019 00:00:00 +0000</pubDate>
+      <author>aveek.s98@gmail.com (Aveek Saha)</author>
+      <guid>https://home.aveek.io/blog/post/bitcoin-price-tracker/</guid>
+      <description>&lt;p&gt;If you want the code for this project, fork this GitHub repo - &lt;a href=&#34;https://github.com/Aveek-Saha/Bitcoin-price-tracker&#34;&gt;&lt;code&gt;Bitcoin Price Tracker&lt;/code&gt;&lt;/a&gt; &lt;br&gt;
+If you want to see a live demo, Download it here - &lt;a href=&#34;https://github.com/Aveek-Saha/Bitcoin-price-tracker/releases&#34;&gt;&lt;code&gt;Downloads&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Pixel Weather</title>

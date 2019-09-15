@@ -3,6 +3,20 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://home.aveek.io/blog/post/gre-study-guide/</loc>
+    <lastmod>2019-09-15T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://home.aveek.io/blog/post/bitcoin-price-tracker/</loc>
+    <lastmod>2019-08-05T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
     <loc>https://home.aveek.io/blog/post/checkpointing-keras-model/</loc>
     <lastmod>2019-06-24T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -95,7 +109,7 @@
   
   <url>
     <loc>https://home.aveek.io/blog/</loc>
-    <lastmod>2019-06-24T00:00:00+00:00</lastmod>
+    <lastmod>2019-09-15T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -109,6 +123,13 @@
   <url>
     <loc>https://home.aveek.io/blog/tags/angularjs/</loc>
     <lastmod>2018-08-09T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://home.aveek.io/blog/tags/axios/</loc>
+    <lastmod>2019-08-05T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0</priority>
   </url>
@@ -156,7 +177,7 @@
   
   <url>
     <loc>https://home.aveek.io/blog/tags/desktop/</loc>
-    <lastmod>2019-06-23T00:00:00+00:00</lastmod>
+    <lastmod>2019-08-05T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0</priority>
   </url>
@@ -177,7 +198,7 @@
   
   <url>
     <loc>https://home.aveek.io/blog/tags/electron/</loc>
-    <lastmod>2019-06-23T00:00:00+00:00</lastmod>
+    <lastmod>2019-08-05T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0</priority>
   </url>
@@ -204,6 +225,13 @@
   </url>
   
   <url>
+    <loc>https://home.aveek.io/blog/tags/gre/</loc>
+    <lastmod>2019-09-15T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://home.aveek.io/blog/tags/howler/</loc>
     <lastmod>2018-08-28T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -219,7 +247,7 @@
   
   <url>
     <loc>https://home.aveek.io/blog/tags/javascript/</loc>
-    <lastmod>2019-06-23T00:00:00+00:00</lastmod>
+    <lastmod>2019-08-05T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0</priority>
   </url>
@@ -288,7 +316,7 @@
   
   <url>
     <loc>https://home.aveek.io/blog/post/</loc>
-    <lastmod>2019-06-24T00:00:00+00:00</lastmod>
+    <lastmod>2019-09-15T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0</priority>
   </url>
@@ -296,6 +324,13 @@
   <url>
     <loc>https://home.aveek.io/blog/tags/python/</loc>
     <lastmod>2019-06-24T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://home.aveek.io/blog/tags/study-guide/</loc>
+    <lastmod>2019-09-15T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0</priority>
   </url>
