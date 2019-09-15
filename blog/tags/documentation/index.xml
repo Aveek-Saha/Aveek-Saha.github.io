@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Documentation on Aveek Saha</title>
-    <link>https://aveeksaha.gitlab.io/tags/documentation/</link>
+    <link>https://home.aveek.io/blog/tags/documentation/</link>
     <description>Recent content in Documentation on Aveek Saha</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>aveek.s98@gmail.com (Aveek Saha)</managingEditor>
     <webMaster>aveek.s98@gmail.com (Aveek Saha)</webMaster>
     <lastBuildDate>Mon, 24 Dec 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://aveeksaha.gitlab.io/tags/documentation/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://home.aveek.io/blog/tags/documentation/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Build a documentation website with VuePress</title>
-      <link>https://aveeksaha.gitlab.io/post/build-a-documentation-site-with-vuepress/</link>
+      <link>https://home.aveek.io/blog/post/build-a-documentation-site-with-vuepress/</link>
       <pubDate>Mon, 24 Dec 2018 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://aveeksaha.gitlab.io/post/build-a-documentation-site-with-vuepress/</guid>
+      <guid>https://home.aveek.io/blog/post/build-a-documentation-site-with-vuepress/</guid>
       <description>&lt;p&gt;Live example - &lt;a href=&#34;https://vuepress-tut.netlify.com/&#34;&gt;&lt;code&gt;Demo&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Code for this project - &lt;a href=&#34;https://gitlab.com/aveeksaha/vuepress-tut&#34;&gt;&lt;code&gt;Code&lt;/code&gt;&lt;/a&gt;
