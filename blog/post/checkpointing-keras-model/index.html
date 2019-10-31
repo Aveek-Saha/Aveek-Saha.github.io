@@ -20,7 +20,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Aveek Saha" />
 
-  <meta name="generator" content="Hugo 0.52" />
+  <meta name="generator" content="Hugo 0.57.2" />
   <link rel="canonical" href="https://home.aveek.io/post/checkpointing-keras-model/" />
   <link rel="alternate" href="https://home.aveek.io/blog/index.xml" type="application/rss+xml" title="Aveek Saha">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
@@ -173,7 +173,7 @@ if (!doNotTrack) {
 <span class="n">classifier</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
 <span class="n">classifier</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">))</span>
 
-<span class="n">classifier</span><span class="o">.</span><span class="nb">compile</span><span class="p">(</span><span class="n">optimizer</span> <span class="o">=</span><span class="s1">&#39;adam&#39;</span><span class="p">,</span>
+<span class="n">classifier</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span> <span class="o">=</span><span class="s1">&#39;adam&#39;</span><span class="p">,</span>
                 <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;binary_crossentropy&#39;</span><span class="p">,</span> <span class="n">metrics</span> <span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span></code></pre></div>
 
 <p>Before fitting the model, create a ModelCheckpoint object, we&rsquo;ll go over what each of the parameters do in a minute, but for now, in this example after each epoch the model will be saved to a <code>hdf5</code> file in the current working directory.</p>
@@ -384,7 +384,7 @@ if (!doNotTrack) {
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="http://gohugo.io">Hugo v0.52</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          <a href="http://gohugo.io">Hugo v0.57.2</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
           
         </p>
       </div>

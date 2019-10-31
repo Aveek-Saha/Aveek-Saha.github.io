@@ -7,139 +7,40 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>aveek.s98@gmail.com (Aveek Saha)</managingEditor>
     <webMaster>aveek.s98@gmail.com (Aveek Saha)</webMaster>
-    <lastBuildDate>Thu, 09 Aug 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 31 Oct 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://home.aveek.io/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Angularjs</title>
-      <link>https://home.aveek.io/blog/tags/angularjs/</link>
-      <pubDate>Thu, 09 Aug 2018 00:00:00 +0000</pubDate>
+      <title>NER</title>
+      <link>https://home.aveek.io/blog/tags/ner/</link>
+      <pubDate>Thu, 31 Oct 2019 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/angularjs/</guid>
+      <guid>https://home.aveek.io/blog/tags/ner/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Axios</title>
-      <link>https://home.aveek.io/blog/tags/axios/</link>
-      <pubDate>Sun, 05 Aug 2018 00:00:00 +0000</pubDate>
+      <title>NLP</title>
+      <link>https://home.aveek.io/blog/tags/nlp/</link>
+      <pubDate>Thu, 31 Oct 2019 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/axios/</guid>
+      <guid>https://home.aveek.io/blog/tags/nlp/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Beautifulsoup</title>
-      <link>https://home.aveek.io/blog/tags/beautifulsoup/</link>
-      <pubDate>Mon, 13 May 2019 00:00:00 +0000</pubDate>
+      <title>Python</title>
+      <link>https://home.aveek.io/blog/tags/python/</link>
+      <pubDate>Thu, 31 Oct 2019 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/beautifulsoup/</guid>
+      <guid>https://home.aveek.io/blog/tags/python/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>C Programing</title>
-      <link>https://home.aveek.io/blog/tags/c-programing/</link>
-      <pubDate>Sun, 04 Mar 2018 00:00:00 +0000</pubDate>
-      <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/c-programing/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Colab</title>
-      <link>https://home.aveek.io/blog/tags/colab/</link>
-      <pubDate>Mon, 24 Jun 2019 00:00:00 +0000</pubDate>
-      <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/colab/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Data Science</title>
-      <link>https://home.aveek.io/blog/tags/data-science/</link>
-      <pubDate>Mon, 13 May 2019 00:00:00 +0000</pubDate>
-      <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/data-science/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Deep Learning</title>
-      <link>https://home.aveek.io/blog/tags/deep-learning/</link>
-      <pubDate>Mon, 24 Jun 2019 00:00:00 +0000</pubDate>
-      <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/deep-learning/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Desktop</title>
-      <link>https://home.aveek.io/blog/tags/desktop/</link>
-      <pubDate>Sun, 23 Jun 2019 00:00:00 +0000</pubDate>
-      <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/desktop/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Documentation</title>
-      <link>https://home.aveek.io/blog/tags/documentation/</link>
-      <pubDate>Mon, 24 Dec 2018 00:00:00 +0000</pubDate>
-      <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/documentation/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Download</title>
-      <link>https://home.aveek.io/blog/tags/download/</link>
-      <pubDate>Wed, 19 Dec 2018 00:00:00 +0000</pubDate>
-      <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/download/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Electron</title>
-      <link>https://home.aveek.io/blog/tags/electron/</link>
-      <pubDate>Sun, 23 Jun 2019 00:00:00 +0000</pubDate>
-      <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/electron/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Express</title>
-      <link>https://home.aveek.io/blog/tags/express/</link>
-      <pubDate>Thu, 09 Aug 2018 00:00:00 +0000</pubDate>
-      <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/express/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Games</title>
-      <link>https://home.aveek.io/blog/tags/games/</link>
-      <pubDate>Thu, 11 Oct 2018 00:00:00 +0000</pubDate>
-      <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/games/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Github</title>
-      <link>https://home.aveek.io/blog/tags/github/</link>
-      <pubDate>Sat, 10 Nov 2018 00:00:00 +0000</pubDate>
-      <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/github/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Gre</title>
+      <title>GRE</title>
       <link>https://home.aveek.io/blog/tags/gre/</link>
       <pubDate>Sun, 15 Sep 2019 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
@@ -148,29 +49,29 @@
     </item>
     
     <item>
-      <title>Howler</title>
-      <link>https://home.aveek.io/blog/tags/howler/</link>
-      <pubDate>Tue, 28 Aug 2018 00:00:00 +0000</pubDate>
+      <title>study guide</title>
+      <link>https://home.aveek.io/blog/tags/study-guide/</link>
+      <pubDate>Sun, 15 Sep 2019 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/howler/</guid>
+      <guid>https://home.aveek.io/blog/tags/study-guide/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Indexeddb</title>
-      <link>https://home.aveek.io/blog/tags/indexeddb/</link>
-      <pubDate>Fri, 17 May 2019 00:00:00 +0000</pubDate>
+      <title>colab</title>
+      <link>https://home.aveek.io/blog/tags/colab/</link>
+      <pubDate>Mon, 24 Jun 2019 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/indexeddb/</guid>
+      <guid>https://home.aveek.io/blog/tags/colab/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Javascript</title>
-      <link>https://home.aveek.io/blog/tags/javascript/</link>
-      <pubDate>Sun, 23 Jun 2019 00:00:00 +0000</pubDate>
+      <title>deep learning</title>
+      <link>https://home.aveek.io/blog/tags/deep-learning/</link>
+      <pubDate>Mon, 24 Jun 2019 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/javascript/</guid>
+      <guid>https://home.aveek.io/blog/tags/deep-learning/</guid>
       <description></description>
     </item>
     
@@ -184,34 +85,7 @@
     </item>
     
     <item>
-      <title>Mongodb</title>
-      <link>https://home.aveek.io/blog/tags/mongodb/</link>
-      <pubDate>Thu, 09 Aug 2018 00:00:00 +0000</pubDate>
-      <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/mongodb/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Mp3</title>
-      <link>https://home.aveek.io/blog/tags/mp3/</link>
-      <pubDate>Wed, 19 Dec 2018 00:00:00 +0000</pubDate>
-      <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/mp3/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Mysql</title>
-      <link>https://home.aveek.io/blog/tags/mysql/</link>
-      <pubDate>Sun, 22 Jul 2018 00:00:00 +0000</pubDate>
-      <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/mysql/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Neural Network</title>
+      <title>neural network</title>
       <link>https://home.aveek.io/blog/tags/neural-network/</link>
       <pubDate>Mon, 24 Jun 2019 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
@@ -220,137 +94,29 @@
     </item>
     
     <item>
-      <title>Nodejs</title>
-      <link>https://home.aveek.io/blog/tags/nodejs/</link>
-      <pubDate>Sat, 20 Oct 2018 00:00:00 +0000</pubDate>
+      <title>Desktop</title>
+      <link>https://home.aveek.io/blog/tags/desktop/</link>
+      <pubDate>Sun, 23 Jun 2019 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/nodejs/</guid>
+      <guid>https://home.aveek.io/blog/tags/desktop/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Phaser</title>
-      <link>https://home.aveek.io/blog/tags/phaser/</link>
-      <pubDate>Thu, 11 Oct 2018 00:00:00 +0000</pubDate>
+      <title>Electron</title>
+      <link>https://home.aveek.io/blog/tags/electron/</link>
+      <pubDate>Sun, 23 Jun 2019 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/phaser/</guid>
+      <guid>https://home.aveek.io/blog/tags/electron/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Php</title>
-      <link>https://home.aveek.io/blog/tags/php/</link>
-      <pubDate>Sun, 22 Jul 2018 00:00:00 +0000</pubDate>
+      <title>JavaScript</title>
+      <link>https://home.aveek.io/blog/tags/javascript/</link>
+      <pubDate>Sun, 23 Jun 2019 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/php/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Python</title>
-      <link>https://home.aveek.io/blog/tags/python/</link>
-      <pubDate>Mon, 24 Jun 2019 00:00:00 +0000</pubDate>
-      <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Study Guide</title>
-      <link>https://home.aveek.io/blog/tags/study-guide/</link>
-      <pubDate>Sun, 15 Sep 2019 00:00:00 +0000</pubDate>
-      <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/study-guide/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Svelte</title>
-      <link>https://home.aveek.io/blog/tags/svelte/</link>
-      <pubDate>Fri, 17 May 2019 00:00:00 +0000</pubDate>
-      <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/svelte/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Todo</title>
-      <link>https://home.aveek.io/blog/tags/todo/</link>
-      <pubDate>Fri, 17 May 2019 00:00:00 +0000</pubDate>
-      <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/todo/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Urllib</title>
-      <link>https://home.aveek.io/blog/tags/urllib/</link>
-      <pubDate>Mon, 13 May 2019 00:00:00 +0000</pubDate>
-      <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/urllib/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Vue</title>
-      <link>https://home.aveek.io/blog/tags/vue/</link>
-      <pubDate>Mon, 24 Dec 2018 00:00:00 +0000</pubDate>
-      <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/vue/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Vuejs</title>
-      <link>https://home.aveek.io/blog/tags/vuejs/</link>
-      <pubDate>Sat, 10 Nov 2018 00:00:00 +0000</pubDate>
-      <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/vuejs/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Vuepress</title>
-      <link>https://home.aveek.io/blog/tags/vuepress/</link>
-      <pubDate>Mon, 24 Dec 2018 00:00:00 +0000</pubDate>
-      <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/vuepress/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Web Development</title>
-      <link>https://home.aveek.io/blog/tags/web-development/</link>
-      <pubDate>Sun, 04 Mar 2018 00:00:00 +0000</pubDate>
-      <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/web-development/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Web Scraping</title>
-      <link>https://home.aveek.io/blog/tags/web-scraping/</link>
-      <pubDate>Mon, 13 May 2019 00:00:00 +0000</pubDate>
-      <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/web-scraping/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Website</title>
-      <link>https://home.aveek.io/blog/tags/website/</link>
-      <pubDate>Fri, 17 May 2019 00:00:00 +0000</pubDate>
-      <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/website/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Websockets</title>
-      <link>https://home.aveek.io/blog/tags/websockets/</link>
-      <pubDate>Sat, 20 Oct 2018 00:00:00 +0000</pubDate>
-      <author>aveek.s98@gmail.com (Aveek Saha)</author>
-      <guid>https://home.aveek.io/blog/tags/websockets/</guid>
+      <guid>https://home.aveek.io/blog/tags/javascript/</guid>
       <description></description>
     </item>
     
@@ -364,11 +130,263 @@
     </item>
     
     <item>
-      <title>Youtube</title>
+      <title>indexeddb</title>
+      <link>https://home.aveek.io/blog/tags/indexeddb/</link>
+      <pubDate>Fri, 17 May 2019 00:00:00 +0000</pubDate>
+      <author>aveek.s98@gmail.com (Aveek Saha)</author>
+      <guid>https://home.aveek.io/blog/tags/indexeddb/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Svelte</title>
+      <link>https://home.aveek.io/blog/tags/svelte/</link>
+      <pubDate>Fri, 17 May 2019 00:00:00 +0000</pubDate>
+      <author>aveek.s98@gmail.com (Aveek Saha)</author>
+      <guid>https://home.aveek.io/blog/tags/svelte/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>todo</title>
+      <link>https://home.aveek.io/blog/tags/todo/</link>
+      <pubDate>Fri, 17 May 2019 00:00:00 +0000</pubDate>
+      <author>aveek.s98@gmail.com (Aveek Saha)</author>
+      <guid>https://home.aveek.io/blog/tags/todo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Website</title>
+      <link>https://home.aveek.io/blog/tags/website/</link>
+      <pubDate>Fri, 17 May 2019 00:00:00 +0000</pubDate>
+      <author>aveek.s98@gmail.com (Aveek Saha)</author>
+      <guid>https://home.aveek.io/blog/tags/website/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>BeautifulSoup</title>
+      <link>https://home.aveek.io/blog/tags/beautifulsoup/</link>
+      <pubDate>Mon, 13 May 2019 00:00:00 +0000</pubDate>
+      <author>aveek.s98@gmail.com (Aveek Saha)</author>
+      <guid>https://home.aveek.io/blog/tags/beautifulsoup/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Data Science</title>
+      <link>https://home.aveek.io/blog/tags/data-science/</link>
+      <pubDate>Mon, 13 May 2019 00:00:00 +0000</pubDate>
+      <author>aveek.s98@gmail.com (Aveek Saha)</author>
+      <guid>https://home.aveek.io/blog/tags/data-science/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Urllib</title>
+      <link>https://home.aveek.io/blog/tags/urllib/</link>
+      <pubDate>Mon, 13 May 2019 00:00:00 +0000</pubDate>
+      <author>aveek.s98@gmail.com (Aveek Saha)</author>
+      <guid>https://home.aveek.io/blog/tags/urllib/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Web Scraping</title>
+      <link>https://home.aveek.io/blog/tags/web-scraping/</link>
+      <pubDate>Mon, 13 May 2019 00:00:00 +0000</pubDate>
+      <author>aveek.s98@gmail.com (Aveek Saha)</author>
+      <guid>https://home.aveek.io/blog/tags/web-scraping/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>documentation</title>
+      <link>https://home.aveek.io/blog/tags/documentation/</link>
+      <pubDate>Mon, 24 Dec 2018 00:00:00 +0000</pubDate>
+      <author>aveek.s98@gmail.com (Aveek Saha)</author>
+      <guid>https://home.aveek.io/blog/tags/documentation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Vue</title>
+      <link>https://home.aveek.io/blog/tags/vue/</link>
+      <pubDate>Mon, 24 Dec 2018 00:00:00 +0000</pubDate>
+      <author>aveek.s98@gmail.com (Aveek Saha)</author>
+      <guid>https://home.aveek.io/blog/tags/vue/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>VuePress</title>
+      <link>https://home.aveek.io/blog/tags/vuepress/</link>
+      <pubDate>Mon, 24 Dec 2018 00:00:00 +0000</pubDate>
+      <author>aveek.s98@gmail.com (Aveek Saha)</author>
+      <guid>https://home.aveek.io/blog/tags/vuepress/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Download</title>
+      <link>https://home.aveek.io/blog/tags/download/</link>
+      <pubDate>Wed, 19 Dec 2018 00:00:00 +0000</pubDate>
+      <author>aveek.s98@gmail.com (Aveek Saha)</author>
+      <guid>https://home.aveek.io/blog/tags/download/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mp3</title>
+      <link>https://home.aveek.io/blog/tags/mp3/</link>
+      <pubDate>Wed, 19 Dec 2018 00:00:00 +0000</pubDate>
+      <author>aveek.s98@gmail.com (Aveek Saha)</author>
+      <guid>https://home.aveek.io/blog/tags/mp3/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>YouTube</title>
       <link>https://home.aveek.io/blog/tags/youtube/</link>
       <pubDate>Wed, 19 Dec 2018 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
       <guid>https://home.aveek.io/blog/tags/youtube/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GitHub</title>
+      <link>https://home.aveek.io/blog/tags/github/</link>
+      <pubDate>Sat, 10 Nov 2018 00:00:00 +0000</pubDate>
+      <author>aveek.s98@gmail.com (Aveek Saha)</author>
+      <guid>https://home.aveek.io/blog/tags/github/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Vuejs</title>
+      <link>https://home.aveek.io/blog/tags/vuejs/</link>
+      <pubDate>Sat, 10 Nov 2018 00:00:00 +0000</pubDate>
+      <author>aveek.s98@gmail.com (Aveek Saha)</author>
+      <guid>https://home.aveek.io/blog/tags/vuejs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>NodeJS</title>
+      <link>https://home.aveek.io/blog/tags/nodejs/</link>
+      <pubDate>Sat, 20 Oct 2018 00:00:00 +0000</pubDate>
+      <author>aveek.s98@gmail.com (Aveek Saha)</author>
+      <guid>https://home.aveek.io/blog/tags/nodejs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>websockets</title>
+      <link>https://home.aveek.io/blog/tags/websockets/</link>
+      <pubDate>Sat, 20 Oct 2018 00:00:00 +0000</pubDate>
+      <author>aveek.s98@gmail.com (Aveek Saha)</author>
+      <guid>https://home.aveek.io/blog/tags/websockets/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>games</title>
+      <link>https://home.aveek.io/blog/tags/games/</link>
+      <pubDate>Thu, 11 Oct 2018 00:00:00 +0000</pubDate>
+      <author>aveek.s98@gmail.com (Aveek Saha)</author>
+      <guid>https://home.aveek.io/blog/tags/games/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Phaser</title>
+      <link>https://home.aveek.io/blog/tags/phaser/</link>
+      <pubDate>Thu, 11 Oct 2018 00:00:00 +0000</pubDate>
+      <author>aveek.s98@gmail.com (Aveek Saha)</author>
+      <guid>https://home.aveek.io/blog/tags/phaser/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Howler</title>
+      <link>https://home.aveek.io/blog/tags/howler/</link>
+      <pubDate>Tue, 28 Aug 2018 00:00:00 +0000</pubDate>
+      <author>aveek.s98@gmail.com (Aveek Saha)</author>
+      <guid>https://home.aveek.io/blog/tags/howler/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>AngularJS</title>
+      <link>https://home.aveek.io/blog/tags/angularjs/</link>
+      <pubDate>Thu, 09 Aug 2018 00:00:00 +0000</pubDate>
+      <author>aveek.s98@gmail.com (Aveek Saha)</author>
+      <guid>https://home.aveek.io/blog/tags/angularjs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Express</title>
+      <link>https://home.aveek.io/blog/tags/express/</link>
+      <pubDate>Thu, 09 Aug 2018 00:00:00 +0000</pubDate>
+      <author>aveek.s98@gmail.com (Aveek Saha)</author>
+      <guid>https://home.aveek.io/blog/tags/express/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MongoDB</title>
+      <link>https://home.aveek.io/blog/tags/mongodb/</link>
+      <pubDate>Thu, 09 Aug 2018 00:00:00 +0000</pubDate>
+      <author>aveek.s98@gmail.com (Aveek Saha)</author>
+      <guid>https://home.aveek.io/blog/tags/mongodb/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Axios</title>
+      <link>https://home.aveek.io/blog/tags/axios/</link>
+      <pubDate>Sun, 05 Aug 2018 00:00:00 +0000</pubDate>
+      <author>aveek.s98@gmail.com (Aveek Saha)</author>
+      <guid>https://home.aveek.io/blog/tags/axios/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MySQL</title>
+      <link>https://home.aveek.io/blog/tags/mysql/</link>
+      <pubDate>Sun, 22 Jul 2018 00:00:00 +0000</pubDate>
+      <author>aveek.s98@gmail.com (Aveek Saha)</author>
+      <guid>https://home.aveek.io/blog/tags/mysql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PHP</title>
+      <link>https://home.aveek.io/blog/tags/php/</link>
+      <pubDate>Sun, 22 Jul 2018 00:00:00 +0000</pubDate>
+      <author>aveek.s98@gmail.com (Aveek Saha)</author>
+      <guid>https://home.aveek.io/blog/tags/php/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>C programing</title>
+      <link>https://home.aveek.io/blog/tags/c-programing/</link>
+      <pubDate>Sun, 04 Mar 2018 00:00:00 +0000</pubDate>
+      <author>aveek.s98@gmail.com (Aveek Saha)</author>
+      <guid>https://home.aveek.io/blog/tags/c-programing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Web Development</title>
+      <link>https://home.aveek.io/blog/tags/web-development/</link>
+      <pubDate>Sun, 04 Mar 2018 00:00:00 +0000</pubDate>
+      <author>aveek.s98@gmail.com (Aveek Saha)</author>
+      <guid>https://home.aveek.io/blog/tags/web-development/</guid>
       <description></description>
     </item>
     

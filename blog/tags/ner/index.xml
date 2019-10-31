@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>NER on Aveek Saha</title>
+    <link>https://home.aveek.io/blog/tags/ner/</link>
+    <description>Recent content in NER on Aveek Saha</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>aveek.s98@gmail.com (Aveek Saha)</managingEditor>
+    <webMaster>aveek.s98@gmail.com (Aveek Saha)</webMaster>
+    <lastBuildDate>Thu, 31 Oct 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://home.aveek.io/blog/tags/ner/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Finding the main characters in a novel</title>
+      <link>https://home.aveek.io/blog/post/finding-main-characters/</link>
+      <pubDate>Thu, 31 Oct 2019 00:00:00 +0000</pubDate>
+      <author>aveek.s98@gmail.com (Aveek Saha)</author>
+      <guid>https://home.aveek.io/blog/post/finding-main-characters/</guid>
+      <description>&lt;p&gt;Find the code &lt;a href=&#34;https://colab.research.google.com/drive/10lrWpC3BF2Lan7LHrNZXs6H0oqTZW19_&#34;&gt;&lt;code&gt;here&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -20,7 +20,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Aveek Saha" />
 
-  <meta name="generator" content="Hugo 0.52" />
+  <meta name="generator" content="Hugo 0.57.2" />
   <link rel="canonical" href="https://home.aveek.io/post/build-a-documentation-site-with-vuepress/" />
   <link rel="alternate" href="https://home.aveek.io/blog/index.xml" type="application/rss+xml" title="Aveek Saha">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
@@ -264,25 +264,25 @@ $ npm install -D vuepress
 
 <p>In <code>docs/readme.md</code> place the following code</p>
 
-<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">---<span class="err">
-</span><span class="err"></span>home: true<span class="err">
-</span><span class="err"></span>actionText: 📝 Guide <span class="err">
-</span><span class="err"></span>actionLink: /guide/api-reference<span class="err">
-</span><span class="err"></span>features:
-<span class="k">-</span> title: Simplicity First<span class="err">
-</span><span class="err"></span>  details: Minimal setup with markdown-centered project structure helps you focus on writing.
-<span class="k">-</span> title: Vue-Powered<span class="err">
-</span><span class="err"></span>  details: Enjoy the dev experience of Vue + webpack, use Vue components in markdown, and develop custom themes with Vue.
-<span class="k">-</span> title: Performant<span class="err">
-</span><span class="err"></span>  details: VuePress generates pre-rendered static HTML for each page, and runs as an SPA once a page is loaded.<span class="err">
-</span><span class="err"></span>footer: Made with 💚 by Aveek Saha<span class="err">
-</span><span class="err"></span>---<span class="err">
-</span><span class="err">
-</span><span class="err"></span><span class="gh">#</span> Installation
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. <span class="err">
-</span><span class="err"></span>In interdum in sapien sed dictum. Phasellus placerat sem a eros rutrum efficitur. <span class="err">
-</span><span class="err"></span>Proin vestibulum quam ut felis maximus lacinia. <span class="err">
-</span><span class="err"></span>Vestibulum non cursus massa. Pellentesque quis leo at tellus aliquet porta.</code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">---
+home: true
+actionText: 📝 Guide 
+actionLink: /guide/api-reference
+features:
+<span class="k">-</span> title: Simplicity First
+  details: Minimal setup with markdown-centered project structure helps you focus on writing.
+<span class="k">-</span> title: Vue-Powered
+  details: Enjoy the dev experience of Vue + webpack, use Vue components in markdown, and develop custom themes with Vue.
+<span class="k">-</span> title: Performant
+  details: VuePress generates pre-rendered static HTML for each page, and runs as an SPA once a page is loaded.
+footer: Made with 💚 by Aveek Saha
+---
+
+<span class="gh"># Installation
+</span><span class="gh"></span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+In interdum in sapien sed dictum. Phasellus placerat sem a eros rutrum efficitur. 
+Proin vestibulum quam ut felis maximus lacinia. 
+Vestibulum non cursus massa. Pellentesque quis leo at tellus aliquet porta.</code></pre></div>
 
 <p>To see this live, open the project dir in your terminal run</p>
 
@@ -305,22 +305,22 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. <span class="err">
 
 <p>Copy this in both the files</p>
 
-<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">---<span class="err">
-</span><span class="err"></span>title: Installation <span class="err">
-</span><span class="err"></span>---<span class="err">
-</span><span class="err"></span>&lt;!-- change the title to Using in using.md --&gt;<span class="err">
-</span><span class="err"></span><span class="gh">#</span> Installation
-<span class="err">
-</span><span class="err"></span>There are two ways to include this in your project.<span class="err">
-</span><span class="err">
-</span><span class="err"></span><span class="gu">###</span> NPM
-<span class="s">```sh
+<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">---
+title: Installation 
+---
+&lt;!-- change the title to Using in using.md --&gt;
+<span class="gh"># Installation
+</span><span class="gh"></span>
+There are two ways to include this in your project.
+
+<span class="gu">### NPM
+</span><span class="gu"></span><span class="s">```sh
 </span><span class="s"></span>
 npm i some-lib
 
-<span class="s">```</span><span class="err">
-</span><span class="err"></span><span class="gu">###</span> CDN
-<span class="s">```sh
+<span class="s">```</span>
+<span class="gu">### CDN
+</span><span class="gu"></span><span class="s">```sh
 </span><span class="s"></span>
 https://cdn.jsdelivr.net/npm/something/something.js
 
@@ -338,22 +338,22 @@ https://cdn.jsdelivr.net/npm/something/something.js
 
 <p>So we&rsquo;ll add these files to the <code>guide</code> sub-directory,<code>api-reference.md</code> and <code>deploying.md</code>.</p>
 
-<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">---<span class="err">
-</span><span class="err"></span>title: API reference<span class="err">
-</span><span class="err"></span>---<span class="err">
-</span><span class="err">
-</span><span class="err"></span><span class="gh">#</span> API reference
-<span class="err">
-</span><span class="err"></span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In interdum in sapien sed dictum. <span class="err">
-</span><span class="err"></span>Phasellus placerat sem a eros rutrum efficitur. <span class="err">
-</span><span class="err"></span>Proin vestibulum quam ut felis maximus lacinia. Vestibulum non cursus massa. <span class="err">
-</span><span class="err"></span>Pellentesque quis leo at tellus aliquet porta. Quisque volutpat sollicitudin tincidunt. <span class="err">
-</span><span class="err"></span>In gravida ante nisl, at pretium nibh scelerisque eget. Phasellus eleifend pretium imperdiet. <span class="err">
-</span><span class="err"></span>Nunc egestas finibus dui a rhoncus. Integer viverra dapibus posuere. <span class="err">
-</span><span class="err"></span>Donec ut augue neque. Aliquam sed sem eu lacus posuere semper sit amet quis orci.<span class="err">
-</span><span class="err">
-</span><span class="err"></span><span class="gu">###</span> Code
-<span class="s">```py
+<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">---
+title: API reference
+---
+
+<span class="gh"># API reference
+</span><span class="gh"></span>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. In interdum in sapien sed dictum. 
+Phasellus placerat sem a eros rutrum efficitur. 
+Proin vestibulum quam ut felis maximus lacinia. Vestibulum non cursus massa. 
+Pellentesque quis leo at tellus aliquet porta. Quisque volutpat sollicitudin tincidunt. 
+In gravida ante nisl, at pretium nibh scelerisque eget. Phasellus eleifend pretium imperdiet. 
+Nunc egestas finibus dui a rhoncus. Integer viverra dapibus posuere. 
+Donec ut augue neque. Aliquam sed sem eu lacus posuere semper sit amet quis orci.
+
+<span class="gu">### Code
+</span><span class="gu"></span><span class="s">```py
 </span><span class="s"></span>
 <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
     <span class="k">print</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span>
@@ -587,7 +587,7 @@ $ git push origin master
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="http://gohugo.io">Hugo v0.52</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          <a href="http://gohugo.io">Hugo v0.57.2</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
           
         </p>
       </div>

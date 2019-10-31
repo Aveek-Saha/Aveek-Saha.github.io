@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>aveek.s98@gmail.com (Aveek Saha)</managingEditor>
     <webMaster>aveek.s98@gmail.com (Aveek Saha)</webMaster>
-    <lastBuildDate>Mon, 24 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 31 Oct 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://home.aveek.io/blog/tags/python/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Finding the main characters in a novel</title>
+      <link>https://home.aveek.io/blog/post/finding-main-characters/</link>
+      <pubDate>Thu, 31 Oct 2019 00:00:00 +0000</pubDate>
+      <author>aveek.s98@gmail.com (Aveek Saha)</author>
+      <guid>https://home.aveek.io/blog/post/finding-main-characters/</guid>
+      <description>&lt;p&gt;Find the code &lt;a href=&#34;https://colab.research.google.com/drive/10lrWpC3BF2Lan7LHrNZXs6H0oqTZW19_&#34;&gt;&lt;code&gt;here&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Saving a Keras model to persistent storage</title>
