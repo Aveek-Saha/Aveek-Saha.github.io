@@ -7,6 +7,6 @@ title: Intal
 alt: image-alt
 project-date: November 2019
 category: C Library
-description: Pixel weather is a small, transparent and compact 8 bit style weather widget designed for your Linux desktop. <br> Check it out here <a href="https://electronjs.org/apps/pixel-weather"> Pixel Weather!</a> Or on GitHub<a href="https://github.com/Aveek-Saha/pixel-weather/releases"> Pixel Weather</a> <br><div>Icons made by <a href="https://www.flaticon.com/authors/nikita-golubev" title="Nikita Golubev">Nikita Golubev</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+description: Intal is a C library to perform calculations on Integers of Arbitrary Length. Numbers of any length(as long as your OS memory can handle) can be added, subtracted, multiplied, divided and compared. <br> Get it on GitHub: <a href="https://github.com/Aveek-Saha/Intal">Intal</a> <br><div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
 
 ---
