@@ -1,7 +1,7 @@
 ---
 layout: default
 modal-id: 20
-date: 2019-11-09
+date: 2019-11-08
 img: intal.png
 title: Intal
 alt: image-alt
