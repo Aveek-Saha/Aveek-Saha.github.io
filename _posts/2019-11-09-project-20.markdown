@@ -1,0 +1,12 @@
+---
+layout: default
+modal-id: 20
+date: 2019-11-09
+img: intal.png
+title: Intal
+alt: image-alt
+project-date: November 2019
+category: C Library
+description: Intal is a C library to perform calculations on Integers of Arbitrary Length. Numbers of any length(as long as your OS memory can handle) can be added, subtracted, multiplied, divided and compared. Get it on GitHub <a href="https://github.com/Aveek-Saha/Intal">intal</a> <br><div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+
+---
