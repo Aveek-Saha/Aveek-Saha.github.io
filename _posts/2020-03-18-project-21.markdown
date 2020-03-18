@@ -1,0 +1,12 @@
+---
+layout: default
+modal-id: 21
+date: 2020-03-18
+img: neural.png
+title: TwitterFakeNet
+alt: image-alt
+project-date: March 2020
+category: Social Network Analytics
+description: An exploration of Twitter's Verified users and the news articles they tweet. Specifically looking into how likely is it that an article shared by the user is fake. The same trends are also studied in unverified users as a comparison. <br> Check it out on GitHub<a href="https://github.com/Aveek-Saha/TwitterFakeNet"> TwitterFakeNet</a> <br><div>Icons made by <a href="https://www.flaticon.com/authors/becris" title="Becris">Becris</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+
+---
