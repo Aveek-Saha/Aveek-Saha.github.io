@@ -1,0 +1,12 @@
+---
+layout: default
+modal-id: 22
+date: 2020-04-09
+img: virus.png
+title: Covid-19 Analysis
+alt: image-alt
+project-date: April 2020
+category: Data Science
+description: Analyzing the spread of the novel Coronavirus COVID-19 <br> Check it out on GitHub<a href="https://github.com/Aveek-Saha/CovidAnalysis"> Covid-19 Analysis </a> <br><div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+
+---
