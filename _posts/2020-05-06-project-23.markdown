@@ -1,0 +1,12 @@
+---
+layout: default
+modal-id: 23
+date: 2020-05-06
+img: ascii.png
+title: Pix 2 ASCII
+alt: image-alt
+project-date: May 2020
+category: Web Application
+description:  A serverless web application that converts your images into pixel art and runs on Firebase cloud functions<br> Check it out here <a href="https://pix2ascii.web.app/"> Pix2ascii!</a> or read the source code<a href="https://github.com/Aveek-Saha/pix2ascii"> GitHub </a> <br><div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+
+---
