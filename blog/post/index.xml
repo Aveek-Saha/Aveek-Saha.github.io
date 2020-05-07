@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Aveek Saha</title>
@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>aveek.s98@gmail.com (Aveek Saha)</managingEditor>
     <webMaster>aveek.s98@gmail.com (Aveek Saha)</webMaster>
-    <lastBuildDate>Thu, 31 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 12 Mar 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://home.aveek.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Getting started with Firebase Functions</title>
+      <link>https://home.aveek.io/blog/post/getting-started-with-firebase-functions/</link>
+      <pubDate>Thu, 12 Mar 2020 00:00:00 +0000</pubDate>
+      <author>aveek.s98@gmail.com (Aveek Saha)</author>
+      <guid>https://home.aveek.io/blog/post/getting-started-with-firebase-functions/</guid>
+      <description>&lt;p&gt;Check the final application here - &lt;a href=&#34;pix2ascii.web.app&#34;&gt;&lt;code&gt;pix2ascii&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The full code for this project can be found on &lt;a href=&#34;https://github.com/Aveek-Saha/pix2ascii&#34;&gt;&lt;code&gt;GitHub&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
     
     <item>
       <title>Finding the main characters in a novel</title>
@@ -45,7 +56,7 @@
       <pubDate>Sun, 23 Jun 2019 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
       <guid>https://home.aveek.io/blog/post/pixel-weather/</guid>
-      <description>&lt;p&gt;Get the code here - &lt;a href=&#34;https://github.com/Aveek-Saha/pixel-weather&#34;&gt;&lt;code&gt;Pixel Weather&lt;/code&gt;&lt;/a&gt; &lt;br&gt;
+      <description>&lt;p&gt;Get the code here - &lt;a href=&#34;https://github.com/Aveek-Saha/pixel-weather&#34;&gt;&lt;code&gt;Pixel Weather&lt;/code&gt;&lt;/a&gt; &lt;!-- raw HTML omitted --&gt;
 To try it out, download it here - &lt;a href=&#34;https://github.com/Aveek-Saha/pixel-weather/releases&#34;&gt;&lt;code&gt;Downloads&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
@@ -56,7 +67,6 @@ To try it out, download it here - &lt;a href=&#34;https://github.com/Aveek-Saha/
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
       <guid>https://home.aveek.io/blog/post/get-started-with-svelte/</guid>
       <description>&lt;p&gt;Live demo - &lt;a href=&#34;https://svelte-tut.netlify.com/&#34;&gt;&lt;code&gt;Demo&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
-
 &lt;p&gt;Code for this tutorial can be found on &lt;a href=&#34;https://gitlab.com/aveeksaha/svelte-tut&#34;&gt;&lt;code&gt;Gitlab&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
@@ -76,9 +86,8 @@ To try it out, download it here - &lt;a href=&#34;https://github.com/Aveek-Saha/
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
       <guid>https://home.aveek.io/blog/post/build-a-documentation-site-with-vuepress/</guid>
       <description>&lt;p&gt;Live example - &lt;a href=&#34;https://vuepress-tut.netlify.com/&#34;&gt;&lt;code&gt;Demo&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Code for this project - &lt;a href=&#34;https://gitlab.com/aveeksaha/vuepress-tut&#34;&gt;&lt;code&gt;Code&lt;/code&gt;&lt;/a&gt;
-&lt;br&gt;&lt;/p&gt;</description>
+&lt;p&gt;Code for this project - &lt;a href=&#34;https://gitlab.com/aveeksaha/vuepress-tut&#34;&gt;&lt;code&gt;Code&lt;/code&gt;&lt;/a&gt; 
+&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -87,7 +96,7 @@ To try it out, download it here - &lt;a href=&#34;https://github.com/Aveek-Saha/
       <pubDate>Wed, 19 Dec 2018 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
       <guid>https://home.aveek.io/blog/post/ytdx/</guid>
-      <description>&lt;p&gt;If you want the code for this project, fork this GitHub repo - &lt;a href=&#34;https://github.com/Aveek-Saha/ytdx&#34;&gt;&lt;code&gt;YTDX&lt;/code&gt;&lt;/a&gt; &lt;br&gt;
+      <description>&lt;p&gt;If you want the code for this project, fork this GitHub repo - &lt;a href=&#34;https://github.com/Aveek-Saha/ytdx&#34;&gt;&lt;code&gt;YTDX&lt;/code&gt;&lt;/a&gt; &lt;!-- raw HTML omitted --&gt;
 If you want to see a live demo, Download it here - &lt;a href=&#34;https://github.com/Aveek-Saha/ytdx/releases&#34;&gt;&lt;code&gt;Downloads&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
@@ -97,7 +106,7 @@ If you want to see a live demo, Download it here - &lt;a href=&#34;https://githu
       <pubDate>Sat, 10 Nov 2018 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
       <guid>https://home.aveek.io/blog/post/getting-started-with-vuejs-and-the-github-api/</guid>
-      <description>&lt;p&gt;If you want the code for this project, fork this GitHub repo - &lt;a href=&#34;https://github.com/Aveek-Saha/GithubStats&#34;&gt;&lt;code&gt;GitHub Stats&lt;/code&gt;&lt;/a&gt; &lt;br&gt;
+      <description>&lt;p&gt;If you want the code for this project, fork this GitHub repo - &lt;a href=&#34;https://github.com/Aveek-Saha/GithubStats&#34;&gt;&lt;code&gt;GitHub Stats&lt;/code&gt;&lt;/a&gt; &lt;!-- raw HTML omitted --&gt;
 If you want to see a live demo, try it out here - &lt;a href=&#34;https://githubstats0.firebaseapp.com/&#34;&gt;&lt;code&gt;Live Demo&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
@@ -107,7 +116,7 @@ If you want to see a live demo, try it out here - &lt;a href=&#34;https://github
       <pubDate>Sat, 20 Oct 2018 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
       <guid>https://home.aveek.io/blog/post/making-an-online-chess-website-with-socketio/</guid>
-      <description>&lt;p&gt;If you want the code for this project, fork this GitHub repo - &lt;a href=&#34;https://github.com/Aveek-Saha/Online-Chess&#34;&gt;&lt;code&gt;Online chess&lt;/code&gt;&lt;/a&gt; &lt;br&gt;
+      <description>&lt;p&gt;If you want the code for this project, fork this GitHub repo - &lt;a href=&#34;https://github.com/Aveek-Saha/Online-Chess&#34;&gt;&lt;code&gt;Online chess&lt;/code&gt;&lt;/a&gt; &lt;!-- raw HTML omitted --&gt;
 Check out the code in action here, play it yourself - &lt;a href=&#34;https://chess0.herokuapp.com&#34;&gt;&lt;code&gt;Live demo&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
@@ -117,7 +126,7 @@ Check out the code in action here, play it yourself - &lt;a href=&#34;https://ch
       <pubDate>Thu, 11 Oct 2018 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
       <guid>https://home.aveek.io/blog/post/chrome-dinosaur-game-tutorial-with-phaser/</guid>
-      <description>&lt;p&gt;If you want the code for this project, fork this GitHub repo - &lt;a href=&#34;https://github.com/Aveek-Saha/Chrome-dinosaur-game-clone&#34;&gt;&lt;code&gt;Dinosaur game code&lt;/code&gt;&lt;/a&gt; &lt;br&gt;
+      <description>&lt;p&gt;If you want the code for this project, fork this GitHub repo - &lt;a href=&#34;https://github.com/Aveek-Saha/Chrome-dinosaur-game-clone&#34;&gt;&lt;code&gt;Dinosaur game code&lt;/code&gt;&lt;/a&gt; &lt;!-- raw HTML omitted --&gt;
 Check out the code in action here, play it yourself - &lt;a href=&#34;https://aveeksaha.gitlab.io/runny/&#34;&gt;&lt;code&gt;Live demo&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
@@ -127,7 +136,7 @@ Check out the code in action here, play it yourself - &lt;a href=&#34;https://av
       <pubDate>Tue, 28 Aug 2018 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
       <guid>https://home.aveek.io/blog/post/music-player/</guid>
-      <description>&lt;p&gt;If you want the code for this project, fork this GitHub repo - &lt;a href=&#34;https://github.com/Aveek-Saha/MusicPlayer&#34;&gt;&lt;code&gt;Music Player&lt;/code&gt;&lt;/a&gt; &lt;br&gt;
+      <description>&lt;p&gt;If you want the code for this project, fork this GitHub repo - &lt;a href=&#34;https://github.com/Aveek-Saha/MusicPlayer&#34;&gt;&lt;code&gt;Music Player&lt;/code&gt;&lt;/a&gt; &lt;!-- raw HTML omitted --&gt;
 If you want to see a live demo, Download it here - &lt;a href=&#34;https://github.com/Aveek-Saha/MusicPlayer/releases&#34;&gt;&lt;code&gt;Downloads&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
@@ -137,7 +146,7 @@ If you want to see a live demo, Download it here - &lt;a href=&#34;https://githu
       <pubDate>Thu, 09 Aug 2018 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
       <guid>https://home.aveek.io/blog/post/mean-todo-app/</guid>
-      <description>&lt;p&gt;If you want the code for this project, fork this GitHub repo - &lt;a href=&#34;https://github.com/Aveek-Saha/MEAN-todo-app&#34;&gt;&lt;code&gt;MEAN Todo app&lt;/code&gt;&lt;/a&gt; &lt;br&gt;
+      <description>&lt;p&gt;If you want the code for this project, fork this GitHub repo - &lt;a href=&#34;https://github.com/Aveek-Saha/MEAN-todo-app&#34;&gt;&lt;code&gt;MEAN Todo app&lt;/code&gt;&lt;/a&gt; &lt;!-- raw HTML omitted --&gt;
 If you want to see a live demoCheck it out here - &lt;a href=&#34;https://todo0.herokuapp.com/&#34;&gt;&lt;code&gt;Live demo&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
@@ -147,7 +156,7 @@ If you want to see a live demoCheck it out here - &lt;a href=&#34;https://todo0.
       <pubDate>Sun, 05 Aug 2018 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
       <guid>https://home.aveek.io/blog/post/bitcoin-price-tracker/</guid>
-      <description>&lt;p&gt;If you want the code for this project, fork this GitHub repo - &lt;a href=&#34;https://github.com/Aveek-Saha/Bitcoin-price-tracker&#34;&gt;&lt;code&gt;Bitcoin Price Tracker&lt;/code&gt;&lt;/a&gt; &lt;br&gt;
+      <description>&lt;p&gt;If you want the code for this project, fork this GitHub repo - &lt;a href=&#34;https://github.com/Aveek-Saha/Bitcoin-price-tracker&#34;&gt;&lt;code&gt;Bitcoin Price Tracker&lt;/code&gt;&lt;/a&gt; &lt;!-- raw HTML omitted --&gt;
 If you want to see a live demo, Download it here - &lt;a href=&#34;https://github.com/Aveek-Saha/Bitcoin-price-tracker/releases&#34;&gt;&lt;code&gt;Downloads&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
@@ -157,7 +166,7 @@ If you want to see a live demo, Download it here - &lt;a href=&#34;https://githu
       <pubDate>Sun, 22 Jul 2018 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
       <guid>https://home.aveek.io/blog/post/ecommerce-website-template/</guid>
-      <description>&lt;p&gt;If you want the code for this project, fork this GitHub repo - &lt;a href=&#34;https://github.com/Aveek-Saha/ecommerce-website-template&#34;&gt;&lt;code&gt;E-commerce template&lt;/code&gt;&lt;/a&gt; &lt;br&gt;
+      <description>&lt;p&gt;If you want the code for this project, fork this GitHub repo - &lt;a href=&#34;https://github.com/Aveek-Saha/ecommerce-website-template&#34;&gt;&lt;code&gt;E-commerce template&lt;/code&gt;&lt;/a&gt; &lt;!-- raw HTML omitted --&gt;
 If you want to see a live demo, check this out - &lt;a href=&#34;http://eshop.byethost22.com/&#34;&gt;&lt;code&gt;Demo&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     

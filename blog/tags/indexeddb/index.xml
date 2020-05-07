@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>indexeddb on Aveek Saha</title>
@@ -19,7 +19,6 @@
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
       <guid>https://home.aveek.io/blog/post/get-started-with-svelte/</guid>
       <description>&lt;p&gt;Live demo - &lt;a href=&#34;https://svelte-tut.netlify.com/&#34;&gt;&lt;code&gt;Demo&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
-
 &lt;p&gt;Code for this tutorial can be found on &lt;a href=&#34;https://gitlab.com/aveeksaha/svelte-tut&#34;&gt;&lt;code&gt;Gitlab&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     

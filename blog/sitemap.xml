@@ -3,8 +3,57 @@
   
   <url>
     <loc>https://home.aveek.io/blog/</loc>
-    <lastmod>2019-10-31T00:00:00+00:00</lastmod>
+    <lastmod>2020-03-12T00:00:00+00:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://home.aveek.io/blog/tags/cloud/</loc>
+    <lastmod>2020-03-12T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://home.aveek.io/blog/tags/firebase/</loc>
+    <lastmod>2020-03-12T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://home.aveek.io/blog/tags/function/</loc>
+    <lastmod>2020-03-12T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://home.aveek.io/blog/post/getting-started-with-firebase-functions/</loc>
+    <lastmod>2020-03-12T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://home.aveek.io/blog/tags/javascript/</loc>
+    <lastmod>2020-03-12T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://home.aveek.io/blog/post/</loc>
+    <lastmod>2020-03-12T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://home.aveek.io/blog/tags/</loc>
+    <lastmod>2020-03-12T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   
   <url>
@@ -29,21 +78,7 @@
   </url>
   
   <url>
-    <loc>https://home.aveek.io/blog/post/</loc>
-    <lastmod>2019-10-31T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <url>
     <loc>https://home.aveek.io/blog/tags/python/</loc>
-    <lastmod>2019-10-31T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <url>
-    <loc>https://home.aveek.io/blog/tags/</loc>
     <lastmod>2019-10-31T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -114,13 +149,6 @@
   
   <url>
     <loc>https://home.aveek.io/blog/tags/electron/</loc>
-    <lastmod>2019-06-23T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <url>
-    <loc>https://home.aveek.io/blog/tags/javascript/</loc>
     <lastmod>2019-06-23T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

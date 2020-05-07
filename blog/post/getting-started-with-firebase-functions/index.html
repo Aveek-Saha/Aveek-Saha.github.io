@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Getting started with Firebase Functions</title>
+  <meta property="og:title" content="Getting started with Firebase Functions" />
+  <meta name="twitter:title" content="Getting started with Firebase Functions" />
+  <meta name="description" content="A beginner&#39;s tutorial on creating and deploying a Firebase function">
+  <meta property="og:description" content="A beginner&#39;s tutorial on creating and deploying a Firebase function">
+  <meta name="twitter:description" content="A beginner&#39;s tutorial on creating and deploying a Firebase function">
+  <meta name="author" content="Aveek Saha"/>
+  <link href='https://home.aveek.io/blog/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta property="og:image" content="https://home.aveek.io/blog/img/avatar-icon.png" />
+  <meta name="twitter:image" content="https://home.aveek.io/blog/img/avatar-icon.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://home.aveek.io/post/getting-started-with-firebase-functions/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Aveek Saha" />
+
+  <meta name="generator" content="Hugo 0.67.1" />
+  <link rel="canonical" href="https://home.aveek.io/post/getting-started-with-firebase-functions/" />
+  <link rel="alternate" href="https://home.aveek.io/blog/index.xml" type="application/rss+xml" title="Aveek Saha">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://home.aveek.io/blog/css/main.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://home.aveek.io/blog/css/pygment_highlights.css" />
+  <link rel="stylesheet" href="https://home.aveek.io/blog/css/highlight.min.css" />
+  
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-9236237212396372",
+              enable_page_level_ads: true
+         });
+    </script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-120301630-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar navbar-custom navbar-dark bg-dark">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://home.aveek.io/blog/">Aveek Saha</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="https://home.aveek.io/blog/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Portfolio" href="https://aveek-saha.github.io/">Portfolio</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="https://home.aveek.io/blog/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="https://home.aveek.io/blog/tags">Tags</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+  
+  
+  
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              <h1>Getting started with Firebase Functions</h1>
+                
+                  
+                    <h2 class="post-subheading">A beginner&#39;s tutorial on creating and deploying a Firebase function</h2>
+                  
+                
+                
+                  <span class="post-meta">
+  Posted on March 12, 2020
+  
+</span>
+
+
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>Check the final application here - <a href="pix2ascii.web.app"><code>pix2ascii</code></a>.</p>
+<p>The full code for this project can be found on <a href="https://github.com/Aveek-Saha/pix2ascii"><code>GitHub</code></a></p>
+<!-- raw HTML omitted -->
+<h1 id="what-are-firebase-functions">What are Firebase functions?</h1>
+<p>From the <a href="https://firebase.google.com/docs/functions">documentation</a>:</p>
+<blockquote>
+<p>Cloud Functions for Firebase is a serverless framework that lets you automatically run backend code in response to events triggered by Firebase features and HTTPS requests.</p>
+</blockquote>
+<p>What this means is essentially you can write code that will run when certain events take place. These events can be http requests or an event triggered by another firebase service, like their database or storage solution. This means that you can essentially write server side code without having to worry about the specifics of managing and scaling servers, which makes life a lot easier as a developer.</p>
+<p>Not all servers can be replaced by cloud functions especially since only Javascript or Typescript is supported. However there are a lot of simple tasks that you might have been considering using a server for, that can be handled by a cloud function.</p>
+<p>To demonstrate how to use Firebase cloud functions we&rsquo;ll be creating a simple application. In this application you can upload an image which will be converted to <a href="">ascii art</a>. Probably not the most useful application in the world, but a fun project to help you get started with firebase functions. The backend of this application will only use Firebase cloud functions and for the frontend we&rsquo;ll be using <a href="">Svelte</a>.</p>
+<p>I&rsquo;ll be tackling the Frontend in another post so stay tuned for that. So in this tutorial you&rsquo;ll learn how to create and deploy a Firebase function.</p>
+<h1 id="set-up-firebase">Set up Firebase</h1>
+<p>Before we start you&rsquo;ll need an account to log in to the <a href="https://console.firebase.google.com/"><code>Firebase Console</code></a>, and then you can follow the steps below.</p>
+<h3 id="1-create-a-firebase-project-">1. Create a Firebase project-</h3>
+<p>Go to the firebase console and create a new project. You can choose to set up Google analytics for the project, but it&rsquo;s not really important for this application.</p>
+<h3 id="2-set-up-firebase-cli-">2. Set up Firebase CLI-</h3>
+<p>You&rsquo;ll need to have Node.js installed already on your system. Install the cli through npm by running <code>npm install -g firebase-tools</code></p>
+<h3 id="3-initialize-the-firebase-sdk-">3. Initialize the Firebase SDK-</h3>
+<p>Run <code>firebase login</code> to log in to the CLI via the browser using the account your new project is linked to.</p>
+<h3 id="4-initialze-the-project-">4. Initialze the project-</h3>
+<p>Create a new working directory for this project and navigate to that directory. Then run <code>firebase init functions</code>.</p>
+<p>During the setup, Use an existing project, and select the project you&rsquo;d created through the console in the step before. Select JavaScript as the language and pick install dependencies using npm when it offers you the option. Once all the dependencies have finished isntalling you&rsquo;re ready for the next step!</p>
+<h1 id="creating-the-firebase-function">Creating the Firebase function</h1>
+<p>If the setup went correctly you should be seeing a folder called <code>functions</code>. This is where the code for our function will be, specifically in <code>index.js</code>.</p>
+<h2 id="the-api">The API</h2>
+<p>We&rsquo;ll be setting up a basic Express server with only one endpoint that receives the uploaded image and then using this Express app as a cloud function.
+First install the required modules</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">npm i
+npm i express busboy
+</code></pre></div><p>If you want to test the function locally, run <code>firebase serve</code> and then use the url specified in the console to test the function.</p>
+<p>We&rsquo;ll be uploading an image using a multipart form. Unfortunately common middleware for this purpose like Multer and Formidable dont work properly with express in Cloud functions, so we&rsquo;ll have to use a method shown in the <a href="https://cloud.google.com/functions/docs/writing/http#multipart_data">documentation</a> that uses Busboy. The documentation does a pretty good job of explaining the code, so I&rsquo;ll just be copying it here in <code>index.js</code>.</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">functions</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;firebase-functions&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;express&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">cors</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;cors&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">Busboy</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;busboy&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;path&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">os</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;os&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;fs&#39;</span><span class="p">);</span>
+ 
+<span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span>
+ 
+<span class="kr">const</span> <span class="nx">runtimeOpts</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">timeoutSeconds</span><span class="o">:</span> <span class="mi">120</span>
+<span class="p">}</span>
+ 
+<span class="c1">// Automatically allow cross-origin requests
+</span><span class="c1"></span><span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">cors</span><span class="p">({</span> <span class="nx">origin</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}));</span>
+ 
+<span class="nx">app</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+ 
+    <span class="kr">const</span> <span class="nx">busboy</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Busboy</span><span class="p">({</span> <span class="nx">headers</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">headers</span> <span class="p">});</span>
+    <span class="kr">const</span> <span class="nx">tmpdir</span> <span class="o">=</span> <span class="nx">os</span><span class="p">.</span><span class="nx">tmpdir</span><span class="p">();</span>
+    <span class="kr">const</span> <span class="nx">fields</span> <span class="o">=</span> <span class="p">{};</span>
+    <span class="kr">const</span> <span class="nx">uploads</span> <span class="o">=</span> <span class="p">{};</span>
+ 
+    <span class="nx">busboy</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;field&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">fieldname</span><span class="p">,</span> <span class="nx">val</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Processed field </span><span class="si">${</span><span class="nx">fieldname</span><span class="si">}</span><span class="sb">: </span><span class="si">${</span><span class="nx">val</span><span class="si">}</span><span class="sb">.`</span><span class="p">);</span>
+        <span class="nx">fields</span><span class="p">[</span><span class="nx">fieldname</span><span class="p">]</span> <span class="o">=</span> <span class="nx">val</span><span class="p">;</span>
+    <span class="p">});</span>
+ 
+    <span class="kr">const</span> <span class="nx">fileWrites</span> <span class="o">=</span> <span class="p">[];</span>
+ 
+    <span class="c1">// This code will process each file uploaded.
+</span><span class="c1"></span>    <span class="nx">busboy</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;file&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">fieldname</span><span class="p">,</span> <span class="nx">file</span><span class="p">,</span> <span class="nx">filename</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Processed file </span><span class="si">${</span><span class="nx">filename</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+        <span class="kr">const</span> <span class="nx">filepath</span> <span class="o">=</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">tmpdir</span><span class="p">,</span> <span class="nx">filename</span><span class="p">);</span>
+        <span class="nx">uploads</span><span class="p">[</span><span class="nx">fieldname</span><span class="p">]</span> <span class="o">=</span> <span class="nx">filepath</span><span class="p">;</span>
+ 
+        <span class="kr">const</span> <span class="nx">writeStream</span> <span class="o">=</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">createWriteStream</span><span class="p">(</span><span class="nx">filepath</span><span class="p">);</span>
+        <span class="nx">file</span><span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">writeStream</span><span class="p">);</span>
+ 
+        <span class="kr">const</span> <span class="nx">promise</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="nx">file</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;end&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                <span class="nx">writeStream</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
+            <span class="p">});</span>
+            <span class="nx">writeStream</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;finish&#39;</span><span class="p">,</span> <span class="nx">resolve</span><span class="p">);</span>
+            <span class="nx">writeStream</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span> <span class="nx">reject</span><span class="p">);</span>
+        <span class="p">});</span>
+        <span class="nx">fileWrites</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">promise</span><span class="p">);</span>
+    <span class="p">});</span>
+ 
+    <span class="nx">busboy</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;finish&#39;</span><span class="p">,</span> <span class="nx">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">await</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">(</span><span class="nx">fileWrites</span><span class="p">);</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kr">const</span> <span class="nx">file</span> <span class="k">in</span> <span class="nx">uploads</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">uploads</span><span class="p">[</span><span class="nx">file</span><span class="p">]);</span>
+            
+            <span class="nx">fs</span><span class="p">.</span><span class="nx">unlinkSync</span><span class="p">(</span><span class="nx">uploads</span><span class="p">[</span><span class="nx">file</span><span class="p">]);</span>
+ 
+        <span class="p">}</span>
+        <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
+    <span class="p">});</span>
+ 
+    <span class="nx">busboy</span><span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">rawBody</span><span class="p">);</span>
+ 
+<span class="p">});</span>
+ 
+<span class="c1">// Expose Express API as a single Cloud Function:
+</span><span class="c1"></span><span class="nx">exports</span><span class="p">.</span><span class="nx">ascii</span> <span class="o">=</span> <span class="nx">functions</span><span class="p">.</span><span class="nx">runWith</span><span class="p">(</span><span class="nx">runtimeOpts</span><span class="p">).</span><span class="nx">https</span><span class="p">.</span><span class="nx">onRequest</span><span class="p">(</span><span class="nx">app</span><span class="p">);</span>
+</code></pre></div>
+<p>So now if we test the function using a service like Insomnia or Postman by uploading an image in a multi part form the path to the image uploaded should be logged in the console!</p>
+<h2 id="image-to-ascii">Image to ASCII</h2>
+<p>We&rsquo;ll be creating a separate module for the logic to convert the image the user uploads to ASCII art. To convert the image we&rsquo;ll be using a module called <code>Jimp</code>.</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ npm i jimp
+</code></pre></div><p>Create a new file called <code>img2ascii.js</code>.</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"> 
+<span class="kr">const</span> <span class="nx">Jimp</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;jimp&#39;</span><span class="p">);</span>
+ 
+<span class="c1">// Export the function so we can call it from the cloud function
+</span><span class="c1">// The function takes the filepath, the dimensions of the image 
+</span><span class="c1">// and the kind of ascii art as parameters
+</span><span class="c1"></span> 
+<span class="nx">exports</span><span class="p">.</span><span class="nx">convert</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">file</span><span class="p">,</span> <span class="nx">dim</span><span class="p">,</span> <span class="nx">options</span><span class="p">)</span> <span class="p">{</span>
+ 
+    <span class="c1">// Different kinds of character sets for visually different ends results
+</span><span class="c1"></span>    <span class="kd">var</span> <span class="nx">greyscale</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="nx">gscale_70</span><span class="o">:</span> <span class="s2">&#34;@$B%8&amp;WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~&lt;&gt;i!lI;:,\&#34; ^`&#39;. &#34;</span>
+        <span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">).</span><span class="nx">reverse</span><span class="p">().</span><span class="nx">join</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">),</span>
+        <span class="nx">gscale_10</span><span class="o">:</span> <span class="s2">&#34;@%#*+=-:. &#34;</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">).</span><span class="nx">reverse</span><span class="p">().</span><span class="nx">join</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">),</span>
+        <span class="nx">gscale_block</span><span class="o">:</span> <span class="s2">&#34;  ░▒▓█&#34;</span>
+    <span class="p">}</span>
+ 
+    <span class="kd">var</span> <span class="nx">gscale</span> <span class="o">=</span> <span class="nx">greyscale</span><span class="p">[</span><span class="nx">options</span><span class="p">]</span>
+ 
+    <span class="kd">var</span> <span class="nx">norm_factor</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span> <span class="o">*</span> <span class="mi">4</span><span class="p">)</span> <span class="o">/</span> <span class="nx">gscale</span><span class="p">.</span><span class="nx">length</span>
+ 
+    <span class="c1">// Jimp.read returns a promise, so we&#39;ll pass that on
+</span><span class="c1"></span>    <span class="k">return</span> <span class="nx">Jimp</span><span class="p">.</span><span class="nx">read</span><span class="p">(</span><span class="nx">file</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span>
+        <span class="p">(</span><span class="nx">image</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="c1">// Since the letters are almost twice as tall as they are wide, 
+</span><span class="c1"></span>            <span class="c1">// we&#39;ll be scaling the height and then dividing by 2 so that the
+</span><span class="c1"></span>            <span class="c1">// result isn&#39;t abnormally tall and proportions are preserved
+</span><span class="c1"></span>            <span class="kd">var</span> <span class="nx">height</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">((</span><span class="nx">image</span><span class="p">.</span><span class="nx">bitmap</span><span class="p">.</span><span class="nx">height</span> <span class="o">*</span> <span class="nx">width</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="nx">image</span><span class="p">.</span><span class="nx">bitmap</span><span class="p">.</span><span class="nx">width</span><span class="p">))</span>
+            
+            <span class="nx">image</span>
+                <span class="p">.</span><span class="nx">resize</span><span class="p">(</span><span class="nx">width</span><span class="p">,</span> <span class="nx">height</span><span class="p">)</span> <span class="c1">// resize
+</span><span class="c1"></span>                <span class="p">.</span><span class="nx">greyscale</span><span class="p">()</span> <span class="c1">// set greyscale
+</span><span class="c1"></span> 
+            <span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[]</span>
+ 
+            <span class="nx">image</span><span class="p">.</span><span class="nx">scan</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">image</span><span class="p">.</span><span class="nx">bitmap</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span> <span class="nx">image</span><span class="p">.</span><span class="nx">bitmap</span><span class="p">.</span><span class="nx">height</span><span class="p">,</span> 
+            <span class="kd">function</span> <span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">idx</span><span class="p">)</span> <span class="p">{</span>
+ 
+                <span class="kd">var</span> <span class="nx">red</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">bitmap</span><span class="p">.</span><span class="nx">data</span><span class="p">[</span><span class="nx">idx</span> <span class="o">+</span> <span class="mi">0</span><span class="p">];</span>
+                <span class="kd">var</span> <span class="nx">green</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">bitmap</span><span class="p">.</span><span class="nx">data</span><span class="p">[</span><span class="nx">idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">];</span>
+                <span class="kd">var</span> <span class="nx">blue</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">bitmap</span><span class="p">.</span><span class="nx">data</span><span class="p">[</span><span class="nx">idx</span> <span class="o">+</span> <span class="mi">2</span><span class="p">];</span>
+                <span class="kd">var</span> <span class="nx">alpha</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">bitmap</span><span class="p">.</span><span class="nx">data</span><span class="p">[</span><span class="nx">idx</span> <span class="o">+</span> <span class="mi">3</span><span class="p">];</span>
+ 
+                <span class="kd">var</span> <span class="nx">rgba</span> <span class="o">=</span> <span class="nx">red</span> <span class="o">+</span> <span class="nx">green</span> <span class="o">+</span> <span class="nx">blue</span> <span class="o">+</span> <span class="nx">alpha</span>
+                <span class="kd">var</span> <span class="nx">intensity</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nx">rgba</span> <span class="o">/</span> <span class="nx">norm_factor</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+ 
+                <span class="c1">// Map intensity to a character
+</span><span class="c1"></span>                <span class="nx">arr</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">gscale</span><span class="p">[</span><span class="nx">intensity</span><span class="p">])</span>
+            <span class="p">});</span>
+ 
+            <span class="kd">var</span> <span class="nx">matrix</span> <span class="o">=</span> <span class="p">[];</span>
+            <span class="c1">// Reshape the array
+</span><span class="c1"></span>            <span class="k">while</span> <span class="p">(</span><span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="nx">matrix</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">arr</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">dim</span><span class="p">.</span><span class="nx">width</span><span class="p">));</span>
+ 
+            <span class="kd">var</span> <span class="nx">toWrite</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span>
+ 
+            <span class="c1">// Convert the array to a string
+</span><span class="c1"></span>            <span class="nx">matrix</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">element</span> <span class="p">=&gt;</span> <span class="p">{</span>
+                <span class="nx">toWrite</span> <span class="o">+=</span> <span class="nx">element</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;\n&#39;</span>
+            <span class="p">});</span>
+ 
+            <span class="k">return</span> <span class="nx">toWrite</span>
+ 
+        <span class="p">}</span>
+    <span class="p">)</span> 
+<span class="p">}</span>
+ 
+</code></pre></div>
+<p>Now to convert the image the user has passed to the function, we have to make a few changes to <code>index.js</code>.</p>
+<p>Import the module we just created.</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="p">...</span>
+<span class="kr">const</span> <span class="nx">p2a</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./img2ascii.js&#39;</span><span class="p">)</span>
+<span class="p">...</span>
+</code></pre></div>
+<p>To take the file passed and do the conversion, modify this part of the cloud function
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="p">...</span>
+<span class="p">...</span>
+<span class="nx">busboy</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;finish&#39;</span><span class="p">,</span> <span class="nx">async</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">await</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">(</span><span class="nx">fileWrites</span><span class="p">);</span>
+        <span class="kd">var</span> <span class="nx">art</span> <span class="o">=</span> <span class="p">[]</span>
+ 
+        <span class="k">for</span> <span class="p">(</span><span class="kr">const</span> <span class="nx">file</span> <span class="k">in</span> <span class="nx">uploads</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// Call the conversion function on the file that&#39;s been passed along with the other parameters
+</span><span class="c1"></span>            <span class="kd">var</span> <span class="nx">ascii</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">p2a</span><span class="p">.</span><span class="nx">convert</span><span class="p">(</span><span class="nx">uploads</span><span class="p">[</span><span class="nx">file</span><span class="p">],</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">fields</span><span class="p">[</span><span class="s1">&#39;width&#39;</span><span class="p">]),</span> <span class="nx">fields</span><span class="p">[</span><span class="s1">&#39;charset&#39;</span><span class="p">])</span>
+            <span class="c1">// Store the result in an array
+</span><span class="c1"></span>            <span class="nx">art</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">ascii</span><span class="p">)</span>
+            <span class="nx">fs</span><span class="p">.</span><span class="nx">unlinkSync</span><span class="p">(</span><span class="nx">uploads</span><span class="p">[</span><span class="nx">file</span><span class="p">]);</span>
+ 
+        <span class="p">}</span>
+        <span class="c1">// Since we&#39;re only allowing one file to be uploaded
+</span><span class="c1"></span>        <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">art</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+    <span class="p">});</span>
+<span class="p">...</span>
+<span class="p">...</span>
+</code></pre></div></p>
+<p>At this stage if you test your function using Insomnia or Postman to create a multi part form, with an image, the width and the charset fields, and send it, you should see a string of ascii characters that represent your image being sent back in the response. We&rsquo;re now ready for the next step!</p>
+<h1 id="deploy">Deploy</h1>
+<p>To deploy the function just run this command in the <code>functions</code> folder.</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">firebase deploy
+</code></pre></div><p>Once the application has been deployed, the CLI will give you a public url that you can access from anywhere. It should look something like this. <code>https://us-central1-pix2ascii.cloudfunctions.net/ascii</code>. You can test this deployed function in the same way you were testing it localy, just replace the url.</p>
+<h1 id="conclusion">Conclusion</h1>
+<p>We&rsquo;ve now successfully created and deployed a function to firebase that we can use to convert an image to ASCII art. If all you want is the backend then that&rsquo;s all you need.</p>
+<p>You&rsquo;re free to use any hosting service along with any framework of your choice for the web UI. If you want to also learn how to build and deploy a svelte application to Firebase and automate the process using GitHub actions, be sure to look out for the next part of this tutorial.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+      </article>
+
+      <ul class="pager blog-pager">
+        
+          <li class="previous">
+            <a href="https://home.aveek.io/blog/post/finding-main-characters/" data-toggle="tooltip" data-placement="top" title="Finding the main characters in a novel">&larr; Previous Post</a>
+          </li>
+        
+        
+      </ul>
+
+      
+        
+          <div class="disqus-comments">
+            <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "aveekblog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          </div>
+        
+      
+
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:aveek.s98@gmail.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/profile.php?id=100001098414449" title="Facebook">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://gitlab.com/AveekSaha" title="GitLab">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-gitlab fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/Aveek-saha" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/aveek-saha" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/aveek68" title="Instagram">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://itch.io/profile/aveek-saha" title="Itch.io">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-gamepad fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="https://home.aveek.io/blog/index.xml" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          Aveek Saha
+          &nbsp;&bull;&nbsp;
+          2020
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://home.aveek.io/blog/">Aveek Saha</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.67.1</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://home.aveek.io/blog/js/main.js"></script>
+<script src="https://home.aveek.io/blog/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> renderMathInElement(document.body); </script>
+
+
+
+
+
+  </body>
+</html>
+

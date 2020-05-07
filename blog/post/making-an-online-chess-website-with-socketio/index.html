@@ -20,7 +20,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Aveek Saha" />
 
-  <meta name="generator" content="Hugo 0.57.2" />
+  <meta name="generator" content="Hugo 0.67.1" />
   <link rel="canonical" href="https://home.aveek.io/post/making-an-online-chess-website-with-socketio/" />
   <link rel="alternate" href="https://home.aveek.io/blog/index.xml" type="application/rss+xml" title="Aveek Saha">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
@@ -182,39 +182,24 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>If you want the code for this project, fork this GitHub repo - <a href="https://github.com/Aveek-Saha/Online-Chess"><code>Online chess</code></a> <br>
+        <p>If you want the code for this project, fork this GitHub repo - <a href="https://github.com/Aveek-Saha/Online-Chess"><code>Online chess</code></a> <!-- raw HTML omitted -->
 Check out the code in action here, play it yourself - <a href="https://chess0.herokuapp.com"><code>Live demo</code></a></p>
-
 <h1 id="introduction">Introduction</h1>
-
 <p>In this tutorial you&rsquo;ll learn how to build a basic online Chess platform with multiple rooms, where people can play against each other. We will be using Sockets to communicate between the client and the server.</p>
-
-<h1 id="socket-io">Socket.io</h1>
-
+<h1 id="socketio">Socket.io</h1>
 <p>From the socket.io documentation -</p>
-
 <blockquote>
 <p>Socket.IO is a library that enables real-time, bidirectional and event-based communication between the browser and the server.</p>
 </blockquote>
-
 <p>Two important methods that you need know are-</p>
-
 <p>The <code>emit</code> method emits an event and you can send data along with this event as long as its JSON encodable or binary data.</p>
-
 <pre><code>socket.emit('test', msg); 
-</code></pre>
-
-<p>The <code>on</code> method listens for an event and it can receive data that has been emitted.</p>
-
+</code></pre><p>The <code>on</code> method listens for an event and it can receive data that has been emitted.</p>
 <pre><code>socket.on('test', (msg) =&gt; {
  console.log(msg);
 });
-</code></pre>
-
-<p><br></p>
-
+</code></pre><!-- raw HTML omitted -->
 <h1 id="file-structure">File Structure</h1>
-
 <p><div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">chess</span>
    <span class="o">|----</span><span class="nx">chessboard</span> <span class="c1">// A folder for the chessboard.js library
 </span><span class="c1"></span>   <span class="o">|</span>
@@ -228,23 +213,14 @@ Check out the code in action here, play it yourself - <a href="https://chess0.he
    <span class="o">|</span>
    <span class="o">|--</span><span class="kr">package</span><span class="p">.</span><span class="nx">json</span>
 </code></pre></div>
-<br></p>
-
+<!-- raw HTML omitted --></p>
 <h1 id="setup">Setup</h1>
-
 <p>Create a new project folder, cd to that directory and then run</p>
-
 <pre><code>npm init
-</code></pre>
-
-<p>After that go to <a href="http://chessboardjs.com/"><code>Chessboard.js</code></a> and download the latest version. Extract the contents to the <code>chessboard</code> folder. Copy the <code>img</code> folder from <code>chessboard</code> to the root directory . We&rsquo;re going to use this library to display and interact with the chessboard and the pieces.</p>
-
+</code></pre><p>After that go to <a href="http://chessboardjs.com/"><code>Chessboard.js</code></a> and download the latest version. Extract the contents to the <code>chessboard</code> folder. Copy the <code>img</code> folder from <code>chessboard</code> to the root directory . We&rsquo;re going to use this library to display and interact with the chessboard and the pieces.</p>
 <p>Now we&rsquo;ll create the <code>index.html</code> and <code>game.js</code> files. Go to this <a href="http://chessboardjs.com/examples#5003"><code>Highlight Legal Moves</code></a> example on the <a href="http://chessboardjs.com/"><code>Chessboard.js</code></a> website.</p>
-
 <p>For checking valid moves, piece placement and check/checkmate detection we&rsquo;ll be using another library called <a href="https://github.com/jhlywa/chess.js"><code>Chess.js</code></a>. We&rsquo;re going to include this via CDN in <code>index.html</code></p>
-
 <p>Copy the JavaScript section of the code into <code>game.js</code>. Your File should look like this.</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">board</span><span class="p">,</span>
  <span class="nx">game</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Chess</span><span class="p">();</span>
 
@@ -325,9 +301,7 @@ Check out the code in action here, play it yourself - <a href="https://chess0.he
 <span class="p">};</span>
 <span class="nx">board</span> <span class="o">=</span> <span class="nx">ChessBoard</span><span class="p">(</span><span class="s1">&#39;board&#39;</span><span class="p">,</span> <span class="nx">cfg</span><span class="p">);</span>
 </code></pre></div>
-
 <p>Next up is <code>index.js</code>.</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="cp">&lt;!doctype html&gt;</span>
 <span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&#34;en&#34;</span><span class="p">&gt;</span>
 
@@ -361,11 +335,8 @@ Check out the code in action here, play it yourself - <a href="https://chess0.he
 <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
 
 <span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span></code></pre></div>
-
 <p>If you just double click on the <code>index.html</code> file you should be able to see a simple chessboard and the pieces. You can move the pieces around, and hovering on a piece will show you the possible moves you can make. This is because of the integration with <code>Chess.js</code> that does the move generation and valid move checking for us.</p>
-
 <p>In case a user tries to join a game that already has 2 players in it, we&rsquo;ll redirect him to <code>full.html</code>, which is just a basic html page that says the game is full.</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="cp">&lt;!doctype html&gt;</span>
 <span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&#34;en&#34;</span><span class="p">&gt;</span>
 
@@ -388,36 +359,29 @@ Check out the code in action here, play it yourself - <a href="https://chess0.he
 
 
 <span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span></code></pre></div>
-
 <h1 id="packages">Packages</h1>
-
 <p>For this project we will be using only <code>Express</code> and <code>Socket.io</code>. To install them, run</p>
-
 <pre><code>npm install --save express
 
 npm install --save socket.io
-</code></pre>
-
-<h1 id="the-server">The Server</h1>
-
+</code></pre><h1 id="the-server">The Server</h1>
 <p>Create <code>index.js</code> and require the following modules.
-<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="k">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;express&#39;</span><span class="p">);</span>
-<span class="k">const</span> <span class="nx">http</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;http&#39;</span><span class="p">);</span>
-<span class="k">const</span> <span class="nx">socket</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;socket.io&#39;</span><span class="p">);</span>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;express&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">http</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;http&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">socket</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;socket.io&#39;</span><span class="p">);</span>
 </code></pre></div></p>
-
 <p>Then we&rsquo;re going to declare a few variables
 <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// use 8080 as the default port number, process.env.PORT is
 </span><span class="c1">//useful if you deploy to Heroku
-</span><span class="c1"></span><span class="k">const</span> <span class="nx">port</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PORT</span> <span class="o">||</span> <span class="mi">8080</span>
+</span><span class="c1"></span><span class="kr">const</span> <span class="nx">port</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PORT</span> <span class="o">||</span> <span class="mi">8080</span>
 
 <span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span>
 
 <span class="c1">// start the server
-</span><span class="c1"></span><span class="k">const</span> <span class="nx">server</span> <span class="o">=</span> <span class="nx">http</span><span class="p">.</span><span class="nx">createServer</span><span class="p">(</span><span class="nx">app</span><span class="p">)</span>
+</span><span class="c1"></span><span class="kr">const</span> <span class="nx">server</span> <span class="o">=</span> <span class="nx">http</span><span class="p">.</span><span class="nx">createServer</span><span class="p">(</span><span class="nx">app</span><span class="p">)</span>
 
 <span class="c1">// initialize a new instance of socket.io by passing the HTTP server object
-</span><span class="c1"></span><span class="k">const</span> <span class="nx">io</span> <span class="o">=</span> <span class="nx">socket</span><span class="p">(</span><span class="nx">server</span><span class="p">)</span>
+</span><span class="c1"></span><span class="kr">const</span> <span class="nx">io</span> <span class="o">=</span> <span class="nx">socket</span><span class="p">(</span><span class="nx">server</span><span class="p">)</span>
 
 <span class="c1">// keep track of how many players in a game (0, 1, 2)
 </span><span class="c1"></span><span class="kd">var</span> <span class="nx">players</span><span class="p">;</span>
@@ -428,15 +392,12 @@ npm install --save socket.io
    <span class="nx">games</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="nx">players</span><span class="o">:</span> <span class="mi">0</span> <span class="p">,</span> <span class="nx">pid</span><span class="o">:</span> <span class="p">[</span><span class="mi">0</span> <span class="p">,</span> <span class="mi">0</span><span class="p">]};</span>
 <span class="p">}</span>
 </code></pre></div></p>
-
 <p>Our routing is simple, we only need to show <code>index.html</code> when &ldquo;/&rdquo; is accessed
 <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
    <span class="nx">res</span><span class="p">.</span><span class="nx">sendFile</span><span class="p">(</span><span class="nx">__dirname</span> <span class="o">+</span> <span class="s1">&#39;/index.html&#39;</span><span class="p">);</span>
 <span class="p">});</span>
 </code></pre></div></p>
-
 <p>Now its time to listen for the <code>connection</code> event on the server</p>
-
 <p><div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">io</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;connection&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">socket</span><span class="p">)</span> <span class="p">{</span>
 
  <span class="c1">// just assign a random number to every player that has connected
@@ -451,14 +412,10 @@ npm install --save socket.io
  <span class="p">});</span>
 <span class="p">});</span>
 </code></pre></div>
-<br></p>
-
+<!-- raw HTML omitted --></p>
 <h1 id="the-client">The Client</h1>
-
 <p>Let&rsquo;s turn our attention back to the client, <code>index.html</code>. We&rsquo;re going to add an input box where the player enters the room number he wants to join and once he hits a button, if the room is not full, he&rsquo;ll join the room.</p>
-
 <p>After adding that and a few divs to display some information, we add bootstrap and the final <code>index.html</code> looks like this:</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="cp">&lt;!doctype html&gt;</span>
 <span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&#34;en&#34;</span><span class="p">&gt;</span>
 
@@ -530,9 +487,7 @@ npm install --save socket.io
  <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;./game.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span></code></pre></div>
-
 <p>Now we have to modify <code>game.js</code> so that it communicates with the server. After initializing the socket we can communicate the via two methods mentioned earlier.</p>
-
 <p>We&rsquo;ll start off modifying <code>game.js</code> by adding a few variables.
 <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// creates a new chess game using the chess.js library
 </span><span class="c1"></span><span class="nx">game</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Chess</span><span class="p">();</span>
@@ -553,19 +508,12 @@ npm install --save socket.io
 <span class="kd">var</span> <span class="nx">button</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;button&#34;</span><span class="p">)</span>
 <span class="kd">var</span> <span class="nx">state</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;state&#39;</span><span class="p">)</span>
 </code></pre></div>
-<br></p>
-
+<!-- raw HTML omitted --></p>
 <h1 id="more-server-stuff">More Server Stuff</h1>
-
 <p>We set up the client side socket, and we will be able to communicate between the client and server. But before that we have a few more things to set up here, inside</p>
-
 <pre><code>io.on('connection', function (socket) {})
-</code></pre>
-
-<p>We&rsquo;ll be emitting and receiving some events from the client here and after this, we&rsquo;ll set up the emitters and receivers on the client side too.</p>
-
+</code></pre><p>We&rsquo;ll be emitting and receiving some events from the client here and after this, we&rsquo;ll set up the emitters and receivers on the client side too.</p>
 <p>What we&rsquo;ll using the for server here is basically passing on the message from one client to the other. So in most of the <code>socket.on()</code> function callbacks, you&rsquo;ll see a <code>socket.emit</code> function, so that the server can pass on the event to the rest of the clients. since the server will emit events to all clients. The clients will know if the event was meant for them because we pass the <code>roomId</code> in the message. The <code>roomId</code> is checked on the client side. This method isn&rsquo;t secure, but it&rsquo;s fine for our small application.</p>
-
 <p><div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">color</span><span class="p">;</span> <span class="c1">// black or white
 </span><span class="c1"></span>
 <span class="c1">// &#39;joined&#39; is emitted when the player enters a room number and clicks
@@ -615,16 +563,11 @@ npm install --save socket.io
 
 <span class="p">});</span>
 </code></pre></div>
-<br></p>
-
+<!-- raw HTML omitted --></p>
 <h1 id="back-to-the-client">Back to the Client</h1>
-
 <p>After setting up our server to relay messages back and forth from clients we set up the client to respond to the server emitted events. So let&rsquo;s get back to <code>game.js</code>.</p>
-
 <p>First thing we&rsquo;ll do is set up a listener for the &lsquo;player&rsquo; event, which means that a player has joined the event and the board will be set up, along with the players color. The code we wrote to create the board in the first step also goes in this.</p>
-
 <p>Put this at the bottom of <code>game.js</code>.</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;player&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">msg</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
 
  <span class="kd">var</span> <span class="nx">plno</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;player&#39;</span><span class="p">)</span>
@@ -665,35 +608,15 @@ npm install --save socket.io
 
 <span class="kd">var</span> <span class="nx">board</span><span class="p">;</span>
 </code></pre></div>
-
 <p>Now we need to modify some of the functions that we copied from the example at <a href="http://chessboardjs.com/examples#5003"><code>chessboardjs</code></a>.</p>
-
 <p>For <code>onDragStart</code> we add a few more conditions to check if the move is valid or not. The conditions we added are -</p>
-
 <pre><code>play || // check if both players have joined
 
 // if the player is white, he cannot move black pieces and vice versa
 (game.turn() === 'w' &amp;&amp; color === 'black') ||
 (game.turn() === 'b' &amp;&amp; color === 'white')
-</code></pre>
-
-<p><br>
-Add these extra checks to the function.
-<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">onDragStart</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">source</span><span class="p">,</span> <span class="nx">piece</span><span class="p">)</span> <span class="p">{</span>
-
- <span class="c1">// A few more rules have been added
-</span><span class="c1"></span> <span class="k">if</span> <span class="p">(</span><span class="nx">game</span><span class="p">.</span><span class="nx">game_over</span><span class="p">()</span> <span class="o">===</span> <span class="kc">true</span> <span class="o">||</span> <span class="nx">play</span> <span class="o">||</span>
-     <span class="p">(</span><span class="nx">game</span><span class="p">.</span><span class="nx">turn</span><span class="p">()</span> <span class="o">===</span> <span class="s1">&#39;w&#39;</span> <span class="o">&amp;&amp;</span> <span class="nx">piece</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="sr">/^b/</span><span class="p">)</span> <span class="o">!==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">||</span>
-     <span class="p">(</span><span class="nx">game</span><span class="p">.</span><span class="nx">turn</span><span class="p">()</span> <span class="o">===</span> <span class="s1">&#39;b&#39;</span> <span class="o">&amp;&amp;</span> <span class="nx">piece</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="sr">/^w/</span><span class="p">)</span> <span class="o">!==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">||</span>
-     <span class="p">(</span><span class="nx">game</span><span class="p">.</span><span class="nx">turn</span><span class="p">()</span> <span class="o">===</span> <span class="s1">&#39;w&#39;</span> <span class="o">&amp;&amp;</span> <span class="nx">color</span> <span class="o">===</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span> <span class="o">||</span>
-     <span class="p">(</span><span class="nx">game</span><span class="p">.</span><span class="nx">turn</span><span class="p">()</span> <span class="o">===</span> <span class="s1">&#39;b&#39;</span> <span class="o">&amp;&amp;</span> <span class="nx">color</span> <span class="o">===</span> <span class="s1">&#39;white&#39;</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
-         <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
- <span class="p">}</span>
-<span class="p">};</span>
-</code></pre></div></p>
-
+</code></pre><!-- raw HTML omitted -->
 <p>The function <code>onDrop</code>, is when the pieces are actually moved. So when the player makes a move and drops a move, the &lsquo;move&rsquo; event is emitted.</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">onDrop</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">source</span><span class="p">,</span> <span class="nx">target</span><span class="p">)</span> <span class="p">{</span>
  <span class="nx">removeGreySquares</span><span class="p">();</span>
 
@@ -717,9 +640,7 @@ Add these extra checks to the function.
 
 <span class="p">};</span>
 </code></pre></div>
-
 <p>Now we need to add some listeners, so that changes that are sent via events are reflected in the client.</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// if the room is full (players &gt; 2), redirect the user
 </span><span class="c1">// to the full.html page we made earlier
 </span><span class="c1"></span><span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;full&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">msg</span><span class="p">)</span> <span class="p">{</span>
@@ -747,9 +668,7 @@ Add these extra checks to the function.
  <span class="p">}</span>
 <span class="p">});</span>
 </code></pre></div>
-
 <p>One last method requires implementation, the <code>connect</code> function. When we click the connect button it needs to emit an event with the room id that the player has entered.</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">connect</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
 
  <span class="c1">// extract the value of the input field
@@ -765,21 +684,12 @@ Add these extra checks to the function.
  <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <h1 id="checking-if-it-works">Checking if it works</h1>
-
 <p>For the complete code, check the repo, <a href="https://github.com/Aveek-Saha/Online-Chess"><code>Online chess</code></a>.</p>
-
 <p>cd to the project directory, and then run</p>
-
 <pre><code>node index.js
-</code></pre>
-
-<p>If you&rsquo;ve done everything correctly you&rsquo;ll see something like this <a href="https://chess0.herokuapp.com"><code>Live demo</code></a> here. You can open up as many instances as you want and try playing with your friends.</p>
-
-<p><br>
-<!-- <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript">
-</code></pre></div> --></p>
+</code></pre><p>If you&rsquo;ve done everything correctly you&rsquo;ll see something like this <a href="https://chess0.herokuapp.com"><code>Live demo</code></a> here. You can open up as many instances as you want and try playing with your friends.</p>
+<!-- raw HTML omitted -->
       </article>
 
       <ul class="pager blog-pager">
@@ -902,7 +812,7 @@ Add these extra checks to the function.
         <p class="credits copyright text-muted">
           Aveek Saha
           &nbsp;&bull;&nbsp;
-          2019
+          2020
 
           
             &nbsp;&bull;&nbsp;
@@ -911,7 +821,7 @@ Add these extra checks to the function.
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="http://gohugo.io">Hugo v0.57.2</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          <a href="http://gohugo.io">Hugo v0.67.1</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
           
         </p>
       </div>

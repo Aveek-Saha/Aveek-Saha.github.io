@@ -20,7 +20,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Aveek Saha" />
 
-  <meta name="generator" content="Hugo 0.57.2" />
+  <meta name="generator" content="Hugo 0.67.1" />
   <link rel="canonical" href="https://home.aveek.io/post/chrome-dinosaur-game-tutorial-with-phaser/" />
   <link rel="alternate" href="https://home.aveek.io/blog/index.xml" type="application/rss+xml" title="Aveek Saha">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
@@ -182,21 +182,14 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>If you want the code for this project, fork this GitHub repo - <a href="https://github.com/Aveek-Saha/Chrome-dinosaur-game-clone"><code>Dinosaur game code</code></a> <br>
+        <p>If you want the code for this project, fork this GitHub repo - <a href="https://github.com/Aveek-Saha/Chrome-dinosaur-game-clone"><code>Dinosaur game code</code></a> <!-- raw HTML omitted -->
 Check out the code in action here, play it yourself - <a href="https://aveeksaha.gitlab.io/runny/"><code>Live demo</code></a></p>
-
 <h1 id="introduction">Introduction</h1>
-
 <p>Chrome has this really simple and fun game that you can play when your WiFi is down. It consists of a small dinosaur that has to jump over cacti. This game has a couple of core mechanics, a player that jumps when the up key is pressed, and an infinite number of randomly generated obstacles for the player to jump over.</p>
-
 <p>Both these things can be easily achieved in Phaser, which is a 2D game framework for making HTML browser games. We&rsquo;re going to create a game with almost the same mechanics but with a different look.</p>
-
 <p>I&rsquo;m going to call it <code>Runny</code></p>
-
 <p>If you&rsquo;re new to phaser I would suggest reading a getting started tutorial.</p>
-
 <h1 id="file-structure">File Structure</h1>
-
 <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">runny</span>
     <span class="o">|---</span><span class="nx">assets</span> <span class="c1">// A folder for all our tiles and sprites
 </span><span class="c1"></span>    <span class="o">|</span>
@@ -210,25 +203,16 @@ Check out the code in action here, play it yourself - <a href="https://aveeksaha
     <span class="o">|</span>
     <span class="o">|--</span><span class="nx">index</span><span class="p">.</span><span class="nx">html</span> <span class="c1">// Where everything comes together
 </span></code></pre></div>
-
 <p>For this project we&rsquo;ll only be using <code>preload.js</code> and <code>main.js</code> from the <code>js folder</code></p>
-
 <p>The boilerplate code was taken from <a href="https://www.joshmorony.com/"><code>Joshua Morony's website</code></a> , download the files <a href="https://www.joshmorony.com/wp-content/uploads/2015/03/phaser-template.zip"><code>Here</code></a></p>
-
 <h1 id="assets">Assets</h1>
-
 <p>We need three basic kinds of tiles- the ground, the player and the obstacles. I&rsquo;ll be using 2 different png files for the obstacles and the ground. For the player I&rsquo;m going to use a sprite sheet because it can be animated.</p>
-
 <p>The ground and obstacle tiles were Made by <a href="http://kenney.nl/assets?q=2d"><code>Kenny</code></a> and the player spritesheet was made by <a href="https://arks.itch.io/dino-characters"><code>arks</code></a>.</p>
-
-<h1 id="preload-js">Preload.js</h1>
-
-<p>Here we load the assets that we need before we use them. In preload.js, change</p>
-
-<pre><code class="language-this.game.state.start(&quot;GameTitle&quot;);```"></code></pre>
-
-<p>this.game.state.start(&ldquo;Main&rdquo;);```
-<br>
+<h1 id="preloadjs">Preload.js</h1>
+<p>Here we load the assets that we need before we use them. In preload.js, change 
+<code>this.game.state.start(&quot;GameTitle&quot;);</code> to
+<code>this.game.state.start(&quot;Main&quot;);</code>
+<!-- raw HTML omitted -->
 Then add the following
 <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">preload</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
 
@@ -239,16 +223,11 @@ Then add the following
     <span class="c1">// player sprite
 </span><span class="c1"></span>    <span class="k">this</span><span class="p">.</span><span class="nx">game</span><span class="p">.</span><span class="nx">load</span><span class="p">.</span><span class="nx">spritesheet</span><span class="p">(</span><span class="s1">&#39;player&#39;</span><span class="p">,</span> <span class="s1">&#39;assets/player.png&#39;</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">);</span> 
 <span class="p">}</span>
-</code></pre></div><br></p>
-
-<h1 id="main-js">Main.js</h1>
-
-<p>This is where the fun stuff happens!<br></p>
-
+</code></pre></div><!-- raw HTML omitted --></p>
+<h1 id="mainjs">Main.js</h1>
+<p>This is where the fun stuff happens!<!-- raw HTML omitted --></p>
 <h3 id="create">Create</h3>
-
 <p>In the create function we initialize a few variables that we&rsquo;ll be using later.</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="k">this</span><span class="p">.</span><span class="nx">tileVelocity</span> <span class="o">=</span> <span class="o">-</span><span class="mi">450</span><span class="p">;</span> <span class="c1">// velocity of the obstacles
 </span><span class="c1"></span><span class="k">this</span><span class="p">.</span><span class="nx">rate</span> <span class="o">=</span> <span class="mi">1500</span><span class="p">;</span> <span class="c1">// rate at which the obstacles appear on screen
 </span><span class="c1"></span><span class="k">this</span><span class="p">.</span><span class="nx">jumping</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span> <span class="c1">// is the player jumping?
@@ -265,9 +244,7 @@ Then add the following
 <span class="c1">// execute addObstacles at the rate we set 
 </span><span class="c1"></span><span class="k">this</span><span class="p">.</span><span class="nx">timer</span> <span class="o">=</span> <span class="nx">game</span><span class="p">.</span><span class="nx">time</span><span class="p">.</span><span class="nx">events</span><span class="p">.</span><span class="nx">loop</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">rate</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">addObstacles</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span> 
 </code></pre></div>
-
-<p>Now we need 2 groups, one for the ground and one for the obstacles <br></p>
-
+<p>Now we need 2 groups, one for the ground and one for the obstacles <!-- raw HTML omitted --></p>
 <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// the floor group
 </span><span class="c1"></span><span class="k">this</span><span class="p">.</span><span class="nx">floor</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">game</span><span class="p">.</span><span class="nx">add</span><span class="p">.</span><span class="nx">group</span><span class="p">();</span>
 <span class="k">this</span><span class="p">.</span><span class="nx">floor</span><span class="p">.</span><span class="nx">enableBody</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
@@ -282,7 +259,6 @@ Then add the following
 <span class="k">this</span><span class="p">.</span><span class="nx">addBase</span><span class="p">();</span> <span class="c1">// add the ground for the player to run on
 </span><span class="c1"></span><span class="k">this</span><span class="p">.</span><span class="nx">createPlayer</span><span class="p">();</span> <span class="c1">// add the player to the game
 </span></code></pre></div>
-
 <p><code>Final create function</code>
 <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">create</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
 
@@ -314,12 +290,9 @@ Then add the following
     <span class="k">this</span><span class="p">.</span><span class="nx">timer</span> <span class="o">=</span> <span class="nx">game</span><span class="p">.</span><span class="nx">time</span><span class="p">.</span><span class="nx">events</span><span class="p">.</span><span class="nx">loop</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">rate</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">addObstacles</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
 
 	<span class="p">},</span>
-</code></pre></div><br></p>
-
+</code></pre></div><!-- raw HTML omitted --></p>
 <h3 id="add-base">Add Base</h3>
-
 <p>Now our player will need a platform to run on. The ground is actually not going to move, so we can just set a fixed number of tiles based on the size of the screen. Let&rsquo;s add the base.</p>
-
 <p><div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">addBase</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
 
     <span class="c1">// calculate how many tiles are needed
@@ -338,12 +311,9 @@ Then add the following
 
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div><br></p>
-
+</code></pre></div><!-- raw HTML omitted --></p>
 <h3 id="create-the-player">Create the Player</h3>
-
 <p>Since the player has something to stand on now, we can go ahead and create the player.</p>
-
 <p><div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">createPlayer</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
 
     <span class="c1">// spawn the player a to the left and a little above the ground
@@ -367,14 +337,10 @@ Then add the following
     <span class="c1">// play the walk animation at 20fps
 </span><span class="c1"></span>    <span class="k">this</span><span class="p">.</span><span class="nx">player</span><span class="p">.</span><span class="nx">animations</span><span class="p">.</span><span class="nx">play</span><span class="p">(</span><span class="s1">&#39;walk&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span> 
 <span class="p">}</span>
-</code></pre></div><br></p>
-
+</code></pre></div><!-- raw HTML omitted --></p>
 <h3 id="add-the-obstacles">Add the Obstacles</h3>
-
 <p>Just having the player jump without anything to jump over would be pretty boring, so we&rsquo;re going to add some boxes. In case you haven&rsquo;t realized already, we haven&rsquo;t given the player a velocity. This is because the player isn&rsquo;t actually going to move, we can simply create the illusion of movement by giving the obstacles a velocity in the direction of the player.</p>
-
 <p>Also to keep things interesting, the height of the obstacles the player has to jump over is random and based on that the player can either do a single jump or a double jump. We&rsquo;ll be implementation the jumping function later.</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">addObstacles</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
 
     <span class="c1">// Randomly decide how tall the stack of boxes is going to be
@@ -394,9 +360,7 @@ Then add the following
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <p>The function above doesn&rsquo;t actually add the boxes to the map, that&rsquo;s done by <code>addBox</code>, which creates a box at the given x and y coordinates.</p>
-
 <p><div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">addBox</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
 
     <span class="c1">// get the boxes that have already been moved outside the screen
@@ -410,13 +374,10 @@ Then add the following
     <span class="c1">// destroy them when they go outside the screen
 </span><span class="c1"></span>    <span class="nx">tile</span><span class="p">.</span><span class="nx">outOfBoundsKill</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div><br></p>
-
+</code></pre></div><!-- raw HTML omitted --></p>
 <h3 id="movement">Movement</h3>
-
 <p>Now we need to give the player a way to actually jump over the boxes when we press the UP arrow. This is taken care of in the <code>update</code> function which can constantly checks for input. We&rsquo;ll also be implementing a double jump mechanism that we talked about earlier.
 This isn&rsquo;t a part of the original game, but makes it more interesting. We&rsquo;ll also be checking for collisions between the other tiles and the player.If the player touches a box, the game is over.</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">update</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
 
     <span class="c1">// collide with the floor
@@ -447,9 +408,7 @@ This isn&rsquo;t a part of the original game, but makes it more interesting. We&
 
 <span class="p">}</span>
 </code></pre></div>
-
 <p>There are 2 more methods we need to implement, one for checking if the up arrow is held down, and one to check if its released.</p>
-
 <p><div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// This function returns true when the player presses the &#34;jump&#34; control
 </span><span class="c1"></span><span class="nx">upInputIsActive</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">duration</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">isActive</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
@@ -471,17 +430,13 @@ This isn&rsquo;t a part of the original game, but makes it more interesting. We&
 
     <span class="k">return</span> <span class="nx">released</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div><br></p>
-
+</code></pre></div><!-- raw HTML omitted --></p>
 <h1 id="game-over">Game Over</h1>
-
 <p>For the last part of our project, we need to do something when the player hits a box and the game is over. In this case since we don&rsquo;t have a Start Screen we&rsquo;ll just load up the game again, i.e <code>main.js</code>
 So put this line in <code>gameOver</code></p>
-
 <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="k">this</span><span class="p">.</span><span class="nx">game</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">start</span><span class="p">(</span><span class="s1">&#39;GameOver&#39;</span><span class="p">);</span>
 </code></pre></div>
-
-<p><br></p>
+<!-- raw HTML omitted -->
       </article>
 
       <ul class="pager blog-pager">
@@ -604,7 +559,7 @@ So put this line in <code>gameOver</code></p>
         <p class="credits copyright text-muted">
           Aveek Saha
           &nbsp;&bull;&nbsp;
-          2019
+          2020
 
           
             &nbsp;&bull;&nbsp;
@@ -613,7 +568,7 @@ So put this line in <code>gameOver</code></p>
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="http://gohugo.io">Hugo v0.57.2</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          <a href="http://gohugo.io">Hugo v0.67.1</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
           
         </p>
       </div>

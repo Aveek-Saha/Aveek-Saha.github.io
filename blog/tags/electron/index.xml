@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Electron on Aveek Saha</title>
@@ -18,7 +18,7 @@
       <pubDate>Sun, 23 Jun 2019 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
       <guid>https://home.aveek.io/blog/post/pixel-weather/</guid>
-      <description>&lt;p&gt;Get the code here - &lt;a href=&#34;https://github.com/Aveek-Saha/pixel-weather&#34;&gt;&lt;code&gt;Pixel Weather&lt;/code&gt;&lt;/a&gt; &lt;br&gt;
+      <description>&lt;p&gt;Get the code here - &lt;a href=&#34;https://github.com/Aveek-Saha/pixel-weather&#34;&gt;&lt;code&gt;Pixel Weather&lt;/code&gt;&lt;/a&gt; &lt;!-- raw HTML omitted --&gt;
 To try it out, download it here - &lt;a href=&#34;https://github.com/Aveek-Saha/pixel-weather/releases&#34;&gt;&lt;code&gt;Downloads&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
@@ -28,7 +28,7 @@ To try it out, download it here - &lt;a href=&#34;https://github.com/Aveek-Saha/
       <pubDate>Tue, 28 Aug 2018 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
       <guid>https://home.aveek.io/blog/post/music-player/</guid>
-      <description>&lt;p&gt;If you want the code for this project, fork this GitHub repo - &lt;a href=&#34;https://github.com/Aveek-Saha/MusicPlayer&#34;&gt;&lt;code&gt;Music Player&lt;/code&gt;&lt;/a&gt; &lt;br&gt;
+      <description>&lt;p&gt;If you want the code for this project, fork this GitHub repo - &lt;a href=&#34;https://github.com/Aveek-Saha/MusicPlayer&#34;&gt;&lt;code&gt;Music Player&lt;/code&gt;&lt;/a&gt; &lt;!-- raw HTML omitted --&gt;
 If you want to see a live demo, Download it here - &lt;a href=&#34;https://github.com/Aveek-Saha/MusicPlayer/releases&#34;&gt;&lt;code&gt;Downloads&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     
@@ -38,7 +38,7 @@ If you want to see a live demo, Download it here - &lt;a href=&#34;https://githu
       <pubDate>Sun, 05 Aug 2018 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
       <guid>https://home.aveek.io/blog/post/bitcoin-price-tracker/</guid>
-      <description>&lt;p&gt;If you want the code for this project, fork this GitHub repo - &lt;a href=&#34;https://github.com/Aveek-Saha/Bitcoin-price-tracker&#34;&gt;&lt;code&gt;Bitcoin Price Tracker&lt;/code&gt;&lt;/a&gt; &lt;br&gt;
+      <description>&lt;p&gt;If you want the code for this project, fork this GitHub repo - &lt;a href=&#34;https://github.com/Aveek-Saha/Bitcoin-price-tracker&#34;&gt;&lt;code&gt;Bitcoin Price Tracker&lt;/code&gt;&lt;/a&gt; &lt;!-- raw HTML omitted --&gt;
 If you want to see a live demo, Download it here - &lt;a href=&#34;https://github.com/Aveek-Saha/Bitcoin-price-tracker/releases&#34;&gt;&lt;code&gt;Downloads&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     

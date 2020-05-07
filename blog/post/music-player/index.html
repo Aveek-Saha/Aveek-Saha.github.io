@@ -20,7 +20,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Aveek Saha" />
 
-  <meta name="generator" content="Hugo 0.57.2" />
+  <meta name="generator" content="Hugo 0.67.1" />
   <link rel="canonical" href="https://home.aveek.io/post/music-player/" />
   <link rel="alternate" href="https://home.aveek.io/blog/index.xml" type="application/rss+xml" title="Aveek Saha">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
@@ -182,31 +182,21 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>If you want the code for this project, fork this GitHub repo - <a href="https://github.com/Aveek-Saha/MusicPlayer"><code>Music Player</code></a> <br>
+        <p>If you want the code for this project, fork this GitHub repo - <a href="https://github.com/Aveek-Saha/MusicPlayer"><code>Music Player</code></a> <!-- raw HTML omitted -->
 If you want to see a live demo, Download it here - <a href="https://github.com/Aveek-Saha/MusicPlayer/releases"><code>Downloads</code></a></p>
-
 <h1 id="introduction">Introduction</h1>
-
 <p>The idea for this music player was to keep things simple. you just load all your audio files from your music player, and start listening. The player always keeps the focus on the music.
 Apart from the essential music controls, like play, pause, skip and seek, there is a playlist menu so that you can quickly switch songs.
 It is built on Electron and uses Howler for handling music playback. AngularJS and Bootstrap are used for the UI, and JSmediatags to retrieve the ID3 tags, like album art, artist and title.</p>
-
 <h1 id="using-the-player">Using the player</h1>
-
 <p>On starting the music player, you’ll see an option called folder in the top menu, click on it. Select the folder with all your music, and your set to go. the player will automatically load all the supported audio files into a playlist. It also stores the location of the directory you last opened, and it&rsquo;ll load your music from there when you open it next.</p>
-
 <p>The UI is fairly intuitive, there are play pause and skip buttons. Clicking on the progress bar will seek playback to that position in the song. There is a volume slider to fine tune the volume. The hamburger menu button toggles the playlist. And the last button is to shuffle tracks.</p>
-
 <h1 id="implementation">Implementation</h1>
-
 <p>The entire implementation is too long, so I&rsquo;ll just give an outline here. The full code is at <a href="https://github.com/Aveek-Saha/MusicPlayer"><code>Music Player</code></a></p>
-
 <p>The user selects the folder with music in it via Electron’s dialog module. This is used to open a directory selector, when a directory is selected it returns a path to that directory which is then passed to a function. This function then uses the path to scan the directory and store the paths of all the files with supported extensions in a playList array.
 The path of the selected directory is stored in a file, which will be read in the future so that the user doesn&rsquo;t have to select a directory everytime.</p>
-
 <p>The actual audio playback is handled through Howler, which provides us with methods like Play, Pause, Seek, Skip and volume adjustment. These methods are implemented in the Player object prototype.
 The functions implemented are-</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">Player</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="p">{</span>
 
      <span class="nx">play</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">index</span><span class="p">)</span> <span class="p">{</span>
@@ -247,13 +237,9 @@ The functions implemented are-</p>
 </span><span class="c1"></span>     <span class="p">}</span>
    <span class="p">}</span>
 </code></pre></div>
-
 <p>Most audio files have some kind of metadata attached to them in the form of media tags. This metadata includes things like Title, Artist, Album and Album art.</p>
-
 <p>These tags are read using JSmediatags using which we retrieve the name of the song, the artist and the album art. the album art is decoded from base64 and displayed as an image. If there are no media tags for a file, it simply displays the file name.</p>
-
 <h1 id="features">Features</h1>
-
 <ul>
 <li>Supports: mp3, opus, ogg, wav, aac, m4a, webm.</li>
 <li>Quickly switch tracks in the same folder, from the playlist button.</li>
@@ -262,11 +248,8 @@ The functions implemented are-</p>
 <li>Fine tune the volume from the volume slider.</li>
 <li>Reads ID3 tags and displays the artist and album art (if they exist).</li>
 </ul>
-
-<!-- <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript">
-</code></pre></div> -->
-
-<p><br></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
       </article>
 
       <ul class="pager blog-pager">
@@ -389,7 +372,7 @@ The functions implemented are-</p>
         <p class="credits copyright text-muted">
           Aveek Saha
           &nbsp;&bull;&nbsp;
-          2019
+          2020
 
           
             &nbsp;&bull;&nbsp;
@@ -398,7 +381,7 @@ The functions implemented are-</p>
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="http://gohugo.io">Hugo v0.57.2</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          <a href="http://gohugo.io">Hugo v0.67.1</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
           
         </p>
       </div>

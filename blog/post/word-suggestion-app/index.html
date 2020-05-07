@@ -20,7 +20,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Aveek Saha" />
 
-  <meta name="generator" content="Hugo 0.57.2" />
+  <meta name="generator" content="Hugo 0.67.1" />
   <link rel="canonical" href="https://home.aveek.io/post/word-suggestion-app/" />
   <link rel="alternate" href="https://home.aveek.io/blog/index.xml" type="application/rss+xml" title="Aveek Saha">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
@@ -154,46 +154,24 @@ if (!doNotTrack) {
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
         <p>We often find ourselves grasping at a word that’s on the tip of our tongue but we just can’t pin it down, or wanting to check the spelling of a word that we’re not sure of.</p>
-
 <p>Since this is such a common problem, I decided to use My front end knowledge and data structures to come up with a solution. This project has 2 parts.</p>
-
-<!-- 
-<link rel="stylesheet" href="https://home.aveek.io/blog/css/hugo-easy-gallery.css" />
-<div class="box fancy-figure caption-position-bottom caption-effect-fade" >
-  <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-    <div class="img">
-      <img itemprop="thumbnail" src="https://home.aveek.io/blog/img/wordSearch.png" alt="Screenshot"/>
-    </div>
-      <figcaption>
-          <p>Screenshot</p>
-      </figcaption>
-    <a href="https://home.aveek.io/blog/img/wordSearch.png" itemprop="contentUrl"></a>
-  </figure>
-</div> -->
-
+<!-- raw HTML omitted -->
 <h1 id="the-c-part">The C part:</h1>
-
-<p>I made a C program that uses a list of words, to build a trie, which is a kind of search tree. When this program runs, and an input word is given, it displays a list of words that are close or similar to it.
+<p>I made a C program that uses a list of words, to build a trie, which is a kind of search tree. When this program runs, and an input word is given, it displays a list of words that are close or similar to it. 
 There is also a spell check mode that will display if a word is  correctly spelled or not. This program also creates a text file of the most frequently spelt incorrect words. Once this was done, I moved on the the front end part.</p>
-
 <h1 id="the-web-interface">The web interface:</h1>
-
 <p>Using php’s exec function I piped the output of this program to a PHP array. This PHP file is then asynchronously called when the user presses “alt +h”. Then I added some CSS to make the whole thing look nice.</p>
-
 <h1 id="the-final-features-features-include">The final features features include:</h1>
-
 <p>Two modes of operation that can be toggled-
 A word suggestion mode- Where the user can type in a partially completed word and the app will suggest predictions.
 A spell check mode- Where the user can enter a word and check if the spelling is correct, if it is not the app also suggests words that may contain the correct spelling of the word that the user was trying to type.
 The app keeps a track of the the 5 most frequently misspelt words
 The word of the day (the most frequently incorrectly spelt word) can be seen from the spelling.php page
 I used an Apache server to host this application.</p>
-
-<p>If you want the code for this project, fork this Github repo - <a href="https://github.com/Aveek-Saha/Autocorrect-and-spellcheck-webapp">https://github.com/Aveek-Saha/Autocorrect-and-spellcheck-webapp</a> <br>
+<p>If you want the code for this project, fork this Github repo - <a href="https://github.com/Aveek-Saha/Autocorrect-and-spellcheck-webapp">https://github.com/Aveek-Saha/Autocorrect-and-spellcheck-webapp</a> <!-- raw HTML omitted -->
 If you want to see a live demo, check this out – <a href="https://autocorrect-and-spellcheck.herokuapp.com/">https://autocorrect-and-spellcheck.herokuapp.com/</a>
 Note: For the live demo I’m taking the input directly from the word list in php by storing the txt file in an array, this is because the ‘exec’ function does not work on the server.</p>
-
-<p><br></p>
+<!-- raw HTML omitted -->
       </article>
 
       <ul class="pager blog-pager">
@@ -312,7 +290,7 @@ Note: For the live demo I’m taking the input directly from the word list in ph
         <p class="credits copyright text-muted">
           Aveek Saha
           &nbsp;&bull;&nbsp;
-          2019
+          2020
 
           
             &nbsp;&bull;&nbsp;
@@ -321,7 +299,7 @@ Note: For the live demo I’m taking the input directly from the word list in ph
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="http://gohugo.io">Hugo v0.57.2</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          <a href="http://gohugo.io">Hugo v0.67.1</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
           
         </p>
       </div>

@@ -20,7 +20,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Aveek Saha" />
 
-  <meta name="generator" content="Hugo 0.57.2" />
+  <meta name="generator" content="Hugo 0.67.1" />
   <link rel="canonical" href="https://home.aveek.io/post/checkpointing-keras-model/" />
   <link rel="alternate" href="https://home.aveek.io/blog/index.xml" type="application/rss+xml" title="Aveek Saha">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
@@ -154,17 +154,11 @@ if (!doNotTrack) {
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
         <p>Learn how to save Keras models to persistent storage or your Google drive and resume training it from where you left off.</p>
-
 <h1 id="introduction">Introduction</h1>
-
 <p>A lot of the time deep learning models can take several hours, days or weeks to train and if the machine that it&rsquo;s running on shuts down unexpectedly before training is finished, it can lead to all that work going to waste. This introduces the need for a way to save and load models so that training can be continued from a certain checkpoint.</p>
-
 <p>Luckily Keras has got us covered with the <a href="https://keras.io/callbacks/#modelcheckpoint"><code>ModelCheckpoint</code></a> callback class.</p>
-
 <h1 id="saving-a-model">Saving a model</h1>
-
 <p>Lets say you have a simple neural network</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">keras</span> <span class="kn">import</span> <span class="n">Sequential</span>
 <span class="kn">from</span> <span class="nn">keras.layers</span> <span class="kn">import</span> <span class="n">Dense</span>
 
@@ -175,9 +169,7 @@ if (!doNotTrack) {
 
 <span class="n">classifier</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span> <span class="o">=</span><span class="s1">&#39;adam&#39;</span><span class="p">,</span>
                 <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;binary_crossentropy&#39;</span><span class="p">,</span> <span class="n">metrics</span> <span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span></code></pre></div>
-
 <p>Before fitting the model, create a ModelCheckpoint object, we&rsquo;ll go over what each of the parameters do in a minute, but for now, in this example after each epoch the model will be saved to a <code>hdf5</code> file in the current working directory.</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">keras.callbacks</span> <span class="kn">import</span> <span class="n">ModelCheckpoint</span>
 
 <span class="n">filepath</span><span class="o">=</span><span class="s2">&#34;./weights-{epoch:02d}-{val_acc:.3f}.hdf5&#34;</span>
@@ -185,19 +177,13 @@ if (!doNotTrack) {
                                <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;max&#39;</span><span class="p">)</span>
 
 <span class="n">callbacks_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">checkpoint</span><span class="p">]</span></code></pre></div>
-
 <p>Now pass the callback list while fitting the model</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">classifier</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
                            <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">X_validation</span><span class="p">,</span> <span class="n">Y_validation</span><span class="p">),</span>
                           <span class="n">callbacks</span><span class="o">=</span><span class="n">callbacks_list</span><span class="p">)</span></code></pre></div>
-
 <p>Once the model finishes running, you&rsquo;ll be able to see 20 <code>hdf5</code> files labeled by their epoch number and validation accuracy in your working directory.</p>
-
 <h1 id="parameters">Parameters</h1>
-
 <p>There are several parameters that can be passed to ModelCheckpoint, we&rsquo;ll go over them here</p>
-
 <ul>
 <li><strong>filepath</strong>: a string, the path where you want to save the model file.</li>
 <li><strong>monitor</strong>: quantity to monitor. Eg: val_acc, acc, val_loss, loss, etc.</li>
@@ -207,40 +193,27 @@ if (!doNotTrack) {
 <li><strong>mode</strong>: one of {auto, min, max}. If =True, the decision to overwrite the current save file is made based on either the maximization or the minimization of the monitored quantity. For val_acc, this should be max, for val_loss this should be min, etc. In auto mode, the direction is automatically inferred from the name of the monitored quantity.</li>
 <li><strong>period</strong>: number of epochs between checkpoints.</li>
 </ul>
-
 <h1 id="save-model-to-google-drive-on-colab-notebooks">Save model to Google Drive on Colab notebooks</h1>
-
 <p>Google&rsquo;s Colab notebooks are a great way to start prototyping and creating neural networks and machine learning models. If you choose a GPU runtime, you are given a free GPU that can greatly reduce your model training time.</p>
-
 <p>As great is Colab is, it does have some caveats</p>
-
 <ol>
 <li>If you are disconnected from the internet or close the window for more than 90 minutes, the runtime automatically shuts down or gets recycled.</li>
-<li>You are given a maximum of 12 hours at a time on the VM instance.</li>
 </ol>
-
+<ul>
+<li>You are given a maximum of 12 hours at a time on the VM instance.</li>
+</ul>
 <p>In both these cases you may be able to reconnect to the instance but all your local variables will be lost.</p>
-
 <p>Saving the model to Google Drive after every epoch makes it easy to just restart training from the last epoch that was saved.</p>
-
 <p>Google makes it super easy to do this on Colab. First we have to allow Colab to access Google Drive.</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
 <span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/gdrive&#39;</span><span class="p">)</span></code></pre></div>
-
 <p>When you run this, it generates a link, click on it. Select the google account whose drive you want to mount. Then it takes you to a new tab that says <code>Google Drive File Stream wants to access your Google Account</code>. On clicking <code>allow</code> it generates an authorization code that you have to paste in a text box that appears bellow the code you just ran. Paste the code and hit <code>enter</code>.</p>
-
 <p>On refreshing your file browser, you should see a folder called <code>gdrive</code>, that&rsquo;s the mounted drive folder.</p>
-
 <p>To save it to your drive, the code is almost the same as the example in the previous section, but the filename should be changed, so that the model is stored in drive.</p>
-
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a folder in your drive called model before running this</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Create a folder in your drive called model before running this</span>
 <span class="n">filepath</span><span class="o">=</span><span class="s2">&#34;/content/gdrive/My Drive/model/weights-{epoch:02d}-{val_acc:.3f}.hdf5&#34;</span></code></pre></div>
-
 <h1 id="resume-training-from-a-saved-model">Resume training from a saved model</h1>
-
 <p>If you saved the entire model (not just the weights) then the model can continue training from wherever it stopped.</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">keras.models</span> <span class="kn">import</span> <span class="n">load_model</span>
 
 <span class="n">classifier</span> <span class="o">=</span> <span class="n">load_model</span><span class="p">(</span><span class="s2">&#34;/content/gdrive/My Drive/model/weights-15-0.815.hdf5&#34;</span><span class="p">)</span>
@@ -249,10 +222,8 @@ if (!doNotTrack) {
                            <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">X_validation</span><span class="p">,</span> <span class="n">Y_validation</span><span class="p">),</span>
                           <span class="n">callbacks</span><span class="o">=</span><span class="n">callbacks_list</span><span class="p">,</span>
                           <span class="n">initial_epoch</span> <span class="o">=</span> <span class="mi">15</span><span class="p">)</span></code></pre></div>
-
-<!-- <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"></code></pre></div> -->
-
-<p><br></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
       </article>
 
       <ul class="pager blog-pager">
@@ -375,7 +346,7 @@ if (!doNotTrack) {
         <p class="credits copyright text-muted">
           Aveek Saha
           &nbsp;&bull;&nbsp;
-          2019
+          2020
 
           
             &nbsp;&bull;&nbsp;
@@ -384,7 +355,7 @@ if (!doNotTrack) {
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="http://gohugo.io">Hugo v0.57.2</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          <a href="http://gohugo.io">Hugo v0.67.1</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
           
         </p>
       </div>

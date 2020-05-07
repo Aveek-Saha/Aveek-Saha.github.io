@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Function on Aveek Saha</title>
+    <link>https://home.aveek.io/blog/tags/function/</link>
+    <description>Recent content in Function on Aveek Saha</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>aveek.s98@gmail.com (Aveek Saha)</managingEditor>
+    <webMaster>aveek.s98@gmail.com (Aveek Saha)</webMaster>
+    <lastBuildDate>Thu, 12 Mar 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://home.aveek.io/blog/tags/function/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Getting started with Firebase Functions</title>
+      <link>https://home.aveek.io/blog/post/getting-started-with-firebase-functions/</link>
+      <pubDate>Thu, 12 Mar 2020 00:00:00 +0000</pubDate>
+      <author>aveek.s98@gmail.com (Aveek Saha)</author>
+      <guid>https://home.aveek.io/blog/post/getting-started-with-firebase-functions/</guid>
+      <description>&lt;p&gt;Check the final application here - &lt;a href=&#34;pix2ascii.web.app&#34;&gt;&lt;code&gt;pix2ascii&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The full code for this project can be found on &lt;a href=&#34;https://github.com/Aveek-Saha/pix2ascii&#34;&gt;&lt;code&gt;GitHub&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

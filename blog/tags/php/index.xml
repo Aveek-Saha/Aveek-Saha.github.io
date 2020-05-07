@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>PHP on Aveek Saha</title>
@@ -18,7 +18,7 @@
       <pubDate>Sun, 22 Jul 2018 00:00:00 +0000</pubDate>
       <author>aveek.s98@gmail.com (Aveek Saha)</author>
       <guid>https://home.aveek.io/blog/post/ecommerce-website-template/</guid>
-      <description>&lt;p&gt;If you want the code for this project, fork this GitHub repo - &lt;a href=&#34;https://github.com/Aveek-Saha/ecommerce-website-template&#34;&gt;&lt;code&gt;E-commerce template&lt;/code&gt;&lt;/a&gt; &lt;br&gt;
+      <description>&lt;p&gt;If you want the code for this project, fork this GitHub repo - &lt;a href=&#34;https://github.com/Aveek-Saha/ecommerce-website-template&#34;&gt;&lt;code&gt;E-commerce template&lt;/code&gt;&lt;/a&gt; &lt;!-- raw HTML omitted --&gt;
 If you want to see a live demo, check this out - &lt;a href=&#34;http://eshop.byethost22.com/&#34;&gt;&lt;code&gt;Demo&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     

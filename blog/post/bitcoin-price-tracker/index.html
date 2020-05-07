@@ -20,7 +20,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Aveek Saha" />
 
-  <meta name="generator" content="Hugo 0.57.2" />
+  <meta name="generator" content="Hugo 0.67.1" />
   <link rel="canonical" href="https://home.aveek.io/post/bitcoin-price-tracker/" />
   <link rel="alternate" href="https://home.aveek.io/blog/index.xml" type="application/rss+xml" title="Aveek Saha">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
@@ -153,24 +153,16 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>If you want the code for this project, fork this GitHub repo - <a href="https://github.com/Aveek-Saha/Bitcoin-price-tracker"><code>Bitcoin Price Tracker</code></a> <br>
+        <p>If you want the code for this project, fork this GitHub repo - <a href="https://github.com/Aveek-Saha/Bitcoin-price-tracker"><code>Bitcoin Price Tracker</code></a> <!-- raw HTML omitted -->
 If you want to see a live demo, Download it here - <a href="https://github.com/Aveek-Saha/Bitcoin-price-tracker/releases"><code>Downloads</code></a></p>
-
 <h2 id="introduction">Introduction</h2>
-
 <p>This application was something of a test run, to get familiar with the Electron  framework . For those of you that haven’t heard of it, Electron is a framework that allows you to build cross platform desktop apps with JavaScript, HTML, and CSS.</p>
-
 <p>Full disclosure, this was made by following a great tutorial by Gary Simon. Do check it out, he does a good job of explaining the basics and anyone with some experience in web development should be able to pick it up with no problem.</p>
-
 <h2 id="details">Details</h2>
-
 <p>I wont go into too much technical detail here, because the tutorial already does that far better than I could, but the basic idea is to make a  simple desktop application for Linux, that notifies you when the Bitcoin price exceeds a limit set by you. Unfortunately, the notifications will only work in Linux and Mac OS, but not Windows because the notification system for non system apps was broken after the last update.</p>
-
 <p>The application uses axios to get the current bitcoin price from cryptocompare. Then we create a function called getBTC, which fetches the bitcoin price and then compares it to the value entered by the user. This function is executed every 10 seconds via setInterval. If the bitcoin price is found to be greater than the user value, a desktop notification is sent.</p>
-
 <p>The user enters the Price limit via another window, and the value entered by the user is sent back to the main window via the ipc.renderer.</p>
-
-<p><br></p>
+<!-- raw HTML omitted -->
       </article>
 
       <ul class="pager blog-pager">
@@ -293,7 +285,7 @@ If you want to see a live demo, Download it here - <a href="https://github.com/A
         <p class="credits copyright text-muted">
           Aveek Saha
           &nbsp;&bull;&nbsp;
-          2019
+          2020
 
           
             &nbsp;&bull;&nbsp;
@@ -302,7 +294,7 @@ If you want to see a live demo, Download it here - <a href="https://github.com/A
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="http://gohugo.io">Hugo v0.57.2</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          <a href="http://gohugo.io">Hugo v0.67.1</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
           
         </p>
       </div>

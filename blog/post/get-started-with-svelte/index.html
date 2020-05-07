@@ -20,7 +20,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Aveek Saha" />
 
-  <meta name="generator" content="Hugo 0.57.2" />
+  <meta name="generator" content="Hugo 0.67.1" />
   <link rel="canonical" href="https://home.aveek.io/post/get-started-with-svelte/" />
   <link rel="alternate" href="https://home.aveek.io/blog/index.xml" type="application/rss+xml" title="Aveek Saha">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
@@ -154,48 +154,27 @@ if (!doNotTrack) {
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
         <p>Live demo - <a href="https://svelte-tut.netlify.com/"><code>Demo</code></a></p>
-
 <p>Code for this tutorial can be found on <a href="https://gitlab.com/aveeksaha/svelte-tut"><code>Gitlab</code></a></p>
-
 <h1 id="what-is-svelte">What is Svelte?</h1>
-
 <blockquote>
 <p>Svelte is a new way to build web applications. It&rsquo;s a compiler that takes your declarative components and converts them into efficient JavaScript that surgically updates the DOM.</p>
 </blockquote>
-
 <p>Svelte is different from traditional component frameworks like Vue or React because it is essentially a compiler that converts your code into vanilla JavaScript at build time. This allows you to create reactive components without the performance overhead of the Virtual DOM.</p>
-
 <p>You can read more about them on their website <a href="https://svelte.dev/"><code>Svelte</code></a></p>
-
 <h1 id="setup">Setup</h1>
-
 <p>Like all great tutorials, today I&rsquo;ll be showing you how to make a ToDo application using Svelte.</p>
-
 <p>For this tutorial we&rsquo;ll be building on the Svelte boilerplate and we&rsquo;ll need <code>degit</code> for that so start by installing <code>degit</code> using</p>
-
-<pre><code class="language-bash">npm install -g degit
-</code></pre>
-
-<p>Then we install the boilerplate and install all the dependencies.</p>
-
-<pre><code class="language-bash">npx degit sveltejs/template svelte_tut
-cd svelte_tut
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">npm install -g degit
+</code></pre></div><p>Then we install the boilerplate and install all the dependencies.</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">npx degit sveltejs/template svelte_tut
+<span class="nb">cd</span> svelte_tut
 npm install
-</code></pre>
-
-<p>To run the dev server run</p>
-
-<pre><code class="language-bash">npm run dev
-</code></pre>
-
-<p>Then open <a href="http://localhost:5000">http://localhost:5000</a>, you should see something like this</p>
-
-<p><img src="https://home.aveek.io/blog/svelte/svelte_1.png" alt="Screenshot1" /></p>
-
+</code></pre></div><p>To run the dev server run</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">npm run dev
+</code></pre></div><p>Then open http://localhost:5000, you should see something like this</p>
+<p><img src="https://home.aveek.io/blog/svelte/svelte_1.png" alt="Screenshot1"></p>
 <h1 id="making-the-app">Making the app</h1>
-
 <p>Open <code>src/App.svelte</code> and replace the code that was there with</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
    <span class="c1">// Variable to store user input
 </span><span class="c1"></span>   <span class="kd">let</span> <span class="nx">task</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span><span class="p">;</span>
@@ -206,9 +185,7 @@ npm install
 <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
 
 <span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span></code></pre></div>
-
 <p>We can use Svelte to bind the variable <code>task</code> to an input element, and add a function to push a new element into the array whenever we press a button.</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
    <span class="c1">// Variable to store user input
 </span><span class="c1"></span>   <span class="kd">let</span> <span class="nx">task</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span><span class="p">;</span>
@@ -235,9 +212,7 @@ npm install
 
 <span class="c">&lt;!-- when the onclick event is triggered it calls addTask --&gt;</span>
 <span class="p">&lt;</span><span class="nt">button</span> <span class="na">on:click</span><span class="o">=</span><span class="s">{addTask}</span><span class="p">&gt;</span>Add Task<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span></code></pre></div>
-
 <p>Now using a loop, we&rsquo;ll display all the elements in <code>tasks</code> array as a list and we&rsquo;ll add a method to remove elements from the array by selecting the checkbox next to it.</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
    <span class="kd">let</span> <span class="nx">task</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span><span class="p">;</span>
    <span class="kd">let</span> <span class="nx">todos</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;eat&#34;</span><span class="p">,</span> <span class="s2">&#34;sleep&#34;</span><span class="p">,</span> <span class="s2">&#34;code&#34;</span><span class="p">]</span>
@@ -279,9 +254,7 @@ npm install
         <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
     {/each}
 <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span></code></pre></div>
-
 <p>Now our todo list is nearly done, we can add some global CSS to the <code>public/global.css</code> file.</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="nt">html</span><span class="o">,</span> <span class="nt">body</span> <span class="p">{</span>
     <span class="k">padding</span><span class="p">:</span> <span class="mi">5</span><span class="kt">%</span><span class="p">;</span>
 <span class="p">}</span>
@@ -295,27 +268,17 @@ npm install
    <span class="k">display</span><span class="p">:</span> <span class="kc">table</span><span class="o">-</span><span class="kc">cell</span><span class="p">;</span>
    <span class="k">vertical-align</span><span class="p">:</span> <span class="kc">middle</span><span class="p">;</span>
 <span class="p">}</span></code></pre></div>
-
 <p>And your final result should look something like this
-<img src="https://home.aveek.io/blog/svelte/svelte_2.png" alt="Screenshot1" /></p>
-
+<img src="https://home.aveek.io/blog/svelte/svelte_2.png" alt="Screenshot1"></p>
 <p>To compile the application we just need to run</p>
-
-<pre><code class="language-bash">npm run build
-</code></pre>
-
-<h1 id="persistent-storage">Persistent storage</h1>
-
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">npm run build
+</code></pre></div><h1 id="persistent-storage">Persistent storage</h1>
 <p>If you want the data to be saved when we refresh the page we can use <code>IndexedDB</code> to store the list of tasks. The IndexedDB API is not that intuitive, so we&rsquo;ll use a wrapper called <code>idb-keyval</code>.</p>
-
 <p>Install it with</p>
-
-<pre><code class="language-bash">npm install idb-keyval
-</code></pre>
-
-<p>Import it in <code>App.svelte</code>, remove the default values in the todo array and then load the array if it is already stored.
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">npm install idb-keyval
+</code></pre></div><p>Import it in <code>App.svelte</code>, remove the default values in the todo array and then load the array if it is already stored.
 <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// import idb-keyval
-</span><span class="c1"></span><span class="k">import</span> <span class="p">{</span> <span class="nx">get</span><span class="p">,</span> <span class="nx">set</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;idb-keyval&#39;</span><span class="p">;</span>
+</span><span class="c1"></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">get</span><span class="p">,</span> <span class="nx">set</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;idb-keyval&#39;</span><span class="p">;</span>
 
 <span class="kd">let</span> <span class="nx">task</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span><span class="p">;</span>
 <span class="c1">// Empty the default values in the array
@@ -328,9 +291,7 @@ npm install
         <span class="nx">todos</span> <span class="o">=</span> <span class="nx">arr</span>
 <span class="p">})</span>
 </code></pre></div></p>
-
 <p>Then we need to store the todos array everytime we add or delete tasks from it</p>
-
 <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">addTask</span><span class="p">()</span> <span class="p">{</span>
     <span class="k">if</span><span class="p">(</span><span class="nx">task</span><span class="o">!=</span><span class="s2">&#34;&#34;</span><span class="p">){</span>
         <span class="nx">todos</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">task</span><span class="p">)</span>
@@ -348,52 +309,36 @@ npm install
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">index</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
-
 <p>Now the list wont get reset everytime you refresh the page.</p>
-
 <h1 id="deploying-to-netlify">Deploying to Netlify</h1>
-
 <p>First we&rsquo;re going to add a <code>.gitignore</code> with a single line-</p>
-
 <pre><code>node_modules
-</code></pre>
-
-<p>Create a new project on GitHub or GitLab (Bitbucket is also available) then <code>cd</code> to your project folder and run the following</p>
-
-<pre><code class="language-bash">$ git init
+</code></pre><p>Create a new project on GitHub or GitLab (Bitbucket is also available) then <code>cd</code> to your project folder and run the following</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ git init
 $ git remote add origin &lt;git URL of your project&gt;
 $ git add .
-$ git commit -m &quot;Initial commit&quot;
+$ git commit -m <span class="s2">&#34;Initial commit&#34;</span>
 $ git push origin master
-</code></pre>
-
-<p>Open <a href="https://www.netlify.com/">Netlify</a> in your browser and sign up for an account if you don&rsquo;t already have one. Go to your <a href="https://app.netlify.com/account/sites">sites</a> and click <code>New site from Git</code> then follow the steps-</p>
-
+</code></pre></div><p>Open <a href="https://www.netlify.com/">Netlify</a> in your browser and sign up for an account if you don&rsquo;t already have one. Go to your <a href="https://app.netlify.com/account/sites">sites</a> and click <code>New site from Git</code> then follow the steps-</p>
 <ol>
 <li>select your git provider.</li>
-<li>Choose the repository that you just created and committed to.</li>
-
-<li><p>Under build options go to basic build settings and fill in the following 2 fields:</p>
-
+</ol>
 <ul>
-<li><p>Build command</p>
-
+<li>Choose the repository that you just created and committed to.</li>
+<li>Under build options go to basic build settings and fill in the following 2 fields:
+<ul>
+<li>Build command</li>
+</ul>
 <pre><code>npm run build
-</code></pre></li>
-
-<li><p>Publish directory</p>
-
+</code></pre><ul>
+<li>Publish directory</li>
+</ul>
 <pre><code>public/
 </code></pre></li>
-</ul></li>
-</ol>
-
+</ul>
 <p>Then click deploy. When the deploy is finished visit the site url given in the overview, it should look something like this <a href="https://svelte-tut.netlify.com/">Demo</a></p>
-
-<!-- <div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript">
-</code></pre></div> -->
-
-<p><br></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
       </article>
 
       <ul class="pager blog-pager">
@@ -516,7 +461,7 @@ $ git push origin master
         <p class="credits copyright text-muted">
           Aveek Saha
           &nbsp;&bull;&nbsp;
-          2019
+          2020
 
           
             &nbsp;&bull;&nbsp;
@@ -525,7 +470,7 @@ $ git push origin master
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="http://gohugo.io">Hugo v0.57.2</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          <a href="http://gohugo.io">Hugo v0.67.1</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
           
         </p>
       </div>
