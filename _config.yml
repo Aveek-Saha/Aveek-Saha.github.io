@@ -13,6 +13,10 @@ google_verify: googlec062211d23b61296.html
 # https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
 bing_verify:
 
+# Automatically create sitemap 
+plugins:
+  - jekyll-sitemap
+
 # Contact form:
 # - static : pass through formspree.io to validate email sending
 # - disqus : replace contact form by disqus thread
