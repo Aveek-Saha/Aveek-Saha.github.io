@@ -1,0 +1,12 @@
+---
+layout: default
+modal-id: 24
+date: 2020-07-14
+img: script.png
+title: Movie Script Database
+alt: image-alt
+project-date: July 2020
+category: Dataset
+description: An utility that collect movie scripts from several sources and create a database of scripts along with the metadata for the movies. <br> Check it out on GitHub<a href="https://github.com/Aveek-Saha/Movie-Script-Database"> The Movie Script Database </a> <br><div>Icons made by <a href="https://www.flaticon.com/authors/nikita-golubev" title="Nikita Golubev">Nikita Golubev</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+
+---
