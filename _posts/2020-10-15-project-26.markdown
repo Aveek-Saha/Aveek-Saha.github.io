@@ -1,0 +1,12 @@
+---
+layout: default
+modal-id: 26
+date: 2020-10-15
+img: spotify.png
+title: Spotify Box
+alt: image-alt
+project-date: October 2020
+category: Utility
+description: A tool that updates a pinned gist to show your top Spotify tracks or artists or your most recently played tracks. <br> Check it out on GitHub <a href="https://github.com/Aveek-Saha/spotify-box">Spotify Box</a> <br><div>Icons made by <a href="https://www.flaticon.com/authors/swifticons" title="Swifticons">Swifticons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+
+---
