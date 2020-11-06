@@ -11,7 +11,7 @@
             <div class="row">
                 {% for post in site.posts %}
                     {% if post.modal-id > 5 %}
-                        <div class="col-sm-6 col-md-2 col-lg-2 portfolio-item">
+                        <div class="col-sm-2 col-md-2 col-lg-2 portfolio-item">
                             <a href="#portfolioModal-{{ post.modal-id }}" class="portfolio-link" data-toggle="modal">
                                 <div class="caption">
                                     <div class="caption-content">
@@ -19,7 +19,8 @@
                                         <h5>{{ post.title }}</h5>
                                     </div>
                                 </div>
-                                <img src="https://ik.imagekit.io/1fftjx8hoa/img/portfolio/{{ post.img }}" class="img-responsive lazyload col-sm-6" alt="{{ post.alt }}">
+                                <img src="https://ik.imagekit.io/1fftjx8hoa/img/portfolio/{{ post.img }}" class="img-responsive lazyload" alt="{{ post.alt }}"
+                                     style="display:block; margin:auto; width: 70%; height: 70%;">
                             </a>
                         </div>
                     {% endif %}
