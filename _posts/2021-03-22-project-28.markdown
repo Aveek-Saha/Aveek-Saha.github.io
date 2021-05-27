@@ -7,6 +7,6 @@ title: Fire chess
 alt: image-alt
 project-date: March 2021
 category: Website
-description: Play online chess with your friends, powered by Firebase. Create up to 5 rooms per user and invite your friends to play with you! <br> Check it out on GitHub <a href="https://github.com/Aveek-Saha/FireChess">Fire Chess</a> <br><div>Icons made by <a href="https://www.flaticon.com/authors/good-ware" title="Good Ware">Good Ware</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+description: Play online chess with your friends, powered by Firebase. Create up to 5 rooms per user and invite your friends to play with you!  <br> Check it out here <a href="http://firechess0.web.app/">Fire Chess!</a>. Get the code on <a href="https://github.com/Aveek-Saha/FireChess">GitHub</a> <br><div>Icons made by <a href="https://www.flaticon.com/authors/good-ware" title="Good Ware">Good Ware</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
 
 ---
