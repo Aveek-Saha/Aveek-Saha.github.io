@@ -7,6 +7,6 @@ title: Gist Blog
 alt: image-alt
 project-date: April 2021
 category: Website
-description: Gist Blog is your temporary blogging solution. Gist Blog is a platform that transforms your GitHub Gists into blog posts. <br> Check it out here <a href="https://gistblog.vercel.app/">Gist Blog!</a>. Get the code on <a href="https://github.com/Aveek-Saha/GistBlog">GitHub</a> <br><div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+description: Gist Blog is your temporary blogging solution. Gist Blog is a platform that transforms your GitHub Gists into blog posts. <br> Check it out here <a href="https://gistblog.vercel.app/">Gist Blog</a>! Get the code on <a href="https://github.com/Aveek-Saha/GistBlog">GitHub</a> <br><div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
 
 ---

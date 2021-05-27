@@ -7,6 +7,6 @@ title: Snake QR
 alt: image-alt
 project-date: November 2020
 category: Game
-description: Is is possible to fit a game of snake in a single QR code? Well the answer is kind of. <br> Check it out on GitHub <a href="https://github.com/Aveek-Saha/snek-qr">Snake QR</a> <br><div>Icons made by <a href="https://www.flaticon.com/authors/those-icons" title="Those Icons">Those Icons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+description: Is it possible to fit a game of snake in a single QR code? Well the answer is kind of. <br> Check it out on GitHub <a href="https://github.com/Aveek-Saha/snek-qr">Snake QR</a> <br><div>Icons made by <a href="https://www.flaticon.com/authors/those-icons" title="Those Icons">Those Icons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
 
 ---
