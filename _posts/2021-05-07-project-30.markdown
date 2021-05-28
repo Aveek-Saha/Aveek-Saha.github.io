@@ -1,0 +1,12 @@
+---
+layout: default
+modal-id: 29
+date: 2021-05-07
+img: discord.png
+title: Cleps Bot
+alt: image-alt
+project-date: May 2021
+category: Bot
+description: Cleps is a Discord bot that allows you to split everyone on a voice channel into random even teams. It's got simple command and you can exclude people from teams by simply mentioning them in the command. <br> Add it to your Discord server here- <a href="https://discord.com/api/oauth2/authorize?client_id=759274933476917259&permissions=3072&scope=bot">Add Cleps Bot</a>! Get the code on <a href="https://github.com/Aveek-Saha/ClepsBot">GitHub</a> <br><div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+
+---
