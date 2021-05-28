@@ -1,0 +1,12 @@
+---
+layout: default
+modal-id: 31
+date: 2021-05-07
+img: badge.png
+title: GitHub Profile Badges
+alt: image-alt
+project-date: May 2021
+category: Website
+description: Clean and consistent badges for your GitHub profile. All badges are readable with good contrast. More than 1.9k badges with icons to choose from. <br> Check it out here- <a href="https://home.aveek.io/GitHub-Profile-Badges/">GitHub Profile Badges</a>! Get the code on <a href="https://github.com/Aveek-Saha/GitHub-Profile-Badges">GitHub</a> <br><div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+
+---
