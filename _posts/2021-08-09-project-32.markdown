@@ -7,6 +7,6 @@ title: VIRALIQ
 alt: image-alt
 project-date: Aug 2021
 category: Video Retrieval
-description: Generate embeddings and search for videos from a database using an image query. <br> Check out the original paper- <a href="https://arxiv.org/abs/2011.02426v1">Graph Based Temporal Aggregation for Video Retrieval</a>. Get the code on <a href="https://github.com/Aveek-Saha/VIRALIQ">GitHub</a> <br><div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+description: Generate embeddings and search for videos from a database using an image query. Check out the original paper- <a href="https://arxiv.org/abs/2011.02426v1">Graph Based Temporal Aggregation for Video Retrieval</a>. <br> Get the code on <a href="https://github.com/Aveek-Saha/VIRALIQ">GitHub</a> <br><div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
 
 ---
