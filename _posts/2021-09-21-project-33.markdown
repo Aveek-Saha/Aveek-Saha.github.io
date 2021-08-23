@@ -1,0 +1,12 @@
+---
+layout: default
+modal-id: 32
+date: 2021-09-21
+img: pacman.png
+title: Pac-Man AI
+alt: image-alt
+project-date: September 2021
+category: Website
+description: A re-creation of the classic Pac-Man game created using Phaser. The ghosts use improved AI to track down Pac-Man faster.  <br> Check it out here- <a href="https://home.aveek.io/Pac-Man/">Pac-Man</a>! Get the code on <a href="https://github.com/Aveek-Saha/Pac-Mans">GitHub</a> <br><div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+
+---
