@@ -2,7 +2,7 @@
 layout: default
 modal-id: 33
 date: 2021-09-21
-img: pacman.png
+img: arcade.png
 title: Pac-Man AI
 alt: image-alt
 project-date: September 2021
