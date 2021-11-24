@@ -1,0 +1,12 @@
+---
+layout: default
+modal-id: 34
+date: 2021-12-01
+img: wordle.png
+title: Wordle Solver
+alt: image-alt
+project-date: December 2021
+category: Data Science
+description: A solver for the official Wordle game in hard mode. The daily Wordle solved by the bot is updated automatically every day.<br> Check it out on GitHub <a href="https://github.com/Aveek-Saha/wordle-solver">Wordle Solver</a>! <br><div><a href="https://www.flaticon.com/free-icons/grid" title="grid icons">Grid icons created by Freepik - Flaticon</a></div>
+
+---
