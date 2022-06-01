@@ -2,7 +2,7 @@
 layout: default
 modal-id: 35
 date: 2022-02-10
-img: network.png
+img: networking.png
 title: Tweego
 alt: image-alt
 project-date: February 2022
