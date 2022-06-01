@@ -1,0 +1,12 @@
+---
+layout: default
+modal-id: 35
+date: 2022-02-10
+img: network.png
+title: Tweego
+alt: image-alt
+project-date: February 2022
+category: Social Network Analysis
+description: Generate second order ego networks for users from Twitter. Create egocentric graphs with the twitter api.<br> Check it out on GitHub <a href="https://github.com/Aveek-Saha/tweego">Tweego</a>! <br><div><a href="https://www.flaticon.com/free-icons/teamwork" title="teamwork icons">Teamwork icons created by Becris - Flaticon</a></div>
+
+---
