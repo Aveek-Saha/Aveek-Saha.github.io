@@ -19,9 +19,9 @@ plugins:
 
 # Contact form:
 # - static : pass through formspree.io to validate email sending
-# - disqus : replace contact form by disqus thread
+- disqus : replace contact form by disqus thread
 # - comment the line below if you want to stick with the default PHP contact form
-contact: static
+# contact: static
 
 # If you use disqus you need disqus shortname
 # https://help.disqus.com/customer/portal/articles/466208
@@ -49,13 +49,14 @@ social:
     url: https://www.linkedin.com/in/aveek-saha
   - title: behance
     url: https://www.behance.net/aveeks/
-  - title: facebook
-    url: https://www.facebook.com/profile.php?id=100001098414449
-  - title: instagram
-    url: https://www.instagram.com/aveek68/
+  # - title: facebook
+  #   url: https://www.facebook.com/profile.php?id=100001098414449
+  # - title: instagram
+  #   url: https://www.instagram.com/aveek68/
 
 # Postal address (add as many lines as necessary)
 address:
+  - line: Boston , Massachusetts , USA
   - line: Bangalore , Karnataka , India
 
 # Build settings
