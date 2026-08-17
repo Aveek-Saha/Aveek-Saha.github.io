@@ -5,205 +5,74 @@ const { variant = 'network', label = 'Animated ASCII 3D geometry' } = Astro.prop
 <div class={`particle-field shape-${variant}`} data-ascii-scene={variant}>
   <div class="ascii-scene" aria-hidden="true"></div>
   <div class="particle-content"><slot /></div>
+  <button class="animation-toggle" type="button" data-animation-toggle>Stop animation</button>
   <span class="sr-only">{label}. Animation is decorative.</span>
 </div>
 
 <script>
-  import {
-    BoxGeometry,
-    ConeGeometry,
-    DirectionalLight,
-    DodecahedronGeometry,
-    Group,
-    HemisphereLight,
-    IcosahedronGeometry,
-    Mesh,
-    MeshBasicMaterial,
-    MeshPhongMaterial,
-    OctahedronGeometry,
-    PerspectiveCamera,
-    PointLight,
-    Scene,
-    TetrahedronGeometry,
-    TorusGeometry,
-    TorusKnotGeometry,
-    WebGLRenderer,
-  } from 'three';
-  import type { BufferGeometry, Material } from 'three';
-  import { AsciiEffect } from 'three/addons/effects/AsciiEffect.js';
+  const fields = [...document.querySelectorAll<HTMLElement>('[data-ascii-scene]')];
+  const pausePreference = 'portfolio-animation-paused';
 
-  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
-
-  document.querySelectorAll<HTMLElement>('[data-ascii-scene]').forEach((field) => {
-    if (field.dataset.sceneReady) return;
-    field.dataset.sceneReady = 'true';
-
-    const mount = field.querySelector<HTMLElement>('.ascii-scene');
-    if (!mount) return;
-
-    const variant = field.dataset.asciiScene ?? 'network';
-    const scene = new Scene();
-    const camera = new PerspectiveCamera(42, 1, 0.1, 100);
-    camera.position.set(0, 0, 7);
-
-    let renderer: WebGLRenderer;
+  async function initialiseScenes() {
     try {
-      renderer = new WebGLRenderer({ antialias: false, alpha: false, powerPreference: 'low-power' });
+      const { initialiseAsciiScenes } = await import('../scripts/ascii-scenes');
+      initialiseAsciiScenes(fields);
     } catch {
-      field.dataset.animationState = 'unsupported';
-      mount.textContent = '◇';
-      return;
-    }
-
-    renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5));
-    renderer.setClearColor(0x000000, 1);
-
-    const effect = new AsciiEffect(renderer, ' .,:;i1tfLCG08@', {
-      invert: true,
-      resolution: 0.145,
-      scale: 1,
-      color: false,
-      alpha: false,
-      block: false,
-    });
-    effect.domElement.className = 'ascii-output';
-    effect.domElement.setAttribute('aria-hidden', 'true');
-    effect.domElement.style.color = '#e8e8ea';
-    effect.domElement.style.backgroundColor = 'transparent';
-    mount.replaceChildren(effect.domElement);
-
-    const group = new Group();
-    scene.add(group);
-
-    const solid = new MeshPhongMaterial({
-      color: 0xf3f3f3,
-      emissive: 0x111111,
-      shininess: 90,
-      flatShading: true,
-    });
-    const smooth = new MeshPhongMaterial({
-      color: 0xe6e6e6,
-      emissive: 0x090909,
-      shininess: 120,
-    });
-    const wire = new MeshBasicMaterial({ color: 0xffffff, wireframe: true });
-
-    function mesh(geometry: BufferGeometry, material: Material = solid) {
-      const object = new Mesh(geometry, material);
-      group.add(object);
-      return object;
-    }
-
-    if (variant === 'network') {
-      mesh(new TorusKnotGeometry(1.35, 0.42, 144, 20, 2, 3), smooth);
-    } else if (variant === 'drift') {
-      const body = mesh(new IcosahedronGeometry(1.65, 1), solid);
-      const ring = mesh(new TorusGeometry(2.15, 0.08, 10, 80), wire);
-      body.rotation.z = 0.28;
-      ring.rotation.x = 1.12;
-    } else if (variant === 'matrix') {
-      [1.15, 1.65, 2.15].forEach((size, index) => {
-        const cube = mesh(new BoxGeometry(size, size, size), wire);
-        cube.rotation.set(index * 0.25, index * 0.32, index * 0.17);
+      fields.forEach((field) => {
+        field.dataset.animationState = 'unsupported';
+        const toggle = field.querySelector<HTMLButtonElement>('[data-animation-toggle]');
+        if (toggle) toggle.hidden = true;
       });
-      mesh(new OctahedronGeometry(0.7, 0), solid);
-    } else if (variant === 'constellation') {
-      const cone = mesh(new ConeGeometry(1.15, 2.7, 16, 2), solid);
-      const ringA = mesh(new TorusGeometry(1.7, 0.11, 10, 72), smooth);
-      const ringB = mesh(new TorusGeometry(1.25, 0.07, 8, 64), wire);
-      cone.rotation.z = -0.18;
-      ringA.rotation.x = 1.15;
-      ringB.rotation.set(0.72, 0.48, 0.2);
-    } else {
-      mesh(new DodecahedronGeometry(0.95, 0), solid);
-      for (let index = 0; index < 6; index += 1) {
-        const angle = index / 6 * Math.PI * 2;
-        const satellite = mesh(new TetrahedronGeometry(0.34, 0), smooth);
-        satellite.position.set(Math.cos(angle) * 2.15, Math.sin(angle) * 1.2, Math.sin(angle) * 0.65);
-        satellite.rotation.set(angle, angle * 0.7, 0);
-      }
     }
+  }
 
-    scene.add(new HemisphereLight(0xffffff, 0x111111, 1.8));
-    const keyLight = new DirectionalLight(0xffffff, 3.2);
-    keyLight.position.set(3, 4, 5);
-    scene.add(keyLight);
-    const rimLight = new PointLight(0xffffff, 16, 18);
-    rimLight.position.set(-4, -2, 4);
-    scene.add(rimLight);
-
-    const pointer = { x: 0, y: 0 };
-    let lastFrame = 0;
-    let renderedFrames = 0;
-    let animationFrame = 0;
-
-    function render(time: number, advance = true) {
-      lastFrame = time;
-      const seconds = time * 0.001;
-      const motionScale = reducedMotion.matches ? 0.18 : 1;
-      const motionTime = seconds * motionScale;
-
-      if (advance) {
-        group.rotation.x = motionTime * 0.34 + pointer.y * 0.22 * motionScale;
-        group.rotation.y = motionTime * 0.58 + pointer.x * 0.28 * motionScale;
-        group.rotation.z = Math.sin(motionTime * 0.43) * 0.14;
-        group.children.forEach((child, index) => {
-          if (index > 0) child.rotation.y += 0.0025 * (index + 1) * motionScale;
-        });
-      }
-
-      effect.render(scene, camera);
-      renderedFrames += 1;
-      field.dataset.renderedFrames = String(renderedFrames);
+  fields.forEach((field) => {
+    field.dataset.animationState = 'loading';
+    const toggle = field.querySelector<HTMLButtonElement>('[data-animation-toggle]');
+    let paused = false;
+    try {
+      paused = localStorage.getItem(pausePreference) === 'true';
+    } catch {
+      // Use the default label when storage is unavailable.
     }
-
-    function animate(time: number) {
-      animationFrame = requestAnimationFrame(animate);
-      const frameInterval = reducedMotion.matches ? 100 : 32;
-      if (time - lastFrame < frameInterval) return;
-      render(time);
+    if (toggle && paused) {
+      toggle.textContent = 'Start animation';
+      toggle.setAttribute('aria-pressed', 'true');
     }
-
-    function syncMotion() {
-      cancelAnimationFrame(animationFrame);
-      if (reducedMotion.matches) {
-        field.dataset.animationState = 'running-reduced';
-      } else {
-        field.dataset.animationState = 'running';
-      }
-      animationFrame = requestAnimationFrame(animate);
-    }
-
-    function resize() {
-      const width = Math.max(1, field.clientWidth);
-      const height = Math.max(1, field.clientHeight);
-      camera.aspect = width / height;
-      camera.updateProjectionMatrix();
-      effect.setSize(width, height);
-      render(performance.now());
-    }
-
-    field.addEventListener('pointermove', (event) => {
-      const bounds = field.getBoundingClientRect();
-      pointer.x = ((event.clientX - bounds.left) / bounds.width - 0.5) * 2;
-      pointer.y = ((event.clientY - bounds.top) / bounds.height - 0.5) * 2;
-    });
-
-    const resizeObserver = new ResizeObserver(resize);
-    resizeObserver.observe(field);
-    reducedMotion.addEventListener('change', syncMotion);
-    resize();
-    syncMotion();
   });
+
+  const requestIdle = (window as unknown as {
+    requestIdleCallback?: (callback: () => void, options?: { timeout: number }) => number;
+  }).requestIdleCallback;
+
+  function scheduleInitialisation() {
+    if (requestIdle) {
+      requestIdle.call(window, initialiseScenes, { timeout: 600 });
+    } else {
+      setTimeout(initialiseScenes, 1);
+    }
+  }
+
+  if (document.readyState === 'complete') {
+    scheduleInitialisation();
+  } else {
+    addEventListener('load', scheduleInitialisation, { once: true });
+  }
 </script>
 
 <style>
   .particle-field { position: relative; min-height: 100svh; overflow: hidden; border-bottom: 1px solid var(--border); background: var(--bg); }
-  .ascii-scene { position: absolute; inset: 0; overflow: hidden; opacity: .34; }
+  .ascii-scene { position: absolute; inset: 0; overflow: hidden; opacity: .2; }
   .ascii-scene :global(.ascii-output) { position: absolute; inset: 0; width: 100%; height: 100%; overflow: hidden; }
   .ascii-scene :global(table) { width: 100%; height: 100%; }
   .ascii-scene :global(td) { display: flex !important; align-items: center; justify-content: center; }
   .particle-content { position: relative; z-index: 1; min-height: inherit; pointer-events: none; }
   .particle-content :global(a), .particle-content :global(button) { pointer-events: auto; }
-  @media (max-width: 600px) { .ascii-scene { opacity: .27; } }
+  .animation-toggle { position: absolute; z-index: 2; right: 20px; bottom: 80px; min-height: 42px; padding: 0 13px; border: 1px solid var(--border-strong); border-radius: 4px; background: rgba(7, 7, 8, .88); color: var(--fg); cursor: pointer; font: 600 11px/1 var(--mono); }
+  .animation-toggle:hover { background: var(--hover); }
+  .animation-toggle[aria-pressed='true'] { border-color: var(--fg); }
+  @media (max-width: 600px) {
+    .ascii-scene { opacity: .16; }
+    .animation-toggle { right: 12px; bottom: 48px; min-height: 40px; }
+  }
 </style>
