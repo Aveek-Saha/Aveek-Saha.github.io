@@ -1,11 +1,14 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import ParticleField from '../../../components/ParticleField.astro';
+import ProjectArchiveLink from '../../../components/ProjectArchiveLink.astro';
+import ExperienceSection from '../../../components/ExperienceSection.astro';
 import SiteFooter from '../../../components/SiteFooter.astro';
 import { site } from '../../../data/site';
 import { getProjects, projectPath } from '../../../lib/projects';
 
 const projects = await getProjects();
+const featuredProjects = projects.slice(0, 10);
 ---
 
 <BaseLayout title="Aveek Saha — Design 02: Aperture" description={site.role} active="02">
@@ -32,15 +35,17 @@ const projects = await getProjects();
         <h2 class="section-title" id="aperture-projects">Projects</h2>
       </header>
       <div class="gallery">
-        {projects.map((project, index) => (
+        {featuredProjects.map((project, index) => (
           <a class:list={['tile', index % 7 === 0 && 'wide']} href={projectPath(project)} aria-label={`${project.data.title} project details`}>
             <span class="visual"><img src={`/img/portfolio/${project.data.img}`} alt="" loading="lazy" /></span>
             <span class="caption"><i>{String(index + 1).padStart(2, '0')}</i><strong>{project.data.title}</strong><small>{project.data.category}</small><b aria-hidden="true">↗</b></span>
           </a>
         ))}
       </div>
+      <ProjectArchiveLink />
     </section>
 
+    <ExperienceSection />
     <section class="section profile" id="about">
       <div class="profile-title"><h2 class="section-title">Contact Me</h2></div>
       <div class="profile-copy"><a class="button" href="mailto:aveek.s98@gmail.com">aveek.s98@gmail.com</a></div>

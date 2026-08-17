@@ -1,11 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ParticleField from '../components/ParticleField.astro';
+import ProjectArchiveLink from '../components/ProjectArchiveLink.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import { site } from '../data/site';
 import { getProjects, projectPath } from '../lib/projects';
 
 const projects = await getProjects();
+const featuredProjects = projects.slice(0, 10);
 ---
 
 <BaseLayout title="Aveek Saha — Design 01: Ledger" description={site.role} active="01">
@@ -32,7 +34,7 @@ const projects = await getProjects();
         <h2 class="section-title" id="projects-title">Projects</h2>
       </div>
       <ol class="rule-list ledger-list">
-        {projects.map((project, index) => (
+        {featuredProjects.map((project, index) => (
           <li>
             <a href={projectPath(project)} aria-label={`${project.data.title} project details`}>
               <span class="count">{String(index + 1).padStart(2, '0')}</span>
@@ -46,6 +48,7 @@ const projects = await getProjects();
         ))}
       </ol>
     </section>
+    <ProjectArchiveLink />
 
     <section class="section about" id="about" aria-labelledby="about-title">
       <div class="about-grid">

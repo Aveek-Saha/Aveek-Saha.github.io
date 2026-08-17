@@ -25,8 +25,7 @@ const { variant = 'network', label = 'Interactive particle field' } = Astro.prop
     let columns = 0;
     let rows = 0;
     let points: Point[] = [];
-    let frame = 0;
-    let lastFrame = 0;
+    let timer = 0;
 
     const pointCount = variant === 'constellation' ? 9 : variant === 'drift' ? 7 : 11;
 
@@ -130,19 +129,13 @@ const { variant = 'network', label = 'Interactive particle field' } = Astro.prop
       output!.textContent = lines.join('\n');
     }
 
-    function animate(time: number) {
-      if (time - lastFrame > 55) {
-        render(time);
-        lastFrame = time;
-      }
-      if (!reducedMotion.matches) frame = requestAnimationFrame(animate);
-    }
-
     function start() {
-      cancelAnimationFrame(frame);
+      window.clearInterval(timer);
       seed();
       render(performance.now());
-      if (!reducedMotion.matches) frame = requestAnimationFrame(animate);
+      if (!reducedMotion.matches) {
+        timer = window.setInterval(() => render(performance.now()), 60);
+      }
     }
 
     field.addEventListener('pointermove', (event) => {
@@ -160,8 +153,12 @@ const { variant = 'network', label = 'Interactive particle field' } = Astro.prop
 
 <style>
   .particle-field { position: relative; min-height: 100svh; overflow: hidden; border-bottom: 1px solid var(--border); background: var(--bg); }
-  .ascii-plane { position: absolute; inset: 0; display: flex; margin: 0; align-items: center; justify-content: center; overflow: hidden; color: var(--fg); font: 10px/14px var(--mono); letter-spacing: 0; opacity: .28; user-select: none; white-space: pre; }
+  .ascii-plane { position: absolute; inset: -20px; display: flex; margin: 0; align-items: center; justify-content: center; overflow: hidden; color: var(--fg); font: 10px/14px var(--mono); letter-spacing: 0; opacity: .28; transform-origin: center; animation: ascii-drift 8s ease-in-out infinite alternate; user-select: none; white-space: pre; }
   .particle-content { position: relative; z-index: 1; min-height: inherit; pointer-events: none; }
   .particle-content :global(a), .particle-content :global(button) { pointer-events: auto; }
   @media (max-width: 600px) { .ascii-plane { font-size: 9px; opacity: .24; } }
+  @keyframes ascii-drift {
+    from { transform: translate3d(-12px, -8px, 0); }
+    to { transform: translate3d(12px, 8px, 0); }
+  }
 </style>

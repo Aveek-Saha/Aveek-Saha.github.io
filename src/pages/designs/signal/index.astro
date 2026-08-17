@@ -1,12 +1,15 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import ParticleField from '../../../components/ParticleField.astro';
+import ProjectArchiveLink from '../../../components/ProjectArchiveLink.astro';
+import ExperienceSection from '../../../components/ExperienceSection.astro';
 import SiteFooter from '../../../components/SiteFooter.astro';
 import { site } from '../../../data/site';
 import { getProjects, projectPath } from '../../../lib/projects';
 
 const projects = await getProjects();
-const grouped = Object.entries(Object.groupBy(projects, (project) => project.data.date.getFullYear().toString())).sort(([a], [b]) => Number(b) - Number(a));
+const featuredProjects = projects.slice(0, 10);
+const grouped = Object.entries(Object.groupBy(featuredProjects, (project) => project.data.date.getFullYear().toString())).sort(([a], [b]) => Number(b) - Number(a));
 ---
 
 <BaseLayout title="Aveek Saha — Design 05: Signal" description={site.role} active="05">
@@ -45,8 +48,10 @@ const grouped = Object.entries(Object.groupBy(projects, (project) => project.dat
           </div>
         </section>
       ))}
+      <ProjectArchiveLink />
     </section>
 
+    <ExperienceSection />
     <section class="section contact" id="about">
       <div><h2 class="section-title">Contact Me</h2></div>
       <div class="contact-actions"><a class="button" href="mailto:aveek.s98@gmail.com">aveek.s98@gmail.com</a><a class="button secondary" href="/aveek_saha_resume.pdf">Download résumé</a></div>

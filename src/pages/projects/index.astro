@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import { site } from '../../data/site';
+import { getProjects, projectPath } from '../../lib/projects';
+
+const projects = await getProjects();
+---
+
+<BaseLayout title="Projects — Aveek Saha" description={site.role} active="projects">
+  <div class="shell projects-page">
+    <header class="projects-header">
+      <a href="/">← Home</a>
+      <h1>Projects</h1>
+    </header>
+    <ol>
+      {projects.map((project, index) => (
+        <li>
+          <a href={projectPath(project)}>
+            <span class="number">{String(index + 1).padStart(2, '0')}</span>
+            <img src={`/img/portfolio/${project.data.img}`} alt="" loading="lazy" />
+            <strong>{project.data.title}</strong>
+            <span class="category">{project.data.category}</span>
+            <time datetime={project.data.date.toISOString()}>{project.data['project-date']}</time>
+            <span aria-hidden="true">↗</span>
+          </a>
+        </li>
+      ))}
+    </ol>
+    <SiteFooter />
+  </div>
+</BaseLayout>
+
+<style>
+  .projects-page { padding-top: 62px; }
+  .projects-header { padding: 72px; border-bottom: 1px solid var(--border); }
+  .projects-header > a { font-size: 11px; }
+  h1 { margin: 48px 0 0; color: var(--fg); font: 650 clamp(56px, 9vw, 96px)/.95 var(--sans); letter-spacing: -.065em; }
+  ol { margin: 0; padding: 0; list-style: none; }
+  li { border-bottom: 1px solid var(--border); }
+  li > a { display: grid; grid-template-columns: 38px 48px minmax(180px, 1.4fr) minmax(150px, 1fr) 120px 18px; align-items: center; gap: 18px; min-height: 82px; padding: 12px 72px; color: var(--weak); font-size: 11px; text-decoration: none; }
+  li > a:hover { background: var(--hover); color: var(--fg); }
+  img { width: 46px; aspect-ratio: 1; padding: 7px; object-fit: contain; background: var(--surface); }
+  strong { color: var(--fg); font: 600 17px var(--sans); }
+  time { font-size: 10px; }
+  @media (max-width: 800px) {
+    .projects-page { padding-top: 58px; }
+    .projects-header { padding: 56px 24px; }
+    li > a { grid-template-columns: 28px 42px 1fr 18px; gap: 12px; padding-inline: 24px; }
+    .category, time { display: none; }
+  }
+</style>
