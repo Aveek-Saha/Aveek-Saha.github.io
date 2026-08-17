@@ -1,5 +1,24 @@
-# Aveek-Saha.github.io
+# Aveek Saha — Portfolio
 
-My personal website, made using github pages and jeykll.
+An Astro-powered static portfolio for [home.aveek.io](https://home.aveek.io). The existing project entries in `_posts/*.markdown` remain the single content source and are loaded by Astro at build time.
 
-Link to the website: https://aveek-saha.github.io/ or https://home.aveek.io
+## Design concepts
+
+Five complete homepage directions are included for comparison:
+
+1. `/` — Ledger
+2. `/designs/aperture/` — Aperture
+3. `/designs/index/` — Index
+4. `/designs/field-notes/` — Field notes
+5. `/designs/signal/` — Signal
+
+Each opens with an interactive particle field, supports light/dark themes and reduced motion, and is statically generated for GitHub Pages.
+
+## Local development
+
+```sh
+npm install
+npm run dev
+```
+
+Use `npm run build` for type checking and a production build. The output is written to `dist/`.

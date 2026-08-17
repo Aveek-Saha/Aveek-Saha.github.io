@@ -1,0 +1,64 @@
+---
+import '../styles/global.css';
+import DesignNav from '../components/DesignNav.astro';
+import ProjectDialogs from '../components/ProjectDialogs.astro';
+
+const { title, description, active, projects, theme = 'light' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" data-theme={theme}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <meta name="author" content="Aveek Saha" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#070708" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+    <title>{title}</title>
+    <script is:inline>
+      (() => {
+        const saved = localStorage.getItem('theme');
+        const preferred = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.dataset.theme = saved || document.documentElement.dataset.theme || preferred;
+      })();
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#content">Skip to content</a>
+    <DesignNav active={active} />
+    <main id="content"><slot /></main>
+    <ProjectDialogs projects={projects} />
+    <script is:inline>
+      const themeButton = document.querySelector('[data-theme-toggle]');
+      themeButton?.addEventListener('click', () => {
+        const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+        document.documentElement.dataset.theme = next;
+        localStorage.setItem('theme', next);
+        themeButton.setAttribute('aria-label', `Use ${next === 'dark' ? 'light' : 'dark'} theme`);
+      });
+      document.querySelectorAll('[data-project]').forEach((trigger) => {
+        trigger.addEventListener('click', () => {
+          const dialog = document.getElementById(`project-${trigger.dataset.project}`);
+          if (dialog instanceof HTMLDialogElement) {
+            dialog.showModal();
+            document.body.classList.add('dialog-open');
+          }
+        });
+      });
+      document.querySelectorAll('dialog').forEach((dialog) => {
+        dialog.addEventListener('click', (event) => {
+          if (event.target === dialog) dialog.close();
+        });
+        dialog.addEventListener('close', () => document.body.classList.remove('dialog-open'));
+      });
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  .skip-link { position: fixed; z-index: 100; top: 10px; left: 10px; padding: 10px 14px; transform: translateY(-150%); background: var(--fg); color: var(--bg); }
+  .skip-link:focus { transform: none; }
+</style>

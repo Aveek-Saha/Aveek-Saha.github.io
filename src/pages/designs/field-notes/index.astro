@@ -1,0 +1,90 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ParticleField from '../../../components/ParticleField.astro';
+import SiteFooter from '../../../components/SiteFooter.astro';
+import { site } from '../../../data/site';
+import { getProjects } from '../../../lib/projects';
+
+const projects = await getProjects();
+---
+
+<BaseLayout title="Aveek Saha — Design 04: Field Notes" description={site.role} active="04" projects={projects}>
+  <div class="shell notes">
+    <ParticleField variant="constellation">
+      <article class="hero" aria-labelledby="notes-title">
+        <header><p>FIELD NOTES <span>/ ISSUE 001</span></p><time datetime="2026-08-17">A living portfolio</time></header>
+        <div class="masthead"><p class="eyebrow">Written and built by Aveek Saha</p><h1 id="notes-title">On making,<br /><em>learning,</em> and<br />following signals.</h1><p class="dek">A record of software, data, machines, and the questions that led to them.</p></div>
+        <footer><a href="#notes">Read the notes <span aria-hidden="true">↓</span></a><span>{projects.length} projects · 6 disciplines</span></footer>
+      </article>
+    </ParticleField>
+
+    <section class="section opening">
+      <p class="eyebrow">Editor’s note</p>
+      <div><p class="drop">I</p><p>{site.about} The entries below are not a highlight reel so much as a working notebook: each one marks a question, a tool learned, or an idea made concrete.</p></div>
+    </section>
+
+    <section class="notes-list" id="notes" aria-labelledby="notes-heading">
+      <header class="section"><p class="eyebrow">The project notebook</p><h2 id="notes-heading" class="section-title">Dispatches from the archive.</h2></header>
+      {projects.map((project, index) => (
+        <article class="entry">
+          <div class="entry-meta"><span>NOTE {String(index + 1).padStart(2, '0')}</span><time datetime={project.data.date.toISOString()}>{project.data['project-date']}</time></div>
+          <button data-project={project.data['modal-id']} aria-label={`Open ${project.data.title} project details`}>
+            <div class="entry-image"><img src={`/img/portfolio/${project.data.img}`} alt="" loading="lazy" /></div>
+            <div class="entry-copy"><p class="eyebrow">{project.data.category}</p><h3>{project.data.title}</h3>{project.data.description && <p set:html={project.data.description.replace(/<br\s*\/?>(.*)/s, '')} />}<span>Open field note ↗</span></div>
+          </button>
+        </article>
+      ))}
+    </section>
+
+    <section class="section colophon" id="about">
+      <p class="eyebrow">Colophon / About the author</p>
+      <div><h2 class="section-title">Aveek is interested in the entire path from rough idea to useful interface.</h2><p class="intro">{site.role}</p></div>
+      <aside><p>Correspondence</p><a href="mailto:aveek.s98@gmail.com">aveek.s98@gmail.com</a><p>Find me elsewhere</p>{site.links.slice(0, 4).map((link) => <a href={link.href}>{link.label} ↗</a>)}</aside>
+    </section>
+    <SiteFooter />
+  </div>
+</BaseLayout>
+
+<style>
+  .hero { display: grid; min-height: 100svh; grid-template-rows: auto 1fr auto; padding: 94px 72px 36px; }
+  .hero header, .hero footer { display: flex; justify-content: space-between; color: var(--weak); font-size: 10px; letter-spacing: .08em; }
+  .hero header p { margin: 0; color: var(--fg); font-weight: 600; }
+  .masthead { align-self: center; max-width: 850px; padding-block: 50px; }
+  .masthead h1 { margin: 14px 0 28px; color: var(--fg); font: 500 clamp(58px, 9vw, 108px)/.94 Georgia, serif; letter-spacing: -.055em; }
+  .masthead h1 em { font-weight: 400; }
+  .dek { max-width: 600px; font: 20px/1.6 var(--sans); }
+  .hero footer a { font-weight: 600; }
+  .opening > div { display: grid; max-width: 780px; grid-template-columns: 72px 1fr; margin-left: auto; }
+  .opening .drop { margin: -12px 0 0; color: var(--fg); font: 84px/1 Georgia, serif; }
+  .opening div p:last-child { margin: 0; color: var(--fg); font: 23px/1.72 Georgia, serif; }
+  .notes-list > header { display: flex; justify-content: space-between; align-items: end; }
+  .entry { display: grid; grid-template-columns: 120px 1fr; padding: 0 72px; border-top: 1px solid var(--border); }
+  .entry-meta { padding: 40px 24px 40px 0; color: var(--weak); font-size: 9px; }
+  .entry-meta span, .entry-meta time { display: block; margin-bottom: 10px; }
+  .entry button { display: grid; grid-template-columns: 230px 1fr; gap: 44px; padding: 40px 0; border: 0; border-left: 1px solid var(--border); background: transparent; color: var(--text); cursor: pointer; text-align: left; }
+  .entry-image { display: grid; min-height: 230px; place-items: center; margin-left: 40px; background: var(--surface); }
+  .entry-image img { width: 42%; }
+  .entry-copy { align-self: center; padding-right: 40px; }
+  .entry h3 { margin: 0 0 16px; color: var(--fg); font: 500 clamp(28px, 4vw, 44px)/1.05 Georgia, serif; letter-spacing: -.035em; }
+  .entry-copy > p:not(.eyebrow) { display: -webkit-box; overflow: hidden; font: 15px/1.65 var(--sans); -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+  .entry-copy > p :global(*) { display: none; }
+  .entry-copy > span { display: inline-block; margin-top: 16px; color: var(--fg); font-size: 11px; text-decoration: underline; text-underline-offset: 4px; }
+  .entry button:hover h3 { text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 7px; text-underline-offset: -2px; }
+  .colophon { display: grid; grid-template-columns: 1fr 260px; gap: 64px; }
+  .colophon > .eyebrow { grid-column: 1 / -1; }
+  .colophon .intro { margin: 30px 0 0; }
+  .colophon aside { padding-left: 28px; border-left: 1px solid var(--border); }
+  .colophon aside p { margin: 0 0 8px; color: var(--weak); font-size: 10px; text-transform: uppercase; }
+  .colophon aside a { display: block; margin-bottom: 18px; font-size: 12px; }
+  @media (max-width: 800px) {
+    .hero { padding: 88px 24px 28px; }
+    .masthead h1 { font-size: clamp(54px, 16vw, 82px); }
+    .entry { grid-template-columns: 1fr; padding: 0 24px; }
+    .entry-meta { display: flex; justify-content: space-between; padding: 24px 0 0; }
+    .entry button { grid-template-columns: 150px 1fr; gap: 24px; border-left: 0; }
+    .entry-image { min-height: 160px; margin-left: 0; }
+    .entry-copy { padding-right: 0; }
+    .colophon { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 540px) { .hero header time, .hero footer > span { display: none; } .opening > div { grid-template-columns: 48px 1fr; } .entry button { grid-template-columns: 1fr; } .entry-image { aspect-ratio: 1.5; } }
+</style>

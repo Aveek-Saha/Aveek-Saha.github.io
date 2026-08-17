@@ -1,0 +1,106 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ParticleField from '../components/ParticleField.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import { site } from '../data/site';
+import { getProjects } from '../lib/projects';
+
+const projects = await getProjects();
+---
+
+<BaseLayout title="Aveek Saha — Design 01: Ledger" description={site.role} active="01" projects={projects}>
+  <div class="shell ledger">
+    <ParticleField variant="network">
+      <section class="hero" aria-labelledby="ledger-title">
+        <div class="hero-top">
+          <p class="eyebrow">Portfolio / 2017—present</p>
+          <span class="availability"><i></i> Open to conversations</span>
+        </div>
+        <div class="hero-copy">
+          <p class="kicker">Engineer. Builder. Curious generalist.</p>
+          <h1 class="display" id="ledger-title">Aveek<br />Saha.</h1>
+          <p class="intro">{site.role}</p>
+          <div class="actions">
+            <a class="button" href="#projects">Explore {projects.length} projects <span aria-hidden="true">↓</span></a>
+            <a class="button secondary" href="mailto:aveek.s98@gmail.com">Start a conversation</a>
+          </div>
+        </div>
+        <div class="hero-foot"><span>Move your pointer through the field</span><span>NYC / EST</span></div>
+      </section>
+    </ParticleField>
+
+    <section class="section projects" id="projects" aria-labelledby="projects-title">
+      <div class="section-head">
+        <div><p class="eyebrow">Selected and archived work</p><h2 class="section-title" id="projects-title">Project ledger</h2></div>
+        <p class="intro">Experiments, shipped products, data work, and open-source tools—kept as one continuous record.</p>
+      </div>
+      <ol class="rule-list ledger-list">
+        {projects.map((project, index) => (
+          <li>
+            <button data-project={project.data['modal-id']} aria-label={`Open ${project.data.title} project details`}>
+              <span class="count">{String(index + 1).padStart(2, '0')}</span>
+              <img src={`/img/portfolio/${project.data.img}`} alt="" loading="lazy" />
+              <strong>{project.data.title}</strong>
+              <span>{project.data.category}</span>
+              <time datetime={project.data.date.toISOString()}>{project.data['project-date']}</time>
+              <i aria-hidden="true">↗</i>
+            </button>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <section class="section about" id="about" aria-labelledby="about-title">
+      <p class="eyebrow">Profile / 02</p>
+      <div class="about-grid">
+        <h2 class="section-title" id="about-title">Building useful systems across disciplines.</h2>
+        <div>
+          <p class="intro">{site.about}</p>
+          <ul class="disciplines">{site.disciplines.map((item) => <li>— {item}</li>)}</ul>
+        </div>
+      </div>
+      <div class="timeline">
+        <div><p class="eyebrow">Education</p>{site.education.map((item) => <article><h3>{item.place}</h3><p>{item.detail}</p></article>)}</div>
+        <div><p class="eyebrow">Past experience</p>{site.experience.map((item) => <article><h3>{item.place}</h3><p>{item.detail}</p></article>)}</div>
+      </div>
+    </section>
+    <SiteFooter />
+  </div>
+</BaseLayout>
+
+<style>
+  .hero { display: flex; min-height: 100svh; flex-direction: column; justify-content: space-between; padding: 108px 72px 40px; }
+  .hero-top, .hero-foot { display: flex; justify-content: space-between; gap: 20px; }
+  .availability { color: var(--weak); font-size: 11px; }
+  .availability i { display: inline-block; width: 7px; height: 7px; margin-right: 8px; border-radius: 50%; background: #3aa95d; }
+  .hero-copy { max-width: 760px; padding-block: 44px; }
+  .kicker { margin: 0 0 24px; color: var(--fg); font-size: 13px; }
+  .hero .display { font-size: clamp(76px, 15vw, 164px); }
+  .hero .intro { max-width: 590px; margin: 28px 0 30px; }
+  .actions { display: flex; flex-wrap: wrap; gap: 10px; }
+  .hero-foot { color: var(--weak); font-size: 10px; text-transform: uppercase; letter-spacing: .08em; }
+  .section-head { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; margin-bottom: 54px; }
+  .section-head .intro { margin: 0; font-size: 16px; }
+  .ledger-list button { display: grid; width: 100%; grid-template-columns: 34px 46px minmax(170px, 1.5fr) 1fr 110px 20px; align-items: center; gap: 18px; padding: 17px 0; border: 0; background: transparent; color: var(--weak); cursor: pointer; font: 12px/1.4 var(--mono); text-align: left; }
+  .ledger-list button:hover { background: var(--hover); color: var(--fg); }
+  .ledger-list img { width: 42px; aspect-ratio: 1; padding: 6px; object-fit: contain; background: var(--surface); }
+  .ledger-list strong { color: var(--fg); font-family: var(--sans); font-size: 16px; font-weight: 600; }
+  .ledger-list time { font-size: 10px; }
+  .ledger-list i { color: var(--fg); font-style: normal; }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 68px; }
+  .about-grid .intro { margin-top: 0; }
+  .disciplines { display: grid; grid-template-columns: 1fr 1fr; margin: 34px 0 0; padding: 0; gap: 8px; color: var(--fg); font-size: 12px; list-style: none; }
+  .timeline { display: grid; grid-template-columns: 1fr 1fr; gap: 68px; margin-top: 72px; padding-top: 48px; border-top: 1px solid var(--border); }
+  .timeline article { display: grid; grid-template-columns: 180px 1fr; gap: 24px; padding: 18px 0; border-bottom: 1px solid var(--border); }
+  .timeline h3, .timeline p { margin: 0; }
+  .timeline h3 { color: var(--fg); font-size: 12px; }
+  .timeline p { font: 14px/1.55 var(--sans); }
+  @media (max-width: 800px) {
+    .hero { padding: 92px 24px 30px; }
+    .hero .display { font-size: clamp(70px, 24vw, 112px); }
+    .section-head, .about-grid, .timeline { grid-template-columns: 1fr; gap: 34px; }
+    .ledger-list button { grid-template-columns: 26px 40px 1fr 18px; gap: 12px; }
+    .ledger-list button > span:nth-of-type(2), .ledger-list time { display: none; }
+  }
+  @media (max-width: 520px) { .hero-top .availability, .hero-foot span:first-child { display: none; } .timeline article { grid-template-columns: 1fr; gap: 5px; } }
+</style>

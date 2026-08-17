@@ -1,0 +1,97 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ParticleField from '../../../components/ParticleField.astro';
+import SiteFooter from '../../../components/SiteFooter.astro';
+import { site } from '../../../data/site';
+import { getProjects } from '../../../lib/projects';
+
+const projects = await getProjects();
+const categories = [...new Set(projects.map((project) => project.data.category))];
+---
+
+<BaseLayout title="Aveek Saha — Design 03: Index" description={site.role} active="03" projects={projects}>
+  <div class="shell index-design">
+    <ParticleField variant="matrix">
+      <section class="hero" aria-labelledby="index-title">
+        <p class="folio">PORTFOLIO INDEX <span>VOL. 01</span></p>
+        <div class="monogram" aria-hidden="true"><span>A</span><span>S</span></div>
+        <div class="hero-copy">
+          <div><p class="eyebrow">Aveek Saha / Computer scientist</p><h1 id="index-title">An index of<br />things made.</h1></div>
+          <p>{site.role} This is an evolving catalogue of experiments and production work.</p>
+        </div>
+        <a class="scroll" href="#catalogue">Enter catalogue <span aria-hidden="true">↓</span></a>
+      </section>
+    </ParticleField>
+
+    <section id="catalogue" class="catalogue" aria-labelledby="catalogue-title">
+      <header class="section">
+        <p class="eyebrow">Index / {projects.length} records / {categories.length} categories</p>
+        <h2 class="section-title" id="catalogue-title">Works, reverse chronological.</h2>
+      </header>
+      <div class="table-head" aria-hidden="true"><span>No.</span><span>Project</span><span>Classification</span><span>Date</span><span></span></div>
+      <ol class="project-index">
+        {projects.map((project, index) => (
+          <li>
+            <button data-project={project.data['modal-id']} aria-label={`Open ${project.data.title} project details`}>
+              <span>{String(index + 1).padStart(3, '0')}</span>
+              <strong>{project.data.title}</strong>
+              <span>{project.data.category}</span>
+              <time datetime={project.data.date.toISOString()}>{project.data.date.getFullYear()}</time>
+              <i aria-hidden="true">■</i>
+              <img src={`/img/portfolio/${project.data.img}`} alt="" loading="lazy" />
+            </button>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <section class="section cv" id="about">
+      <aside><p class="eyebrow">Subject / AS</p><img src="/img/profile.png" alt="Aveek Saha" loading="lazy" /></aside>
+      <div class="bio"><h2 class="section-title">Curiosity is the through-line.</h2><p class="intro">{site.about}</p><div class="bio-actions"><a class="button" href="mailto:aveek.s98@gmail.com">Email Aveek</a><a class="button secondary" href="/aveek_saha_resume.pdf">Read résumé</a></div></div>
+      <dl><div><dt>Currently interested in</dt><dd>{site.disciplines.join(', ')}</dd></div><div><dt>Location</dt><dd>{site.location}</dd></div><div><dt>Elsewhere</dt><dd>{site.links.slice(0, 4).map((link) => <a href={link.href}>{link.label}</a>)}</dd></div></dl>
+    </section>
+    <SiteFooter />
+  </div>
+</BaseLayout>
+
+<style>
+  .hero { display: flex; min-height: 100svh; flex-direction: column; padding: 92px 48px 38px; }
+  .folio { display: flex; margin: 0; justify-content: space-between; color: var(--weak); font-size: 10px; letter-spacing: .14em; }
+  .monogram { position: absolute; inset: 88px 40px auto; display: flex; justify-content: space-between; color: var(--fg); font: 650 clamp(180px, 36vw, 390px)/.82 var(--sans); letter-spacing: -.1em; opacity: .055; }
+  .hero-copy { display: grid; grid-template-columns: 1.35fr .65fr; align-items: end; gap: 60px; margin: auto 0 48px; }
+  .hero h1 { margin: 0; color: var(--fg); font: 650 clamp(58px, 10vw, 112px)/.95 var(--sans); letter-spacing: -.07em; }
+  .hero-copy > p { max-width: 360px; margin: 0; font: 18px/1.65 var(--sans); }
+  .scroll { width: fit-content; font-size: 11px; }
+  .scroll span { margin-left: 12px; }
+  .catalogue header { display: flex; align-items: end; justify-content: space-between; gap: 24px; }
+  .table-head, .project-index button { display: grid; grid-template-columns: 56px minmax(190px, 1.6fr) minmax(150px, 1fr) 80px 20px; gap: 18px; align-items: center; }
+  .table-head { padding: 12px 30px; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); color: var(--weak); font-size: 9px; letter-spacing: .08em; text-transform: uppercase; }
+  .project-index { margin: 0; padding: 0; list-style: none; }
+  .project-index li { position: relative; border-bottom: 1px solid var(--border); }
+  .project-index button { width: 100%; min-height: 76px; padding: 12px 30px; border: 0; background: transparent; color: var(--weak); cursor: pointer; font: 11px var(--mono); text-align: left; }
+  .project-index button:hover { background: var(--hover); color: var(--fg); }
+  .project-index strong { color: var(--fg); font: 600 18px var(--sans); }
+  .project-index i { color: var(--fg); font-size: 8px; }
+  .project-index img { position: absolute; z-index: 2; right: 90px; display: none; width: 126px; padding: 24px; border: 1px solid var(--border-strong); background: var(--surface); }
+  .project-index button:hover img { display: block; }
+  .cv { display: grid; grid-template-columns: 180px 1fr; gap: 54px; }
+  .cv aside img { width: 120px; aspect-ratio: 1; border-radius: 50%; object-fit: cover; filter: grayscale(1); }
+  .bio .intro { margin: 26px 0; }
+  .bio-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+  dl { grid-column: 2; margin: 30px 0 0; border-top: 1px solid var(--border); }
+  dl div { display: grid; grid-template-columns: 180px 1fr; padding: 16px 0; border-bottom: 1px solid var(--border); }
+  dt { color: var(--weak); font-size: 10px; text-transform: uppercase; }
+  dd { margin: 0; color: var(--fg); font: 14px/1.5 var(--sans); }
+  dd a { margin-right: 16px; }
+  @media (max-width: 800px) {
+    .hero { padding: 88px 24px 30px; }
+    .hero-copy { grid-template-columns: 1fr; gap: 30px; }
+    .hero h1 { font-size: clamp(56px, 16vw, 88px); }
+    .table-head { display: none; }
+    .project-index button { grid-template-columns: 36px 1fr 30px; padding-inline: 24px; }
+    .project-index button > span:nth-of-type(2), .project-index time { display: none; }
+    .project-index img { display: none !important; }
+    .cv { grid-template-columns: 1fr; }
+    dl { grid-column: auto; } dl div { grid-template-columns: 1fr; gap: 6px; }
+  }
+</style>

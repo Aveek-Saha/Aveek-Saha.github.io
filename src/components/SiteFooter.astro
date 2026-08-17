@@ -1,0 +1,18 @@
+---
+import { site } from '../data/site';
+---
+
+<footer>
+  <div><b>AS</b><span>{site.location}</span></div>
+  <nav aria-label="Social links">{site.links.slice(0, 4).map((link) => <a href={link.href}>{link.label}</a>)}</nav>
+  <span>© {new Date().getFullYear()} Aveek Saha</span>
+</footer>
+
+<style>
+  footer { display: grid; grid-template-columns: 1fr auto; gap: 28px; padding: 38px 72px; border-top: 1px solid var(--border); color: var(--weak); font-size: 11px; }
+  footer div { display: flex; gap: 18px; }
+  footer b { color: var(--fg); }
+  nav { display: flex; gap: 18px; }
+  footer > span { grid-column: 1 / -1; }
+  @media (max-width: 800px) { footer { grid-template-columns: 1fr; padding: 38px 24px; } nav { flex-wrap: wrap; } footer > span { grid-column: auto; } }
+</style>
