@@ -12,9 +12,8 @@ const projects = await getProjects();
   <div class="shell notes">
     <ParticleField variant="constellation">
       <article class="hero" aria-labelledby="notes-title">
-        <header><p>FIELD NOTES</p><span>PORTFOLIO</span></header>
-        <div class="masthead"><p class="eyebrow">Aveek Saha</p><h1 id="notes-title">Aveek<br /><em>Saha</em></h1><p class="dek">{site.role}</p></div>
-        <footer><a href="#notes">Projects <span aria-hidden="true">↓</span></a><span>{projects.length} projects</span></footer>
+        <div class="masthead"><h1 id="notes-title">Aveek<br /><em>Saha</em></h1><p class="dek">{site.role}</p></div>
+        <footer><a href="#notes">Projects <span aria-hidden="true">↓</span></a></footer>
       </article>
     </ParticleField>
 
@@ -24,7 +23,7 @@ const projects = await getProjects();
     </section>
 
     <section class="notes-list" id="notes" aria-labelledby="notes-heading">
-      <header class="section"><p class="eyebrow">{projects.length} projects</p><h2 id="notes-heading" class="section-title">Projects</h2></header>
+      <header class="section"><h2 id="notes-heading" class="section-title">Projects</h2></header>
       {projects.map((project, index) => (
         <article class="entry">
           <div class="entry-meta"><span>NOTE {String(index + 1).padStart(2, '0')}</span><time datetime={project.data.date.toISOString()}>{project.data['project-date']}</time></div>
@@ -37,19 +36,17 @@ const projects = await getProjects();
     </section>
 
     <section class="section colophon" id="about">
-      <p class="eyebrow">About Me</p>
-      <div><h2 class="section-title">Who am I?</h2><p class="intro">{site.about}</p></div>
-      <aside><p>Contact Me</p><a href="mailto:aveek.s98@gmail.com">aveek.s98@gmail.com</a><p>Around the Web</p>{site.links.slice(0, 4).map((link) => <a href={link.href}>{link.label} ↗</a>)}</aside>
+      <div><h2 class="section-title">Contact Me</h2><a href="mailto:aveek.s98@gmail.com">aveek.s98@gmail.com</a></div>
+      <aside><p>Around the Web</p>{site.links.slice(0, 4).map((link) => <a href={link.href}>{link.label} ↗</a>)}</aside>
     </section>
     <SiteFooter />
   </div>
 </BaseLayout>
 
 <style>
-  .hero { display: grid; min-height: 100svh; grid-template-rows: auto 1fr auto; padding: 94px 72px 36px; }
-  .hero header, .hero footer { display: flex; justify-content: space-between; color: var(--weak); font-size: 10px; letter-spacing: .08em; }
-  .hero header p { margin: 0; color: var(--fg); font-weight: 600; }
-  .masthead { align-self: center; max-width: 850px; padding-block: 50px; }
+  .hero { display: flex; min-height: 100svh; flex-direction: column; padding: 94px 72px 36px; }
+  .hero footer { display: flex; justify-content: space-between; color: var(--weak); font-size: 10px; letter-spacing: .08em; }
+  .masthead { max-width: 850px; margin-block: auto; padding-block: 50px; }
   .masthead h1 { margin: 14px 0 28px; color: var(--fg); font: 500 clamp(58px, 9vw, 108px)/.94 Georgia, serif; letter-spacing: -.055em; }
   .masthead h1 em { font-weight: 400; }
   .dek { max-width: 600px; font: 20px/1.6 var(--sans); }
@@ -71,8 +68,7 @@ const projects = await getProjects();
   .entry-copy > span { display: inline-block; margin-top: 16px; color: var(--fg); font-size: 11px; text-decoration: underline; text-underline-offset: 4px; }
   .entry > a:hover h3 { text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 7px; text-underline-offset: -2px; }
   .colophon { display: grid; grid-template-columns: 1fr 260px; gap: 64px; }
-  .colophon > .eyebrow { grid-column: 1 / -1; }
-  .colophon .intro { margin: 30px 0 0; }
+  .colophon > div > a { display: inline-block; margin-top: 24px; }
   .colophon aside { padding-left: 28px; border-left: 1px solid var(--border); }
   .colophon aside p { margin: 0 0 8px; color: var(--weak); font-size: 10px; text-transform: uppercase; }
   .colophon aside a { display: block; margin-bottom: 18px; font-size: 12px; }
@@ -86,5 +82,5 @@ const projects = await getProjects();
     .entry-copy { padding-right: 0; }
     .colophon { grid-template-columns: 1fr; }
   }
-  @media (max-width: 540px) { .hero header time, .hero footer > span { display: none; } .opening > div { grid-template-columns: 48px 1fr; } .entry > a { grid-template-columns: 1fr; } .entry-image { aspect-ratio: 1.5; } }
+  @media (max-width: 540px) { .hero footer > span { display: none; } .opening > div { grid-template-columns: 48px 1fr; } .entry > a { grid-template-columns: 1fr; } .entry-image { aspect-ratio: 1.5; } }
 </style>

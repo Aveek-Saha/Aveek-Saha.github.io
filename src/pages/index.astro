@@ -14,7 +14,6 @@ const projects = await getProjects();
       <section class="hero" aria-labelledby="ledger-title">
         <div class="hero-top">
           <p class="eyebrow">Portfolio / 2017—present</p>
-          <span class="availability">{site.role}</span>
         </div>
         <div class="hero-copy">
           <h1 class="display" id="ledger-title">Aveek<br />Saha.</h1>
@@ -30,7 +29,7 @@ const projects = await getProjects();
 
     <section class="section projects" id="projects" aria-labelledby="projects-title">
       <div class="section-head">
-        <div><p class="eyebrow">{projects.length} projects</p><h2 class="section-title" id="projects-title">Projects</h2></div>
+        <h2 class="section-title" id="projects-title">Projects</h2>
       </div>
       <ol class="rule-list ledger-list">
         {projects.map((project, index) => (
@@ -49,7 +48,6 @@ const projects = await getProjects();
     </section>
 
     <section class="section about" id="about" aria-labelledby="about-title">
-      <p class="eyebrow">About Me</p>
       <div class="about-grid">
         <h2 class="section-title" id="about-title">Who am I?</h2>
         <div>
@@ -69,15 +67,12 @@ const projects = await getProjects();
 <style>
   .hero { display: flex; min-height: 100svh; flex-direction: column; justify-content: space-between; padding: 108px 72px 40px; }
   .hero-top, .hero-foot { display: flex; justify-content: space-between; gap: 20px; }
-  .availability { color: var(--weak); font-size: 11px; }
-  .availability i { display: inline-block; width: 7px; height: 7px; margin-right: 8px; border-radius: 50%; background: #3aa95d; }
   .hero-copy { max-width: 760px; padding-block: 44px; }
   .hero .display { font-size: clamp(76px, 15vw, 164px); }
   .hero .intro { max-width: 590px; margin: 28px 0 30px; }
   .actions { display: flex; flex-wrap: wrap; gap: 10px; }
   .hero-foot { color: var(--weak); font-size: 10px; text-transform: uppercase; letter-spacing: .08em; }
-  .section-head { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; margin-bottom: 54px; }
-  .section-head .intro { margin: 0; font-size: 16px; }
+  .section-head { margin-bottom: 54px; }
   .ledger-list a { display: grid; width: 100%; grid-template-columns: 34px 46px minmax(170px, 1.5fr) 1fr 110px 20px; align-items: center; gap: 18px; padding: 17px 0; color: var(--weak); font: 12px/1.4 var(--mono); text-align: left; text-decoration: none; }
   .ledger-list a:hover { background: var(--hover); color: var(--fg); }
   .ledger-list img { width: 42px; aspect-ratio: 1; padding: 6px; object-fit: contain; background: var(--surface); }

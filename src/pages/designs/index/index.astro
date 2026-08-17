@@ -6,14 +6,12 @@ import { site } from '../../../data/site';
 import { getProjects, projectPath } from '../../../lib/projects';
 
 const projects = await getProjects();
-const categories = [...new Set(projects.map((project) => project.data.category))];
 ---
 
 <BaseLayout title="Aveek Saha — Design 03: Index" description={site.role} active="03">
   <div class="shell index-design">
     <ParticleField variant="matrix">
       <section class="hero" aria-labelledby="index-title">
-        <p class="folio">PORTFOLIO INDEX <span>VOL. 01</span></p>
         <div class="monogram" aria-hidden="true"><span>A</span><span>S</span></div>
         <div class="hero-copy">
           <div><p class="eyebrow">Aveek Saha</p><h1 id="index-title">Projects</h1></div>
@@ -25,7 +23,6 @@ const categories = [...new Set(projects.map((project) => project.data.category))
 
     <section id="catalogue" class="catalogue" aria-labelledby="catalogue-title">
       <header class="section">
-        <p class="eyebrow">Index / {projects.length} records / {categories.length} categories</p>
         <h2 class="section-title" id="catalogue-title">Projects</h2>
       </header>
       <div class="table-head" aria-hidden="true"><span>No.</span><span>Project</span><span>Category</span><span>Date</span><span></span></div>
@@ -46,7 +43,7 @@ const categories = [...new Set(projects.map((project) => project.data.category))
     </section>
 
     <section class="section cv" id="about">
-      <aside><p class="eyebrow">Subject / AS</p><img src="/img/profile.png" alt="Aveek Saha" loading="lazy" /></aside>
+      <aside><img src="/img/profile.png" alt="Aveek Saha" loading="lazy" /></aside>
       <div class="bio"><h2 class="section-title">Who am I?</h2><p class="intro">{site.about}</p><div class="bio-actions"><a class="button" href="mailto:aveek.s98@gmail.com">Contact Me</a><a class="button secondary" href="/aveek_saha_resume.pdf">Resume</a></div></div>
       <dl><div><dt>Skills</dt><dd>{site.disciplines.join(', ')}</dd></div><div><dt>Location</dt><dd>{site.location}</dd></div><div><dt>Around the Web</dt><dd>{site.links.slice(0, 4).map((link) => <a href={link.href}>{link.label}</a>)}</dd></div></dl>
     </section>
@@ -56,7 +53,6 @@ const categories = [...new Set(projects.map((project) => project.data.category))
 
 <style>
   .hero { display: flex; min-height: 100svh; flex-direction: column; padding: 92px 48px 38px; }
-  .folio { display: flex; margin: 0; justify-content: space-between; color: var(--weak); font-size: 10px; letter-spacing: .14em; }
   .monogram { position: absolute; inset: 88px 40px auto; display: flex; justify-content: space-between; color: var(--fg); font: 650 clamp(180px, 36vw, 390px)/.82 var(--sans); letter-spacing: -.1em; opacity: .055; }
   .hero-copy { display: grid; grid-template-columns: 1.35fr .65fr; align-items: end; gap: 60px; margin: auto 0 48px; }
   .hero h1 { margin: 0; color: var(--fg); font: 650 clamp(58px, 10vw, 112px)/.95 var(--sans); letter-spacing: -.07em; }
