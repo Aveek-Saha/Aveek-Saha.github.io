@@ -3,48 +3,48 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import ParticleField from '../../../components/ParticleField.astro';
 import SiteFooter from '../../../components/SiteFooter.astro';
 import { site } from '../../../data/site';
-import { getProjects } from '../../../lib/projects';
+import { getProjects, projectPath } from '../../../lib/projects';
 
 const projects = await getProjects();
 const grouped = Object.entries(Object.groupBy(projects, (project) => project.data.date.getFullYear().toString())).sort(([a], [b]) => Number(b) - Number(a));
 ---
 
-<BaseLayout title="Aveek Saha — Design 05: Signal" description={site.role} active="05" projects={projects} theme="dark">
+<BaseLayout title="Aveek Saha — Design 05: Signal" description={site.role} active="05">
   <div class="shell signal">
     <ParticleField variant="orbit">
       <section class="hero" aria-labelledby="signal-title">
-        <div class="status"><span><i></i> SIGNAL ACQUIRED</span><span>AVEek.SAHA / PORTFOLIO</span></div>
+        <div class="status"><span><i></i> PORTFOLIO</span><span>AVEEK SAHA</span></div>
         <div class="reticle" aria-hidden="true"><span></span><span></span></div>
         <div class="hero-copy">
-          <p class="eyebrow">Software / Intelligence / Infrastructure</p>
-          <h1 id="signal-title">Finding signal<br />in complex systems.</h1>
+          <p class="eyebrow">{site.role}</p>
+          <h1 id="signal-title">Aveek<br />Saha</h1>
           <p>{site.role}</p>
-          <div><a class="button" href="#transmissions">Browse transmissions</a><a class="text-link" href="mailto:aveek.s98@gmail.com">Establish contact ↗</a></div>
+          <div><a class="button" href="#transmissions">Projects</a><a class="text-link" href="mailto:aveek.s98@gmail.com">Contact Me ↗</a></div>
         </div>
-        <div class="telemetry"><span>LAT 42.3601</span><span>LON −71.0589</span><span>PROJECTS {projects.length}</span><span>STATUS ONLINE</span></div>
+        <div class="telemetry"><span>BOSTON</span><span>BANGALORE</span><span>PROJECTS {projects.length}</span></div>
       </section>
     </ParticleField>
 
     <section class="section manifesto">
-      <p class="eyebrow">Operating principles / 01</p>
-      <h2>Observe carefully.<br />Build deliberately.<br /><span>Share what works.</span></h2>
+      <p class="eyebrow">About Me</p>
+      <h2>Who am I?</h2>
       <p>{site.about}</p>
     </section>
 
     <section class="transmissions" id="transmissions" aria-labelledby="transmissions-title">
-      <header class="section"><div><p class="eyebrow">Archive / 02</p><h2 class="section-title" id="transmissions-title">Project transmissions</h2></div><p>Sorted by year. Select a frequency to inspect the complete record.</p></header>
+      <header class="section"><div><p class="eyebrow">{projects.length} projects</p><h2 class="section-title" id="transmissions-title">Projects</h2></div></header>
       {grouped.map(([year, yearProjects]) => (
         <section class="year-group" aria-labelledby={`year-${year}`}>
           <div class="year"><span id={`year-${year}`}>{year}</span><small>{yearProjects?.length} records</small></div>
           <div class="signals-list">
             {yearProjects?.map((project, index) => (
-              <button data-project={project.data['modal-id']} aria-label={`Open ${project.data.title} project details`}>
+              <a href={projectPath(project)} aria-label={`${project.data.title} project details`}>
                 <span class="frequency">{year.slice(-2)}.{String(index + 1).padStart(2, '0')}</span>
                 <span class="project-mark"><img src={`/img/portfolio/${project.data.img}`} alt="" loading="lazy" /></span>
                 <span class="name"><strong>{project.data.title}</strong><small>{project.data.category}</small></span>
                 <span class="wave" aria-hidden="true">━━━━━━━━╱╲━━━━╱╲━━</span>
                 <span aria-hidden="true">↗</span>
-              </button>
+              </a>
             ))}
           </div>
         </section>
@@ -52,7 +52,7 @@ const grouped = Object.entries(Object.groupBy(projects, (project) => project.dat
     </section>
 
     <section class="section contact" id="about">
-      <div><p class="eyebrow">Open channel / 03</p><h2 class="section-title">Have an interesting problem?</h2><p class="intro">I’m always glad to hear about thoughtful software, data, and research work.</p></div>
+      <div><p class="eyebrow">Contact</p><h2 class="section-title">Contact Me</h2></div>
       <div class="contact-actions"><a class="button" href="mailto:aveek.s98@gmail.com">aveek.s98@gmail.com</a><a class="button secondary" href="/aveek_saha_resume.pdf">Download résumé</a></div>
       <ul>{site.disciplines.map((item) => <li><span>—</span>{item}</li>)}</ul>
     </section>
@@ -88,9 +88,9 @@ const grouped = Object.entries(Object.groupBy(projects, (project) => project.dat
   .year { padding: 32px; border-right: 1px solid var(--border); }
   .year span { display: block; color: var(--fg); font: 600 34px var(--sans); letter-spacing: -.04em; }
   .year small { color: var(--weak); font-size: 9px; text-transform: uppercase; }
-  .signals-list button { display: grid; width: 100%; grid-template-columns: 52px 50px minmax(160px, 1fr) minmax(100px, .6fr) 18px; align-items: center; gap: 18px; padding: 14px 32px; border: 0; border-bottom: 1px solid var(--border); background: transparent; color: var(--weak); cursor: pointer; font: 10px var(--mono); text-align: left; }
-  .signals-list button:last-child { border-bottom: 0; }
-  .signals-list button:hover { background: var(--accent-soft); color: var(--fg); }
+  .signals-list a { display: grid; width: 100%; grid-template-columns: 52px 50px minmax(160px, 1fr) minmax(100px, .6fr) 18px; align-items: center; gap: 18px; padding: 14px 32px; border-bottom: 1px solid var(--border); background: transparent; color: var(--weak); font: 10px var(--mono); text-align: left; text-decoration: none; }
+  .signals-list a:last-child { border-bottom: 0; }
+  .signals-list a:hover { background: var(--accent-soft); color: var(--fg); }
   .project-mark { display: grid; width: 46px; aspect-ratio: 1; place-items: center; background: var(--surface); }
   .project-mark img { width: 62%; }
   .name strong, .name small { display: block; }
@@ -111,9 +111,9 @@ const grouped = Object.entries(Object.groupBy(projects, (project) => project.dat
     .manifesto .eyebrow, .contact ul { grid-column: auto; }
     .year-group { grid-template-columns: 1fr; }
     .year { display: flex; align-items: center; justify-content: space-between; padding: 22px 24px; border-right: 0; border-bottom: 1px solid var(--border); }
-    .signals-list button { grid-template-columns: 44px 42px 1fr 16px; padding-inline: 24px; }
+    .signals-list a { grid-template-columns: 44px 42px 1fr 16px; padding-inline: 24px; }
     .wave { display: none; }
     .contact-actions { justify-content: start; }
   }
-  @media (max-width: 540px) { .hero-copy > div, .contact-actions { align-items: stretch; flex-direction: column; } .signal .text-link { align-self: center; } .signals-list button { grid-template-columns: 34px 1fr 16px; } .project-mark { display: none; } .contact ul { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 540px) { .hero-copy > div, .contact-actions { align-items: stretch; flex-direction: column; } .signal .text-link { align-self: center; } .signals-list a { grid-template-columns: 34px 1fr 16px; } .project-mark { display: none; } .contact ul { grid-template-columns: 1fr 1fr; } }
 </style>

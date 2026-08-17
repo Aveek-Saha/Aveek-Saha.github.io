@@ -3,43 +3,43 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import ParticleField from '../../../components/ParticleField.astro';
 import SiteFooter from '../../../components/SiteFooter.astro';
 import { site } from '../../../data/site';
-import { getProjects } from '../../../lib/projects';
+import { getProjects, projectPath } from '../../../lib/projects';
 
 const projects = await getProjects();
 ---
 
-<BaseLayout title="Aveek Saha — Design 04: Field Notes" description={site.role} active="04" projects={projects}>
+<BaseLayout title="Aveek Saha — Design 04: Field Notes" description={site.role} active="04">
   <div class="shell notes">
     <ParticleField variant="constellation">
       <article class="hero" aria-labelledby="notes-title">
-        <header><p>FIELD NOTES <span>/ ISSUE 001</span></p><time datetime="2026-08-17">A living portfolio</time></header>
-        <div class="masthead"><p class="eyebrow">Written and built by Aveek Saha</p><h1 id="notes-title">On making,<br /><em>learning,</em> and<br />following signals.</h1><p class="dek">A record of software, data, machines, and the questions that led to them.</p></div>
-        <footer><a href="#notes">Read the notes <span aria-hidden="true">↓</span></a><span>{projects.length} projects · 6 disciplines</span></footer>
+        <header><p>FIELD NOTES</p><span>PORTFOLIO</span></header>
+        <div class="masthead"><p class="eyebrow">Aveek Saha</p><h1 id="notes-title">Aveek<br /><em>Saha</em></h1><p class="dek">{site.role}</p></div>
+        <footer><a href="#notes">Projects <span aria-hidden="true">↓</span></a><span>{projects.length} projects</span></footer>
       </article>
     </ParticleField>
 
     <section class="section opening">
-      <p class="eyebrow">Editor’s note</p>
-      <div><p class="drop">I</p><p>{site.about} The entries below are not a highlight reel so much as a working notebook: each one marks a question, a tool learned, or an idea made concrete.</p></div>
+      <p class="eyebrow">About Me</p>
+      <div><p class="drop">I</p><p>{site.about}</p></div>
     </section>
 
     <section class="notes-list" id="notes" aria-labelledby="notes-heading">
-      <header class="section"><p class="eyebrow">The project notebook</p><h2 id="notes-heading" class="section-title">Dispatches from the archive.</h2></header>
+      <header class="section"><p class="eyebrow">{projects.length} projects</p><h2 id="notes-heading" class="section-title">Projects</h2></header>
       {projects.map((project, index) => (
         <article class="entry">
           <div class="entry-meta"><span>NOTE {String(index + 1).padStart(2, '0')}</span><time datetime={project.data.date.toISOString()}>{project.data['project-date']}</time></div>
-          <button data-project={project.data['modal-id']} aria-label={`Open ${project.data.title} project details`}>
+          <a href={projectPath(project)} aria-label={`${project.data.title} project details`}>
             <div class="entry-image"><img src={`/img/portfolio/${project.data.img}`} alt="" loading="lazy" /></div>
-            <div class="entry-copy"><p class="eyebrow">{project.data.category}</p><h3>{project.data.title}</h3>{project.data.description && <p set:html={project.data.description.replace(/<br\s*\/?>(.*)/s, '')} />}<span>Open field note ↗</span></div>
-          </button>
+            <div class="entry-copy"><p class="eyebrow">{project.data.category}</p><h3>{project.data.title}</h3>{project.data.description && <p set:html={project.data.description.replace(/<br\s*\/?>(.*)/s, '')} />}<span>Open project ↗</span></div>
+          </a>
         </article>
       ))}
     </section>
 
     <section class="section colophon" id="about">
-      <p class="eyebrow">Colophon / About the author</p>
-      <div><h2 class="section-title">Aveek is interested in the entire path from rough idea to useful interface.</h2><p class="intro">{site.role}</p></div>
-      <aside><p>Correspondence</p><a href="mailto:aveek.s98@gmail.com">aveek.s98@gmail.com</a><p>Find me elsewhere</p>{site.links.slice(0, 4).map((link) => <a href={link.href}>{link.label} ↗</a>)}</aside>
+      <p class="eyebrow">About Me</p>
+      <div><h2 class="section-title">Who am I?</h2><p class="intro">{site.about}</p></div>
+      <aside><p>Contact Me</p><a href="mailto:aveek.s98@gmail.com">aveek.s98@gmail.com</a><p>Around the Web</p>{site.links.slice(0, 4).map((link) => <a href={link.href}>{link.label} ↗</a>)}</aside>
     </section>
     <SiteFooter />
   </div>
@@ -61,7 +61,7 @@ const projects = await getProjects();
   .entry { display: grid; grid-template-columns: 120px 1fr; padding: 0 72px; border-top: 1px solid var(--border); }
   .entry-meta { padding: 40px 24px 40px 0; color: var(--weak); font-size: 9px; }
   .entry-meta span, .entry-meta time { display: block; margin-bottom: 10px; }
-  .entry button { display: grid; grid-template-columns: 230px 1fr; gap: 44px; padding: 40px 0; border: 0; border-left: 1px solid var(--border); background: transparent; color: var(--text); cursor: pointer; text-align: left; }
+  .entry > a { display: grid; grid-template-columns: 230px 1fr; gap: 44px; padding: 40px 0; border-left: 1px solid var(--border); background: transparent; color: var(--text); text-align: left; text-decoration: none; }
   .entry-image { display: grid; min-height: 230px; place-items: center; margin-left: 40px; background: var(--surface); }
   .entry-image img { width: 42%; }
   .entry-copy { align-self: center; padding-right: 40px; }
@@ -69,7 +69,7 @@ const projects = await getProjects();
   .entry-copy > p:not(.eyebrow) { display: -webkit-box; overflow: hidden; font: 15px/1.65 var(--sans); -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
   .entry-copy > p :global(*) { display: none; }
   .entry-copy > span { display: inline-block; margin-top: 16px; color: var(--fg); font-size: 11px; text-decoration: underline; text-underline-offset: 4px; }
-  .entry button:hover h3 { text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 7px; text-underline-offset: -2px; }
+  .entry > a:hover h3 { text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 7px; text-underline-offset: -2px; }
   .colophon { display: grid; grid-template-columns: 1fr 260px; gap: 64px; }
   .colophon > .eyebrow { grid-column: 1 / -1; }
   .colophon .intro { margin: 30px 0 0; }
@@ -81,10 +81,10 @@ const projects = await getProjects();
     .masthead h1 { font-size: clamp(54px, 16vw, 82px); }
     .entry { grid-template-columns: 1fr; padding: 0 24px; }
     .entry-meta { display: flex; justify-content: space-between; padding: 24px 0 0; }
-    .entry button { grid-template-columns: 150px 1fr; gap: 24px; border-left: 0; }
+    .entry > a { grid-template-columns: 150px 1fr; gap: 24px; border-left: 0; }
     .entry-image { min-height: 160px; margin-left: 0; }
     .entry-copy { padding-right: 0; }
     .colophon { grid-template-columns: 1fr; }
   }
-  @media (max-width: 540px) { .hero header time, .hero footer > span { display: none; } .opening > div { grid-template-columns: 48px 1fr; } .entry button { grid-template-columns: 1fr; } .entry-image { aspect-ratio: 1.5; } }
+  @media (max-width: 540px) { .hero header time, .hero footer > span { display: none; } .opening > div { grid-template-columns: 48px 1fr; } .entry > a { grid-template-columns: 1fr; } .entry-image { aspect-ratio: 1.5; } }
 </style>

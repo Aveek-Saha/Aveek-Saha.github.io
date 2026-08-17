@@ -12,7 +12,7 @@ Five complete homepage directions are included for comparison:
 4. `/designs/field-notes/` — Field notes
 5. `/designs/signal/` — Signal
 
-Each opens with an interactive particle field, supports light/dark themes and reduced motion, and is statically generated for GitHub Pages.
+Each opens with an interactive ASCII particle field, uses a dark theme, supports reduced motion, and is statically generated for GitHub Pages. Every project also has a direct URL under `/projects/`.
 
 ## Local development
 

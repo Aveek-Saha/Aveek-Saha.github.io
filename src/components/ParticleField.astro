@@ -2,86 +2,166 @@
 const { variant = 'network', label = 'Interactive particle field' } = Astro.props;
 ---
 
-<div class={`particle-field particle-${variant}`} data-particles={variant}>
-  <canvas aria-hidden="true"></canvas>
+<div class={`particle-field particle-${variant}`} data-ascii-particles={variant}>
+  <pre class="ascii-plane" aria-hidden="true"></pre>
   <div class="particle-content"><slot /></div>
   <span class="sr-only">{label}. Animation is decorative.</span>
 </div>
 
 <script>
-  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
-  document.querySelectorAll<HTMLElement>('[data-particles]').forEach((field) => {
-    const canvas = field.querySelector('canvas');
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-    const kind = field.dataset.particles || 'network';
-    let width = 0;
-    let height = 0;
+  type Point = { x: number; y: number; vx: number; vy: number; phase: number };
+
+  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+
+  document.querySelectorAll<HTMLElement>('[data-ascii-particles]').forEach((field) => {
+    if (field.dataset.asciiReady) return;
+    field.dataset.asciiReady = 'true';
+
+    const output = field.querySelector<HTMLElement>('.ascii-plane');
+    if (!output) return;
+
+    const variant = field.dataset.asciiParticles ?? 'network';
+    const pointer = { x: -10, y: -10, active: false };
+    let columns = 0;
+    let rows = 0;
+    let points: Point[] = [];
     let frame = 0;
-    let particles: { x: number; y: number; vx: number; vy: number; r: number; }[] = [];
-    const pointer = { x: -1000, y: -1000 };
-    const color = () => getComputedStyle(document.documentElement).getPropertyValue('--fg').trim();
-    const resize = () => {
-      const ratio = Math.min(devicePixelRatio, 2);
-      width = field.clientWidth;
-      height = field.clientHeight;
-      canvas.width = width * ratio;
-      canvas.height = height * ratio;
-      canvas.style.width = `${width}px`;
-      canvas.style.height = `${height}px`;
-      ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
-      const amount = Math.max(28, Math.min(78, Math.round(width * height / 15000)));
-      particles = Array.from({ length: amount }, (_, i) => {
-        const ring = kind === 'orbit';
-        const angle = i / amount * Math.PI * 2;
+    let lastFrame = 0;
+
+    const pointCount = variant === 'constellation' ? 9 : variant === 'drift' ? 7 : 11;
+
+    function seed() {
+      columns = Math.max(36, Math.min(138, Math.floor(field.clientWidth / 8)));
+      rows = Math.max(24, Math.min(66, Math.floor(field.clientHeight / 14)));
+      points = Array.from({ length: pointCount }, (_, index) => {
+        const angle = (index / pointCount) * Math.PI * 2;
+        const orbit = variant === 'orbit';
         return {
-          x: ring ? width / 2 + Math.cos(angle) * Math.min(width, height) * (.18 + Math.random() * .3) : Math.random() * width,
-          y: ring ? height / 2 + Math.sin(angle) * Math.min(width, height) * (.18 + Math.random() * .3) : Math.random() * height,
-          vx: (Math.random() - .5) * (kind === 'drift' ? .24 : .42),
-          vy: (Math.random() - .5) * (kind === 'drift' ? .24 : .42),
-          r: 1 + Math.random() * (kind === 'constellation' ? 1.8 : 1.2),
+          x: orbit ? 0.5 + Math.cos(angle) * (0.18 + (index % 3) * 0.07) : 0.08 + Math.random() * 0.84,
+          y: orbit ? 0.5 + Math.sin(angle) * (0.18 + (index % 3) * 0.07) : 0.08 + Math.random() * 0.84,
+          vx: (Math.random() - 0.5) * (variant === 'drift' ? 0.0007 : 0.0014),
+          vy: (Math.random() - 0.5) * (variant === 'drift' ? 0.0007 : 0.0014),
+          phase: angle,
         };
       });
-    };
-    const draw = () => {
-      ctx.clearRect(0, 0, width, height);
-      ctx.fillStyle = color();
-      ctx.strokeStyle = color();
-      particles.forEach((p, index) => {
-        if (!reduceMotion.matches) { p.x += p.vx; p.y += p.vy; }
-        if (p.x < -5) p.x = width + 5; if (p.x > width + 5) p.x = -5;
-        if (p.y < -5) p.y = height + 5; if (p.y > height + 5) p.y = -5;
-        const dx = pointer.x - p.x; const dy = pointer.y - p.y; const pointerDist = Math.hypot(dx, dy);
-        if (pointerDist < 130 && !reduceMotion.matches) { p.x -= dx * .002; p.y -= dy * .002; }
-        ctx.globalAlpha = kind === 'matrix' ? .42 : .62;
-        if (kind === 'matrix') ctx.fillRect(Math.round(p.x / 12) * 12, Math.round(p.y / 12) * 12, 2, 2);
-        else { ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2); ctx.fill(); }
-        particles.slice(index + 1).forEach((q) => {
-          const distance = Math.hypot(p.x - q.x, p.y - q.y);
-          const limit = kind === 'constellation' ? 125 : 92;
-          if (distance < limit) {
-            ctx.globalAlpha = (1 - distance / limit) * (kind === 'drift' ? .1 : .2);
-            ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y); ctx.stroke();
-          }
-        });
+    }
+
+    function move(time: number) {
+      if (reducedMotion.matches) return;
+      points.forEach((point, index) => {
+        if (variant === 'orbit') {
+          const radius = 0.18 + (index % 3) * 0.07;
+          const angle = point.phase + time * (0.000035 + (index % 2) * 0.000012);
+          point.x = 0.5 + Math.cos(angle) * radius;
+          point.y = 0.5 + Math.sin(angle) * radius * 0.72;
+          return;
+        }
+        point.x += point.vx;
+        point.y += point.vy;
+        if (point.x < 0.02 || point.x > 0.98) point.vx *= -1;
+        if (point.y < 0.03 || point.y > 0.97) point.vy *= -1;
       });
-      ctx.globalAlpha = 1;
-      if (!reduceMotion.matches) frame = requestAnimationFrame(draw);
-    };
+    }
+
+    function glyph(strength: number, dx: number, dy: number, x: number, y: number) {
+      if (strength < 0.14) return ' ';
+      if (strength < 0.2) return (x + y) % 3 === 0 ? '·' : ' ';
+      if (strength < 0.3) return '.';
+
+      // The contour character follows the local field direction instead of
+      // treating the cell as a square pixel.
+      if (strength < 0.58) {
+        const slope = Math.abs(dy) / Math.max(Math.abs(dx), 0.001);
+        if (slope > 2.1) return '—';
+        if (slope < 0.48) return '|';
+        return dx * dy > 0 ? '/' : '\\';
+      }
+
+      const ramp = variant === 'matrix' ? ['+', '*', '#', '@'] : ['o', 'O', '#', '@'];
+      return ramp[Math.min(ramp.length - 1, Math.floor((strength - 0.58) * 7))];
+    }
+
+    function render(time = 0) {
+      move(time);
+      const lines: string[] = [];
+
+      for (let row = 0; row < rows; row += 1) {
+        let line = '';
+        const y = row / Math.max(rows - 1, 1);
+        for (let column = 0; column < columns; column += 1) {
+          const x = column / Math.max(columns - 1, 1);
+          let strength = 0;
+          let nearestDx = 0;
+          let nearestDy = 0;
+
+          for (const point of points) {
+            const dx = (x - point.x) * 1.7;
+            const dy = y - point.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            const influence = Math.max(0, 1 - distance / (variant === 'constellation' ? 0.17 : 0.14));
+            if (influence > strength) {
+              strength = influence;
+              nearestDx = dx;
+              nearestDy = dy;
+            }
+          }
+
+          if (pointer.active) {
+            const dx = (x - pointer.x) * 1.7;
+            const dy = y - pointer.y;
+            const influence = Math.max(0, 1 - Math.sqrt(dx * dx + dy * dy) / 0.19);
+            if (influence > strength) {
+              strength = influence;
+              nearestDx = dx;
+              nearestDy = dy;
+            }
+          }
+
+          if (variant === 'matrix') {
+            const wave = Math.max(0, 0.22 - Math.abs(y - (0.5 + Math.sin(x * 12 + time * 0.0004) * 0.12)));
+            strength = Math.max(strength, wave * 2.5);
+          }
+
+          line += glyph(strength, nearestDx, nearestDy, column, row);
+        }
+        lines.push(line);
+      }
+
+      output!.textContent = lines.join('\n');
+    }
+
+    function animate(time: number) {
+      if (time - lastFrame > 55) {
+        render(time);
+        lastFrame = time;
+      }
+      if (!reducedMotion.matches) frame = requestAnimationFrame(animate);
+    }
+
+    function start() {
+      cancelAnimationFrame(frame);
+      seed();
+      render(performance.now());
+      if (!reducedMotion.matches) frame = requestAnimationFrame(animate);
+    }
+
     field.addEventListener('pointermove', (event) => {
-      const bounds = field.getBoundingClientRect(); pointer.x = event.clientX - bounds.left; pointer.y = event.clientY - bounds.top;
+      const bounds = field.getBoundingClientRect();
+      pointer.x = (event.clientX - bounds.left) / bounds.width;
+      pointer.y = (event.clientY - bounds.top) / bounds.height;
+      pointer.active = true;
     });
-    field.addEventListener('pointerleave', () => { pointer.x = -1000; pointer.y = -1000; });
-    const observer = new ResizeObserver(() => { cancelAnimationFrame(frame); resize(); draw(); });
-    observer.observe(field);
-    reduceMotion.addEventListener('change', () => { cancelAnimationFrame(frame); draw(); });
+    field.addEventListener('pointerleave', () => { pointer.active = false; });
+    reducedMotion.addEventListener('change', start);
+    new ResizeObserver(start).observe(field);
+    start();
   });
 </script>
 
 <style>
   .particle-field { position: relative; min-height: 100svh; overflow: hidden; border-bottom: 1px solid var(--border); background: var(--bg); }
-  canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .ascii-plane { position: absolute; inset: 0; display: flex; margin: 0; align-items: center; justify-content: center; overflow: hidden; color: var(--fg); font: 10px/14px var(--mono); letter-spacing: 0; opacity: .28; user-select: none; white-space: pre; }
   .particle-content { position: relative; z-index: 1; min-height: inherit; pointer-events: none; }
   .particle-content :global(a), .particle-content :global(button) { pointer-events: auto; }
+  @media (max-width: 600px) { .ascii-plane { font-size: 9px; opacity: .24; } }
 </style>

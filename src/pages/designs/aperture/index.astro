@@ -3,52 +3,52 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import ParticleField from '../../../components/ParticleField.astro';
 import SiteFooter from '../../../components/SiteFooter.astro';
 import { site } from '../../../data/site';
-import { getProjects } from '../../../lib/projects';
+import { getProjects, projectPath } from '../../../lib/projects';
 
 const projects = await getProjects();
 ---
 
-<BaseLayout title="Aveek Saha — Design 02: Aperture" description={site.role} active="02" projects={projects}>
+<BaseLayout title="Aveek Saha — Design 02: Aperture" description={site.role} active="02">
   <div class="shell aperture">
     <ParticleField variant="drift">
       <section class="hero" aria-labelledby="aperture-title">
         <div class="coordinates"><span>42.3601° N</span><span>71.0589° W</span></div>
         <div class="frame">
           <span class="corner c1"></span><span class="corner c2"></span><span class="corner c3"></span><span class="corner c4"></span>
-          <p class="eyebrow">Through the aperture</p>
-          <h1 id="aperture-title">Ideas become<br /><em>working things.</em></h1>
+          <p class="eyebrow">Aveek Saha</p>
+          <h1 id="aperture-title">Full stack<br /><em>Machine Learning</em><br />Cloud Computing</h1>
           <p>{site.role}</p>
-          <a href="#work">View the work <span aria-hidden="true">↘</span></a>
+          <a href="#work">Projects <span aria-hidden="true">↘</span></a>
         </div>
         <div class="hero-index"><span>AS / PORTFOLIO</span><span>DESIGN 02 OF 05</span></div>
       </section>
     </ParticleField>
 
     <section class="statement section">
-      <p class="eyebrow">Working thesis</p>
-      <p>I like the seam between <b>systems</b> and <b>stories</b>—where code stops being abstract and starts becoming something people can use.</p>
+      <p class="eyebrow">About Me</p>
+      <p>{site.about}</p>
     </section>
 
     <section class="work" id="work" aria-labelledby="aperture-projects">
       <header class="section">
-        <p class="eyebrow">{projects.length} observations</p>
-        <h2 class="section-title" id="aperture-projects">A visual archive of projects.</h2>
+        <p class="eyebrow">{projects.length} projects</p>
+        <h2 class="section-title" id="aperture-projects">Projects</h2>
       </header>
       <div class="gallery">
         {projects.map((project, index) => (
-          <button class:list={['tile', index % 7 === 0 && 'wide']} data-project={project.data['modal-id']} aria-label={`Open ${project.data.title} project details`}>
+          <a class:list={['tile', index % 7 === 0 && 'wide']} href={projectPath(project)} aria-label={`${project.data.title} project details`}>
             <span class="visual"><img src={`/img/portfolio/${project.data.img}`} alt="" loading="lazy" /></span>
             <span class="caption"><i>{String(index + 1).padStart(2, '0')}</i><strong>{project.data.title}</strong><small>{project.data.category}</small><b aria-hidden="true">↗</b></span>
-          </button>
+          </a>
         ))}
       </div>
     </section>
 
     <section class="section profile" id="about">
-      <div class="profile-title"><p class="eyebrow">Behind the work</p><h2 class="section-title">Aveek Saha is a computer scientist and multidisciplinary builder.</h2></div>
-      <div class="profile-copy"><p class="intro">{site.about}</p><a class="button" href="mailto:aveek.s98@gmail.com">Let’s make something</a></div>
+      <div class="profile-title"><p class="eyebrow">About Me</p><h2 class="section-title">Who am I?</h2></div>
+      <div class="profile-copy"><p class="intro">{site.about}</p><a class="button" href="mailto:aveek.s98@gmail.com">Contact Me</a></div>
       <div class="facts">
-        <span>Based between</span><b>Boston / Bangalore</b><span>Focus areas</span><b>{site.disciplines.slice(0, 3).join(' / ')}</b>
+        <span>Location</span><b>{site.location}</b><span>Skills</span><b>{site.role}</b>
       </div>
     </section>
     <SiteFooter />
@@ -70,7 +70,7 @@ const projects = await getProjects();
   .statement b { text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 8px; text-underline-offset: -4px; }
   .work header { display: flex; align-items: end; justify-content: space-between; gap: 30px; }
   .gallery { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--border); }
-  .tile { min-width: 0; padding: 0; border: 0; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); background: transparent; color: var(--text); cursor: pointer; text-align: left; }
+  .tile { min-width: 0; padding: 0; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); background: transparent; color: var(--text); text-align: left; text-decoration: none; }
   .tile:nth-child(3n) { border-right: 0; }
   .visual { display: grid; aspect-ratio: 1.25; place-items: center; overflow: hidden; background: var(--surface); }
   .visual img { width: 35%; transition: transform .3s ease; }

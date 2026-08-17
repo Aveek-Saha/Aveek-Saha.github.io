@@ -2,6 +2,7 @@ import matter from 'gray-matter';
 
 export interface Project {
   id: string;
+  slug: string;
   data: {
     layout?: string;
     'modal-id': number;
@@ -28,8 +29,17 @@ export async function getProjects() {
       const { data } = matter(source);
       return {
         id: path.split('/').pop() ?? path,
+        slug: String(data.title)
+          .toLowerCase()
+          .replace(/&/g, 'and')
+          .replace(/[^a-z0-9]+/g, '-')
+          .replace(/(^-|-$)/g, ''),
         data: { ...data, date: new Date(data.date) },
       } as Project;
     })
     .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+}
+
+export function projectPath(project: Project) {
+  return `/projects/${project.slug}/`;
 }
