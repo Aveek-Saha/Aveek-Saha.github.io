@@ -50,6 +50,7 @@ const { variant = 'network', label = 'Animated ASCII 3D geometry' } = Astro.prop
     try {
       renderer = new WebGLRenderer({ antialias: false, alpha: false, powerPreference: 'low-power' });
     } catch {
+      field.dataset.animationState = 'unsupported';
       mount.textContent = '◇';
       return;
     }
@@ -133,13 +134,14 @@ const { variant = 'network', label = 'Animated ASCII 3D geometry' } = Astro.prop
 
     const pointer = { x: 0, y: 0 };
     let lastFrame = 0;
+    let renderedFrames = 0;
+    let animationFrame = 0;
 
-    function render(time: number) {
-      if (time - lastFrame < 32 && !reducedMotion.matches) return;
+    function render(time: number, advance = true) {
       lastFrame = time;
       const seconds = time * 0.001;
 
-      if (!reducedMotion.matches) {
+      if (advance) {
         group.rotation.x = seconds * 0.22 + pointer.y * 0.22;
         group.rotation.y = seconds * 0.34 + pointer.x * 0.28;
         group.rotation.z = Math.sin(seconds * 0.31) * 0.14;
@@ -149,14 +151,24 @@ const { variant = 'network', label = 'Animated ASCII 3D geometry' } = Astro.prop
       }
 
       effect.render(scene, camera);
+      renderedFrames += 1;
+      field.dataset.renderedFrames = String(renderedFrames);
+    }
+
+    function animate(time: number) {
+      animationFrame = requestAnimationFrame(animate);
+      if (time - lastFrame < 32) return;
+      render(time);
     }
 
     function syncMotion() {
+      cancelAnimationFrame(animationFrame);
       if (reducedMotion.matches) {
-        renderer.setAnimationLoop(null);
-        render(performance.now());
+        field.dataset.animationState = 'reduced-motion';
+        render(performance.now(), false);
       } else {
-        renderer.setAnimationLoop(render);
+        field.dataset.animationState = 'running';
+        animationFrame = requestAnimationFrame(animate);
       }
     }
 
@@ -166,7 +178,7 @@ const { variant = 'network', label = 'Animated ASCII 3D geometry' } = Astro.prop
       camera.aspect = width / height;
       camera.updateProjectionMatrix();
       effect.setSize(width, height);
-      render(performance.now());
+      render(performance.now(), !reducedMotion.matches);
     }
 
     field.addEventListener('pointermove', (event) => {
