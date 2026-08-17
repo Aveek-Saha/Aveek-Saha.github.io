@@ -1,164 +1,195 @@
 ---
-const { variant = 'network', label = 'Interactive particle field' } = Astro.props;
+const { variant = 'network', label = 'Animated ASCII 3D geometry' } = Astro.props;
 ---
 
-<div class={`particle-field particle-${variant}`} data-ascii-particles={variant}>
-  <pre class="ascii-plane" aria-hidden="true"></pre>
+<div class={`particle-field shape-${variant}`} data-ascii-scene={variant}>
+  <div class="ascii-scene" aria-hidden="true"></div>
   <div class="particle-content"><slot /></div>
   <span class="sr-only">{label}. Animation is decorative.</span>
 </div>
 
 <script>
-  type Point = { x: number; y: number; vx: number; vy: number; phase: number };
+  import {
+    BoxGeometry,
+    ConeGeometry,
+    DirectionalLight,
+    DodecahedronGeometry,
+    Group,
+    HemisphereLight,
+    IcosahedronGeometry,
+    Mesh,
+    MeshBasicMaterial,
+    MeshPhongMaterial,
+    OctahedronGeometry,
+    PerspectiveCamera,
+    PointLight,
+    Scene,
+    TetrahedronGeometry,
+    TorusGeometry,
+    TorusKnotGeometry,
+    WebGLRenderer,
+  } from 'three';
+  import type { BufferGeometry, Material } from 'three';
+  import { AsciiEffect } from 'three/addons/effects/AsciiEffect.js';
 
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
 
-  document.querySelectorAll<HTMLElement>('[data-ascii-particles]').forEach((field) => {
-    if (field.dataset.asciiReady) return;
-    field.dataset.asciiReady = 'true';
+  document.querySelectorAll<HTMLElement>('[data-ascii-scene]').forEach((field) => {
+    if (field.dataset.sceneReady) return;
+    field.dataset.sceneReady = 'true';
 
-    const output = field.querySelector<HTMLElement>('.ascii-plane');
-    if (!output) return;
+    const mount = field.querySelector<HTMLElement>('.ascii-scene');
+    if (!mount) return;
 
-    const variant = field.dataset.asciiParticles ?? 'network';
-    const pointer = { x: -10, y: -10, active: false };
-    let columns = 0;
-    let rows = 0;
-    let points: Point[] = [];
-    let timer = 0;
+    const variant = field.dataset.asciiScene ?? 'network';
+    const scene = new Scene();
+    const camera = new PerspectiveCamera(42, 1, 0.1, 100);
+    camera.position.set(0, 0, 7);
 
-    const pointCount = variant === 'constellation' ? 9 : variant === 'drift' ? 7 : 11;
+    let renderer: WebGLRenderer;
+    try {
+      renderer = new WebGLRenderer({ antialias: false, alpha: false, powerPreference: 'low-power' });
+    } catch {
+      mount.textContent = '◇';
+      return;
+    }
 
-    function seed() {
-      columns = Math.max(36, Math.min(138, Math.floor(field.clientWidth / 8)));
-      rows = Math.max(24, Math.min(66, Math.floor(field.clientHeight / 14)));
-      points = Array.from({ length: pointCount }, (_, index) => {
-        const angle = (index / pointCount) * Math.PI * 2;
-        const orbit = variant === 'orbit';
-        return {
-          x: orbit ? 0.5 + Math.cos(angle) * (0.18 + (index % 3) * 0.07) : 0.08 + Math.random() * 0.84,
-          y: orbit ? 0.5 + Math.sin(angle) * (0.18 + (index % 3) * 0.07) : 0.08 + Math.random() * 0.84,
-          vx: (Math.random() - 0.5) * (variant === 'drift' ? 0.0007 : 0.0014),
-          vy: (Math.random() - 0.5) * (variant === 'drift' ? 0.0007 : 0.0014),
-          phase: angle,
-        };
+    renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5));
+    renderer.setClearColor(0x000000, 1);
+
+    const effect = new AsciiEffect(renderer, ' .,:;i1tfLCG08@', {
+      invert: true,
+      resolution: 0.145,
+      scale: 1,
+      color: false,
+      alpha: false,
+      block: false,
+    });
+    effect.domElement.className = 'ascii-output';
+    effect.domElement.setAttribute('aria-hidden', 'true');
+    effect.domElement.style.color = '#e8e8ea';
+    effect.domElement.style.backgroundColor = 'transparent';
+    mount.replaceChildren(effect.domElement);
+
+    const group = new Group();
+    scene.add(group);
+
+    const solid = new MeshPhongMaterial({
+      color: 0xf3f3f3,
+      emissive: 0x111111,
+      shininess: 90,
+      flatShading: true,
+    });
+    const smooth = new MeshPhongMaterial({
+      color: 0xe6e6e6,
+      emissive: 0x090909,
+      shininess: 120,
+    });
+    const wire = new MeshBasicMaterial({ color: 0xffffff, wireframe: true });
+
+    function mesh(geometry: BufferGeometry, material: Material = solid) {
+      const object = new Mesh(geometry, material);
+      group.add(object);
+      return object;
+    }
+
+    if (variant === 'network') {
+      mesh(new TorusKnotGeometry(1.35, 0.42, 144, 20, 2, 3), smooth);
+    } else if (variant === 'drift') {
+      const body = mesh(new IcosahedronGeometry(1.65, 1), solid);
+      const ring = mesh(new TorusGeometry(2.15, 0.08, 10, 80), wire);
+      body.rotation.z = 0.28;
+      ring.rotation.x = 1.12;
+    } else if (variant === 'matrix') {
+      [1.15, 1.65, 2.15].forEach((size, index) => {
+        const cube = mesh(new BoxGeometry(size, size, size), wire);
+        cube.rotation.set(index * 0.25, index * 0.32, index * 0.17);
       });
-    }
-
-    function move(time: number) {
-      if (reducedMotion.matches) return;
-      points.forEach((point, index) => {
-        if (variant === 'orbit') {
-          const radius = 0.18 + (index % 3) * 0.07;
-          const angle = point.phase + time * (0.000035 + (index % 2) * 0.000012);
-          point.x = 0.5 + Math.cos(angle) * radius;
-          point.y = 0.5 + Math.sin(angle) * radius * 0.72;
-          return;
-        }
-        point.x += point.vx;
-        point.y += point.vy;
-        if (point.x < 0.02 || point.x > 0.98) point.vx *= -1;
-        if (point.y < 0.03 || point.y > 0.97) point.vy *= -1;
-      });
-    }
-
-    function glyph(strength: number, dx: number, dy: number, x: number, y: number) {
-      if (strength < 0.14) return ' ';
-      if (strength < 0.2) return (x + y) % 3 === 0 ? '·' : ' ';
-      if (strength < 0.3) return '.';
-
-      // The contour character follows the local field direction instead of
-      // treating the cell as a square pixel.
-      if (strength < 0.58) {
-        const slope = Math.abs(dy) / Math.max(Math.abs(dx), 0.001);
-        if (slope > 2.1) return '—';
-        if (slope < 0.48) return '|';
-        return dx * dy > 0 ? '/' : '\\';
+      mesh(new OctahedronGeometry(0.7, 0), solid);
+    } else if (variant === 'constellation') {
+      const cone = mesh(new ConeGeometry(1.15, 2.7, 16, 2), solid);
+      const ringA = mesh(new TorusGeometry(1.7, 0.11, 10, 72), smooth);
+      const ringB = mesh(new TorusGeometry(1.25, 0.07, 8, 64), wire);
+      cone.rotation.z = -0.18;
+      ringA.rotation.x = 1.15;
+      ringB.rotation.set(0.72, 0.48, 0.2);
+    } else {
+      mesh(new DodecahedronGeometry(0.95, 0), solid);
+      for (let index = 0; index < 6; index += 1) {
+        const angle = index / 6 * Math.PI * 2;
+        const satellite = mesh(new TetrahedronGeometry(0.34, 0), smooth);
+        satellite.position.set(Math.cos(angle) * 2.15, Math.sin(angle) * 1.2, Math.sin(angle) * 0.65);
+        satellite.rotation.set(angle, angle * 0.7, 0);
       }
-
-      const ramp = variant === 'matrix' ? ['+', '*', '#', '@'] : ['o', 'O', '#', '@'];
-      return ramp[Math.min(ramp.length - 1, Math.floor((strength - 0.58) * 7))];
     }
 
-    function render(time = 0) {
-      move(time);
-      const lines: string[] = [];
+    scene.add(new HemisphereLight(0xffffff, 0x111111, 1.8));
+    const keyLight = new DirectionalLight(0xffffff, 3.2);
+    keyLight.position.set(3, 4, 5);
+    scene.add(keyLight);
+    const rimLight = new PointLight(0xffffff, 16, 18);
+    rimLight.position.set(-4, -2, 4);
+    scene.add(rimLight);
 
-      for (let row = 0; row < rows; row += 1) {
-        let line = '';
-        const y = row / Math.max(rows - 1, 1);
-        for (let column = 0; column < columns; column += 1) {
-          const x = column / Math.max(columns - 1, 1);
-          let strength = 0;
-          let nearestDx = 0;
-          let nearestDy = 0;
+    const pointer = { x: 0, y: 0 };
+    let lastFrame = 0;
 
-          for (const point of points) {
-            const dx = (x - point.x) * 1.7;
-            const dy = y - point.y;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-            const influence = Math.max(0, 1 - distance / (variant === 'constellation' ? 0.17 : 0.14));
-            if (influence > strength) {
-              strength = influence;
-              nearestDx = dx;
-              nearestDy = dy;
-            }
-          }
+    function render(time: number) {
+      if (time - lastFrame < 32 && !reducedMotion.matches) return;
+      lastFrame = time;
+      const seconds = time * 0.001;
 
-          if (pointer.active) {
-            const dx = (x - pointer.x) * 1.7;
-            const dy = y - pointer.y;
-            const influence = Math.max(0, 1 - Math.sqrt(dx * dx + dy * dy) / 0.19);
-            if (influence > strength) {
-              strength = influence;
-              nearestDx = dx;
-              nearestDy = dy;
-            }
-          }
-
-          if (variant === 'matrix') {
-            const wave = Math.max(0, 0.22 - Math.abs(y - (0.5 + Math.sin(x * 12 + time * 0.0004) * 0.12)));
-            strength = Math.max(strength, wave * 2.5);
-          }
-
-          line += glyph(strength, nearestDx, nearestDy, column, row);
-        }
-        lines.push(line);
-      }
-
-      output!.textContent = lines.join('\n');
-    }
-
-    function start() {
-      window.clearInterval(timer);
-      seed();
-      render(performance.now());
       if (!reducedMotion.matches) {
-        timer = window.setInterval(() => render(performance.now()), 60);
+        group.rotation.x = seconds * 0.22 + pointer.y * 0.22;
+        group.rotation.y = seconds * 0.34 + pointer.x * 0.28;
+        group.rotation.z = Math.sin(seconds * 0.31) * 0.14;
+        group.children.forEach((child, index) => {
+          if (index > 0) child.rotation.y += 0.0025 * (index + 1);
+        });
       }
+
+      effect.render(scene, camera);
+    }
+
+    function syncMotion() {
+      if (reducedMotion.matches) {
+        renderer.setAnimationLoop(null);
+        render(performance.now());
+      } else {
+        renderer.setAnimationLoop(render);
+      }
+    }
+
+    function resize() {
+      const width = Math.max(1, field.clientWidth);
+      const height = Math.max(1, field.clientHeight);
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+      effect.setSize(width, height);
+      render(performance.now());
     }
 
     field.addEventListener('pointermove', (event) => {
       const bounds = field.getBoundingClientRect();
-      pointer.x = (event.clientX - bounds.left) / bounds.width;
-      pointer.y = (event.clientY - bounds.top) / bounds.height;
-      pointer.active = true;
+      pointer.x = ((event.clientX - bounds.left) / bounds.width - 0.5) * 2;
+      pointer.y = ((event.clientY - bounds.top) / bounds.height - 0.5) * 2;
     });
-    field.addEventListener('pointerleave', () => { pointer.active = false; });
-    reducedMotion.addEventListener('change', start);
-    new ResizeObserver(start).observe(field);
-    start();
+
+    const resizeObserver = new ResizeObserver(resize);
+    resizeObserver.observe(field);
+    reducedMotion.addEventListener('change', syncMotion);
+    resize();
+    syncMotion();
   });
 </script>
 
 <style>
   .particle-field { position: relative; min-height: 100svh; overflow: hidden; border-bottom: 1px solid var(--border); background: var(--bg); }
-  .ascii-plane { position: absolute; inset: -20px; display: flex; margin: 0; align-items: center; justify-content: center; overflow: hidden; color: var(--fg); font: 10px/14px var(--mono); letter-spacing: 0; opacity: .28; transform-origin: center; animation: ascii-drift 8s ease-in-out infinite alternate; user-select: none; white-space: pre; }
+  .ascii-scene { position: absolute; inset: 0; overflow: hidden; opacity: .34; }
+  .ascii-scene :global(.ascii-output) { position: absolute; inset: 0; width: 100%; height: 100%; overflow: hidden; }
+  .ascii-scene :global(table) { width: 100%; height: 100%; }
+  .ascii-scene :global(td) { display: flex !important; align-items: center; justify-content: center; }
   .particle-content { position: relative; z-index: 1; min-height: inherit; pointer-events: none; }
   .particle-content :global(a), .particle-content :global(button) { pointer-events: auto; }
-  @media (max-width: 600px) { .ascii-plane { font-size: 9px; opacity: .24; } }
-  @keyframes ascii-drift {
-    from { transform: translate3d(-12px, -8px, 0); }
-    to { transform: translate3d(12px, 8px, 0); }
-  }
+  @media (max-width: 600px) { .ascii-scene { opacity: .27; } }
 </style>
