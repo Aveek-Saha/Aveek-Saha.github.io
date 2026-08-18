@@ -69,9 +69,10 @@ const featuredProjects = projects.slice(0, 10);
   .project-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); margin: 0; padding: 0; border-top: 1px solid var(--border); list-style: none; }
   .project-grid li { min-width: 0; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
   .project-grid li:nth-child(5n) { border-right: 0; }
-  .project-grid a { display: flex; min-height: 154px; flex-direction: column; align-items: flex-start; justify-content: space-between; gap: 20px; padding: 24px; background: transparent; color: var(--fg); text-align: left; text-decoration: none; }
+  .project-grid a { display: flex; min-height: 154px; flex-direction: column; align-items: center; justify-content: center; gap: 18px; padding: 24px; background: transparent; color: var(--fg); text-align: center; text-decoration: none; }
   .project-grid a:hover { background: var(--hover); }
   .project-grid img { width: 52px; height: 52px; object-fit: contain; }
+  .project-grid img[src$='wordle.png'] { filter: invert(1); }
   .project-grid strong { max-width: 100%; font: 600 14px/1.35 var(--sans); }
 
   @media (max-width: 800px) {
