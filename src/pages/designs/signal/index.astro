@@ -4,6 +4,7 @@ import ParticleField from '../../../components/ParticleField.astro';
 import ProjectArchiveLink from '../../../components/ProjectArchiveLink.astro';
 import ExperienceSection from '../../../components/ExperienceSection.astro';
 import SiteFooter from '../../../components/SiteFooter.astro';
+import TechStack from '../../../components/TechStack.astro';
 import { site } from '../../../data/site';
 import { getProjects, projectPath } from '../../../lib/projects';
 
@@ -52,10 +53,10 @@ const grouped = Object.entries(Object.groupBy(featuredProjects, (project) => pro
     </section>
 
     <ExperienceSection />
+    <TechStack variant="signal" />
     <section class="section contact" id="about">
       <div><h2 class="section-title">Contact Me</h2></div>
       <div class="contact-actions"><a class="button" href="mailto:aveek.s98@gmail.com">aveek.s98@gmail.com</a><a class="button secondary" href="/aveek_saha_resume.pdf">Download résumé</a></div>
-      <ul>{site.disciplines.map((item) => <li><span>—</span>{item}</li>)}</ul>
     </section>
     <SiteFooter />
   </div>
@@ -96,14 +97,11 @@ const grouped = Object.entries(Object.groupBy(featuredProjects, (project) => pro
   .contact { display: grid; grid-template-columns: 1fr 1fr; gap: 54px; }
   .contact .intro { margin-bottom: 0; }
   .contact-actions { display: flex; align-items: end; justify-content: end; gap: 10px; }
-  .contact ul { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, 1fr); margin: 0; padding: 34px 0 0; border-top: 1px solid var(--border); gap: 16px 32px; list-style: none; }
-  .contact li { color: var(--fg); font-size: 11px; }
-  .contact li span { margin-right: 10px; color: var(--weak); }
   @media (max-width: 800px) {
     .hero { padding: 88px 24px 28px; }
     .hero h1 { font-size: clamp(52px, 16vw, 78px); }
     .manifesto, .contact { grid-template-columns: 1fr; gap: 32px; }
-    .manifesto .eyebrow, .contact ul { grid-column: auto; }
+    .manifesto .eyebrow { grid-column: auto; }
     .year-group { grid-template-columns: 1fr; }
     .year { display: flex; align-items: center; justify-content: space-between; padding: 22px 24px; border-right: 0; border-bottom: 1px solid var(--border); }
     .signals-list a { grid-template-columns: 44px 42px 1fr 16px; padding-inline: 24px; }

@@ -4,6 +4,7 @@ import ParticleField from '../../../components/ParticleField.astro';
 import ProjectArchiveLink from '../../../components/ProjectArchiveLink.astro';
 import ExperienceSection from '../../../components/ExperienceSection.astro';
 import SiteFooter from '../../../components/SiteFooter.astro';
+import TechStack from '../../../components/TechStack.astro';
 import { site } from '../../../data/site';
 import { getProjects, projectPath } from '../../../lib/projects';
 
@@ -49,8 +50,9 @@ const featuredProjects = projects.slice(0, 10);
     <section class="section cv" id="about">
       <aside><img src="/img/profile.png" alt="Aveek Saha" loading="lazy" /></aside>
       <div class="bio"><h2 class="section-title">Who am I?</h2><p class="intro">{site.about}</p><div class="bio-actions"><a class="button" href="mailto:aveek.s98@gmail.com">Contact Me</a><a class="button secondary" href="/aveek_saha_resume.pdf">Resume</a></div></div>
-      <dl><div><dt>Skills</dt><dd>{site.disciplines.join(', ')}</dd></div><div><dt>Location</dt><dd>{site.location}</dd></div><div><dt>Around the Web</dt><dd>{site.links.slice(0, 4).map((link) => <a href={link.href}>{link.label}</a>)}</dd></div></dl>
+      <dl><div><dt>Location</dt><dd>{site.location}</dd></div><div><dt>Around the Web</dt><dd>{site.links.slice(0, 4).map((link) => <a href={link.href}>{link.label}</a>)}</dd></div></dl>
     </section>
+    <TechStack variant="index" />
     <ExperienceSection />
     <SiteFooter />
   </div>

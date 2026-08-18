@@ -4,6 +4,7 @@ import ParticleField from '../../../components/ParticleField.astro';
 import ProjectArchiveLink from '../../../components/ProjectArchiveLink.astro';
 import ExperienceSection from '../../../components/ExperienceSection.astro';
 import SiteFooter from '../../../components/SiteFooter.astro';
+import TechStack from '../../../components/TechStack.astro';
 import { site } from '../../../data/site';
 import { getProjects, projectPath } from '../../../lib/projects';
 
@@ -46,11 +47,12 @@ const featuredProjects = projects.slice(0, 10);
     </section>
 
     <ExperienceSection />
+    <TechStack variant="aperture" />
     <section class="section profile" id="about">
       <div class="profile-title"><h2 class="section-title">Contact Me</h2></div>
       <div class="profile-copy"><a class="button" href="mailto:aveek.s98@gmail.com">aveek.s98@gmail.com</a></div>
       <div class="facts">
-        <span>Location</span><b>{site.location}</b><span>Skills</span><b>{site.role}</b>
+        <span>Location</span><b>{site.location}</b>
       </div>
     </section>
     <SiteFooter />

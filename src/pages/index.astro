@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import ParticleField from '../components/ParticleField.astro';
 import ProjectArchiveLink from '../components/ProjectArchiveLink.astro';
 import SiteFooter from '../components/SiteFooter.astro';
+import TechStack from '../components/TechStack.astro';
 import { site } from '../data/site';
 import { getProjects, projectPath } from '../lib/projects';
 
@@ -55,7 +56,6 @@ const featuredProjects = projects.slice(0, 10);
         <h2 class="section-title" id="about-title">Who am I?</h2>
         <div>
           <p class="intro">{site.about}</p>
-          <ul class="disciplines">{site.disciplines.map((item) => <li>— {item}</li>)}</ul>
         </div>
       </div>
       <div class="timeline">
@@ -63,6 +63,7 @@ const featuredProjects = projects.slice(0, 10);
         <div><p class="eyebrow">Past experience</p>{site.experience.map((item) => <article><h3>{item.place}</h3><p>{item.detail}</p></article>)}</div>
       </div>
     </section>
+    <TechStack variant="ledger" />
     <SiteFooter />
   </div>
 </BaseLayout>
@@ -84,7 +85,6 @@ const featuredProjects = projects.slice(0, 10);
   .ledger-list i { color: var(--fg); font-style: normal; }
   .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 68px; }
   .about-grid .intro { margin-top: 0; }
-  .disciplines { display: grid; grid-template-columns: 1fr 1fr; margin: 34px 0 0; padding: 0; gap: 8px; color: var(--fg); font-size: 12px; list-style: none; }
   .timeline { display: grid; grid-template-columns: 1fr 1fr; gap: 68px; margin-top: 72px; padding-top: 48px; border-top: 1px solid var(--border); }
   .timeline article { display: grid; grid-template-columns: 180px 1fr; gap: 24px; padding: 18px 0; border-bottom: 1px solid var(--border); }
   .timeline h3, .timeline p { margin: 0; }

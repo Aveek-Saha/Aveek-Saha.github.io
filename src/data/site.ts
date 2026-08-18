@@ -36,5 +36,4 @@ export const site = {
       detail: 'Worked on an array of sensors to identify suspicious activity near parked vehicles and a mobile application to allow users to monitor the surroundings of the vehicle.',
     },
   ],
-  disciplines: ['Full stack', 'Machine Learning', 'Cloud Computing', 'NLP', 'Artificial Intelligence', 'IoT'],
 };

@@ -1,0 +1,61 @@
+---
+import {
+  siDocker,
+  siGo,
+  siGrafana,
+  siHelm,
+  siKubernetes,
+  siPrometheus,
+  siPython,
+  siTerraform,
+} from 'simple-icons';
+
+type Variant = 'ledger' | 'aperture' | 'index' | 'notes' | 'signal';
+
+const { variant = 'ledger' } = Astro.props as { variant?: Variant };
+const technologies = [
+  siKubernetes,
+  siGo,
+  siPython,
+  siDocker,
+  siHelm,
+  siTerraform,
+  siPrometheus,
+  siGrafana,
+];
+---
+
+<section class:list={['section', 'tech-stack', variant]} aria-labelledby={`tech-stack-${variant}`}>
+  <h2 class="section-title" id={`tech-stack-${variant}`}>Tech stack</h2>
+  <ul>
+    {technologies.map((technology) => (
+      <li style={`--icon-color: #${technology.hex}`}>
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <path d={technology.path}></path>
+        </svg>
+        <span>{technology.title}</span>
+      </li>
+    ))}
+  </ul>
+</section>
+
+<style>
+  .tech-stack h2 { margin-bottom: 48px; }
+  ul { display: grid; grid-template-columns: repeat(4, 1fr); margin: 0; padding: 0; border-top: 1px solid var(--border); border-left: 1px solid var(--border); list-style: none; }
+  li { display: grid; min-width: 0; min-height: 104px; grid-template-columns: 38px 1fr; align-items: center; gap: 14px; padding: 20px; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); color: var(--fg); font: 600 12px/1.35 var(--mono); }
+  svg { width: 30px; height: 30px; color: color-mix(in srgb, var(--icon-color) 76%, white); fill: currentColor; }
+  .aperture li { min-height: 132px; grid-template-columns: 1fr; justify-items: center; gap: 12px; text-align: center; }
+  .aperture svg { width: 38px; height: 38px; }
+  .index ul { grid-template-columns: repeat(2, 1fr); }
+  .index li { min-height: 78px; padding-block: 16px; }
+  .notes li { align-content: space-between; min-height: 126px; grid-template-columns: 1fr; }
+  .notes svg { width: 34px; height: 34px; }
+  .signal li { min-height: 88px; }
+
+  @media (max-width: 800px) {
+    .tech-stack h2 { margin-bottom: 34px; }
+    ul, .index ul { grid-template-columns: repeat(2, 1fr); }
+    li, .aperture li, .notes li, .signal li { min-height: 92px; grid-template-columns: 30px 1fr; justify-items: start; gap: 12px; padding: 16px; text-align: left; }
+    svg, .aperture svg, .notes svg { width: 26px; height: 26px; }
+  }
+</style>
