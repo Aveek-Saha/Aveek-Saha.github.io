@@ -18,7 +18,7 @@ const featuredProjects = projects.slice(0, 10);
       <section class="hero" aria-labelledby="index-title">
         <div class="monogram" aria-hidden="true"><span>A</span><span>S</span></div>
         <div class="hero-copy">
-          <div><p class="eyebrow">Aveek Saha</p><h1 id="index-title">Projects</h1></div>
+          <h1 id="index-title">Projects</h1>
           <p>{site.role}</p>
         </div>
         <a class="scroll" href="#catalogue">Projects <span aria-hidden="true">↓</span></a>
@@ -50,7 +50,6 @@ const featuredProjects = projects.slice(0, 10);
     <section class="section cv" id="about">
       <aside><img src="/img/profile.png" alt="Aveek Saha" loading="lazy" /></aside>
       <div class="bio"><h2 class="section-title">Who am I?</h2><p class="intro">{site.about}</p><div class="bio-actions"><a class="button" href="mailto:aveek.s98@gmail.com">Contact Me</a><a class="button secondary" href="/aveek_saha_resume.pdf">Resume</a></div></div>
-      <dl><div><dt>Location</dt><dd>{site.location}</dd></div><div><dt>Around the Web</dt><dd>{site.links.slice(0, 4).map((link) => <a href={link.href}>{link.label}</a>)}</dd></div></dl>
     </section>
     <TechStack variant="index" />
     <ExperienceSection />
@@ -81,11 +80,6 @@ const featuredProjects = projects.slice(0, 10);
   .cv aside img { width: 120px; aspect-ratio: 1; border-radius: 50%; object-fit: cover; filter: grayscale(1); }
   .bio .intro { margin: 26px 0; }
   .bio-actions { display: flex; flex-wrap: wrap; gap: 10px; }
-  dl { grid-column: 2; margin: 30px 0 0; border-top: 1px solid var(--border); }
-  dl div { display: grid; grid-template-columns: 180px 1fr; padding: 16px 0; border-bottom: 1px solid var(--border); }
-  dt { color: var(--weak); font-size: 10px; text-transform: uppercase; }
-  dd { margin: 0; color: var(--fg); font: 14px/1.5 var(--sans); }
-  dd a { margin-right: 16px; }
   @media (max-width: 800px) {
     .hero { padding: 88px 24px 30px; }
     .hero-copy { grid-template-columns: 1fr; gap: 30px; }
@@ -95,6 +89,5 @@ const featuredProjects = projects.slice(0, 10);
     .project-index a > span:nth-of-type(2), .project-index time { display: none; }
     .project-index img { display: none !important; }
     .cv { grid-template-columns: 1fr; }
-    dl { grid-column: auto; } dl div { grid-template-columns: 1fr; gap: 6px; }
   }
 </style>

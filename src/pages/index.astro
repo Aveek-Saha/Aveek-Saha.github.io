@@ -15,9 +15,6 @@ const featuredProjects = projects.slice(0, 10);
   <div class="shell ledger">
     <ParticleField variant="network">
       <section class="hero" aria-labelledby="ledger-title">
-        <div class="hero-top">
-          <p class="eyebrow">Portfolio / 2017—present</p>
-        </div>
         <div class="hero-copy">
           <h1 class="display" id="ledger-title">Aveek<br />Saha.</h1>
           <p class="intro">{site.role}</p>
@@ -26,7 +23,6 @@ const featuredProjects = projects.slice(0, 10);
             <a class="button secondary" href="mailto:aveek.s98@gmail.com">Contact Me</a>
           </div>
         </div>
-        <div class="hero-foot"><span>{site.location}</span></div>
       </section>
     </ParticleField>
 
@@ -69,13 +65,11 @@ const featuredProjects = projects.slice(0, 10);
 </BaseLayout>
 
 <style>
-  .hero { display: flex; min-height: 100svh; flex-direction: column; justify-content: space-between; padding: 108px 72px 40px; }
-  .hero-top, .hero-foot { display: flex; justify-content: space-between; gap: 20px; }
+  .hero { display: flex; min-height: 100svh; flex-direction: column; justify-content: center; padding: 108px 72px 40px; }
   .hero-copy { max-width: 760px; padding-block: 44px; }
   .hero .display { font-size: clamp(76px, 15vw, 164px); }
   .hero .intro { max-width: 590px; margin: 28px 0 30px; }
   .actions { display: flex; flex-wrap: wrap; gap: 10px; }
-  .hero-foot { color: var(--weak); font-size: 10px; text-transform: uppercase; letter-spacing: .08em; }
   .section-head { margin-bottom: 54px; }
   .ledger-list a { display: grid; width: 100%; grid-template-columns: 34px 46px minmax(170px, 1.5fr) 1fr 110px 20px; align-items: center; gap: 18px; padding: 17px 0; color: var(--weak); font: 12px/1.4 var(--mono); text-align: left; text-decoration: none; }
   .ledger-list a:hover { background: var(--hover); color: var(--fg); }
@@ -97,5 +91,5 @@ const featuredProjects = projects.slice(0, 10);
     .ledger-list a { grid-template-columns: 26px 40px 1fr 18px; gap: 12px; }
     .ledger-list a > span:nth-of-type(2), .ledger-list time { display: none; }
   }
-  @media (max-width: 520px) { .hero-top .availability, .hero-foot span:first-child { display: none; } .timeline article { grid-template-columns: 1fr; gap: 5px; } }
+  @media (max-width: 520px) { .timeline article { grid-template-columns: 1fr; gap: 5px; } }
 </style>

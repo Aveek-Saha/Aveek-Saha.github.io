@@ -37,12 +37,10 @@ const grouped = Object.entries(Object.groupBy(featuredProjects, (project) => pro
         <section class="year-group" aria-labelledby={`year-${year}`}>
           <div class="year"><span id={`year-${year}`}>{year}</span></div>
           <div class="signals-list">
-            {yearProjects?.map((project, index) => (
+            {yearProjects?.map((project) => (
               <a href={projectPath(project)} aria-label={`${project.data.title} project details`}>
-                <span class="frequency">{year.slice(-2)}.{String(index + 1).padStart(2, '0')}</span>
                 <span class="project-mark"><img src={`/img/portfolio/${project.data.img}`} alt="" loading="lazy" /></span>
                 <span class="name"><strong>{project.data.title}</strong><small>{project.data.category}</small></span>
-                <span class="wave" aria-hidden="true">━━━━━━━━╱╲━━━━╱╲━━</span>
                 <span aria-hidden="true">↗</span>
               </a>
             ))}
@@ -85,7 +83,7 @@ const grouped = Object.entries(Object.groupBy(featuredProjects, (project) => pro
   .year-group { display: grid; grid-template-columns: 180px 1fr; border-top: 1px solid var(--border); }
   .year { padding: 32px; border-right: 1px solid var(--border); }
   .year span { display: block; color: var(--fg); font: 600 34px var(--sans); letter-spacing: -.04em; }
-  .signals-list a { display: grid; width: 100%; grid-template-columns: 52px 50px minmax(160px, 1fr) minmax(100px, .6fr) 18px; align-items: center; gap: 18px; padding: 14px 32px; border-bottom: 1px solid var(--border); background: transparent; color: var(--weak); font: 10px var(--mono); text-align: left; text-decoration: none; }
+  .signals-list a { display: grid; width: 100%; grid-template-columns: 50px minmax(160px, 1fr) 18px; align-items: center; gap: 18px; padding: 14px 32px; border-bottom: 1px solid var(--border); background: transparent; color: var(--weak); font: 10px var(--mono); text-align: left; text-decoration: none; }
   .signals-list a:last-child { border-bottom: 0; }
   .signals-list a:hover { background: var(--accent-soft); color: var(--fg); }
   .project-mark { display: grid; width: 46px; aspect-ratio: 1; place-items: center; background: var(--surface); }
@@ -93,7 +91,6 @@ const grouped = Object.entries(Object.groupBy(featuredProjects, (project) => pro
   .name strong, .name small { display: block; }
   .name strong { color: var(--fg); font: 600 15px var(--sans); }
   .name small { margin-top: 4px; color: var(--weak); font: 9px var(--mono); }
-  .wave { overflow: hidden; color: var(--border-strong); letter-spacing: -2px; white-space: nowrap; }
   .contact { display: grid; grid-template-columns: 1fr 1fr; gap: 54px; }
   .contact .intro { margin-bottom: 0; }
   .contact-actions { display: flex; align-items: end; justify-content: end; gap: 10px; }
@@ -104,9 +101,8 @@ const grouped = Object.entries(Object.groupBy(featuredProjects, (project) => pro
     .manifesto .eyebrow { grid-column: auto; }
     .year-group { grid-template-columns: 1fr; }
     .year { display: flex; align-items: center; justify-content: space-between; padding: 22px 24px; border-right: 0; border-bottom: 1px solid var(--border); }
-    .signals-list a { grid-template-columns: 44px 42px 1fr 16px; padding-inline: 24px; }
-    .wave { display: none; }
+    .signals-list a { grid-template-columns: 42px 1fr 16px; padding-inline: 24px; }
     .contact-actions { justify-content: start; }
   }
-  @media (max-width: 540px) { .hero-copy > div, .contact-actions { align-items: stretch; flex-direction: column; } .signal .text-link { align-self: center; } .signals-list a { grid-template-columns: 34px 1fr 16px; } .project-mark { display: none; } .contact ul { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 540px) { .hero-copy > div, .contact-actions { align-items: stretch; flex-direction: column; } .signal .text-link { align-self: center; } .signals-list a { grid-template-columns: 1fr 16px; } .project-mark { display: none; } .contact ul { grid-template-columns: 1fr 1fr; } }
 </style>

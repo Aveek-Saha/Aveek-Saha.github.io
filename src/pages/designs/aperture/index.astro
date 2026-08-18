@@ -16,10 +16,8 @@ const featuredProjects = projects.slice(0, 10);
   <div class="shell aperture">
     <ParticleField variant="drift">
       <section class="hero" aria-labelledby="aperture-title">
-        <div class="coordinates"><span>42.3601° N</span><span>71.0589° W</span></div>
         <div class="frame">
           <span class="corner c1"></span><span class="corner c2"></span><span class="corner c3"></span><span class="corner c4"></span>
-          <p class="eyebrow">Aveek Saha</p>
           <h1 id="aperture-title">Full stack<br /><em>Machine Learning</em><br />Cloud Computing</h1>
           <a href="#work">Projects <span aria-hidden="true">↘</span></a>
         </div>
@@ -27,7 +25,7 @@ const featuredProjects = projects.slice(0, 10);
     </ParticleField>
 
     <section class="statement section">
-      <p class="eyebrow">About Me</p>
+      <p class="eyebrow">Who am I?</p>
       <p>{site.about}</p>
     </section>
 
@@ -51,22 +49,18 @@ const featuredProjects = projects.slice(0, 10);
     <section class="section profile" id="about">
       <div class="profile-title"><h2 class="section-title">Contact Me</h2></div>
       <div class="profile-copy"><a class="button" href="mailto:aveek.s98@gmail.com">aveek.s98@gmail.com</a></div>
-      <div class="facts">
-        <span>Location</span><b>{site.location}</b>
-      </div>
     </section>
     <SiteFooter />
   </div>
 </BaseLayout>
 
 <style>
-  .hero { display: grid; min-height: 100svh; grid-template-rows: auto 1fr auto; padding: 98px 44px 34px; }
-  .coordinates { display: flex; justify-content: space-between; color: var(--weak); font-size: 10px; letter-spacing: .08em; }
+  .hero { display: flex; min-height: 100svh; align-items: center; justify-content: center; padding: 98px 44px 34px; }
   .frame { position: relative; width: min(780px, 88%); margin: auto; padding: clamp(44px, 8vw, 82px); text-align: center; }
   .corner { position: absolute; width: 44px; height: 44px; border-color: var(--border-strong); }
   .c1 { top: 0; left: 0; border-top: 1px solid; border-left: 1px solid; } .c2 { top: 0; right: 0; border-top: 1px solid; border-right: 1px solid; }
   .c3 { bottom: 0; left: 0; border-bottom: 1px solid; border-left: 1px solid; } .c4 { right: 0; bottom: 0; border-right: 1px solid; border-bottom: 1px solid; }
-  .frame h1 { margin: 16px 0 24px; color: var(--fg); font: 600 clamp(48px, 8vw, 92px)/.98 var(--sans); letter-spacing: -.065em; }
+  .frame h1 { margin: 0 0 24px; color: var(--fg); font: 600 clamp(48px, 8vw, 92px)/.98 var(--sans); letter-spacing: -.065em; }
   .frame h1 em { font-family: Georgia, serif; font-weight: 400; }
   .frame a { font-size: 12px; font-weight: 600; }
   .statement > p:last-child { max-width: 850px; margin: 0; color: var(--fg); font: 400 clamp(30px, 5vw, 52px)/1.18 var(--sans); letter-spacing: -.04em; }
@@ -84,16 +78,13 @@ const featuredProjects = projects.slice(0, 10);
   .caption small { grid-column: 2; color: var(--weak); font-size: 10px; }
   .caption b { grid-column: 3; grid-row: 1 / span 2; color: var(--fg); }
   .profile { display: grid; grid-template-columns: 1.1fr .9fr; gap: 72px; }
-  .facts { grid-column: 1 / -1; display: grid; grid-template-columns: auto 1fr auto 1fr; gap: 12px 24px; padding-top: 40px; border-top: 1px solid var(--border); font-size: 11px; }
-  .facts b { color: var(--fg); font-weight: 500; }
   @media (max-width: 800px) {
     .hero { padding: 90px 24px 28px; }
     .frame { width: 100%; padding: 52px 24px; }
     .gallery { grid-template-columns: repeat(2, 1fr); }
     .tile:nth-child(3n) { border-right: 1px solid var(--border); } .tile:nth-child(2n) { border-right: 0; }
     .profile { grid-template-columns: 1fr; gap: 28px; }
-    .facts { grid-column: auto; grid-template-columns: 1fr; }
   }
-  @media (max-width: 520px) { .gallery { grid-template-columns: 1fr; } .tile, .tile:nth-child(3n) { border-right: 0; } .coordinates { visibility: hidden; } }
+  @media (max-width: 520px) { .gallery { grid-template-columns: 1fr; } .tile, .tile:nth-child(3n) { border-right: 0; } }
   @media (prefers-reduced-motion: reduce) { .visual img { transition: none; } }
 </style>
