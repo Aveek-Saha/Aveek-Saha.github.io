@@ -7,6 +7,7 @@ title: Blog Box
 alt: image-alt
 project-date: September 2020
 category: Utility
+github: https://github.com/Aveek-Saha/blog-box
 description: A tool that updates a pinned gist to show your latest dev.to blog post along with the a link to the article. <br> Check it out on GitHub <a href="https://github.com/Aveek-Saha/blog-box">Blog Box</a> <br>
 
 ---

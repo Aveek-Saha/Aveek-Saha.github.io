@@ -1,0 +1,45 @@
+---
+interface Props {
+  nameTarget?: string;
+}
+
+const { nameTarget } = Astro.props;
+---
+
+<header class="site-header" data-site-header data-name-target={nameTarget}>
+  <a class="brand" href="/" aria-label="Aveek Saha, home">
+    <img class="brand-mark" src="/favicon.ico" alt="" width="30" height="30" />
+    <b class="brand-name">Aveek Saha</b>
+  </a>
+</header>
+
+<style>
+  .site-header { position: fixed; z-index: 50; top: 0; left: 50%; display: flex; width: min(var(--shell), 100%); min-height: 62px; align-items: center; padding: 0 24px; transform: translateX(-50%); border: 1px solid var(--border); border-top: 0; background: var(--header); backdrop-filter: blur(14px); }
+  .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; white-space: nowrap; }
+  .brand-mark { display: block; width: 30px; height: 30px; object-fit: contain; }
+  .brand-name { font-size: 12px; font-weight: 600; }
+  .site-header[data-name-target] .brand-name { visibility: hidden; opacity: 0; transform: translateX(-4px); }
+  .site-header[data-name-target].name-visible .brand-name { visibility: visible; opacity: 1; transform: translateX(0); }
+  @media (prefers-reduced-motion: no-preference) {
+    .brand-name { transition: opacity 150ms ease, transform 150ms ease, visibility 150ms; }
+  }
+  @media (max-width: 800px) { .site-header { min-height: 58px; padding: 0 14px; } }
+</style>
+
+<script>
+  const header = document.querySelector<HTMLElement>('[data-site-header]');
+  const nameTarget = header?.dataset.nameTarget;
+  const target = nameTarget ? document.getElementById(nameTarget) : null;
+
+  if (header && nameTarget) {
+    if (target) {
+      const observer = new IntersectionObserver(([entry]) => {
+        header.classList.toggle('name-visible', !entry.isIntersecting);
+      });
+
+      observer.observe(target);
+    } else {
+      header.classList.add('name-visible');
+    }
+  }
+</script>

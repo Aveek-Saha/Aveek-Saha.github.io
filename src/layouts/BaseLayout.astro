@@ -1,0 +1,31 @@
+---
+import '../styles/global.css';
+import SiteHeader from '../components/SiteHeader.astro';
+
+const { title, description, headerNameTarget } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <meta name="author" content="Aveek Saha" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#070708" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#content">Skip to content</a>
+    <SiteHeader nameTarget={headerNameTarget} />
+    <main id="content"><slot /></main>
+  </body>
+</html>
+
+<style is:global>
+  .skip-link { position: fixed; z-index: 100; top: 10px; left: 10px; padding: 10px 14px; transform: translateY(-150%); background: var(--fg); color: var(--bg); }
+  .skip-link:focus { transform: none; }
+</style>

@@ -1,0 +1,73 @@
+---
+import {
+  siAnsible,
+  siArgo,
+  siCilium,
+  siDocker,
+  siFlux,
+  siGo,
+  siGrafana,
+  siHelm,
+  siIstio,
+  siKubernetes,
+  siNvidia,
+  siPrometheus,
+  siPulumi,
+  siPython,
+  siRay,
+  siTerraform,
+  siVllm,
+} from 'simple-icons';
+
+const { heading = 'Stack' } = Astro.props as { heading?: string };
+const technologies = [
+  siKubernetes,
+  siGo,
+  siPython,
+  siVllm,
+  siRay,
+  siNvidia,
+  siDocker,
+  siHelm,
+  siArgo,
+  siFlux,
+  siCilium,
+  siIstio,
+  siTerraform,
+  siPulumi,
+  siAnsible,
+  siPrometheus,
+  siGrafana,
+];
+---
+
+<section class="section tech-stack" aria-labelledby="stack-title">
+  <h2 class="section-title" id="stack-title">{heading}</h2>
+  <ul>
+    {technologies.map((technology) => (
+      <li data-label={technology.title}>
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <path d={technology.path}></path>
+        </svg>
+        <span class="sr-only">{technology.title}</span>
+      </li>
+    ))}
+  </ul>
+</section>
+
+<style>
+  .tech-stack h2 { margin-bottom: 48px; }
+  ul { display: flex; flex-wrap: wrap; align-items: center; margin: 0; padding: 8px 4px 28px; column-gap: clamp(30px, 4.7vw, 52px); row-gap: 48px; list-style: none; }
+  li { position: relative; display: grid; width: 48px; height: 48px; flex: 0 0 auto; place-items: center; }
+  li::after { position: absolute; z-index: 2; top: calc(100% + 9px); left: 50%; padding: 4px 7px; transform: translate(-50%, 3px); border-radius: 2px; background: var(--fg); color: var(--bg); content: attr(data-label); font: 600 10px/1.2 var(--mono); opacity: 0; pointer-events: none; transition: opacity .12s ease, transform .12s ease; white-space: nowrap; }
+  li:hover::after { transform: translate(-50%, 0); opacity: 1; }
+  svg { width: 46px; height: 46px; color: #fff; fill: currentColor; }
+
+  @media (max-width: 800px) {
+    .tech-stack h2 { margin-bottom: 34px; }
+    ul { justify-content: flex-start; padding-inline: 2px; column-gap: clamp(25px, 8vw, 34px); row-gap: 38px; }
+    li, svg { width: 36px; height: 36px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) { li::after { transition: none; } }
+</style>
