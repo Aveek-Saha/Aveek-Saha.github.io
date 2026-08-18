@@ -1,0 +1,97 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ExperienceSection from '../../../components/ExperienceSection.astro';
+import ParticleField from '../../../components/ParticleField.astro';
+import ProjectArchiveLink from '../../../components/ProjectArchiveLink.astro';
+import SiteFooter from '../../../components/SiteFooter.astro';
+import TechStack from '../../../components/TechStack.astro';
+import { site } from '../../../data/site';
+import { getProjects, projectPath } from '../../../lib/projects';
+
+const projects = await getProjects();
+const featuredProjects = projects.slice(0, 10);
+---
+
+<BaseLayout title="Aveek Saha — Final" description={site.role} active="06">
+  <div class="shell final-design">
+    <ParticleField variant="network">
+      <section class="hero" aria-labelledby="final-title">
+        <div class="hero-copy">
+          <h1 class="display" id="final-title">Aveek<br />Saha.</h1>
+          <p class="intro">{site.role}</p>
+          <div class="actions">
+            <a class="button" href="#projects">Projects <span aria-hidden="true">↓</span></a>
+            <a class="button secondary" href="mailto:aveek.s98@gmail.com">Contact Me</a>
+          </div>
+        </div>
+      </section>
+    </ParticleField>
+
+    <section class="statement section" id="about" aria-labelledby="about-title">
+      <h2 class="eyebrow" id="about-title">Who am I?</h2>
+      <p>{site.about}</p>
+    </section>
+
+    <ExperienceSection />
+
+    <details class="projects" id="projects">
+      <summary><h2 class="section-title">Projects</h2><span class="disclosure" aria-hidden="true"></span></summary>
+      <ol class="rule-list project-list">
+        {featuredProjects.map((project, index) => (
+          <li>
+            <a href={projectPath(project)} aria-label={`${project.data.title} project details`}>
+              <span class="count">{String(index + 1).padStart(2, '0')}</span>
+              <img src={`/img/portfolio/${project.data.img}`} alt="" loading="lazy" />
+              <strong>{project.data.title}</strong>
+              <span>{project.data.category}</span>
+              <time datetime={project.data.date.toISOString()}>{project.data['project-date']}</time>
+              <i aria-hidden="true">↗</i>
+            </a>
+          </li>
+        ))}
+      </ol>
+      <ProjectArchiveLink />
+    </details>
+
+    <TechStack variant="ledger" heading="Stack" />
+    <SiteFooter />
+  </div>
+</BaseLayout>
+
+<style>
+  .hero { display: flex; min-height: 100svh; flex-direction: column; justify-content: center; padding: 156px 72px 24px; }
+  .hero-copy { max-width: 760px; padding-block: 44px; }
+  .hero .display { font-size: clamp(76px, 15vw, 164px); }
+  .hero .intro { max-width: 590px; margin: 28px 0 30px; }
+  .actions { display: flex; flex-wrap: wrap; gap: 10px; }
+
+  .statement h2 { margin-bottom: 18px; }
+  .statement > p { max-width: 850px; margin: 0; color: var(--fg); font: 400 clamp(26px, 4vw, 44px)/1.25 var(--sans); letter-spacing: -.035em; }
+
+  .projects { border-top: 1px solid var(--border); scroll-margin-top: 76px; }
+  summary { display: flex; min-height: 132px; align-items: center; justify-content: space-between; gap: 24px; padding: 40px 72px; cursor: pointer; list-style: none; }
+  summary::-webkit-details-marker { display: none; }
+  summary:hover { background: var(--hover); }
+  .disclosure::before { color: var(--fg); content: '■'; font-size: 12px; }
+  .projects[open] .disclosure::before { content: '◆'; }
+  .project-list a { display: grid; width: 100%; grid-template-columns: 30px 38px minmax(170px, 1.5fr) 1fr 110px 20px; align-items: center; gap: 16px; padding: 11px 72px; color: var(--weak); font: 11px/1.4 var(--mono); text-align: left; text-decoration: none; }
+  .project-list a:hover { background: var(--hover); color: var(--fg); }
+  .project-list img { width: 34px; aspect-ratio: 1; padding: 5px; object-fit: contain; background: var(--surface); }
+  .project-list strong { color: var(--fg); font: 600 15px var(--sans); }
+  .project-list time { font-size: 10px; }
+  .project-list i { color: var(--fg); font-style: normal; }
+
+  @media (max-width: 800px) {
+    .hero { padding: 120px 24px 24px; }
+    .hero .display { font-size: clamp(70px, 24vw, 112px); }
+    .statement > p { font-size: clamp(24px, 6vw, 36px); }
+    .projects { scroll-margin-top: 68px; }
+    summary { min-height: 112px; padding: 32px 24px; }
+    .project-list a { grid-template-columns: 24px 34px 1fr 18px; gap: 11px; padding-inline: 24px; }
+    .project-list a > span:nth-of-type(2), .project-list time { display: none; }
+  }
+
+  @media (max-width: 560px) {
+    .actions { flex-direction: column; }
+  }
+</style>

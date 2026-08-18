@@ -21,7 +21,7 @@ import {
 
 type Variant = 'ledger' | 'aperture' | 'index' | 'notes' | 'signal';
 
-const { variant = 'ledger' } = Astro.props as { variant?: Variant };
+const { variant = 'ledger', heading = 'Tech stack' } = Astro.props as { variant?: Variant; heading?: string };
 const technologies = [
   siKubernetes,
   siGo,
@@ -44,7 +44,7 @@ const technologies = [
 ---
 
 <section class:list={['section', 'tech-stack', variant]} aria-labelledby={`tech-stack-${variant}`}>
-  <h2 class="section-title" id={`tech-stack-${variant}`}>Tech stack</h2>
+  <h2 class="section-title" id={`tech-stack-${variant}`}>{heading}</h2>
   <ul>
     {technologies.map((technology) => (
       <li data-label={technology.title}>
