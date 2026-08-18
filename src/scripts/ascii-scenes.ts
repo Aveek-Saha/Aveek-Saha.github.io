@@ -70,7 +70,7 @@ export function initialiseAsciiScenes(fields: HTMLElement[]) {
     }
 
     const connection = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection;
-    const lowPower = innerWidth < 720 || Boolean(connection?.saveData) || navigator.hardwareConcurrency <= 4;
+    const lowPower = innerWidth < 720 || Boolean(connection?.saveData);
     const asciiResolution = lowPower ? 0.08 : 0.105;
 
     renderer.setPixelRatio(1);
@@ -177,8 +177,11 @@ export function initialiseAsciiScenes(fields: HTMLElement[]) {
     rimLight.position.set(-4, -2, 4);
     scene.add(rimLight);
 
-    const pointer = { x: 0, y: 0 };
+    const baseGroupZ = group.rotation.z;
+    const baseChildY = group.children.map((child) => child.rotation.y);
     let lastFrame = 0;
+    let motionElapsed = 0;
+    let previousMotionFrame: number | null = null;
     let renderedFrames = 0;
     let animationFrame = 0;
     let isVisible = true;
@@ -191,21 +194,25 @@ export function initialiseAsciiScenes(fields: HTMLElement[]) {
 
     function render(time: number, advance = true) {
       lastFrame = time;
-      const seconds = time * 0.001;
-      const motionScale = reducedMotion.matches ? 0.18 : 1;
-      const motionTime = seconds * motionScale;
 
       if (advance) {
-        group.rotation.x = motionTime * 0.34 + pointer.y * 0.22 * motionScale;
-        group.rotation.y = motionTime * 0.58 + pointer.x * 0.28 * motionScale;
-        group.rotation.z += Math.sin(motionTime * 0.43) * 0.0008 * motionScale;
-        if (variant === 'orbit') {
-          group.children.forEach((child, index) => {
-            if (index > 0) child.rotation.y += 0.002 * (index + 1) * motionScale;
-          });
-        } else if (variant === 'matrix') {
-          group.children[1].rotation.y += 0.012 * motionScale;
+        if (previousMotionFrame !== null) {
+          motionElapsed += Math.min(Math.max(time - previousMotionFrame, 0), 100);
         }
+        previousMotionFrame = time;
+      }
+
+      const seconds = motionElapsed * 0.001;
+      group.rotation.x = seconds * 0.34;
+      group.rotation.y = seconds * 0.58;
+      group.rotation.z = baseGroupZ + Math.sin(seconds * 0.43) * 0.14;
+
+      if (variant === 'orbit') {
+        group.children.forEach((child, index) => {
+          if (index > 0) child.rotation.y = baseChildY[index] + seconds * 0.04 * (index + 1);
+        });
+      } else if (variant === 'matrix') {
+        group.children[1].rotation.y = baseChildY[1] + seconds * 0.24;
       }
 
       effect.render(scene, camera);
@@ -215,13 +222,14 @@ export function initialiseAsciiScenes(fields: HTMLElement[]) {
 
     function animate(time: number) {
       animationFrame = requestAnimationFrame(animate);
-      const frameInterval = reducedMotion.matches ? 160 : lowPower ? 80 : 50;
+      const frameInterval = reducedMotion.matches ? 100 : lowPower ? 80 : 50;
       if (time - lastFrame < frameInterval) return;
       render(time);
     }
 
     function syncMotion() {
       cancelAnimationFrame(animationFrame);
+      previousMotionFrame = null;
       const canAnimate = !userPaused && isVisible && !document.hidden;
 
       if (!canAnimate) {
@@ -239,7 +247,7 @@ export function initialiseAsciiScenes(fields: HTMLElement[]) {
       camera.aspect = width / height;
       camera.updateProjectionMatrix();
       effect.setSize(width, height);
-      render(performance.now(), !userPaused);
+      render(performance.now(), false);
     }
 
     animationToggle.addEventListener('click', () => {
@@ -249,12 +257,6 @@ export function initialiseAsciiScenes(fields: HTMLElement[]) {
       if (!userPaused) lastFrame = 0;
       syncMotion();
     });
-
-    field.addEventListener('pointermove', (event) => {
-      const bounds = field.getBoundingClientRect();
-      pointer.x = ((event.clientX - bounds.left) / bounds.width - 0.5) * 2;
-      pointer.y = ((event.clientY - bounds.top) / bounds.height - 0.5) * 2;
-    }, { passive: true });
 
     const resizeObserver = new ResizeObserver(resize);
     resizeObserver.observe(field);
