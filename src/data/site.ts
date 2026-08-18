@@ -1,6 +1,6 @@
 export const site = {
   name: 'Aveek Saha',
-  role: 'Full stack | Machine Learning | Cloud Computing',
+  role: 'Cloud Computing | Machine Learning | Full stack',
   email: 'aveek.s98@gmail.com',
   location: 'Boston, Massachusetts, USA · Bangalore, Karnataka, India',
   about:
