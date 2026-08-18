@@ -52,7 +52,7 @@ export class GpuAsciiEffect {
         glyphAtlas: { value: glyphAtlas },
         gridSize: { value: new Vector2(1, 1) },
         characterCount: { value: characters.length },
-        asciiColor: { value: new Color(0xb9b9c0) },
+        asciiColor: { value: new Color(0xd8d8df) },
       },
       vertexShader: `
         varying vec2 vUv;
@@ -84,6 +84,7 @@ export class GpuAsciiEffect {
             fract(gridPosition.y)
           );
           float glyph = texture2D(glyphAtlas, glyphUv).r;
+          glyph = smoothstep(0.06, 0.72, glyph);
           gl_FragColor = vec4(asciiColor * glyph, 1.0);
         }
       `,
@@ -107,7 +108,7 @@ export class GpuAsciiEffect {
     context.fillStyle = '#000';
     context.fillRect(0, 0, canvas.width, canvas.height);
     context.fillStyle = '#fff';
-    context.font = '32px "Courier New", monospace';
+    context.font = '600 36px "Courier New", monospace';
     context.textAlign = 'center';
     context.textBaseline = 'middle';
 
