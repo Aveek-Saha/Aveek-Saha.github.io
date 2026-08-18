@@ -4,7 +4,7 @@ export const site = {
   email: 'aveek.s98@gmail.com',
   location: 'Boston, Massachusetts, USA · Bangalore, Karnataka, India',
   about:
-    "I'm a student currently pursuing my Master's in Computer Science. Among other things I am passionate about Machine Learning, Natural Language Processing, Artificial Intelligence, Cloud Computing, and Full Stack development. I also work on IoT projects and I'm handy with micro-controllers.",
+    "I'm currently a Software engineer at Akamai working on building Cloud Naitive platforms. Among other things I am passionate about Cloud Computing, Machine Learning, Natural Language Processing and Artificial Intelligence. I also enjoy painting, playing football and hiking in my spare time.",
   links: [
     { label: 'GitHub', href: 'https://github.com/Aveek-Saha' },
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/aveek-saha' },
@@ -12,10 +12,16 @@ export const site = {
     { label: 'Blog', href: 'https://home.aveek.io/blog/' },
     { label: 'Résumé', href: '/aveek_saha_resume.pdf' },
   ],
+  current: [
+    {
+      place: 'Akamai, Cambridge',
+      detail: 'Building an internal Kubernetes Platform as a Service while exploring the intersection of Platform engineering and Agentic AI to streamline management of Kubernetes based platforms',
+    },
+  ],
   education: [
     {
       place: 'Northeastern University, Boston',
-      detail: 'MS in Computer Science. GPA: 3.83. Teaching Assistant for DS 2500 and CS 5610.',
+      detail: 'MS in Computer Science. Teaching Assistant for DS 2500 and CS 5610.',
     },
     {
       place: 'PES University, Bangalore',

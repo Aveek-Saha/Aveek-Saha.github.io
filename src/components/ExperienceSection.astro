@@ -4,6 +4,10 @@ import { site } from '../data/site';
 
 <section class="experience-section" aria-label="Education and past experience">
   <div>
+    <h2>Present</h2>
+      {site.current.map((item) => (
+        <article><h3>{item.place}</h3><p>{item.detail}</p></article>
+      ))}
     <h2>Education</h2>
     {site.education.map((item) => (
       <article><h3>{item.place}</h3><p>{item.detail}</p></article>
