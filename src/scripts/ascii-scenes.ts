@@ -23,7 +23,7 @@ import {
   WebGLRenderer,
 } from 'three';
 import type { BufferGeometry, Material } from 'three';
-import { AsciiEffect } from 'three/addons/effects/AsciiEffect.js';
+import { GpuAsciiEffect } from '../lib/GpuAsciiEffect';
 
 const pausePreference = 'portfolio-animation-paused';
 
@@ -76,18 +76,11 @@ export function initialiseAsciiScenes(fields: HTMLElement[]) {
     renderer.setPixelRatio(1);
     renderer.setClearColor(0x000000, 1);
 
-    const effect = new AsciiEffect(renderer, ' .,:;i1tfLCG08@', {
-      invert: true,
+    const effect = new GpuAsciiEffect(renderer, ' .,:;i1tfLCG08@', {
       resolution: asciiResolution,
-      scale: 1,
-      color: false,
-      alpha: false,
-      block: false,
     });
     effect.domElement.className = 'ascii-output';
     effect.domElement.setAttribute('aria-hidden', 'true');
-    effect.domElement.style.color = '#b9b9c0';
-    effect.domElement.style.backgroundColor = 'transparent';
     mount.replaceChildren(effect.domElement);
 
     const group = new Group();
