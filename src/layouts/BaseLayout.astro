@@ -2,7 +2,7 @@
 import '../styles/global.css';
 import SiteHeader from '../components/SiteHeader.astro';
 
-const { title, description } = Astro.props;
+const { title, description, headerNameTarget } = Astro.props;
 ---
 
 <!doctype html>
@@ -20,7 +20,7 @@ const { title, description } = Astro.props;
   </head>
   <body>
     <a class="skip-link" href="#content">Skip to content</a>
-    <SiteHeader />
+    <SiteHeader nameTarget={headerNameTarget} />
     <main id="content"><slot /></main>
   </body>
 </html>
