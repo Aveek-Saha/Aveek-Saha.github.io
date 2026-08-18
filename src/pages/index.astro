@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ExperienceSection from '../components/ExperienceSection.astro';
 import ParticleField from '../components/ParticleField.astro';
 import ProjectArchiveLink from '../components/ProjectArchiveLink.astro';
 import SiteFooter from '../components/SiteFooter.astro';
@@ -11,12 +12,12 @@ const projects = await getProjects();
 const featuredProjects = projects.slice(0, 10);
 ---
 
-<BaseLayout title="Aveek Saha — Design 01: Ledger" description={site.role} active="01">
-  <div class="shell ledger">
-    <ParticleField variant="network">
-      <section class="hero" aria-labelledby="ledger-title">
+<BaseLayout title="Aveek Saha" description={site.role}>
+  <div class="shell home">
+    <ParticleField>
+      <section class="hero" aria-labelledby="home-title">
         <div class="hero-copy">
-          <h1 class="display" id="ledger-title">Aveek<br />Saha.</h1>
+          <h1 class="display" id="home-title">Aveek<br />Saha.</h1>
           <p class="intro">{site.role}</p>
           <div class="actions">
             <a class="button" href="#projects">Projects <span aria-hidden="true">↓</span></a>
@@ -26,40 +27,29 @@ const featuredProjects = projects.slice(0, 10);
       </section>
     </ParticleField>
 
-    <section class="section projects" id="projects" aria-labelledby="projects-title">
-      <div class="section-head">
-        <h2 class="section-title" id="projects-title">Projects</h2>
-      </div>
-      <ol class="rule-list ledger-list">
-        {featuredProjects.map((project, index) => (
+    <section class="statement section" id="about" aria-labelledby="about-title">
+      <h2 class="eyebrow" id="about-title">Who am I?</h2>
+      <p>{site.about}</p>
+    </section>
+
+    <ExperienceSection />
+
+    <section class="projects" id="projects" aria-labelledby="projects-title">
+      <header><h2 class="section-title" id="projects-title">Projects</h2></header>
+      <ul class="project-grid">
+        {featuredProjects.map((project) => (
           <li>
             <a href={projectPath(project)} aria-label={`${project.data.title} project details`}>
-              <span class="count">{String(index + 1).padStart(2, '0')}</span>
               <img src={`/img/portfolio/${project.data.img}`} alt="" loading="lazy" />
               <strong>{project.data.title}</strong>
-              <span>{project.data.category}</span>
-              <time datetime={project.data.date.toISOString()}>{project.data['project-date']}</time>
-              <i aria-hidden="true">↗</i>
             </a>
           </li>
         ))}
-      </ol>
+      </ul>
+      <ProjectArchiveLink />
     </section>
-    <ProjectArchiveLink />
 
-    <section class="section about" id="about" aria-labelledby="about-title">
-      <div class="about-grid">
-        <h2 class="section-title" id="about-title">Who am I?</h2>
-        <div>
-          <p class="intro">{site.about}</p>
-        </div>
-      </div>
-      <div class="timeline">
-        <div><p class="eyebrow">Education</p>{site.education.map((item) => <article><h3>{item.place}</h3><p>{item.detail}</p></article>)}</div>
-        <div><p class="eyebrow">Past experience</p>{site.experience.map((item) => <article><h3>{item.place}</h3><p>{item.detail}</p></article>)}</div>
-      </div>
-    </section>
-    <TechStack variant="ledger" />
+    <TechStack heading="Stack" />
     <SiteFooter />
   </div>
 </BaseLayout>
@@ -70,26 +60,35 @@ const featuredProjects = projects.slice(0, 10);
   .hero .display { font-size: clamp(76px, 15vw, 164px); }
   .hero .intro { max-width: 590px; margin: 28px 0 30px; }
   .actions { display: flex; flex-wrap: wrap; gap: 10px; }
-  .section-head { margin-bottom: 54px; }
-  .ledger-list a { display: grid; width: 100%; grid-template-columns: 34px 46px minmax(170px, 1.5fr) 1fr 110px 20px; align-items: center; gap: 18px; padding: 17px 0; color: var(--weak); font: 12px/1.4 var(--mono); text-align: left; text-decoration: none; }
-  .ledger-list a:hover { background: var(--hover); color: var(--fg); }
-  .ledger-list img { width: 42px; aspect-ratio: 1; padding: 6px; object-fit: contain; background: var(--surface); }
-  .ledger-list strong { color: var(--fg); font-family: var(--sans); font-size: 16px; font-weight: 600; }
-  .ledger-list time { font-size: 10px; }
-  .ledger-list i { color: var(--fg); font-style: normal; }
-  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 68px; }
-  .about-grid .intro { margin-top: 0; }
-  .timeline { display: grid; grid-template-columns: 1fr 1fr; gap: 68px; margin-top: 72px; padding-top: 48px; border-top: 1px solid var(--border); }
-  .timeline article { display: grid; grid-template-columns: 180px 1fr; gap: 24px; padding: 18px 0; border-bottom: 1px solid var(--border); }
-  .timeline h3, .timeline p { margin: 0; }
-  .timeline h3 { color: var(--fg); font-size: 12px; }
-  .timeline p { font: 14px/1.55 var(--sans); }
+
+  .statement h2 { margin-bottom: 18px; }
+  .statement > p { max-width: 850px; margin: 0; color: var(--fg); font: 400 clamp(26px, 4vw, 44px)/1.25 var(--sans); letter-spacing: -.035em; }
+
+  .projects { border-top: 1px solid var(--border); scroll-margin-top: 76px; }
+  .projects > header { padding: 56px 72px 40px; }
+  .project-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); margin: 0; padding: 0; border-top: 1px solid var(--border); list-style: none; }
+  .project-grid li { min-width: 0; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .project-grid li:nth-child(5n) { border-right: 0; }
+  .project-grid a { display: flex; min-height: 154px; flex-direction: column; align-items: center; justify-content: center; gap: 18px; padding: 24px; background: transparent; color: var(--fg); text-align: center; text-decoration: none; }
+  .project-grid a:hover { background: var(--hover); }
+  .project-grid img { width: 52px; height: 52px; object-fit: contain; }
+  .project-grid img[src$='wordle.png'] { filter: invert(1); }
+  .project-grid strong { max-width: 100%; font: 600 14px/1.35 var(--sans); }
+
   @media (max-width: 800px) {
     .hero { padding: 120px 24px 24px; }
     .hero .display { font-size: clamp(70px, 24vw, 112px); }
-    .section-head, .about-grid, .timeline { grid-template-columns: 1fr; gap: 34px; }
-    .ledger-list a { grid-template-columns: 26px 40px 1fr 18px; gap: 12px; }
-    .ledger-list a > span:nth-of-type(2), .ledger-list time { display: none; }
+    .statement > p { font-size: clamp(24px, 6vw, 36px); }
+    .projects { scroll-margin-top: 68px; }
+    .projects > header { padding: 48px 24px 32px; }
+    .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .project-grid li:nth-child(5n) { border-right: 1px solid var(--border); }
+    .project-grid li:nth-child(2n) { border-right: 0; }
   }
-  @media (max-width: 520px) { .timeline article { grid-template-columns: 1fr; gap: 5px; } }
+
+  @media (max-width: 560px) {
+    .actions { flex-direction: column; }
+    .project-grid a { min-height: 132px; padding: 20px; }
+    .project-grid img { width: 44px; height: 44px; }
+  }
 </style>

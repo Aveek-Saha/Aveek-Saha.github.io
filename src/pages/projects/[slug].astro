@@ -27,7 +27,7 @@ const description = projectDescription(project);
 const plainDescription = description.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim() || site.role;
 ---
 
-<BaseLayout title={`${project.data.title} — Aveek Saha`} description={plainDescription} active="projects">
+<BaseLayout title={`${project.data.title} — Aveek Saha`} description={plainDescription}>
   <article class="shell project-page">
     <header class="project-header">
       <a href="/#projects">← Projects</a>

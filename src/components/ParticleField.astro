@@ -1,8 +1,8 @@
 ---
-const { variant = 'network', label = 'Animated ASCII 3D geometry' } = Astro.props;
+const { label = 'Animated ASCII 3D geometry' } = Astro.props;
 ---
 
-<div class={`particle-field shape-${variant}`} data-ascii-scene={variant}>
+<div class="particle-field" data-ascii-scene>
   <div class="ascii-scene" aria-hidden="true"></div>
   <div class="particle-content"><slot /></div>
   <button class="animation-toggle" type="button" data-animation-toggle>Stop animation</button>

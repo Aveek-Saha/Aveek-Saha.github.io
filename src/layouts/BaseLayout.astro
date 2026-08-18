@@ -1,8 +1,8 @@
 ---
 import '../styles/global.css';
-import DesignNav from '../components/DesignNav.astro';
+import SiteHeader from '../components/SiteHeader.astro';
 
-const { title, description, active } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <!doctype html>
@@ -20,7 +20,7 @@ const { title, description, active } = Astro.props;
   </head>
   <body>
     <a class="skip-link" href="#content">Skip to content</a>
-    <DesignNav active={active} />
+    <SiteHeader />
     <main id="content"><slot /></main>
   </body>
 </html>
